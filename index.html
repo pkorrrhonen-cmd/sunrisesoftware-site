@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunrise Software — Petri Korhonen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  /* Cabinet dark palette */
+  --base:         #0E1114;
+  --cabinet:      #1A2332;
+  --cabinet-2:    #141A24;
+
+  --paper:        #F4EFE6;
+  --text:         #E8E2D6;
+  --text-2:       #96908A;
+  --text-meta:    #5A544E;
+
+  --brass:        #C8A876;
+  --brass-deep:   #9E7F4C;
+  --oxide:        #5B7A8E;
+  --ember:        #D96B3A; /* restricted use: SF3D section only */
+
+  --rule:         rgba(232, 226, 214, 0.08);
+  --rule-strong:  rgba(232, 226, 214, 0.18);
+
+  /* Typography */
+  --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --sans:  'Inter', system-ui, -apple-system, sans-serif;
+  --mono:  'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+  /* Measure */
+  --measure-narrow: 42rem;
+  --measure:        52rem;
+  --measure-wide:   68rem;
+  --gutter:         clamp(24px, 5vw, 64px);
+}
+
+html{scroll-behavior:smooth; background:var(--base); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale}
+body{
+  font-family: var(--sans);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 400;
+  overflow-x: hidden;
+  background: var(--base);
+}
+
+/* ------------------ Grain + vignette ------------------ */
+body::before{
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:1;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(200, 168, 118, 0.04), transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(91, 122, 142, 0.03), transparent 60%);
+}
+body::after{
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:2; opacity:0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ------------------ Layout primitives ------------------ */
+.wrap{max-width: 1280px; margin: 0 auto; padding: 0 var(--gutter); position:relative; z-index:3}
+.measure{max-width: var(--measure); margin: 0 auto}
+.measure-narrow{max-width: var(--measure-narrow); margin: 0 auto}
+
+/* ------------------ Nav ------------------ */
+nav{
+  position: fixed; top:0; left:0; right:0; z-index: 50;
+  padding: 22px 0;
+  transition: background .4s ease, border-color .4s ease, backdrop-filter .4s ease;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled{
+  background: rgba(14, 17, 20, 0.85);
+  backdrop-filter: blur(16px) saturate(1.1);
+  border-bottom-color: var(--rule);
+  padding: 14px 0;
+}
+nav .wrap{display:flex; align-items:center; justify-content:space-between}
+
+.mark{
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  font-variation-settings: "opsz" 14, "SOFT" 0;
+  color: var(--text);
+  text-decoration: none;
+}
+.mark em{font-style:italic; color: var(--brass); font-variation-settings: "opsz" 14, "SOFT" 50}
+
+.nav-links{display:flex; gap: 32px; align-items:center}
+.nav-links a{
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color .25s ease;
+}
+.nav-links a:hover{color: var(--paper)}
+.nav-links a.primary{color: var(--brass)}
+.nav-links a.primary:hover{color: var(--paper)}
+
+@media(max-width: 640px){
+  .nav-links a:not(.primary){display:none}
+}
+
+/* ------------------ Section §00: Opening ------------------ */
+.opening{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 140px 0 80px;
+  position: relative;
+}
+.opening .wrap{width:100%}
+
+.section-mark{
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-meta);
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-mark::before{
+  content:''; width: 24px; height: 1px; background: var(--text-meta);
+}
+
+.opening-title{
+  font-family: var(--serif);
+  font-size: clamp(34px, 5.5vw, 68px);
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  color: var(--paper);
+  max-width: 18ch;
+}
+.opening-title .italic{
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--brass);
+}
+
+.opening-meta{
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--text-2);
+}
+@media(min-width: 768px){
+  .opening-meta{
+    grid-template-columns: repeat(4, 1fr);
+    align-items: start;
+  }
+}
+.meta-cell .label{
+  color: var(--text-meta);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+  display: block;
+}
+.meta-cell .value{color: var(--text)}
+.meta-cell a{color: var(--brass); text-decoration: none; transition: color .25s}
+.meta-cell a:hover{color: var(--paper)}
+
+/* ------------------ Rule ------------------ */
+.rule{
+  height: 1px;
+  background: var(--rule);
+  margin: 0;
+}
+.rule-thick{
+  height: 1px;
+  background: var(--rule-strong);
+}
+
+/* ------------------ Generic section ------------------ */
+.sec{
+  padding: clamp(80px, 12vw, 140px) 0;
+  position: relative;
+}
+
+.sec-head{margin-bottom: clamp(56px, 8vw, 96px)}
+.sec-num{
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--brass-deep);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: block;
+}
+.sec-title{
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 96, "SOFT" 30;
+  color: var(--paper);
+  max-width: 20ch;
+}
+.sec-title .italic{font-style:italic; color: var(--brass); font-variation-settings: "opsz" 96, "SOFT" 80}
+
+/* ------------------ §01 The Connection ------------------ */
+.connection{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+@media(min-width: 700px){
+  .connection{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 56px;
+  }
+}
+@media(min-width: 1100px){
+  .connection{
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+  }
+}
+.conn-item{
+  position: relative;
+  padding-top: 32px;
+}
+.conn-item::before{
+  content:''; position:absolute; top:0; left:0;
+  width: 32px; height: 2px; background: var(--brass);
+}
+.conn-label{
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass-deep);
+  margin-bottom: 16px;
+}
+.conn-text{
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  font-variation-settings: "opsz" 36, "SOFT" 30;
+  color: var(--text);
+}
+.conn-text em{
+  font-style: italic;
+  color: var(--brass);
+  font-variation-settings: "opsz" 36, "SOFT" 80;
+}
+
+/* ------------------ §02 Selected Work ------------------ */
+.selected{display: flex; flex-direction: column; gap: 0}
+.sw-item{
+  padding: clamp(48px, 7vw, 80px) 0;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  position: relative;
+}
+.sw-item:first-child{border-top:none; padding-top: 0}
+@media(min-width: 900px){
+  .sw-item{
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+  }
+  .sw-item .sw-cover{
+    grid-column: 1 / -1;
+  }
+}
+
+/* Cover image above the meta+body grid */
+.sw-cover{
+  margin: 0 0 40px 0;
+  aspect-ratio: 16/8;
+  background: #0B0E11;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  cursor: zoom-in;
+  box-shadow:
+    0 30px 60px -25px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(200, 168, 118, 0.03);
+}
+.sw-cover img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: saturate(0.92) contrast(1.02);
+  transition: transform .8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sw-cover:hover img{
+  transform: scale(1.015);
+}
+.sw-cover-paper{
+  background: var(--paper);
+}
+.sw-cover-paper img{
+  filter: none;
+}
+.sw-cover figcaption{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: linear-gradient(180deg, transparent 0%, rgba(11, 14, 17, 0.88) 55%);
+  pointer-events: none;
+}
+.sw-cover-paper figcaption{
+  background: linear-gradient(180deg, transparent 0%, rgba(244, 239, 230, 0.92) 55%);
+}
+.cap-label{
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+.cap-sub{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--paper);
+  font-variation-settings: "opsz" 24, "SOFT" 80;
+  letter-spacing: -0.005em;
+}
+.sw-cover-paper .cap-label{
+  color: var(--brass-deep);
+}
+.sw-cover-paper .cap-sub{
+  color: var(--base);
+}
+@media(max-width: 700px){
+  .sw-cover{aspect-ratio: 4/3}
+  .sw-cover figcaption{padding: 14px 16px}
+  .cap-sub{font-size: 13px}
+}
+
+.sw-meta{position: relative}
+.sw-index{
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--brass-deep);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: block;
+}
+.sw-year{
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text-meta);
+  margin-top: 16px;
+}
+.sw-status{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  margin-top: 8px;
+}
+.sw-status .dot{
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--brass);
+}
+.sw-status.live .dot{background: #7EB69E}
+.sw-status.live{color: #9EC9B5}
+.sw-status.soon .dot{background: var(--brass); box-shadow: 0 0 8px rgba(200, 168, 118, 0.5)}
+
+.sw-body{}
+.sw-name{
+  font-family: var(--serif);
+  font-size: clamp(32px, 4.2vw, 52px);
+  line-height: 1.02;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 120, "SOFT" 20;
+  color: var(--paper);
+  margin-bottom: 12px;
+}
+.sw-tagline{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(16px, 1.6vw, 19px);
+  color: var(--brass);
+  font-variation-settings: "opsz" 36, "SOFT" 100;
+  margin-bottom: 28px;
+  line-height: 1.4;
+}
+.sw-desc{
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-2);
+  max-width: 58ch;
+  margin-bottom: 28px;
+}
+.sw-desc p + p{margin-top: 1em}
+
+.sw-specs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding: 18px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+}
+.sw-specs span{display:inline-flex; align-items:center; gap: 10px}
+.sw-specs span + span::before{
+  content:'·'; color: var(--text-meta); margin-right: 14px;
+  display: none;
+}
+
+.sw-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--brass);
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--brass-deep);
+  transition: all .25s ease;
+}
+.sw-link:hover{color: var(--paper); border-bottom-color: var(--paper)}
+.sw-link .arrow{transition: transform .25s ease}
+.sw-link:hover .arrow{transform: translateX(4px)}
+
+/* ------------------ §03 Archive ------------------ */
+
+/* Featured entry head of archive */
+.arc-featured{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-bottom: 72px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid var(--rule);
+  max-width: var(--measure-wide);
+}
+@media(min-width: 900px){
+  .arc-featured{
+    grid-template-columns: 1.2fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+}
+.arc-featured-cover{
+  margin: 0;
+  aspect-ratio: 16/9;
+  background: #0B0E11;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  cursor: zoom-in;
+  box-shadow:
+    0 25px 50px -20px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(200, 168, 118, 0.03);
+}
+.arc-featured-cover img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: saturate(0.92) contrast(1.02);
+  transition: transform .8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.arc-featured-cover:hover img{
+  transform: scale(1.015);
+}
+.arc-featured-cover figcaption{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: linear-gradient(180deg, transparent 0%, rgba(11, 14, 17, 0.88) 55%);
+  pointer-events: none;
+}
+.arc-featured-body{}
+.arc-featured-year{
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--brass-deep);
+  margin-bottom: 14px;
+}
+.arc-featured-name{
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.4vw, 38px);
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 72, "SOFT" 20;
+  color: var(--paper);
+  margin-bottom: 20px;
+}
+.arc-featured-desc{
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-2);
+  max-width: 52ch;
+  margin-bottom: 24px;
+}
+.arc-featured-desc em{
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--brass);
+  font-variation-settings: "opsz" 24, "SOFT" 80;
+}
+
+/* Regular archive rows */
+.archive{
+  font-family: var(--mono);
+  font-size: 13px;
+}
+.arc-row{
+  display: grid;
+  grid-template-columns: 60px 1fr 1.5fr;
+  gap: 24px;
+  padding: 18px 0;
+  border-top: 1px solid var(--rule);
+  color: var(--text-2);
+  transition: color .2s, background .2s;
+  align-items: baseline;
+}
+.arc-row:last-child{border-bottom: 1px solid var(--rule)}
+.arc-row:hover{color: var(--paper)}
+.arc-row:hover .arc-name{color: var(--brass)}
+
+.arc-year{color: var(--text-meta); font-size: 12px; letter-spacing: 0.05em}
+.arc-name{color: var(--text); letter-spacing: 0.02em; font-weight: 500; transition: color .2s}
+.arc-desc{color: var(--text-2); font-family: var(--sans); font-size: 13px; line-height: 1.5}
+.arc-status{
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-meta);
+  margin-left: 12px;
+}
+
+@media(max-width: 700px){
+  .arc-row{grid-template-columns: 50px 1fr; gap: 16px}
+  .arc-desc{grid-column: 1 / -1; padding-left: 66px; margin-top: 4px}
+}
+
+/* ------------------ §04 SF3D Archive ------------------ */
+.sf3d{
+  padding: clamp(80px, 12vw, 140px) 0;
+  background:
+    linear-gradient(180deg, var(--base) 0%, #0B0E11 40%, #0B0E11 60%, var(--base) 100%);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+.sf3d::before{
+  content:''; position:absolute; top: 30%; left: -10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(217, 107, 58, 0.12), transparent 65%);
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.sf3d-intro{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  margin-bottom: 72px;
+  align-items: start;
+}
+@media(min-width: 900px){
+  .sf3d-intro{
+    grid-template-columns: 2.2fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+}
+.sf3d-intro-text{max-width: 58ch}
+
+.sf3d-portrait{
+  margin: 0;
+  aspect-ratio: 16/10;
+  background: #0B0E11;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  cursor: zoom-in;
+  box-shadow:
+    0 20px 40px -15px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(200, 168, 118, 0.04);
+  max-width: 340px;
+}
+.sf3d-portrait img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 38% center;
+  display: block;
+  filter: saturate(0.82) contrast(1.08);
+}
+.sf3d-portrait::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 55%, rgba(11, 14, 17, 0.7) 100%);
+  pointer-events: none;
+}
+.sf3d-portrait figcaption{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 14px 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.sf3d-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  position: relative;
+}
+@media(min-width: 900px){
+  .sf3d-grid{grid-template-columns: 0.85fr 1.35fr; gap: 72px; align-items: center}
+}
+
+.sf3d-image{
+  aspect-ratio: 4/5;
+  max-width: 420px;
+  background: linear-gradient(0deg, #0A0D10, #1A1F24);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  cursor: zoom-in;
+  box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(200, 168, 118, 0.05);
+}
+.sf3d-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: saturate(0.85) contrast(1.05);
+  transition: filter .6s ease;
+}
+.sf3d-image::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 50%, rgba(14, 17, 20, 0.4) 100%),
+    linear-gradient(135deg, rgba(217, 107, 58, 0.08), transparent 60%);
+  pointer-events: none;
+}
+
+.sf3d-body{}
+.sf3d-label{
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--ember);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.sf3d-title{
+  font-family: var(--serif);
+  font-size: clamp(32px, 4.2vw, 52px);
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 120, "SOFT" 30;
+  color: var(--paper);
+  max-width: 18ch;
+}
+.sf3d-title em{
+  font-style: italic;
+  color: var(--ember);
+  font-variation-settings: "opsz" 120, "SOFT" 100;
+}
+.sf3d-text{
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-2);
+  max-width: 52ch;
+  margin-bottom: 36px;
+}
+.sf3d-records{
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-2);
+}
+.sf3d-rec{
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 20px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+}
+.sf3d-rec:last-child{border-bottom: 1px solid var(--rule)}
+.sf3d-rec .y{color: var(--text-meta); letter-spacing: 0.05em}
+.sf3d-rec .r{color: var(--text)}
+
+.sf3d-subhead{
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brass-deep);
+  margin: 40px 0 14px;
+}
+.sf3d-subhead:first-child{margin-top: 0}
+
+.sf3d-sponsors{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  padding: 8px 0 0;
+}
+.sf3d-sponsors span{
+  font-family: var(--serif);
+  font-size: 15px;
+  font-style: italic;
+  font-variation-settings: "opsz" 24, "SOFT" 60;
+  color: var(--text);
+  padding: 6px 14px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.02);
+  letter-spacing: 0.01em;
+}
+
+/* ==== Proof rail: SuperPi + HWBot screenshots ==== */
+.sf3d-proof{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid var(--rule);
+}
+@media(min-width: 700px){
+  .sf3d-proof{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media(min-width: 1100px){
+  .sf3d-proof{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.sf3d-proof-item{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sf3d-proof-frame{
+  aspect-ratio: 4/3;
+  background: #0B0E11;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: zoom-in;
+  transition: border-color .3s ease;
+}
+.sf3d-proof-frame:hover{
+  border-color: var(--rule-strong);
+}
+.sf3d-proof-paper{
+  background: var(--paper);
+}
+.sf3d-proof-frame img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.9) contrast(1.03);
+  transition: transform .8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sf3d-proof-paper img{
+  object-fit: contain;
+  padding: 14px;
+  filter: none;
+  background: var(--paper);
+}
+.sf3d-proof-frame:hover img{
+  transform: scale(1.03);
+}
+
+.sf3d-proof-item figcaption{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 2px;
+}
+.pcap-label{
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass-deep);
+}
+.pcap-title{
+  font-family: var(--serif);
+  font-size: 14px;
+  line-height: 1.3;
+  color: var(--paper);
+  font-variation-settings: "opsz" 24, "SOFT" 30;
+  letter-spacing: -0.005em;
+}
+.pcap-sub{
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+.sf3d-ventures{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  margin-top: 80px;
+  padding-top: 56px;
+  border-top: 1px solid var(--rule);
+}
+@media(min-width: 1000px){
+  .sf3d-ventures{
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+}
+.sf3d-venture{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.sf3d-venture-image{
+  aspect-ratio: 4/3;
+  background: #0B0E11;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  box-shadow:
+    0 20px 40px -15px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(200, 168, 118, 0.03);
+}
+.sf3d-venture-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.88) contrast(1.05);
+}
+.sf3d-venture-image-ek{
+  background: var(--paper);
+  aspect-ratio: 4/3;
+}
+.sf3d-venture-image-ek img{
+  object-fit: contain;
+  padding: 20px;
+  filter: none;
+}
+.sf3d-venture-body{}
+.sf3d-venture-year{
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--brass-deep);
+  margin-bottom: 14px;
+}
+.sf3d-venture-title{
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.25;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 48, "SOFT" 30;
+  color: var(--paper);
+  margin-bottom: 14px;
+}
+.sf3d-venture-text{
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-2);
+  max-width: 48ch;
+}
+.sf3d-venture-text em{
+  font-style: italic;
+  color: var(--brass);
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 24, "SOFT" 80;
+}
+
+.sf3d-photo-row{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 56px;
+}
+@media(min-width: 700px){
+  .sf3d-photo-row{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media(min-width: 1100px){
+  .sf3d-photo-row{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.sf3d-photo-small{
+  aspect-ratio: 4/3;
+  background: #0B0E11;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: zoom-in;
+}
+.sf3d-photo-paper{
+  background: var(--paper);
+}
+.sf3d-photo-small img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: saturate(0.85) contrast(1.05);
+  transition: transform .8s cubic-bezier(0.22, 1, 0.36, 1), filter .6s ease;
+}
+.sf3d-photo-paper img{
+  object-fit: contain;
+  padding: 14px;
+  filter: none;
+}
+.sf3d-photo-small:hover img{
+  transform: scale(1.03);
+  filter: saturate(0.95) contrast(1.05);
+}
+.sf3d-photo-paper:hover img{
+  transform: scale(1.02);
+  filter: none;
+}
+.sf3d-photo-small figcaption{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 12px 14px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  background: linear-gradient(180deg, transparent 0%, rgba(11, 14, 17, 0.85) 60%);
+  text-transform: uppercase;
+}
+.sf3d-photo-paper figcaption{
+  color: var(--base);
+  background: linear-gradient(180deg, transparent 0%, rgba(244, 239, 230, 0.9) 60%);
+}
+
+/* ------------------ §05 Approach ------------------ */
+.approach{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+.app-item{
+  padding: 36px 0;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 32px;
+  align-items: baseline;
+}
+.app-item:last-child{border-bottom: 1px solid var(--rule)}
+.app-num{
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--brass-deep);
+}
+.app-text{
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.35;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 48, "SOFT" 30;
+  color: var(--text);
+}
+.app-text em{font-style:italic; color: var(--brass); font-variation-settings: "opsz" 48, "SOFT" 80}
+
+/* ------------------ §06 Colophon / Contact ------------------ */
+.colophon{
+  padding: clamp(80px, 12vw, 120px) 0;
+  border-top: 1px solid var(--rule);
+}
+.col-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+@media(min-width: 768px){
+  .col-grid{grid-template-columns: 1fr 1fr; gap: 80px}
+}
+
+.col-label{
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-meta);
+  margin-bottom: 20px;
+}
+.col-title{
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 72, "SOFT" 30;
+  color: var(--paper);
+  margin-bottom: 24px;
+}
+.col-text{
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-2);
+  max-width: 42ch;
+  margin-bottom: 24px;
+}
+.col-email{
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-style: italic;
+  color: var(--brass);
+  text-decoration: none;
+  border-bottom: 1px solid var(--brass-deep);
+  transition: color .25s, border-color .25s;
+  font-variation-settings: "opsz" 48, "SOFT" 100;
+}
+.col-email:hover{color: var(--paper); border-bottom-color: var(--paper)}
+
+.col-links{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+.col-links a{
+  color: var(--text-2);
+  text-decoration: none;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
+  transition: color .25s, border-color .25s;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.col-links a:hover{color: var(--paper); border-bottom-color: var(--rule-strong)}
+.col-links a .val{color: var(--text)}
+.col-links a:hover .val{color: var(--brass)}
+
+/* ------------------ Footer ------------------ */
+footer{
+  padding: 40px 0;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-meta);
+  text-transform: uppercase;
+}
+.foot-grid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* ------------------ Reveal animation ------------------ */
+.reveal{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.in{opacity: 1; transform: none}
+.d1{transition-delay: 0.1s}
+.d2{transition-delay: 0.2s}
+.d3{transition-delay: 0.3s}
+
+/* ------------------ Selection ------------------ */
+::selection{background: var(--brass); color: var(--base)}
+
+/* ------------------ Lightbox ------------------ */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(6, 8, 11, 0.96);
+  backdrop-filter: blur(20px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  opacity: 0;
+  transition: opacity .4s ease;
+  cursor: zoom-out;
+}
+.lightbox.open{
+  display: flex;
+  opacity: 1;
+}
+.lightbox-inner{
+  position: relative;
+  max-width: 1400px;
+  max-height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  cursor: default;
+}
+.lightbox img{
+  max-width: 100%;
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8);
+  transform: scale(0.96);
+  transition: transform .5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.lightbox.open img{transform: scale(1)}
+.lightbox-caption{
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text-2);
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 600px;
+}
+.lightbox-close{
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--base);
+  border: none;
+  font-family: var(--mono);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s, background .2s;
+  box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.6);
+}
+.lightbox-close:hover{
+  transform: scale(1.08);
+  background: var(--brass);
+}
+@media(max-width: 700px){
+  .lightbox{padding: 20px}
+  .lightbox-close{top: -48px; right: 0}
+}
+body.lightbox-active{overflow: hidden}
+
+</style>
+</head>
+<body>
+
+<!-- ============== NAV ============== -->
+<nav id="nav">
+  <div class="wrap">
+    <a href="#" class="mark">Sunrise <em>Software</em></a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#archive">Archive</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+      <a href="https://masterforge.app" class="primary">MasterForge ↗</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============== §00 OPENING ============== -->
+<section class="opening">
+  <div class="wrap">
+    <div class="section-mark reveal">§00 &nbsp; Sunrise Software Oy &nbsp; / &nbsp; Est. 2024</div>
+
+    <h1 class="opening-title reveal d1">
+      Twenty years in clinics.<br>
+      Two decades <span class="italic">overclocking</span> silicon.<br>
+      Now building software<br>
+      nobody else would think to build.
+    </h1>
+
+    <div class="opening-meta reveal d3">
+      <div class="meta-cell">
+        <span class="label">Principal</span>
+        <span class="value">Petri Korhonen</span>
+      </div>
+      <div class="meta-cell">
+        <span class="label">Location</span>
+        <span class="value">Tampere, Finland</span>
+      </div>
+      <div class="meta-cell">
+        <span class="label">Read</span>
+        <a href="#work">The work ↓</a>
+      </div>
+      <div class="meta-cell">
+        <span class="label">Open</span>
+        <a href="https://masterforge.app">MasterForge ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== §01 CONNECTION ============== -->
+<section class="sec" id="connection">
+  <div class="wrap">
+    <div class="sec-head measure">
+      <span class="sec-num">§01 &nbsp; The connection</span>
+      <h2 class="sec-title">
+        Four disciplines. <span class="italic">One shared method.</span>
+      </h2>
+      <p style="font-family: var(--serif); font-variation-settings: 'opsz' 36, 'SOFT' 30; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: var(--text-2); margin-top: 28px; max-width: 44ch;">
+        Whatever I do &mdash; a body, a benchmark, a codebase, a threat model &mdash; the work is the same. Find the pattern. Locate the root cause. Optimise until the system gives everything it can, stably.
+      </p>
+    </div>
+
+    <div class="connection measure-wide">
+      <div class="conn-item">
+        <div class="conn-label">01 &nbsp; Psychophysical physiotherapy</div>
+        <p class="conn-text">
+          Twenty years of clinical work. A human is <em>one system, not a collection of parts.</em> Pattern recognition and root-cause reasoning are the core of clinical thinking.
+        </p>
+      </div>
+      <div class="conn-item">
+        <div class="conn-label">02 &nbsp; Optimisation</div>
+        <p class="conn-text">
+          First engines as a teenager, then silicon under liquid helium. <em>How much can a system give, and how stably can it give it?</em> Same question, different substrates.
+        </p>
+      </div>
+      <div class="conn-item">
+        <div class="conn-label">03 &nbsp; Cybersecurity &amp; health-tech development</div>
+        <p class="conn-text">
+          My day work: <em>digital health software, built to clinical and regulatory standards.</em> Where an understanding of the human body meets an understanding of the systems that model it.
+        </p>
+      </div>
+      <div class="conn-item">
+        <div class="conn-label">04 &nbsp; Software</div>
+        <p class="conn-text">
+          The place where all of the above applies at once. <em>Read the system. Find the root cause. Push past specification.</em>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule-thick"></div>
+
+<!-- ============== §02 SELECTED WORK ============== -->
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sec-head measure">
+      <span class="sec-num">§02 &nbsp; Selected work</span>
+      <h2 class="sec-title">
+        Three products. <span class="italic">Each one solves a problem that did not exist five years ago.</span>
+      </h2>
+    </div>
+
+    <div class="selected">
+
+      <!-- MasterForge -->
+      <article class="sw-item">
+        <figure class="sw-cover" data-zoom="true">
+          <img src="images/product-masterforge.webp" alt="MasterForge Pro Master: parametric EQ, spectrogram, loudness metering and AI-driven analysis showing LUFS, True Peak, stereo correlation and a tonal recommendation for a dark-character mix" loading="lazy">
+          <figcaption>
+            <span class="cap-label">&sect;02.1 &nbsp;&middot;&nbsp; Pro Master</span>
+            <span class="cap-sub">Parametric EQ &middot; LUFS &minus;14.5 &middot; AI spectral analysis</span>
+          </figcaption>
+        </figure>
+        <div class="sw-meta">
+          <span class="sw-index">§02.1</span>
+          <div class="sw-status live">
+            <span class="dot"></span>
+            <span>Live &nbsp;·&nbsp; Paying customers</span>
+          </div>
+          <div class="sw-year">2023 → present</div>
+        </div>
+        <div class="sw-body">
+          <h3 class="sw-name">MasterForge</h3>
+          <p class="sw-tagline">AI music mastering, for problems that didn't exist a year before it shipped.</p>
+          <div class="sw-desc">
+            <p>When Suno and its contemporaries arrived, the outputs carried a specific kind of brittleness: codec artifacts in the upper mids, harsh transients, collapsed stereo, a dull low end. Existing mastering tools were built for recordings from microphones, not from neural networks. They could not solve it.</p>
+            <p>MasterForge is built around that gap. A real-time DSP engine, ToneMap with 26 driven controls, AI artifact suppression, vocal clarity stages, multiband compression, mid/side processing, stem-aware cleanup. Four tiers, free to fourteen-ninety-nine.</p>
+          </div>
+          <div class="sw-specs">
+            <span>Real-time DSP engine</span>
+            <span>ToneMap &nbsp;·&nbsp; 26 controls</span>
+            <span>Four tiers &nbsp;·&nbsp; Free to Studio</span>
+            <span>Stripe integration</span>
+          </div>
+          <a href="https://masterforge.app" class="sw-link">
+            masterforge.app <span class="arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Quaesitor -->
+      <article class="sw-item">
+        <figure class="sw-cover" data-zoom="true">
+          <img src="images/product-quaesitor.webp" alt="Quaesitor V2 Resonance mode: three parallel cognitive streams named Alpha Analytical, Beta Synthesiser and Gamma Falsifier, each running a five-phase reasoning cycle, with an Assembler report synthesising their findings" loading="lazy">
+          <figcaption>
+            <span class="cap-label">&sect;02.2 &nbsp;&middot;&nbsp; Resonance</span>
+            <span class="cap-sub">Three specialised reasoning streams &middot; synthesis by Assembler</span>
+          </figcaption>
+        </figure>
+        <div class="sw-meta">
+          <span class="sw-index">§02.2</span>
+          <div class="sw-status live">
+            <span class="dot"></span>
+            <span>Live &nbsp;·&nbsp; v2.12.11</span>
+          </div>
+          <div class="sw-year">2023 &rarr; present</div>
+        </div>
+        <div class="sw-body">
+          <h3 class="sw-name">Quaesitor</h3>
+          <p class="sw-tagline">A research engine that thinks, falsifies, and verifies &mdash; in code and in arithmetic.</p>
+          <div class="sw-desc">
+            <p>Quaesitor is built around an original mode I call the <em>cognitive stream</em>: an agent runs its own chain of thought autonomously, then falsifies its claims, verifies them with code and with computation, and refuses to repeat a question it cannot answer more strongly than before.</p>
+            <p>The engine now runs three specialised streams in parallel &mdash; each with its own role in the reasoning &mdash; with falsification memory and an information-resistance engine keeping the conversation moving. The architecture is, in its present form, at the level of current academic research on multi-agent reasoning.</p>
+          </div>
+          <div class="sw-specs">
+            <span>Cognitive stream architecture</span>
+            <span>Three specialised reasoning lines</span>
+            <span>Falsify &nbsp;·&nbsp; verify &nbsp;·&nbsp; compute</span>
+            <span>Information Resistance Engine</span>
+          </div>
+          <a href="https://quaesitor.app" class="sw-link">
+            quaesitor.app <span class="arrow">&rarr;</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Luviamo -->
+      <article class="sw-item">
+        <figure class="sw-cover sw-cover-paper" data-zoom="true">
+          <img src="images/product-luviamo.webp" alt="Luviamo landing page in Finnish with the headline &lsquo;Markkinointi ideasta julkaisuun&rsquo;, a quiet birch-and-paper visual identity, and a two-track call to action" loading="lazy">
+          <figcaption>
+            <span class="cap-label">&sect;02.3 &nbsp;&middot;&nbsp; Luviamo</span>
+            <span class="cap-sub">Marketing, from idea to publication &middot; launching within the month</span>
+          </figcaption>
+        </figure>
+        <div class="sw-meta">
+          <span class="sw-index">§02.3</span>
+          <div class="sw-status soon">
+            <span class="dot"></span>
+            <span>Launching within the month</span>
+          </div>
+          <div class="sw-year">2026</div>
+        </div>
+        <div class="sw-body">
+          <h3 class="sw-name">Luviamo</h3>
+          <p class="sw-tagline">One brand voice. The whole marketing lifecycle. Replacing five to eight separate tools.</p>
+          <div class="sw-desc">
+            <p>Most businesses stitch marketing together from a growing pile of separate apps: one for planning, one for content, one for social, one for email, one for analytics, one for brand assets, one for the campaign calendar. Each one has its own login, its own subscription, and its own idea of what the brand sounds like.</p>
+            <p>Luviamo replaces that pile. A single platform that learns the brand voice and carries it coherently through ideation, planning, production, distribution, and measurement &mdash; for solo founders, for growing teams, for companies large enough to need granular roles across marketing, sales, and leadership. The quiet visual identity (birch, paper, rising sun) is deliberate: the tool should disappear into the work.</p>
+          </div>
+          <div class="sw-specs">
+            <span>Brand voice, learned once</span>
+            <span>Full marketing lifecycle</span>
+            <span>Solo to enterprise</span>
+            <span>GDPR-native &nbsp;·&nbsp; Nordic-built</span>
+          </div>
+          <a href="https://luviamo.app" class="sw-link">
+            luviamo.app <span class="arrow">&rarr;</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="rule-thick"></div>
+
+<!-- ============== §03 ARCHIVE ============== -->
+<section class="sec" id="archive">
+  <div class="wrap">
+    <div class="sec-head measure">
+      <span class="sec-num">§03 &nbsp; The rest of the cabinet</span>
+      <h2 class="sec-title">
+        Twenty more, in brief.
+      </h2>
+    </div>
+
+    <!-- Featured entry at the head of the archive -->
+    <article class="arc-featured">
+      <figure class="arc-featured-cover" data-zoom="true">
+        <img src="images/product-spectralforge.webp" alt="SpectralForge Beta: a spectrogram view with per-band deficiency scores, a pipeline of HPS, Mel Clean, Click Repair and Transient Limiter, and clean controls for low, mid, high and global bands" loading="lazy">
+        <figcaption>
+          <span class="cap-label">&sect;03.0 &nbsp;&middot;&nbsp; Featured &middot; Beta</span>
+          <span class="cap-sub">Spectral repair and mel-domain cleaning</span>
+        </figcaption>
+      </figure>
+      <div class="arc-featured-body">
+        <div class="arc-featured-year">2025 &rarr;</div>
+        <h3 class="arc-featured-name">SpectralForge</h3>
+        <p class="arc-featured-desc">
+          Companion to MasterForge. Diagnoses and repairs the spectral deficiencies that AI-generated and codec-damaged audio carries: stuck transients, rounded attacks, missing harmonics, noise bed. A four-stage pipeline (HPS, Mel Clean, Click Repair, Transient Limiter) with per-band scoring, onset detection and attack-slope measurement. Closest to public release of the new products; currently in Beta at <em>spectral.masterforge.app</em>.
+        </p>
+        <a href="https://spectral.masterforge.app" class="sw-link">
+          spectral.masterforge.app <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </article>
+
+    <div class="archive measure-wide">
+
+      <div class="arc-row">
+        <div class="arc-year">2023 &rarr;</div>
+        <div class="arc-name">Premius Plus <span class="arc-status">clinical platform</span></div>
+        <div class="arc-desc">Clinical wellness and rehabilitation platform. Programmes for migraine, tension headache, hip osteoarthritis, jaw &amp; bite, men&rsquo;s pelvic floor, wellness assessment. Biopsychosocial methodology.</div>
+      </div>
+
+      <div class="arc-row">
+        <div class="arc-year">2024</div>
+        <div class="arc-name">TilastoSilta <span class="arc-status">live</span></div>
+        <div class="arc-desc">Finnish statistics aggregator across seven sources, with semantic AI search. tilastosilta.fi</div>
+      </div>
+
+      <div class="arc-row">
+        <div class="arc-year">2025</div>
+        <div class="arc-name">HEIJASTE <span class="arc-status">entering public distribution</span></div>
+        <div class="arc-desc">Psychophysical self-reflection card system. Forty cards, five dimensions, three clinical editions including a veteran/PTSD branch.</div>
+      </div>
+
+      <div class="arc-row">
+        <div class="arc-year">2023</div>
+        <div class="arc-name">HomeTeam <span class="arc-status">beta</span></div>
+        <div class="arc-desc">Gamified family task system. HomeCoin economy, streaks, push notifications. home.sunrisesoftware.app</div>
+      </div>
+
+      <div class="arc-row">
+        <div class="arc-year">2025</div>
+        <div class="arc-name">VitalTrack <span class="arc-status">beta</span></div>
+        <div class="arc-desc">Personal training and health platform. TSS, NP, HR zones, PMC chart, Garmin sync. health.sunrisesoftware.app</div>
+      </div>
+
+      <div class="arc-row">
+        <div class="arc-year">2025</div>
+        <div class="arc-name">BrightFeed <span class="arc-status">coming</span></div>
+        <div class="arc-desc">News aggregation without engagement manipulation. Curated, clean, slow.</div>
+      </div>
+
+      <div class="arc-row">
+        <div class="arc-year">&mdash;</div>
+        <div class="arc-name">Internal tools <span class="arc-status">production</span></div>
+        <div class="arc-desc">BreathForge Studio, MasterVideo 3D, MasterPromo, PhotoMaster, VideoForge, SongForge, Command Center, Sunrise Marketing Planner, Premius Planner. Built for daily use; not for sale.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============== §04 SF3D / Overclocking ============== -->
+<section class="sf3d" id="sf3d">
+  <div class="wrap">
+
+    <div class="sf3d-intro">
+      <div class="sf3d-intro-text">
+        <div class="sf3d-label" style="margin-bottom: 24px;">&sect;04 &nbsp; Archive &nbsp;&middot;&nbsp; SF3D &nbsp;&middot;&nbsp; 2008&ndash;2016</div>
+        <h3 class="sf3d-title">
+          Before the software, <em>liquid helium.</em>
+        </h3>
+        <p class="sf3d-text" style="margin-top: 24px; max-width: 58ch;">
+          Under the alias SF3D I spent eight years in the extreme overclocking scene &mdash; pouring liquid nitrogen, then liquid helium, onto silicon to see what it could do at temperatures it was never designed for. The intuition built there &mdash; pressure, tolerance, the line between working and failing &mdash; is the same intuition applied now to audio DSP, to machine-learning outputs, and to clinical reasoning.
+        </p>
+      </div>
+      <figure class="sf3d-portrait" data-zoom="true">
+        <img src="images/sf3d-portrait-taiwan.webp" alt="Petri Korhonen pouring liquid nitrogen at the GALAX Overclocking Carnival in Taiwan" loading="lazy">
+        <figcaption>GALAX OC Carnival &middot; Taiwan</figcaption>
+      </figure>
+    </div>
+
+    <div class="sf3d-grid">
+
+      <div class="sf3d-image" data-zoom="true">
+        <img src="images/sf3d-hero-ln2-session.webp" alt="SF3D overclocking session — liquid nitrogen vapor rising from a motherboard mounted with an LN2 pot" loading="lazy">
+      </div>
+
+      <div class="sf3d-body">
+
+        <div class="sf3d-subhead">Selected records</div>
+        <div class="sf3d-records">
+          <div class="sf3d-rec">
+            <div class="y">2008&ndash;2016</div>
+            <div class="r">Multiple world records in 3D and calculation benchmarks</div>
+          </div>
+          <div class="sf3d-rec">
+            <div class="y">2010</div>
+            <div class="r">First 7 GHz quad-core CPU, cooled with liquid helium</div>
+          </div>
+          <div class="sf3d-rec">
+            <div class="y">2012</div>
+            <div class="r">SuperPi 32M world record, Ivy Bridge class</div>
+          </div>
+        </div>
+
+        <div class="sf3d-subhead">Principal sponsors</div>
+        <div class="sf3d-sponsors">
+          <span>Intel</span>
+          <span>AMD</span>
+          <span>Asus</span>
+          <span>ASRock</span>
+          <span>Foxconn</span>
+          <span>G.Skill</span>
+          <span>Kingston</span>
+          <span>Gigabyte</span>
+          <span>MSI</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PROOF RAIL: screenshots, record proof and ventures as a single row -->
+    <div class="sf3d-proof">
+      <figure class="sf3d-proof-item">
+        <div class="sf3d-proof-frame sf3d-proof-paper" data-zoom="true">
+          <img src="images/sf3d-superpi-32m-record.webp" alt="CPU-Z and Super Pi 1.5 XS windows showing an Intel Core i7 3770K Ivy Bridge at 6902.25 MHz completing the 32M calculation benchmark in 4 minutes 47 seconds" loading="lazy">
+        </div>
+        <figcaption>
+          <span class="pcap-label">&sect;04a &nbsp;&middot;&nbsp; Screenshot</span>
+          <span class="pcap-title">SuperPi 32M, 4m 47.031s</span>
+          <span class="pcap-sub">i7 3770K @ 6.90 GHz &middot; 2012</span>
+        </figcaption>
+      </figure>
+
+      <figure class="sf3d-proof-item">
+        <div class="sf3d-proof-frame sf3d-proof-paper" data-zoom="true">
+          <img src="images/sf3d-hwbot-league.webp" alt="HWBot Professional Overclockers League showing SF3D in third place worldwide with 1335.90 points" loading="lazy">
+        </div>
+        <figcaption>
+          <span class="pcap-label">&sect;04b &nbsp;&middot;&nbsp; Ranking</span>
+          <span class="pcap-title">HWBot Pro League, world #3</span>
+          <span class="pcap-sub">SF3D &middot; 1335.90 pts</span>
+        </figcaption>
+      </figure>
+
+      <figure class="sf3d-proof-item">
+        <div class="sf3d-proof-frame" data-zoom="true">
+          <img src="images/sf3d-vegas-bench.webp" alt="SF3D overclocking bench in Las Vegas at the AMD world record event, with insulation, a fan and three thermometers reading sub-zero temperatures" loading="lazy">
+        </div>
+        <figcaption>
+          <span class="pcap-label">&sect;04c &nbsp;&middot;&nbsp; Bench</span>
+          <span class="pcap-title">AMD world record event</span>
+          <span class="pcap-sub">Las Vegas &middot; three-point thermal</span>
+        </figcaption>
+      </figure>
+
+      <figure class="sf3d-proof-item">
+        <div class="sf3d-proof-frame sf3d-proof-paper" data-zoom="true">
+          <img src="images/sf3d-ek-triple-point-evo.webp" alt="EK Water Blocks and SF3D Triple Point EVO four-module liquid nitrogen pot installed on a motherboard" loading="lazy">
+        </div>
+        <figcaption>
+          <span class="pcap-label">&sect;04d &nbsp;&middot;&nbsp; Product</span>
+          <span class="pcap-title">Triple Point EVO</span>
+          <span class="pcap-sub">SF3D &times; EK Water Blocks &middot; CPU LN<sub>2</sub> pot</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="sf3d-ventures">
+
+      <article class="sf3d-venture">
+        <div class="sf3d-venture-body">
+          <div class="sf3d-venture-year">2008 &rarr; 2013</div>
+          <div class="sf3d-venture-title">SF3D OC &nbsp;&middot;&nbsp; Pre-overclocked systems</div>
+          <div class="sf3d-venture-text">
+            Factory pre-overclocked and tuned PCs sold in Finland through <em>Jimm&rsquo;s PC Store</em>. The SF3D.fi site ran as the public storefront and reference archive until 2013, when the venture was closed by choice.
+          </div>
+        </div>
+      </article>
+
+      <article class="sf3d-venture">
+        <div class="sf3d-venture-body">
+          <div class="sf3d-venture-year">2010s</div>
+          <div class="sf3d-venture-title">SF3D &times; EK Water Blocks &nbsp;&middot;&nbsp; LN<sub>2</sub> product lines</div>
+          <div class="sf3d-venture-text">
+            Co-designed liquid-nitrogen cooling product lines manufactured with the Slovenian company <em>EK Water Blocks</em> and distributed internationally to the enthusiast overclocking market. <em>Triple Point EVO</em> for CPUs, <em>Critical Point</em> for GPUs.
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="sf3d-photo-row">
+      <figure class="sf3d-photo-small" data-zoom="true">
+        <img src="images/sf3d-benchmark-3dmark.webp" alt="3DMark benchmark running during an SF3D overclocking session" loading="lazy">
+        <figcaption>Benchmark session &middot; 3DMark</figcaption>
+      </figure>
+      <figure class="sf3d-photo-small" data-zoom="true">
+        <img src="images/sf3d-temp-minus-234.webp" alt="Temperature display reading minus 234 degrees Celsius during liquid helium cooling" loading="lazy">
+        <figcaption>Liquid helium &middot; &minus;234 &deg;C</figcaption>
+      </figure>
+      <figure class="sf3d-photo-small" data-zoom="true">
+        <img src="images/sf3d-setup-crossfire.webp" alt="SF3D overclocking bench with dual Radeon graphics cards and a multimeter reading sub-zero temperatures" loading="lazy">
+        <figcaption>Dual-GPU bench</figcaption>
+      </figure>
+      <figure class="sf3d-photo-small sf3d-photo-paper" data-zoom="true">
+        <img src="images/sf3d-ek-critical-point.webp" alt="EK Water Blocks and SF3D Critical Point liquid nitrogen GPU pot on an AMD Radeon graphics card with a thermocouple attached" loading="lazy">
+        <figcaption>Critical Point &middot; SF3D &times; EK</figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============== §05 APPROACH ============== -->
+<section class="sec" id="approach">
+  <div class="wrap">
+    <div class="sec-head measure">
+      <span class="sec-num">§05 &nbsp; Approach</span>
+      <h2 class="sec-title">
+        Three rules. <span class="italic">No exceptions.</span>
+      </h2>
+    </div>
+
+    <div class="approach">
+      <div class="app-item">
+        <div class="app-num">01</div>
+        <div class="app-text">
+          I do not prototype. <em>The first version ships.</em> If a product is not worth releasing, it is not worth building.
+        </div>
+      </div>
+      <div class="app-item">
+        <div class="app-num">02</div>
+        <div class="app-text">
+          Every tool I build <em>is one I use daily.</em> The customer and the developer are the same person, separated only by time.
+        </div>
+      </div>
+      <div class="app-item">
+        <div class="app-num">03</div>
+        <div class="app-text">
+          If it is not <em>better</em> than what exists, I do not publish it. Sameness is not a business model.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== §06 COLOPHON / CONTACT ============== -->
+<section class="colophon" id="contact">
+  <div class="wrap">
+    <div class="col-grid">
+
+      <div>
+        <div class="col-label">§06 &nbsp; Correspondence</div>
+        <h3 class="col-title">For serious conversations only.</h3>
+        <p class="col-text">
+          If the work above resembles something you need, or something you would like to see done properly, write directly. No forms, no calendars. A sentence or two is enough.
+        </p>
+        <a href="mailto:pete@sunrisesoftware.app" class="col-email">pete@sunrisesoftware.app</a>
+      </div>
+
+      <div>
+        <div class="col-label">Colophon</div>
+        <div class="col-links">
+          <a href="https://masterforge.app">MasterForge <span class="val">masterforge.app &nearr;</span></a>
+          <a href="https://quaesitor.app">Quaesitor <span class="val">quaesitor.app &nearr;</span></a>
+          <a href="https://luviamo.app">Luviamo <span class="val">luviamo.app &nearr;</span></a>
+          <a href="https://tilastosilta.fi">TilastoSilta <span class="val">tilastosilta.fi &nearr;</span></a>
+          <a href="https://home.sunrisesoftware.app">HomeTeam <span class="val">home.sunrisesoftware.app &nearr;</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>Sunrise Software Oy &nbsp;·&nbsp; Tampere, Finland</div>
+      <div>Est. 2024 &nbsp;·&nbsp; Independent</div>
+      <div>Typeset in Fraunces &amp; Inter</div>
+      <div>© 2026</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============== LIGHTBOX ============== -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Enlarged image">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+// Nav scroll state
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 40) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// Reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Reveal everything else that should animate
+document.querySelectorAll('.sec-head, .sw-item, .sw-cover, .arc-row, .arc-featured, .app-item, .conn-item, .sf3d-body, .sf3d-image, .col-grid > *, .meta-cell, .sf3d-proof-item, .sf3d-photo-small, .sf3d-venture, .sf3d-portrait')
+  .forEach(el => {
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+
+// ============== LIGHTBOX ==============
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const lightboxClose = document.getElementById('lightbox-close');
+
+function openLightbox(src, alt, caption) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt || '';
+  lightboxCaption.textContent = caption || '';
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('lightbox-active');
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('lightbox-active');
+  // Clear src after transition to free memory
+  setTimeout(() => {
+    if (!lightbox.classList.contains('open')) lightboxImg.src = '';
+  }, 500);
+}
+
+// Delegate clicks: any element with [data-zoom="true"]
+document.addEventListener('click', (e) => {
+  const zoomable = e.target.closest('[data-zoom="true"]');
+  if (zoomable) {
+    const img = zoomable.querySelector('img');
+    if (img) {
+      // Build caption from figcaption if present, else alt text
+      const figcap = zoomable.closest('figure')?.querySelector('figcaption');
+      let caption = '';
+      if (figcap) {
+        // Collect textContent of caption spans
+        caption = Array.from(figcap.children).length > 0
+          ? Array.from(figcap.children).map(c => c.textContent.trim()).filter(Boolean).join('  ·  ')
+          : figcap.textContent.trim();
+      }
+      openLightbox(img.src, img.alt, caption);
+    }
+    return;
+  }
+  // Click on backdrop (lightbox itself, not inner)
+  if (e.target === lightbox) closeLightbox();
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+
+// ESC to close
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+});
+</script>
+
+</body>
+</html>

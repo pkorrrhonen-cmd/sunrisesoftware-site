@@ -1,0 +1,19 @@
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# --- Node / build (for the future Vite + React migration) ---
+node_modules/
+dist/
+.wrangler/
+*.log
+npm-debug.log*
+
+# --- Local build artifacts & backups (kept on disk, not versioned) ---
+*.zip
+
+# --- Superseded working folder (originals preserved locally, not versioned) ---
+Verkkosivujen tiedostot/

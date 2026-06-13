@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunrise Software</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#060A12;--bg2:#0A1020;--bg3:#0E1630;--bg4:#152040;
+--ember:#F0922B;--amber:#FFBA54;--flame:#E06020;--gold:#FFD080;
+--sky:#1A3A6A;--deep:#081428;
+--text:#F0ECE4;--text2:#A0A8B8;--text3:#586478;
+--teal:#40D8A8;
+--heading:'Exo 2',system-ui,sans-serif;--hero-font:'Bebas Neue',system-ui,sans-serif;
+--body:'Manrope',system-ui,sans-serif;
+--mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:var(--body);color:var(--text);font-size:15px;line-height:1.6;overflow-x:hidden}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(min-width:768px){.wrap{padding:0 48px}}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:all .4s}
+nav.s{background:rgba(6,10,18,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(240,146,43,.06)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.nlogo{font-family:var(--heading);font-size:16px;font-weight:700;letter-spacing:.04em}
+.nlogo span{color:var(--ember)}
+.nlinks{display:flex;gap:24px;align-items:center}
+.nlinks a{font-size:12px;color:var(--text2);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-weight:500;transition:color .2s}
+.nlinks a:hover{color:var(--amber)}
+.ncta{background:var(--ember);color:var(--bg);padding:8px 18px;border-radius:6px;font-weight:600;font-size:12px;letter-spacing:.04em}
+.ncta:hover{background:var(--amber)}
+@media(max-width:640px){.nlinks a:not(.ncta){display:none}}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:70%;height:100%;object-fit:cover;object-position:center 15%;margin-left:auto;display:block}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 0%,rgba(6,10,18,.6) 35%,rgba(6,10,18,.2) 70%,rgba(6,10,18,.3) 100%)}
+.hero-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,var(--bg) 20%,rgba(6,10,18,.7) 40%,transparent 65%,rgba(6,10,18,.5) 90%,var(--bg) 100%);z-index:1}
+@media(max-width:767px){.hero-bg img{width:100%;object-position:center 20%}}
+.hero-content{position:relative;z-index:2;padding:0 0 80px;width:100%}
+.hero-content .wrap{max-width:1120px}
+.hero-tagline{font-family:var(--hero-font);font-size:clamp(48px,10vw,96px);font-weight:400;line-height:1.0;letter-spacing:.04em;margin-bottom:20px;text-transform:uppercase}
+.hero-tagline .line2{color:var(--ember);display:block}
+.hero-sub{font-size:16px;color:var(--text2);max-width:480px;line-height:1.7;font-weight:300;margin-bottom:28px}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 28px;font-size:13px;font-weight:600;border-radius:8px;text-decoration:none;letter-spacing:.02em;transition:all .25s;cursor:pointer;border:none;font-family:var(--body)}
+.btn-ember{background:var(--ember);color:var(--bg)}.btn-ember:hover{background:var(--amber);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid rgba(240,236,228,.2)}.btn-outline:hover{border-color:var(--ember);color:var(--amber)}
+
+.glow-divider{height:2px;background:linear-gradient(90deg,transparent 0%,var(--flame) 20%,var(--ember) 50%,var(--amber) 80%,transparent 100%);opacity:.4}
+
+.section{padding:80px 0}
+@media(min-width:768px){.section{padding:100px 0}}
+.slabel{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ember);margin-bottom:16px;font-weight:500}
+.stitle{font-family:var(--hero-font);font-size:clamp(28px,4vw,48px);font-weight:400;line-height:1.1;letter-spacing:.03em;margin-bottom:12px;text-transform:uppercase}
+.ssub{color:var(--text2);font-size:15px;max-width:500px;margin-bottom:48px;font-weight:300}
+
+.flagship{position:relative;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,var(--bg2),var(--bg3));border:1px solid rgba(240,146,43,.1)}
+.fl-glow{position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(240,146,43,.08) 0%,transparent 70%);pointer-events:none}
+.fl-inner{position:relative;z-index:1;padding:36px}
+@media(min-width:768px){.fl-inner{padding:48px}}
+.fl-live{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+.fl-live::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.fl-name{font-family:var(--hero-font);font-size:clamp(32px,5vw,52px);font-weight:400;letter-spacing:.04em;margin-bottom:4px;text-transform:uppercase}
+.fl-tag{color:var(--text2);font-size:15px;margin-bottom:24px;font-weight:300}
+.fl-features{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.ff{font-size:12px;padding:6px 14px;border-radius:6px;background:rgba(240,146,43,.08);color:var(--amber);border:1px solid rgba(240,146,43,.12);font-weight:500}
+.fl-wave{height:120px;display:flex;align-items:center;justify-content:center;gap:2px;margin-bottom:32px;opacity:.6}
+.wb{width:3px;border-radius:2px;background:linear-gradient(to top,var(--ember),var(--amber))}
+.fl-actions{display:flex;gap:12px}
+
+.pgrid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:640px){.pgrid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.pgrid.col3{grid-template-columns:1fr 1fr 1fr}}
+.pcard{background:var(--bg2);border:1px solid rgba(255,255,255,.04);border-radius:14px;padding:24px;position:relative;overflow:hidden;transition:all .3s}
+.pcard:hover{border-color:rgba(240,146,43,.18);transform:translateY(-3px)}
+.pcard::after{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.pcard.live::after{background:linear-gradient(90deg,var(--teal),rgba(64,216,168,.2))}
+.pcard.dev::after{background:linear-gradient(90deg,var(--ember),rgba(240,146,43,.2))}
+.pcard-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.pcard-ico{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--heading);font-size:14px;font-weight:700}
+.pcard-ico.ti{background:rgba(64,216,168,.1);color:var(--teal)}
+.pcard-ico.ei{background:rgba(240,146,43,.1);color:var(--ember)}
+.pcard-name{font-family:var(--heading);font-size:15px;font-weight:600}
+.pcard-status{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-top:1px}
+.pcard-status.live{color:var(--teal)}
+.pcard-status.dev{color:var(--ember)}
+.pcard-desc{font-size:13px;color:var(--text2);line-height:1.55;font-weight:300}
+.pcard-url{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:11px;color:var(--text3);text-decoration:none;transition:color .2s}
+.pcard-url:hover{color:var(--ember)}
+
+.internal{margin-top:48px;padding:28px;background:var(--bg2);border-radius:14px;border:1px solid rgba(255,255,255,.03)}
+.internal-head{font-family:var(--mono);font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:11px;padding:5px 14px;border-radius:20px;background:rgba(255,255,255,.03);color:var(--text3);border:1px solid rgba(255,255,255,.04);font-weight:500}
+
+.quote-sec{padding:80px 0;text-align:center;position:relative}
+.quote-sec::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(240,146,43,.04),transparent 70%);pointer-events:none}
+.quote-sec blockquote{font-family:var(--hero-font);font-size:clamp(28px,5vw,48px);font-weight:400;line-height:1.15;max-width:640px;margin:0 auto;letter-spacing:.03em;position:relative;text-transform:uppercase}
+.quote-sec blockquote span{color:var(--ember)}
+
+.about-grid{display:grid;grid-template-columns:1fr;gap:48px}
+@media(min-width:768px){.about-grid{grid-template-columns:1fr 1fr;gap:64px}}
+.about-name{font-family:var(--heading);font-size:28px;font-weight:700;margin-bottom:4px}
+.about-loc{font-family:var(--mono);font-size:12px;color:var(--text3);letter-spacing:.04em;margin-bottom:18px}
+.roles{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.role{font-size:11px;padding:5px 14px;border-radius:20px;border:1px solid rgba(240,146,43,.18);color:var(--amber);font-weight:500;letter-spacing:.01em}
+.about-bio{font-size:14px;color:var(--text2);line-height:1.75;font-weight:300}
+.about-bio p+p{margin-top:14px}
+
+.tl-item{display:flex;gap:20px;padding-bottom:28px;position:relative}
+.tl-item:not(:last-child)::before{content:'';position:absolute;left:5px;top:16px;bottom:0;width:1px;background:rgba(240,146,43,.12)}
+.tl-dot{width:11px;height:11px;border-radius:50%;border:2px solid var(--ember);background:var(--bg);flex-shrink:0;margin-top:5px;position:relative;z-index:1}
+.tl-y{font-family:var(--mono);font-size:12px;color:var(--ember);font-weight:500;margin-bottom:3px}
+.tl-t{font-size:13px;color:var(--text2);line-height:1.6;font-weight:300}
+
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.tc{padding:16px;border-radius:10px;background:var(--bg2);border:1px solid rgba(255,255,255,.03)}
+.tc-cat{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ember);margin-bottom:6px;font-weight:500}
+.tc-val{font-size:12px;color:var(--text);font-weight:400}
+
+footer{padding:48px 0;border-top:1px solid rgba(240,146,43,.06)}
+.foot-inner{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:24px}
+.foot-brand{font-family:var(--heading);font-size:18px;font-weight:700;margin-bottom:8px}
+.foot-brand span{color:var(--ember)}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap}
+.foot-links a{font-size:12px;color:var(--text3);text-decoration:none;font-weight:400;transition:color .2s}
+.foot-links a:hover{color:var(--amber)}
+.foot-copy{font-size:11px;color:var(--text3);font-weight:300}
+
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.rv{opacity:0;animation:rise .7s ease forwards}
+.d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.25s}.d4{animation-delay:.35s}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+<div class="wrap">
+<div class="nlogo">SUNRISE <span>SOFTWARE</span></div>
+<div class="nlinks">
+<a href="#products">Products</a>
+<a href="#about">About</a>
+<a href="#tech">Tech</a>
+<a href="https://masterforge.app" class="ncta">MasterForge</a>
+</div>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-bg">
+<img src="profiilikuva.jpg" alt="Petri Korhonen looking toward the horizon">
+</div>
+<div class="hero-content">
+<div class="wrap">
+<div class="hero-tagline rv">
+Real problems.<span class="line2">Real software.</span>
+</div>
+<p class="hero-sub rv d1">Audio mastering. Health tech. AI research. Family tools. I build what I need, and I build it properly. <strong>One developer. Tampere, Finland.</strong></p>
+<div class="hero-ctas rv d2">
+<a href="#products" class="btn btn-ember">See what I've built</a>
+<a href="https://masterforge.app" class="btn btn-outline">Open MasterForge</a>
+</div>
+</div>
+</div>
+</section>
+
+<div class="glow-divider"></div>
+
+<section class="section" id="products">
+<div class="wrap">
+
+<div class="slabel rv">Flagship</div>
+<div class="flagship rv d1">
+<div class="fl-glow"></div>
+<div class="fl-inner">
+<div class="fl-live">Live at masterforge.app</div>
+<div class="fl-name">MasterForge</div>
+<div class="fl-tag">Your AI music sounds flat? Hear the difference.</div>
+<div class="fl-features">
+<span class="ff">Real-time DSP engine</span>
+<span class="ff">ToneMap, 26 controls</span>
+<span class="ff">AI Artifact Suppressor</span>
+<span class="ff">Vocal Clarity Engine</span>
+<span class="ff">De-Esser</span>
+<span class="ff">M/S Processing</span>
+<span class="ff">Multiband Compressor</span>
+<span class="ff">Stripe payments</span>
+</div>
+<div class="fl-wave" id="waveform"></div>
+<div class="fl-actions">
+<a href="https://masterforge.app" class="btn btn-ember">Launch MasterForge</a>
+<a href="https://masterforge.app/analyze/" class="btn btn-outline">Free Audio Analyzer</a>
+</div>
+</div>
+</div>
+
+<div style="height:64px"></div>
+<div class="slabel rv">Live platforms</div>
+<div class="stitle rv">Running in production</div>
+<div class="ssub rv">Real users, real problems solved.</div>
+
+<div class="pgrid">
+<div class="pcard live rv d1">
+<div class="pcard-top"><div class="pcard-ico ti">Q</div><div><div class="pcard-name">Quaesitor V2</div><div class="pcard-status live">Live</div></div></div>
+<div class="pcard-desc">Multi-agent AI research platform. Three parallel analysis lines, confidence scoring, falsification memory, information resistance engine.</div>
+<a href="https://quaesitor.app" class="pcard-url">quaesitor.app</a>
+</div>
+<div class="pcard live rv d2">
+<div class="pcard-top"><div class="pcard-ico ti">TS</div><div><div class="pcard-name">TilastoSilta</div><div class="pcard-status live">Live</div></div></div>
+<div class="pcard-desc">Finnish statistics from THL, Tilastokeskus, Tulli, and municipal sources. Semantic AI search, Chart.js visualizations.</div>
+<a href="https://tilastosilta.fi" class="pcard-url">tilastosilta.fi</a>
+</div>
+<div class="pcard live rv d3">
+<div class="pcard-top"><div class="pcard-ico ti">VT</div><div><div class="pcard-name">VitalTrack</div><div class="pcard-status live">Live</div></div></div>
+<div class="pcard-desc">Training metrics and health tracking. TSS, normalized power, HR zones, PMC chart, Garmin sync. Built for my own cycling.</div>
+<a href="https://health.sunrisesoftware.app" class="pcard-url">health.sunrisesoftware.app</a>
+</div>
+<div class="pcard live rv d4">
+<div class="pcard-top"><div class="pcard-ico ti">HT</div><div><div class="pcard-name">HomeTeam</div><div class="pcard-status live">Live</div></div></div>
+<div class="pcard-desc">Gamified family tasks. HomeCoin economy, lucky wheel, streaks, push notifications. In daily use by our family.</div>
+<a href="https://home.sunrisesoftware.app" class="pcard-url">home.sunrisesoftware.app</a>
+</div>
+</div>
+
+<div style="height:64px"></div>
+<div class="slabel rv">Coming this year</div>
+
+<div class="pgrid col3">
+<div class="pcard dev rv d1">
+<div class="pcard-top"><div class="pcard-ico ei">HJ</div><div><div class="pcard-name">HEIJASTE</div><div class="pcard-status dev">In dev</div></div></div>
+<div class="pcard-desc">Psychophysical self-reflection. 40 cards, 5 dimensions. Three editions: everyday, clinical, veteran PTSD.</div>
+</div>
+<div class="pcard dev rv d2">
+<div class="pcard-top"><div class="pcard-ico ei">BF</div><div><div class="pcard-name">BrightFeed</div><div class="pcard-status dev">In dev</div></div></div>
+<div class="pcard-desc">News without the noise. Curated, clean, no engagement manipulation.</div>
+</div>
+<div class="pcard dev rv d3">
+<div class="pcard-top"><div class="pcard-ico ei">LV</div><div><div class="pcard-name">Luviamo</div><div class="pcard-status dev">In dev</div></div></div>
+<div class="pcard-desc">Marketing app for content creation and campaign management.</div>
+</div>
+<div class="pcard dev rv d1">
+<div class="pcard-top"><div class="pcard-ico ei">P+</div><div><div class="pcard-name">Premius Plus</div><div class="pcard-status dev">In dev</div></div></div>
+<div class="pcard-desc">Wellness coaching platform. Migraine, knee OA, hip pain, pelvic floor programs.</div>
+</div>
+<div class="pcard dev rv d2">
+<div class="pcard-top"><div class="pcard-ico ei">PS</div><div><div class="pcard-name">Premius Staff</div><div class="pcard-status dev">In dev</div></div></div>
+<div class="pcard-desc">Healthcare personnel management and internal tools.</div>
+</div>
+<div class="pcard dev rv d3">
+<div class="pcard-top"><div class="pcard-ico ei">SF</div><div><div class="pcard-name">SongForge</div><div class="pcard-status dev">In dev</div></div></div>
+<div class="pcard-desc">AI music production pipeline. YAML briefs, ACE-Step, ComfyUI, FFmpeg.</div>
+</div>
+</div>
+
+<div class="internal rv">
+<div class="internal-head">Also built: internal production tools</div>
+<div class="chips">
+<span class="chip">BreathForge Studio</span>
+<span class="chip">MasterVideo 3D</span>
+<span class="chip">MasterPromo</span>
+<span class="chip">PhotoMaster</span>
+<span class="chip">VideoForge</span>
+<span class="chip">Command Center</span>
+<span class="chip">SMP</span>
+<span class="chip">Plus Planner</span>
+<span class="chip">HomeTeam V2</span>
+</div>
+</div>
+
+</div>
+</section>
+
+<div class="glow-divider"></div>
+
+<section class="quote-sec">
+<div class="wrap rv">
+<blockquote>If the tool I need <span>doesn't exist,</span> I build it before morning.</blockquote>
+</div>
+</section>
+
+<div class="glow-divider"></div>
+
+<section class="section" id="about">
+<div class="wrap">
+<div class="slabel rv">About</div>
+<div class="about-grid">
+<div class="rv">
+<div class="about-name">Petri Korhonen</div>
+<div class="about-loc">Tampere, Finland</div>
+<div class="roles">
+<span class="role">Full-stack developer</span>
+<span class="role">Physiotherapist, 20 years</span>
+<span class="role">Development manager</span>
+<span class="role">Data Protection Officer</span>
+<span class="role">Extreme overclocker, SF3D</span>
+</div>
+<div class="about-bio">
+<p>Twenty years of physiotherapy taught me to solve problems practically, not theoretically. Extreme overclocking taught me to push systems beyond their specifications. Now I do both with software.</p>
+<p>I write real-time DSP that runs in the browser. I build AI research platforms that challenge their own conclusions. I design health trackers I actually use on my bike. Every product exists because the alternative was missing, broken, or built by someone who didn't understand the problem.</p>
+</div>
+</div>
+<div class="rv d2">
+<div class="tl-item"><div class="tl-dot"></div><div><div class="tl-y">2000s</div><div class="tl-t">Physiotherapy career begins. First code. Extreme overclocking world records under the SF3D alias.</div></div></div>
+<div class="tl-item"><div class="tl-dot"></div><div><div class="tl-y">2023</div><div class="tl-t">MasterForge launched. Quaesitor V1: a 9,600-line AI reasoning engine. HomeTeam built for our family.</div></div></div>
+<div class="tl-item"><div class="tl-dot"></div><div><div class="tl-y">2024</div><div class="tl-t">Pro Master with real-time DSP. First paying customer. Sunrise Software Oy established. DPO and development manager at Premius Kuntoutus.</div></div></div>
+<div class="tl-item"><div class="tl-dot"></div><div><div class="tl-y">2025</div><div class="tl-t">Quaesitor V2, VitalTrack, HEIJASTE, the Forge ecosystem. Twenty products and counting.</div></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="tech">
+<div class="wrap">
+<div class="slabel rv">Stack</div>
+<div class="stitle rv">Built with</div>
+<div class="ssub rv">Edge computing to real-time audio, all one developer.</div>
+<div class="tech-grid rv d1">
+<div class="tc"><div class="tc-cat">Frontend</div><div class="tc-val">Vite, React, PWA, Tailwind</div></div>
+<div class="tc"><div class="tc-cat">Edge</div><div class="tc-val">Cloudflare Workers, Pages, D1, R2, KV</div></div>
+<div class="tc"><div class="tc-cat">Backend</div><div class="tc-val">Hetzner VPS, Python, FastAPI</div></div>
+<div class="tc"><div class="tc-cat">Audio</div><div class="tc-val">Web Audio API, real-time DSP</div></div>
+<div class="tc"><div class="tc-cat">AI / ML</div><div class="tc-val">Claude API, vector DB, semantic search</div></div>
+<div class="tc"><div class="tc-cat">Desktop</div><div class="tc-val">PyQt6, FFmpeg</div></div>
+<div class="tc"><div class="tc-cat">Payments</div><div class="tc-val">Stripe Live</div></div>
+<div class="tc"><div class="tc-cat">Analytics</div><div class="tc-val">Cloudflare Web Analytics</div></div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<div class="foot-inner">
+<div>
+<div class="foot-brand">SUNRISE <span>SOFTWARE</span></div>
+<div class="foot-links">
+<a href="https://masterforge.app">MasterForge</a>
+<a href="https://quaesitor.app">Quaesitor</a>
+<a href="https://tilastosilta.fi">TilastoSilta</a>
+<a href="/cdn-cgi/l/email-protection#fd8d98898f94bd8e88938f948e988e929b898a9c8f98d39c8d8d">Contact</a>
+</div>
+</div>
+<div class="foot-copy">Sunrise Software Oy<br>Tampere, Finland<br>&copy; 2025</div>
+</div>
+</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+var wf=document.getElementById('waveform');
+for(var i=0;i<72;i++){var b=document.createElement('div');b.className='wb';var h=8+Math.random()*90;b.style.height=h+'px';b.style.opacity=(.3+Math.random()*.7).toFixed(2);wf.appendChild(b);}
+
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('s',scrollY>60)});
+
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.style.animationPlayState='running';io.unobserve(e.target)}}
