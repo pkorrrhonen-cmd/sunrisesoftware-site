@@ -53,5 +53,9 @@ npx wrangler pages deploy . --project-name=sunrisesoftware-site
 
 A migration to **Vite + React 19** (same visual result, componentised) is planned but not started — see SEED §5 and §10. Until then the static `index.html` is the source of truth.
 
+## Licence
+
+No open-source licence is granted. The site's text, design and images are the property of Sunrise Software Oy and the people pictured; the repository is public so the work can be read, not reused.
+
 ---
-Sunrise Software Oy · Tampere, Finland · private repository
+Sunrise Software Oy · Tampere, Finland

@@ -330,7 +330,7 @@ Single-file HTML concept (V4.5) serves as the authoritative reference. React imp
 ## 6. FOUNDER DATA (authoritative)
 
 ```
-Name:       Petri Korhonen (NEVER "Pete Hietanen")
+Name:       Petri Korhonen
 Company:    Sunrise Software Oy
 Location:   Tampere, Finland
 Email:      pete@sunrisesoftware.app
@@ -340,8 +340,6 @@ Alias:      SF3D (extreme overclocking scene, 2006-2016)
 Roles:
   - Full-stack developer
   - Physiotherapist, twenty years
-  - Development Manager (Premius Kuntoutus Oy)
-  - Data Protection Officer (Premius Kuntoutus Oy)
   - Founder (Sunrise Software Oy, est. 2024)
 ```
 
