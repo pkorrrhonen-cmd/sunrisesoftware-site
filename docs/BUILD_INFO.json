@@ -1,0 +1,110 @@
+{
+  "name": "sw-sivusto",
+  "version": "5.0.0",
+  "page": {
+    "design_version": "V5 (SEED v3.0.0, the sunrise generation)",
+    "built": "2026-09-18",
+    "last_page_revision": "2026-09-18",
+    "note": "index.html rewritten from docs/mockups/flow-4.html together with Petri (SEED v3.0.0 section 8). Not yet committed or deployed; V4.5 is still what sunrisesoftware.app serves until the branch is merged."
+  },
+  "seed": "3.0.0 (accepted 18.9.2026, adr.sws.013); 2.0.0 and the 2.1.0 draft archived",
+  "session": 2,
+  "updated": "2026-09-18",
+  "state": "Session 2 (18.9.2026) closed with the page built: index.html rewritten to Flow 4 (V5) with the page assets (portrait cutout at two sizes, drawer captures as WebP + JPG, the MasterForge EQ clip and poster, the Luviamo poster, the Salpa mark, the OG image, an inline SVG favicon), the head (description, canonical, Open Graph, Twitter card, JSON-LD Organization + Person), real links everywhere, alt texts, a skip link and focus outlines, data-revised in the footer. node scripts/check-site.mjs is GREEN. Verified in the pane: no console errors, all 16 images load, both videos ready. Page weight 5.2 MB of which 3.4 MB is the clip loaded lazily; HTML 91 kB. Replaced images removed (product-quaesitor, product-masterforge, product-luviamo); the studio portrait source moved to source-assets/. NOT COMMITTED: Petri decides when. Deploy follows the merge (Cloudflare Pages Git integration).",
+  "sources_checked_2026_09_17": {
+    "masterforge": "BUILD_INFO 4.44.0, 16.9.2026 (Starter v2 general master); masterforge.app: Free, Starter 4.99, Pro 9.99, one-off 14.99",
+    "quaesitor": "repo main 2.13.27 (17.8.2026), SEED v2.14.0; quaesitor.app live",
+    "luviamo": "prod_verified 0.385.0, 16.9.2026; luviamo.app live, Solo 39 / Team 119 / Business 199 per month, 14-day trial; Meta App Review 2A approved 31.8.2026, 2B submitted 17.9.2026",
+    "spectralforge": "app 2.0.0 (18.6.2026, Surgical De-tone); api repo 13.9.2026; spectral.masterforge.app live",
+    "atlas": "README status session 129 (4.9.2026), BUILD_INFO 0.9.185 session 135 (12.9.2026); 19 systems, 208 modules, 175 connections, 116 ADRs on 7.9.2026; Atlas Connect in use since 7.9.2026",
+    "virustutka": "README: production live v0.21.1 (repo 23.8.2026); virustutka.app answers 200",
+    "ultragravel": "BUILD_INFO 13.8.2026: live whole country, ultragravel.app answers 200",
+    "tilastosilta": "repo 29.8.2026; tilastosilta.fi answers 200",
+    "sf3d-ai-lab": "repo 28.8.2026; sf3d.fi live and public, dated posts August 2026",
+    "reviewglass": "BUILD_INFO session 3, 17.9.2026, pre-alpha in daily use, open source planned",
+    "salpa": "salpa-defence and salpa-demo 22.8.2026; demo A to E in production behind Cloudflare Access",
+    "somnus": "repo 17.9.2026; service beside Quaesitor on the home AMD box",
+    "kalastus": "repo 1.9.2026, session 127; kal.app answers 200",
+    "quaesitor-security": "repo 20.8.2026; internal verification harness since 19.8.2026",
+    "hometeam_vitaltrack": "no git; folders dated 9.8.2026; home. and health.sunrisesoftware.app answer 200",
+    "heijaste_brightfeed": "no repo, no trace in any README on 17.9.2026; proposed to drop, Petri confirms",
+    "github": "pkorrrhonen-cmd: 0 public repos, no name or bio on 17.9.2026; Sunrisesoftware-app: 15 private repos"
+  },
+  "next": [
+    "Petri looks at the built page (http://localhost:8765/index.html or the captures docs/mockups/v5-desktop.png and v5-phone.png) and says when to commit",
+    "Commit on the branch and open the PR (Sessio 2: V5 sivu, dokumentaatio ja päätökset); the Cloudflare Pages preview URL for the branch is looked at on desktop and phone before merging; Lighthouse on the preview",
+    "After merge: robots.txt, sitemap.xml (lastmod 2026-09-18) and _headers ship in the same PR; verify https://sunrisesoftware.app/ serves V5; update memory sunrisesoftware-site-deploy",
+    "Atlas: sw-sivusto.STATUS and proposals for adr.sws.003 to 013 in one round; the project-level MCP entry atlas (static bearer) is rejected with 401, Petri renews the token or removes the header",
+    "Fill the public GitHub profile in the same package (the page now links github.com/pkorrrhonen-cmd four times); first public repo candidate ReviewGlass once its name is cleared",
+    "Cloudflare Web Analytics still not enabled; needs a token from the dashboard",
+    "Later, no design change needed: a wider MasterForge EQ capture to replace the narrow one; a fresh TilastoSilta chart-view capture; real captures for Somnus/Atlas if ever cleared"
+  ],
+  "portrait": {
+    "source": "images/Petri.jpg (main checkout and worktree, untracked; 960x1200, taken 16.8.2026)",
+    "cutout": "docs/mockups/media/petri-cutout.webp (798x1094, alpha, bottom fade; made 18.9.2026 from the source without a model: colour distance to the backdrop, largest component, feathered edge)",
+    "use": "hero, whole person visible (Petri 18.9.2026); the page version is exported with the page assets"
+  },
+  "atlas_read_2026_09_17": {
+    "via": "claude.ai OAuth connector Atlas (30 tools); the project-level MCP entry atlas (static bearer) is rejected with 401",
+    "kokonaiskuva": "SUNRISE-KOKONAISKUVA v3 (6.9.2026), 20 systems. Chosen focus area 5.9.2026: consumer products = forecast, its uncertainty and the outcome for one person's decision (kal.app, ZAPP); tools and method = Atlas, MasterForge family, Luviamo, scc2, quaesitor-security; the rest exist and are not reclassified. Since AI (6.-8.11.2026) is already on Atlas's radar (a reachability-graph decision before it)",
+    "sw_sivusto_status_v1": "26.7.2026: one static page in production. PENDING TRACK: site generation from Atlas STATUS data; that round was the first fill of the data source",
+    "sw_sivusto_workspace": "no GUIDE, TYOLISTA, PROJEKTI, decisions, messages or documents. Connect guide v3 (12.9.2026) describes decision requests with mockup slugs per decision",
+    "sw_sivusto_status_v2": "written 17.9.2026 18:43 UTC (art_8a5693a75da04108)",
+    "deltas_vs_local_checks": {
+      "quaesitor": "production 2.13.34 (9.9.2026), local checkout 2.13.27 is behind; push to main = deploy, owner's go-ahead",
+      "virustutka": "v0.24.0 (6.9.2026): traffic light redefined from a four-season backtest; autumn season on the map",
+      "tilastosilta": "v2 release gates met 13.8.; cutover from v1 pending Petri's decision (29.8.2026)",
+      "luviamo": "Stripe live 15.8.2026; Meta #1 approved 7.8., 2A 31.8., 2B submitted 17.9.; partner joanna",
+      "masterforge": "Atlas status 2.9. behind the repo (16.9.: Starter v2 promoted, 4.44.0); repo main is the truth",
+      "somnus": "box down 8.-9.9. for the X570 to X670E swap; Hetzner production healthy",
+      "salpa": "partner olli; demo behind Cloudflare Access; company not founded, name clearance is gate G1",
+      "kalastus": "kal.app; G6 built 1.9.2026; not yet run on a device"
+    }
+  },
+  "look_round_1": {
+    "date": "2026-09-17",
+    "files": "docs/mockups/look-{A,B,C}-*.html and -desktop.png, -phone.png",
+    "generator": "docs/mockups/build-look.py --shots (headless Edge, own user-data-dir per shot)",
+    "brief": "docs/design/look-2026-09.md"
+  },
+  "look_round_2": {
+    "date": "2026-09-17",
+    "files": "docs/mockups/flow-1.html, flow-1-desktop.png (1440x10200), flow-1-phone.png (390x13500), shots/{virustutka,ultragravel,tilastosilta,sf3d,kalastus,quaesitor}.png",
+    "generator": "docs/mockups/shoot.py (waits for Edge to write the file)",
+    "placeholders": "DM Sans everywhere; copy from the v2.1.0 content plan; SF3D placed as a film strip after the cabinet (adr.sws.003 open); creed wording"
+  },
+  "look_round_3": {
+    "date": "2026-09-18",
+    "files": "docs/mockups/flow-2.html, flow-2-desktop.png (1440x9600), flow-2-phone.png (390x12500), media/luviamo-poster.jpg (from the Luviamo repo; the video streams from luviamo.app)",
+    "placeholders": "DM Sans; copy; creed wording; canvas sketches as stand-ins for real clips"
+  },
+  "type_round_1": {
+    "date": "2026-09-18",
+    "files": "docs/mockups/type-1.html, type-1-pair1..6.png, type-1-sheet.png, type-1-sheet-sections.png",
+    "pairs": {
+      "1": "Newsreader + Albert Sans",
+      "2": "Instrument Serif + Instrument Sans",
+      "3": "Bricolage Grotesque + Figtree",
+      "4": "Familjen Grotesk + Public Sans",
+      "5": "Gloock + Golos Text",
+      "6": "Young Serif + Onest"
+    },
+    "labels": "mono (JetBrains Mono) or the body sans in tracked caps, switchable"
+  },
+  "flow_3": {
+    "date": "2026-09-18",
+    "files": "docs/mockups/flow-3.html, flow-3-desktop.png (1440x9000), flow-3-phone.png (390x11800)",
+    "what": "Flow 2 with the decided copy and structure; two headings and the cryo chamber text re-decided with Petri on 18.9. evening; plates and images still placeholders"
+  },
+  "app_view_round": {
+    "date": "2026-09-18",
+    "list": "docs/design/apps-v3.md",
+    "somnus_drafts": "docs/mockups/somnus-plate.html (draft 3 chosen)",
+    "media_added": "docs/mockups/media/masterforge-eq.mp4 (3.4 MB, from the MasterForge ad-video captures), salpa-defence logos (4 SVG) from the Salpa brand guide"
+  },
+  "flow_4": {
+    "date": "2026-09-18",
+    "files": "docs/mockups/flow-4.html, flow-4-desktop.png, flow-4-phone.png",
+    "what": "Flow 3 plus the decided app views (apps-v3.md); all copy decided; the page is the reference for SEED v3.0.0"
+  }
+}

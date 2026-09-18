@@ -1,61 +1,80 @@
-# Sunrise Software — Company Website
+# Sunrise Software site
 
-Source for **https://sunrisesoftware.app/** — the company site of Petri Korhonen / Sunrise Software Oy.
+Source of **https://sunrisesoftware.app/**, the company site of Petri Korhonen / Sunrise
+Software Oy. One self-contained static page (`index.html`, inline CSS and about fifty lines of
+vanilla JS) plus `images/`. The only external dependency is Google Fonts. There is no build
+step (adr.sws.001). Working practices are in `CLAUDE.md`; the design and content spec is the
+SEED in `docs/`.
 
-The current site (design **V4.5**, "cabinet dark" editorial concept) is a **single self-contained static page**: `index.html` with inline CSS/JS, plus an `images/` folder. The only external dependency is Google Fonts. **There is no build step.**
+## Status
 
-## Structure
+Page **V5** (the sunrise generation, SEED v3.0.0) is built in `index.html` on the branch
+`claude/sw-website-modernization-8676dd` (18.9.2026) and passes `scripts/check-site.mjs`. It
+replaces V4.5 (cabinet dark, April 2026) once the branch is merged; until then production still
+serves V4.5. Design system, content index and assets: `docs/SEED-v3.0.0.md`, with every text in
+`docs/design/copy-v3.md` and every image in `docs/design/apps-v3.md`. Machine-readable state and
+the open items: `docs/BUILD_INFO.json`.
+
+## Layout
 
 ```
-.
-├── index.html          # the entire site (inline CSS + ~50 lines vanilla JS for the lightbox)
-├── images/             # all site images (WebP primary + JPG/PNG fallback)
-├── docs/
-│   ├── SEED-v2.0.0.md   # authoritative design + content spec (read this before editing)
-│   └── archive/         # superseded earlier concepts (history)
-└── source-assets/      # original product screenshots (sources for the optimised images/)
+index.html              the entire page (inline CSS + JS: the sky, reveals, plates, drawers, the chamber, the lightbox)
+images/                 page images, WebP first with JPG or PNG fallback; og-cover.jpg
+media/                  the MasterForge EQ capture clip and its poster
+source-assets/          original product screenshots, the sources of images/
+scripts/check-site.mjs  the check CI runs (no dependencies)
+.github/workflows/      CI: node scripts/check-site.mjs on pull requests and main
+CLAUDE.md               working practices for Claude Code sessions
+docs/
+  SEED-v3.0.0.md        the spec of V5: design system, content index, assets, technical
+  design/               copy-v3.md (every text, decided), apps-v3.md (every image, decided), look brief
+  mockups/              the mockup rounds (look, flow, type) with captures; flow-4.html is the reference
+  CHANGELOG.md          what each session changed and why (newest first, Finnish)
+  BUILD_INFO.json       state, sources checked, next items (the only open-items list)
+  LESSONS.md            mistakes and the rule each one produced (Finnish)
+  decisions/            one file per decision, Atlas record shape, ids adr.sws.NNN
+  archive/              superseded concepts and SEEDs (v2.0.0, the v2.1.0 draft, concept-v3)
 ```
 
-## Local preview
+## Develop
 
-No build needed. Use any static server; Wrangler mimics the Cloudflare Pages runtime most closely:
+No build. Serve the folder with any static server; Wrangler mimics the Cloudflare Pages runtime
+most closely.
 
-```bash
+```
 npx wrangler pages dev .
-# or, simplest:
+```
+
+```
 npx serve .
 ```
 
-Then open the printed `http://localhost:...` URL.
+Run the checks CI runs (add `--links` to also HEAD-check every external link; CI does not):
 
-## Deployment
+```
+node scripts/check-site.mjs
+```
 
-Production is hosted on **Cloudflare Pages** with **Git integration**:
+## Deploy
 
-- **Push to `main` → automatic production deploy** to https://sunrisesoftware.app/
-- Every other branch / pull request gets its own **preview URL** (`*.pages.dev`) — use these to review changes before merging.
-- Rollbacks and build logs are available in the Cloudflare Pages dashboard.
+Production is Cloudflare Pages with Git integration: a push to `main` deploys to
+https://sunrisesoftware.app/ and every other branch or pull request gets a preview URL
+(`*.pages.dev`). Build command none, output directory `/`. Rollbacks and build logs are in the
+Pages dashboard. Manual fallback, rarely needed:
 
-Build settings in Cloudflare: **build command = (none)**, **output directory = `/`** (repo root).
-
-Manual deploy (fallback, rarely needed):
-
-```bash
+```
 npx wrangler pages deploy . --project-name=sunrisesoftware-site
 ```
 
-## Editing
+CI (`.github/workflows/ci.yml`) is a gate on pull requests and `main`; it does not deploy.
 
-- `docs/SEED-v2.0.0.md` is the locked spec — colours, typography, section architecture, and content all live there. Read it before changing copy or layout.
-- Known queued fix (from the SEED): SF3D year range should read **2006–2016** (not 2008–2016) in §04.
+## Documents
 
-## Roadmap
+- Before editing copy or layout, read SEED v3.0.0. Copy lives in `docs/design/copy-v3.md` and
+  images in `docs/design/apps-v3.md`; the SEED indexes them and holds the design system.
+- Every status on the page carries a date once adr.sws.004 is accepted; the footer revision
+  date must equal `BUILD_INFO.updated` (CI checks).
+- Atlas holds a mirror of this repo (`model/systems/sw-sivusto.model.json`, `sw-sivusto.STATUS`).
+  The repo is the truth, the mirror follows through the proposals channel.
 
-A migration to **Vite + React 19** (same visual result, componentised) is planned but not started — see SEED §5 and §10. Until then the static `index.html` is the source of truth.
-
-## Licence
-
-No open-source licence is granted. The site's text, design and images are the property of Sunrise Software Oy and the people pictured; the repository is public so the work can be read, not reused.
-
----
-Sunrise Software Oy · Tampere, Finland
+Sunrise Software Oy · Tampere, Finland · private repository

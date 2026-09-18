@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup C · Aamu-usva meren yllä</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --base:#F4F5F3; --paper:#FBFBF9; --paper-2:#E8ECEA;
+  --text:#28394A; --text-2:#56677A; --text-meta:#8E9BA8;
+  --rule:rgba(40,57,74,.10); --rule-strong:rgba(40,57,74,.22);
+  --sun:#E7A857; --sun-deep:#C9822F; --sea:#7C93A3; --sea-deep:#1D2C3A;
+  --glow:rgba(240,190,130,.42); --live:#4C8F87;
+  --horizon:linear-gradient(180deg,#F4F5F3 0%,#F6EFE6 40%,#E9E1DA 70%,#D8E0E3 100%);
+  --serif:'Fraunces',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif; --mono:'JetBrains Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--base);-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);color:var(--text);background:var(--base);line-height:1.6;font-size:16px}
+.mock-tag{position:fixed;bottom:12px;left:12px;z-index:99;font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--text);color:var(--base);padding:8px 10px;border-radius:2px;opacity:.85}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--base) 84%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--rule)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.mark{font-family:var(--serif);font-size:19px;font-weight:500;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:9px;letter-spacing:-.005em}
+.mark .sun{width:11px;height:11px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 4px color-mix(in srgb,var(--sun) 22%,transparent)}
+.links{display:flex;gap:28px;font:500 13px var(--sans);color:var(--text-2)}
+.links a{color:inherit;text-decoration:none}
+.links a.cta{color:var(--text);border:1px solid var(--rule-strong);padding:8px 14px;border-radius:999px}
+.hero{position:relative;overflow:hidden;padding:88px 0 72px}
+.hero::before{content:'';position:absolute;inset:0;background:var(--horizon);pointer-events:none}
+.hero::after{content:'';position:absolute;left:50%;top:-38%;width:1200px;height:1200px;transform:translateX(-50%);background:radial-gradient(circle,var(--glow) 0%,transparent 58%);filter:blur(22px);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr .8fr;gap:56px;align-items:center}
+.kicker{font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--sun-deep);margin-bottom:26px;display:flex;gap:12px;align-items:center}
+.kicker::before{content:'';width:22px;height:1px;background:var(--sun-deep)}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5vw,62px);line-height:1.06;letter-spacing:-.015em;color:var(--text);font-variation-settings:"opsz" 144;max-width:16ch}
+h1 .warm{color:var(--sun-deep)}
+.lede{margin-top:26px;max-width:46ch;font-size:18px;color:var(--text-2);font-weight:300}
+.meta{margin-top:44px;padding-top:24px;border-top:1px solid var(--rule);display:grid;grid-template-columns:repeat(4,1fr);gap:18px;font:12px var(--mono);color:var(--text-2)}
+.meta b{display:block;font-weight:500;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-meta);margin-bottom:6px}
+.meta a{color:var(--sun-deep);text-decoration:none}
+.portrait{position:relative;aspect-ratio:4/5;border-radius:4px;overflow:hidden;background:var(--paper-2);box-shadow:0 30px 60px -30px color-mix(in srgb,var(--text) 45%,transparent);margin:0}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block;mix-blend-mode:multiply;filter:saturate(.85) contrast(1.02)}
+.portrait figcaption{position:absolute;left:14px;bottom:12px;font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-2)}
+.sec{padding:clamp(64px,9vw,110px) 0;border-top:1px solid var(--rule)}
+.num{font:500 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--sun-deep);display:block;margin-bottom:18px}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.6vw,44px);line-height:1.1;letter-spacing:-.01em;color:var(--text);max-width:22ch}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;margin-top:56px}
+.item{padding-top:22px;border-top:2px solid var(--sun)}
+.item .lbl{font:500 10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--text-meta);margin-bottom:12px}
+.item p{font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--text)}
+.item p .warm{color:var(--sun-deep)}
+.work{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center;margin-top:56px}
+.cover{aspect-ratio:16/10;border-radius:4px;overflow:hidden;background:var(--sea-deep);box-shadow:0 30px 60px -28px color-mix(in srgb,var(--text) 50%,transparent);border:1px solid var(--rule);margin:0}
+.cover img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.status{display:inline-flex;align-items:center;gap:8px;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-2)}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--live)}
+h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.6vw,44px);line-height:1.04;margin:14px 0 10px;color:var(--text)}
+.tag{font-family:var(--serif);font-size:18px;color:var(--sun-deep);margin-bottom:18px;line-height:1.35}
+.desc{color:var(--text-2);max-width:52ch}
+.specs{display:flex;flex-wrap:wrap;gap:8px 20px;margin:22px 0;padding:14px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font:12px var(--mono);color:var(--text-2)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;background:var(--text);color:var(--base);text-decoration:none;font:500 13px var(--sans)}
+.rows{margin-top:48px;border-top:1px solid var(--rule)}
+.row{display:grid;grid-template-columns:70px 1.1fr 2fr;gap:22px;padding:16px 0;border-bottom:1px solid var(--rule);font-size:14px;color:var(--text-2)}
+.row .y{font:12px var(--mono);color:var(--text-meta)}
+.row .n{color:var(--text);font-weight:500}
+.row .n small{font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-meta);margin-left:10px}
+footer{background:var(--sea-deep);color:var(--paper);padding:56px 0 40px;margin-top:40px}
+footer .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
+footer h4{font-family:var(--serif);font-weight:400;font-size:30px;margin-bottom:12px}
+footer p{color:color-mix(in srgb,var(--paper) 70%,transparent);max-width:40ch}
+footer .mail{font-family:var(--serif);font-size:24px;color:var(--sun);text-decoration:none;border-bottom:1px solid var(--sun)}
+footer .foot{grid-column:1/-1;margin-top:36px;padding-top:20px;border-top:1px solid color-mix(in srgb,var(--paper) 15%,transparent);font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:color-mix(in srgb,var(--paper) 55%,transparent);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:820px){
+  .hero .wrap{grid-template-columns:1fr}.portrait{max-width:360px}.meta{grid-template-columns:1fr 1fr}
+  .grid4{grid-template-columns:1fr 1fr;gap:28px}.work{grid-template-columns:1fr}footer .wrap{grid-template-columns:1fr}
+  .links a:not(.cta){display:none}.row{grid-template-columns:60px 1fr}.row div:last-child{grid-column:1/-1;padding-left:82px}
+}
+@media(max-width:480px){.grid4{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="mock-tag">Mockup C · Aamu-usva meren yllä · look round 1 · 17.9.2026 · placeholder copy</div>
+
+<nav><div class="wrap">
+  <a class="mark" href="#"><span class="sun"></span>Sunrise Software</a>
+  <div class="links"><a href="#">Work</a><a href="#">Cabinet</a><a href="#">Approach</a><a href="#">Contact</a><a class="cta" href="#">GitHub ↗</a></div>
+</div></nav>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <div class="kicker">Sunrise Software Oy · Tampere, Finland · Est. 2024</div>
+    <h1>Software built by one person, <span class="warm">shipped early</span> and kept alive in production.</h1>
+    <p class="lede">Audio, research engines, marketing, public health, routing, and the control plane that holds them together.</p>
+    <div class="meta">
+      <div><b>Principal</b>Petri Korhonen</div>
+      <div><b>Location</b>Tampere, Finland</div>
+      <div><b>Code</b><a href="#">github.com/… ↗</a></div>
+      <div><b>Latest release</b>MasterForge 4.44 · 16 Sep 2026</div>
+    </div>
+  </div>
+  <figure class="portrait"><img src="../../images/Petri.jpg" alt="Petri Korhonen"><figcaption>Petri Korhonen · 2026</figcaption></figure>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <span class="num">§01 · The connection</span>
+  <h2>Four disciplines. One shared method.</h2>
+  <div class="grid4">
+    <div class="item"><div class="lbl">01 · Psychophysical physiotherapy</div><p>Twenty years of clinical work. A human is <span class="warm">one system, not a collection of parts.</span></p></div>
+    <div class="item"><div class="lbl">02 · Optimisation</div><p>Engines, then silicon at cryogenic temperatures, now inference on a GPU box. <span class="warm">How much can a system give, and how stably?</span></p></div>
+    <div class="item"><div class="lbl">03 · Cybersecurity &amp; health-tech</div><p>Day work: <span class="warm">digital health software to clinical and regulatory standards.</span></p></div>
+    <div class="item"><div class="lbl">04 · Software</div><p>Where all of it applies at once. <span class="warm">Read the system. Find the root cause.</span></p></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <span class="num">§02 · Selected work</span>
+  <h2>Four pieces of work. Three products in production, and the control plane that runs them.</h2>
+  <div class="work">
+    <figure class="cover"><img src="../../images/product-masterforge.webp" alt="MasterForge Pro Master"></figure>
+    <div>
+      <span class="status"><i></i>Live · v4.44 · paying customers</span>
+      <h3>MasterForge</h3>
+      <p class="tag">AI music mastering, for problems that didn't exist a year before it shipped.</p>
+      <p class="desc">A real-time DSP engine, ToneMap with 26 driven controls, AI artifact suppression, multiband compression, mid/side processing. In September 2026 the free tier was rebuilt as Starter v2: it measures the track first and derives the whole chain from what it hears.</p>
+      <div class="specs"><span>Free · Starter · Pro</span><span>Real-time DSP in the browser</span><span>Cloudflare Pages · Stripe</span></div>
+      <a class="btn" href="#">masterforge.app →</a>
+    </div>
+  </div>
+  <div class="rows">
+    <div class="row"><div class="y">2026 →</div><div class="n">Virustutka<small>live · v0.24</small></div><div>Open respiratory-virus situation monitor for Finland. virustutka.app</div></div>
+    <div class="row"><div class="y">2026 →</div><div class="n">Ultra Gravel<small>live</small></div><div>Finland-wide gravel route planner and navigator on authoritative data. ultragravel.app</div></div>
+    <div class="row"><div class="y">2026 →</div><div class="n">ReviewGlass<small>pre-alpha</small></div><div>Windows desktop companion for AI-assisted coding sessions. Tauri v2, Rust.</div></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div>
+    <h4>For serious conversations only.</h4>
+    <p>If the work above resembles something you need, write directly. No forms, no calendars.</p>
+    <p style="margin-top:18px"><a class="mail" href="#">pete@sunrisesoftware.app</a></p>
+  </div>
+  <div><p>MasterForge · Quaesitor · Luviamo · SpectralForge · Virustutka · Ultra Gravel · TilastoSilta · GitHub</p></div>
+  <div class="foot"><span>Sunrise Software Oy · Tampere, Finland</span><span>Est. 2024 · Independent</span><span>Revised 17 Sep 2026</span></div>
+</div></footer>
+</body>
+</html>

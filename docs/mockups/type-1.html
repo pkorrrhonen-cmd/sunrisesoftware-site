@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Type 1 · six pairs on the sunrise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Albert+Sans:wght@300;400;500;600&family=Instrument+Serif&family=Instrument+Sans:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500&family=Figtree:wght@300;400;500;600&family=Familjen+Grotesk:wght@400;500;600&family=Public+Sans:wght@300;400;500;600&family=Gloock&family=Golos+Text:wght@400;500;600&family=Young+Serif&family=Onest:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --base:#F9F7F1; --paper:#FFFDF9; --paper-2:#F1ECE3;
+  --text:#20303C; --text-2:#50606C; --text-meta:#8B96A0;
+  --rule:rgba(32,48,60,.10); --rule-strong:rgba(32,48,60,.22);
+  --sun:#E8A54E; --sun-deep:#C57A2C; --sea:#627F92; --sea-mid:#3D5A6C; --live:#4E987C;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace;
+  --display:'Newsreader',serif; --body:'Albert Sans',sans-serif; --label:var(--mono);
+  --dw:300; --dls:-.02em; --dlh:1.02; --dsize:1; --h3w:300; --bw:400; --cw:300;
+}
+/* the six pairs */
+[data-pair="1"]{--display:'Newsreader',Georgia,serif;--body:'Albert Sans',system-ui,sans-serif;--dw:300;--dls:-.015em;--dlh:1.0;--h3w:400;--cw:300}
+[data-pair="2"]{--display:'Instrument Serif',Georgia,serif;--body:'Instrument Sans',system-ui,sans-serif;--dw:400;--dls:-.01em;--dlh:.98;--dsize:1.08;--h3w:400;--cw:400}
+[data-pair="3"]{--display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Figtree',system-ui,sans-serif;--dw:300;--dls:-.03em;--dlh:1.0;--h3w:300;--cw:200}
+[data-pair="4"]{--display:'Familjen Grotesk',system-ui,sans-serif;--body:'Public Sans',system-ui,sans-serif;--dw:400;--dls:-.03em;--dlh:1.02;--dsize:.96;--h3w:400;--cw:400}
+[data-pair="5"]{--display:'Gloock',Georgia,serif;--body:'Golos Text',system-ui,sans-serif;--dw:400;--dls:-.005em;--dlh:1.02;--dsize:.94;--h3w:400;--cw:400}
+[data-pair="6"]{--display:'Young Serif',Georgia,serif;--body:'Onest',system-ui,sans-serif;--dw:400;--dls:-.015em;--dlh:1.04;--dsize:.9;--h3w:400;--cw:400}
+[data-labels="sans"]{--label:var(--body)}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--base);-webkit-font-smoothing:antialiased}
+body{font-family:var(--body);color:var(--text);line-height:1.55;font-size:16px;overflow-x:hidden;background:var(--base)}
+a{color:inherit}
+.wrap{max-width:1220px;margin:0 auto;padding:0 clamp(20px,4.5vw,64px);position:relative}
+
+/* switcher */
+.switch{position:sticky;top:0;z-index:50;background:rgba(32,48,60,.94);color:var(--base);backdrop-filter:blur(10px);padding:10px 0;font:500 12px var(--mono);letter-spacing:.06em}
+.switch .wrap{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.switch button{all:unset;cursor:pointer;padding:7px 12px;border-radius:999px;border:1px solid rgba(249,247,241,.25);color:rgba(249,247,241,.8);font:inherit;transition:.2s}
+.switch button:hover{color:var(--base);border-color:rgba(249,247,241,.6)}
+.switch button.on{background:var(--sun);color:var(--sea-mid);border-color:var(--sun)}
+.switch .sep{width:1px;height:22px;background:rgba(249,247,241,.2);margin:0 6px}
+.switch .name{margin-left:auto;color:var(--sun);text-transform:uppercase}
+
+/* sky and hero, as Flow 2 */
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,#FBF4EA 0%,#F7ECDD 30%,rgba(232,234,232,.7) 60%,var(--base) 100%)}
+.sky .orb{position:absolute;border-radius:50%;filter:blur(58px)}
+.sky .o1{width:720px;height:720px;left:8%;top:-22%;background:radial-gradient(circle,rgba(244,196,130,.40) 0%,transparent 64%)}
+.sky .o3{width:960px;height:960px;left:-16%;top:-34%;background:radial-gradient(circle,rgba(255,222,176,.34) 0%,transparent 64%)}
+nav{position:relative;z-index:1;padding:18px 0}
+nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.mark{display:flex;align-items:center;gap:10px;font-family:var(--body);font-weight:500;font-size:18px;letter-spacing:-.01em;text-decoration:none}
+.mark i{width:11px;height:11px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 4px rgba(232,165,78,.22)}
+.links{display:flex;gap:26px;align-items:center;font-size:13px;font-weight:500;color:var(--text-2)}
+.links a{text-decoration:none}
+.links a.cta{color:var(--text);border:1px solid var(--rule-strong);padding:8px 14px;border-radius:999px}
+
+.hero{position:relative;z-index:1;padding:70px 0 60px}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.kicker{font-family:var(--label);font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sun-deep);margin-bottom:24px;display:flex;gap:12px;align-items:center}
+.kicker::before{content:'';width:22px;height:1px;background:var(--sun-deep)}
+h1{font-family:var(--display);font-weight:var(--dw);font-size:calc(clamp(38px,5.2vw,68px) * var(--dsize));line-height:var(--dlh);letter-spacing:var(--dls);max-width:15ch;color:var(--text);font-variation-settings:"opsz" 72}
+h1 .warm{color:var(--sun-deep)}
+.lede{margin-top:22px;max-width:46ch;font-size:17px;font-weight:300;color:var(--text-2)}
+.meta{margin-top:36px;padding-top:20px;border-top:1px solid var(--rule);display:grid;grid-template-columns:repeat(4,1fr);gap:16px;font-family:var(--label);font-size:12px;color:var(--text-2)}
+.meta b{display:block;font-weight:500;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-meta);margin-bottom:5px}
+.meta a{color:var(--sun-deep);text-decoration:none}
+.portrait{position:relative;aspect-ratio:798/1094;margin:0;max-width:400px;justify-self:center}
+.portrait::before{content:'';position:absolute;left:50%;top:58%;width:120%;height:70%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(ellipse,rgba(244,196,130,.28) 0%,transparent 62%);filter:blur(24px)}
+.portrait img{position:relative;width:100%;height:100%;object-fit:contain;display:block;filter:saturate(.94) contrast(1.02)}
+
+.sec{position:relative;z-index:1;padding:70px 0}
+.num{font-family:var(--label);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sun-deep);display:block;margin-bottom:16px}
+h2{font-family:var(--display);font-weight:var(--dw);font-size:calc(clamp(30px,3.6vw,50px) * var(--dsize));line-height:1.06;letter-spacing:var(--dls);max-width:22ch;color:var(--text);font-variation-settings:"opsz" 48}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:40px}
+.item{position:relative;padding-top:20px;border-top:2px solid var(--sun)}
+.item .lbl{font-family:var(--label);font-weight:500;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-meta);margin-bottom:12px}
+.item p{font-size:17px;line-height:1.42;font-weight:300;color:var(--text)}
+.item p .warm{color:var(--sun-deep)}
+
+.plate{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;padding:40px 0}
+.frame{aspect-ratio:16/10;border-radius:8px;overflow:hidden;background:#0F171F;margin:0;box-shadow:0 44px 80px -44px rgba(32,48,60,.5),0 0 0 1px var(--rule)}
+.frame img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--label);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2)}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 0 3px rgba(78,152,124,.18)}
+h3{font-family:var(--display);font-weight:var(--h3w);font-size:calc(clamp(30px,3.4vw,44px) * var(--dsize));line-height:1.02;letter-spacing:var(--dls);margin:14px 0 10px;color:var(--text);font-variation-settings:"opsz" 40}
+.tag{font-size:17px;font-weight:400;color:var(--sun-deep);margin-bottom:14px;line-height:1.35;max-width:38ch}
+.desc{color:var(--text-2);max-width:52ch;font-weight:300;font-size:15px}
+.desc p+p{margin-top:10px}
+.specs{display:flex;flex-wrap:wrap;gap:6px 18px;margin:18px 0;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-family:var(--label);font-size:12px;color:var(--text-2)}
+[data-labels="sans"] .specs,[data-labels="sans"] .meta,[data-labels="sans"] .status,[data-labels="sans"] .num,[data-labels="sans"] .kicker,[data-labels="sans"] .item .lbl,[data-labels="sans"] .row .y,[data-labels="sans"] .row small{font-family:var(--body);letter-spacing:.1em}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:11px 17px;border-radius:999px;background:var(--text);color:var(--base);text-decoration:none;font-family:var(--body);font-weight:500;font-size:13px}
+
+.rows{margin-top:36px;border-top:1px solid var(--rule)}
+.row{display:grid;grid-template-columns:76px 1.15fr 2fr 40px;gap:24px;align-items:center;padding:16px 0;border-bottom:1px solid var(--rule)}
+.row .y{font-family:var(--label);font-size:12px;color:var(--text-meta)}
+.row .n{font-weight:500;color:var(--text);font-size:16px}
+.row small{font-family:var(--label);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-meta);margin-left:10px;font-weight:400}
+.row .d{color:var(--text-2);font-size:14px;font-weight:300}
+.row .plus{justify-self:end;font-size:18px;color:var(--text-meta)}
+
+.creed{margin:70px auto 0;text-align:center;max-width:22ch;font-family:var(--display);font-weight:var(--cw);font-size:calc(clamp(34px,4.8vw,62px) * var(--dsize));line-height:1.04;letter-spacing:var(--dls)}
+.creed .warm{color:var(--sun-deep)}
+.creed-sub{text-align:center;margin-top:18px;font-family:var(--label);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-meta)}
+
+.spec{position:relative;z-index:1;margin:60px 0 40px;padding:26px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;font-family:var(--mono);font-size:12px;color:var(--text-2)}
+.spec b{display:block;font-weight:500;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-meta);margin-bottom:6px}
+.spec .sample{font-family:var(--display);font-size:28px;font-weight:var(--dw);color:var(--text);line-height:1.1;margin-top:8px;letter-spacing:var(--dls)}
+.spec .sample2{font-family:var(--body);font-size:15px;color:var(--text-2);margin-top:8px;line-height:1.5}
+.mock-tag{position:fixed;bottom:12px;left:12px;z-index:70;font:500 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--text);color:var(--base);padding:8px 10px;border-radius:2px;opacity:.85}
+@media(max-width:900px){.hero .wrap,.plate{grid-template-columns:1fr}.portrait{max-width:300px}.meta{grid-template-columns:1fr 1fr}.grid4{grid-template-columns:1fr 1fr}.spec{grid-template-columns:1fr}.row{grid-template-columns:64px 1fr 24px}.row .d{grid-column:2/3}.links a:not(.cta){display:none}}
+</style>
+</head>
+<body data-pair="1" data-labels="mono">
+<div class="sky"><div class="orb o3"></div><div class="orb o1"></div></div>
+
+<div class="switch"><div class="wrap">
+  <span>PAIR</span>
+  <button data-set-pair="1">1 Newsreader + Albert</button>
+  <button data-set-pair="2">2 Instrument</button>
+  <button data-set-pair="3">3 Bricolage + Figtree</button>
+  <button data-set-pair="4">4 Familjen + Public</button>
+  <button data-set-pair="5">5 Gloock + Golos</button>
+  <button data-set-pair="6">6 Young Serif + Onest</button>
+  <span class="sep"></span>
+  <span>LABELS</span>
+  <button data-set-labels="mono">mono</button>
+  <button data-set-labels="sans">sans</button>
+  <span class="name" id="pairName"></span>
+</div></div>
+
+<div class="mock-tag">Type 1 · type round · placeholder copy · 18.9.2026</div>
+
+<nav><div class="wrap">
+  <a class="mark" href="#"><i></i>Sunrise Software</a>
+  <div class="links"><a href="#">Work</a><a href="#">Cabinet</a><a href="#">Approach</a><a href="#">Contact</a><a class="cta" href="#">GitHub ↗</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <div class="kicker">Sunrise Software Oy · Tampere, Finland · Est. 2024</div>
+    <h1>Software built by one person, <span class="warm">shipped early</span> and kept alive in production.</h1>
+    <p class="lede">Audio, research engines, marketing, public health, routing, and the control plane that holds them together.</p>
+    <div class="meta">
+      <div><b>Principal</b>Petri Korhonen</div>
+      <div><b>Location</b>Tampere, Finland</div>
+      <div><b>Code</b><a href="#">github.com/… ↗</a></div>
+      <div><b>Latest release</b>MasterForge 4.44 · 16 Sep 2026</div>
+    </div>
+  </div>
+  <figure class="portrait"><img src="media/petri-cutout.webp" alt="Petri Korhonen"></figure>
+</div></header>
+
+<section class="sec"><div class="wrap">
+  <span class="num">§01 · The connection</span>
+  <h2>Four disciplines. One shared method.</h2>
+  <div class="grid4">
+    <div class="item"><div class="lbl">01 · Psychophysical physiotherapy</div><p>Twenty years of clinical work. A human is <span class="warm">one system, not a collection of parts.</span></p></div>
+    <div class="item"><div class="lbl">02 · Optimisation</div><p>Engines, then silicon at cryogenic temperatures, now inference on a GPU box. <span class="warm">How much can a system give, and how stably?</span></p></div>
+    <div class="item"><div class="lbl">03 · Cybersecurity &amp; health-tech</div><p>Day work: <span class="warm">digital health software to clinical and regulatory standards.</span></p></div>
+    <div class="item"><div class="lbl">04 · Software</div><p>Where all of it applies at once, and where <span class="warm">agents do the typing and gates do the judging.</span></p></div>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:10px"><div class="wrap">
+  <span class="num">§02 · Selected work</span>
+  <h2>Four pieces of work. Three products in production, and the control plane that runs them.</h2>
+  <article class="plate">
+    <figure class="frame"><img src="../../images/product-masterforge.webp" alt=""></figure>
+    <div>
+      <span class="status"><i></i>Live · v4.44 · paying customers · 2023 →</span>
+      <h3>MasterForge</h3>
+      <p class="tag">AI music mastering, for problems that didn't exist a year before it shipped.</p>
+      <div class="desc"><p>When Suno and its contemporaries arrived, the outputs carried a specific brittleness: codec artifacts in the upper mids, harsh transients, collapsed stereo, a dull low end. Mastering tools were built for microphones, not neural networks.</p><p>In September 2026 the free tier was rebuilt as Starter v2: it measures the track first and derives the whole chain from what it hears.</p></div>
+      <div class="specs"><span>Free · Starter · Pro</span><span>Real-time DSP in the browser</span><span>Cloudflare Pages · Stripe</span></div>
+      <a class="btn" href="#">masterforge.app →</a>
+    </div>
+  </article>
+  <div class="rows">
+    <div class="row"><span class="y">2026 →</span><span class="n">Virustutka<small>live · v0.24</small></span><span class="d">Open, login-free respiratory-virus situation monitor for Finland.</span><span class="plus">+</span></div>
+    <div class="row"><span class="y">2026 →</span><span class="n">Ultra Gravel<small>live</small></span><span class="d">Finland-wide gravel route planner and navigator on authoritative data.</span><span class="plus">+</span></div>
+    <div class="row"><span class="y">2026 →</span><span class="n">ReviewGlass<small>pre-alpha · daily use</small></span><span class="d">Windows desktop companion for AI-assisted coding sessions.</span><span class="plus">+</span></div>
+  </div>
+  <p class="creed">Imagination is the limit. <span class="warm">Build, then enjoy the world.</span></p>
+  <p class="creed-sub">placeholder wording · the line is written in the text round</p>
+</div></section>
+
+<div class="wrap"><div class="spec" id="spec">
+  <div><b>Display</b><span id="specDisplay"></span><div class="sample">Aa Qg Rr 2026 §03</div></div>
+  <div><b>Body</b><span id="specBody"></span><div class="sample2">The quick brown fox jumps over the lazy dog. Kaikki hyvin: ääkköset ja numerot 0123456789.</div></div>
+  <div><b>Labels</b><span id="specLabels"></span><div class="sample2" style="font-family:var(--label);font-size:11px;letter-spacing:.14em;text-transform:uppercase">§02 · Selected work · Live · v4.44 · 2026 →</div></div>
+</div></div>
+
+<script>
+(() => {
+  const names = {1:['Newsreader','Albert Sans'],2:['Instrument Serif','Instrument Sans'],3:['Bricolage Grotesque','Figtree'],4:['Familjen Grotesk','Public Sans'],5:['Gloock','Golos Text'],6:['Young Serif','Onest']};
+  const body = document.body;
+  const q = new URLSearchParams(location.search);
+  if (q.get('pair')) body.dataset.pair = q.get('pair');
+  if (q.get('labels')) body.dataset.labels = q.get('labels');
+  function paint() {
+    document.querySelectorAll('[data-set-pair]').forEach(b => b.classList.toggle('on', b.dataset.setPair === body.dataset.pair));
+    document.querySelectorAll('[data-set-labels]').forEach(b => b.classList.toggle('on', b.dataset.setLabels === body.dataset.labels));
+    const [d, s] = names[body.dataset.pair];
+    document.getElementById('pairName').textContent = `${body.dataset.pair} · ${d} + ${s} · labels ${body.dataset.labels}`;
+    document.getElementById('specDisplay').textContent = d;
+    document.getElementById('specBody').textContent = s;
+    document.getElementById('specLabels').textContent = body.dataset.labels === 'mono' ? 'JetBrains Mono' : s + ' (tracked caps)';
+    history.replaceState(null, '', `?pair=${body.dataset.pair}&labels=${body.dataset.labels}`);
+  }
+  document.querySelectorAll('[data-set-pair]').forEach(b => b.addEventListener('click', () => { body.dataset.pair = b.dataset.setPair; paint(); }));
+  document.querySelectorAll('[data-set-labels]').forEach(b => b.addEventListener('click', () => { body.dataset.labels = b.dataset.setLabels; paint(); }));
+  addEventListener('keydown', e => { if (/^[1-6]$/.test(e.key)) { body.dataset.pair = e.key; paint(); } if (e.key === 'm') { body.dataset.labels = body.dataset.labels === 'mono' ? 'sans' : 'mono'; paint(); } });
+  paint();
+})();
+</script>
+</body>
+</html>

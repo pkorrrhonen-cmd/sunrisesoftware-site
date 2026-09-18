@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Somnus plate · three drafts</title>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500&family=Public+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--base:#F9F7F1;--paper:#FFFDF9;--paper-2:#F1ECE3;--text:#20303C;--text-2:#50606C;--text-meta:#8B96A0;--rule:rgba(32,48,60,.10);--rule-strong:rgba(32,48,60,.22);--sun:#E8A54E;--sun-deep:#C57A2C;--sea:#627F92;--sea-mid:#3D5A6C;--sea-deep:#243B4A;--live:#4E987C;--mono:'JetBrains Mono',monospace;--sans:'Public Sans',sans-serif;--display:'Familjen Grotesk',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--base);color:var(--text);font-family:var(--sans);padding:40px clamp(20px,4vw,60px) 80px}
+h1{font-family:var(--display);font-weight:400;font-size:30px;letter-spacing:-.02em;margin-bottom:6px}
+.sub{color:var(--text-2);font-weight:300;max-width:70ch;margin-bottom:36px}
+.grid{display:grid;grid-template-columns:1fr;gap:56px;max-width:1180px}
+.variant h2{font:500 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--sun-deep);margin-bottom:8px}
+.variant p{color:var(--text-2);font-size:14px;font-weight:300;max-width:70ch;margin-bottom:14px}
+.frame{position:relative;aspect-ratio:16/10;max-width:760px;border-radius:8px;overflow:hidden;background:var(--paper-2);box-shadow:0 44px 80px -44px rgba(32,48,60,.5),0 0 0 1px var(--rule)}
+.frame canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.frame .cap{position:absolute;left:14px;top:12px;font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,253,249,.7)}
+.frame.light .cap{color:var(--text-meta)}
+.mock-tag{position:fixed;bottom:12px;left:12px;z-index:70;font:500 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--text);color:var(--base);padding:8px 10px;border-radius:2px;opacity:.85}
+</style>
+</head>
+<body>
+<h1>Somnus plate: three drafts</h1>
+<p class="sub">Petri's direction: Somnus is the workhorse. Audio separation, Atlas's computation, the successor of Quaesitor, Salpa Defence's processor. Somnus in the middle, the tasks around it, the funnel one box among them. Clinical, so the right picture lands: a local AI server used for many things.</p>
+<div class="mock-tag">Somnus plate drafts · app-view round · 18.9.2026</div>
+
+<div class="grid">
+  <section class="variant">
+    <h2>Draft 1 · Hub on dark · pulses travel out to the tasks</h2>
+    <p>The server as a quiet dark instrument: a hairline hub with the two GPUs as load bars, six task nodes around it, and jobs that travel out along the lines as small warm pulses, one task lit at a time. The mono labels name the tasks. Darkest of the three; matches MasterForge's plate on the page.</p>
+    <figure class="frame"><canvas data-v="1"></canvas><span class="cap">Somnus · local AI server · always on</span></figure>
+  </section>
+  <section class="variant">
+    <h2>Draft 2 · Hub on paper · clinical, thin lines, one accent</h2>
+    <p>The same hub on paper: thin sea-grey lines, the sun colour only on the job in flight and on the load. Reads as a technical drawing, closest to the page's own light. Lightest of the three.</p>
+    <figure class="frame light"><canvas data-v="2"></canvas><span class="cap">Somnus · local AI server · always on</span></figure>
+  </section>
+  <section class="variant">
+    <h2>Draft 3 · Rack panel · tasks as a live job list</h2>
+    <p>A server-panel reading: two GPU load meters on the left, a six-row job list on the right where each row is a task and its state runs live (queued, running, done), the running one highlighted. Reads as an instrument's front panel rather than a diagram.</p>
+    <figure class="frame"><canvas data-v="3"></canvas><span class="cap">Somnus · local AI server · always on</span></figure>
+  </section>
+</div>
+
+<script>
+(() => {
+  const SUN='#E8A54E', SUND='#C57A2C', SEA='#627F92', SEAM='#3D5A6C', SEAD='#243B4A', PAPER='#F9F7F1', INK='#20303C', LIVE='#4E987C';
+  const TASKS = [
+    ['AUDIO SEPARATION', 'stems for MasterForge and SpectralForge'],
+    ['RESEARCH FUNNEL', 'candidates screened locally'],
+    ['ATLAS COMPUTE', 'validation runs, ideas tested'],
+    ['SALPA PROCESSOR', 'local models for defence'],
+    ['LOCAL INFERENCE', 'every project, day and night'],
+    ['RESEARCH ENGINE', 'what Quaesitor did, now local'],
+  ];
+  function fit(cv){const p=cv.parentElement;const d=Math.min(devicePixelRatio||1,2);const w=Math.round((p.offsetWidth||760)*d),h=Math.round((p.offsetHeight||475)*d);if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h}return{ctx:cv.getContext('2d'),w,h,d}}
+  const mono=(h,f)=>`${Math.round(h*f)}px JetBrains Mono, monospace`;
+  const disp=(h,f)=>`${Math.round(h*f)}px Familjen Grotesk, sans-serif`;
+
+  function hub(cv, t, light){
+    const {ctx,w,h}=fit(cv);
+    ctx.fillStyle = light ? '#F4EFE6' : '#0F171F'; ctx.fillRect(0,0,w,h);
+    const cx=w*0.5, cy=h*0.52, R=Math.min(w,h)*0.36;
+    const line = light ? 'rgba(98,127,146,.45)' : 'rgba(143,166,184,.28)';
+    const ink = light ? INK : '#DFF3FF';
+    const meta = light ? '#8B96A0' : 'rgba(223,243,255,.55)';
+    // grid
+    ctx.strokeStyle = light ? 'rgba(32,48,60,.05)' : 'rgba(255,255,255,.03)'; ctx.lineWidth=1;
+    for(let x=0;x<w;x+=w/16){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke()}
+    for(let y=0;y<h;y+=h/10){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}
+    // task nodes
+    const nodes = TASKS.map((tk,i)=>{const a=-Math.PI/2 + i*(Math.PI*2/6); return {a, x:cx+Math.cos(a)*R*1.05, y:cy+Math.sin(a)*R*0.92, tk}});
+    const active = Math.floor(t/1400)%6;
+    nodes.forEach((n,i)=>{
+      ctx.strokeStyle=line; ctx.lineWidth=Math.max(1,w/900); ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(n.x,n.y); ctx.stroke();
+      // pulse along the line for the active task
+      if(i===active){const f=(t%1400)/1400; const px=cx+(n.x-cx)*f, py=cy+(n.y-cy)*f; ctx.fillStyle=SUN; ctx.shadowColor=SUN; ctx.shadowBlur=14; ctx.beginPath(); ctx.arc(px,py,Math.max(3,w/220),0,7); ctx.fill(); ctx.shadowBlur=0;}
+      const on=i===active;
+      const bw=w*0.24, bh=h*0.14, bx=n.x-bw/2, by=n.y-bh/2;
+      ctx.fillStyle = light ? (on?'rgba(232,165,78,.12)':'rgba(255,253,249,.9)') : (on?'rgba(232,165,78,.14)':'rgba(255,255,255,.04)');
+      ctx.strokeStyle = on ? SUN : line; ctx.lineWidth = on?Math.max(1.5,w/700):1;
+      ctx.beginPath(); ctx.roundRect(bx,by,bw,bh,6); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = on ? (light?SUND:SUN) : ink; ctx.font=mono(h,0.034); ctx.textAlign='center'; ctx.fillText(n.tk[0], n.x, n.y-h*0.008);
+      ctx.fillStyle = meta; ctx.font=`${Math.round(h*0.03)}px Public Sans, sans-serif`; ctx.fillText(n.tk[1], n.x, n.y+h*0.036);
+    });
+    // hub
+    const hw=w*0.26, hh=h*0.22;
+    ctx.fillStyle = light ? '#FFFDF9' : '#132234'; ctx.strokeStyle = light ? SEAM : 'rgba(232,165,78,.7)'; ctx.lineWidth=Math.max(1.5,w/600);
+    ctx.beginPath(); ctx.roundRect(cx-hw/2, cy-hh/2, hw, hh, 8); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = ink; ctx.font=disp(h,0.06); ctx.textAlign='center'; ctx.fillText('Somnus', cx, cy-h*0.01);
+    ctx.fillStyle = meta; ctx.font=mono(h,0.022); ctx.fillText('LOCAL AI SERVER · ALWAYS ON', cx, cy+h*0.032);
+    // two GPU load bars inside the hub
+    const g1 = 0.55+0.35*Math.abs(Math.sin(t*0.0012)), g2 = 0.35+0.4*Math.abs(Math.sin(t*0.0009+1.3));
+    [[g1,'R9700 32 GB'],[g2,'7900 XT 20 GB']].forEach(([g,l],i)=>{
+      const bx=cx-hw/2+w*0.012, by=cy+hh/2-h*0.045+i*h*0.018, bw2=hw-w*0.024;
+      ctx.fillStyle = light ? 'rgba(32,48,60,.08)' : 'rgba(255,255,255,.08)'; ctx.fillRect(bx,by,bw2,h*0.008);
+      ctx.fillStyle = SUN; ctx.fillRect(bx,by,bw2*g,h*0.008);
+    });
+    // status line
+    ctx.textAlign='left'; ctx.fillStyle=meta; ctx.font=mono(h,0.026);
+    ctx.fillText(`RUNNING · ${TASKS[active][0]}`, w*0.04, h*0.95);
+    ctx.textAlign='right'; ctx.fillText('UPTIME 100 % · COST ≈ 0 €', w*0.96, h*0.95);
+    ctx.textAlign='left';
+  }
+
+  function rack(cv, t){
+    const {ctx,w,h}=fit(cv);
+    ctx.fillStyle='#0F171F'; ctx.fillRect(0,0,w,h);
+    ctx.strokeStyle='rgba(143,166,184,.22)'; ctx.lineWidth=1; ctx.strokeRect(w*0.04,h*0.1,w*0.92,h*0.8);
+    // left: two GPU meters
+    const g1 = 0.55+0.35*Math.abs(Math.sin(t*0.0012)), g2 = 0.35+0.4*Math.abs(Math.sin(t*0.0009+1.3));
+    [[g1,'GPU 0 · R9700 32 GB'],[g2,'GPU 1 · 7900 XT 20 GB']].forEach(([g,l],i)=>{
+      const x=w*0.08+i*w*0.1, top=h*0.2, bh=h*0.5;
+      ctx.fillStyle='rgba(255,255,255,.06)'; ctx.fillRect(x,top,w*0.05,bh);
+      const grd=ctx.createLinearGradient(0,top+bh-bh*g,0,top+bh); grd.addColorStop(0,SUN); grd.addColorStop(1,'rgba(232,165,78,.2)');
+      ctx.fillStyle=grd; ctx.fillRect(x,top+bh-bh*g,w*0.05,bh*g);
+      ctx.fillStyle='rgba(223,243,255,.6)'; ctx.font=mono(h,0.022); ctx.save(); ctx.translate(x+w*0.025,top+bh+h*0.03); ctx.textAlign='center'; ctx.fillText(l.split(' · ')[0],0,0); ctx.fillText(l.split(' · ')[1],0,h*0.03); ctx.restore();
+    });
+    ctx.fillStyle='#DFF3FF'; ctx.font=disp(h,0.055); ctx.fillText('Somnus', w*0.08, h*0.17);
+    // right: job list
+    const active = Math.floor(t/1400)%6;
+    TASKS.forEach((tk,i)=>{
+      const y=h*0.2+i*h*0.105; const on=i===active; const done=(i+6-active)%6>3;
+      ctx.fillStyle = on?'rgba(232,165,78,.12)':'transparent'; ctx.fillRect(w*0.32,y-h*0.03,w*0.6,h*0.09);
+      ctx.fillStyle = on?SUN:(done?LIVE:'rgba(223,243,255,.35)'); ctx.beginPath(); ctx.arc(w*0.345,y+h*0.015,Math.max(3,w/260),0,7); ctx.fill();
+      ctx.fillStyle = on?'#DFF3FF':'rgba(223,243,255,.75)'; ctx.font=mono(h,0.03); ctx.fillText(tk[0], w*0.37, y+h*0.025);
+      ctx.fillStyle='rgba(223,243,255,.5)'; ctx.font=`${Math.round(h*0.026)}px Public Sans, sans-serif`; ctx.fillText(tk[1], w*0.37, y+h*0.058);
+      ctx.fillStyle = on?SUN:(done?LIVE:'rgba(223,243,255,.4)'); ctx.font=mono(h,0.024); ctx.textAlign='right';
+      ctx.fillText(on?`RUNNING ${Math.floor((t%1400)/14)} %`:(done?'DONE':'QUEUED'), w*0.91, y+h*0.025); ctx.textAlign='left';
+    });
+    ctx.fillStyle='rgba(223,243,255,.55)'; ctx.font=mono(h,0.026); ctx.fillText('LOCAL AI SERVER · ALWAYS ON · COST ≈ 0 €', w*0.08, h*0.95);
+  }
+
+  const cvs=[...document.querySelectorAll('canvas')];
+  const t0=performance.now();
+  function draw(t){cvs.forEach(cv=>{const v=cv.dataset.v; try{ if(v==='1') hub(cv,t,false); else if(v==='2') hub(cv,t,true); else rack(cv,t); }catch(e){ console.error('draft',v,e); }});}
+  let lastRaf=0;
+  function loop(now){lastRaf=now; draw(now-t0); requestAnimationFrame(loop)}
+  draw(2600);                                   /* first frame at once, also for a static capture */
+  requestAnimationFrame(loop);
+  /* a hidden or headless tab may never tick rAF: keep drawing on a timer as a fallback */
+  setInterval(()=>{ if(performance.now()-lastRaf>250) draw(performance.now()-t0); }, 200);
+})();
+</script>
+</body>
+</html>
