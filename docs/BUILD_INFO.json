@@ -5,12 +5,12 @@
     "design_version": "V5 (SEED v3.0.0, the sunrise generation)",
     "built": "2026-09-18",
     "last_page_revision": "2026-09-18",
-    "note": "index.html rewritten from docs/mockups/flow-4.html together with Petri (SEED v3.0.0 section 8). Not yet committed or deployed; V4.5 is still what sunrisesoftware.app serves until the branch is merged."
+    "note": "index.html rewritten from docs/mockups/flow-4.html together with Petri (SEED v3.0.0 section 8). Merged to main in PR #1 (squash) and deployed by Cloudflare Pages on 18.9.2026 16:35 UTC; verified live: title, og:image, data-revised 2026-09-18, assets 200, security headers present."
   },
   "seed": "3.0.0 (accepted 18.9.2026, adr.sws.013); 2.0.0 and the 2.1.0 draft archived",
   "session": 2,
   "updated": "2026-09-18",
-  "state": "Session 2 (18.9.2026) closed with the page built: index.html rewritten to Flow 4 (V5) with the page assets (portrait cutout at two sizes, drawer captures as WebP + JPG, the MasterForge EQ clip and poster, the Luviamo poster, the Salpa mark, the OG image, an inline SVG favicon), the head (description, canonical, Open Graph, Twitter card, JSON-LD Organization + Person), real links everywhere, alt texts, a skip link and focus outlines, data-revised in the footer. node scripts/check-site.mjs is GREEN. Verified in the pane: no console errors, all 16 images load, both videos ready. Page weight 5.2 MB of which 3.4 MB is the clip loaded lazily; HTML 91 kB. Replaced images removed (product-quaesitor, product-masterforge, product-luviamo); the studio portrait source moved to source-assets/. NOT COMMITTED: Petri decides when. Deploy follows the merge (Cloudflare Pages Git integration).",
+  "state": "Session 2 (18.9.2026) closed with V5 LIVE: PR #1 squash-merged to main and deployed by Cloudflare Pages; verified from the live site (title, og:image, data-revised, assets, headers). Before the merge the branch was rebased on main's public-repo commit and scrubbed: the employer's product names, partner names and other projects' internal states removed from all tracked files (one was in the Atlas board's card data inside the script; CI now checks the whole file). The repo is public with no open-source licence (README).",
   "sources_checked_2026_09_17": {
     "masterforge": "BUILD_INFO 4.44.0, 16.9.2026 (Starter v2 general master); masterforge.app: Free, Starter 4.99, Pro 9.99, one-off 14.99",
     "quaesitor": "repo main 2.13.27 (17.8.2026), SEED v2.14.0; quaesitor.app live",
@@ -31,13 +31,12 @@
     "github": "pkorrrhonen-cmd: 0 public repos, no name or bio on 17.9.2026; Sunrisesoftware-app: 15 private repos"
   },
   "next": [
-    "Petri looks at the built page (http://localhost:8765/index.html or the captures docs/mockups/v5-desktop.png and v5-phone.png) and says when to commit",
-    "Commit on the branch and open the PR (Sessio 2: V5 sivu, dokumentaatio ja päätökset); the Cloudflare Pages preview URL for the branch is looked at on desktop and phone before merging; Lighthouse on the preview",
-    "After merge: robots.txt, sitemap.xml (lastmod 2026-09-18) and _headers ship in the same PR; verify https://sunrisesoftware.app/ serves V5; update memory sunrisesoftware-site-deploy",
-    "Atlas: sw-sivusto.STATUS and proposals for adr.sws.003 to 013 in one round; the project-level MCP entry atlas (static bearer) is rejected with 401, Petri renews the token or removes the header",
-    "Fill the public GitHub profile in the same package (the page now links github.com/pkorrrhonen-cmd four times); first public repo candidate ReviewGlass once its name is cleared",
+    "Petri looks at the live page on the phone and desktop; anything to adjust goes to a new session on a new branch from main",
+    "Atlas: sw-sivusto.STATUS updated; proposals for adr.sws.003 to 013 to model/systems/sw-sivusto.model.json in one round (the project-level MCP entry atlas with a static bearer is rejected with 401; Petri renews the token or removes the header)",
+    "Fill the public GitHub profile (the page links github.com/pkorrrhonen-cmd four times; the profile had no name, bio or public repos on 17.9.2026); first public repo candidate ReviewGlass once its name is cleared",
     "Cloudflare Web Analytics still not enabled; needs a token from the dashboard",
-    "Later, no design change needed: a wider MasterForge EQ capture to replace the narrow one; a fresh TilastoSilta chart-view capture; real captures for Somnus/Atlas if ever cleared"
+    "Lighthouse on the live page; the EQ clip (3.4 MB) loads lazily but is the heaviest asset: a shorter or narrower capture if the score asks for it",
+    "Later, no design change needed: a wider MasterForge EQ capture; a fresh TilastoSilta chart-view capture; real captures for Somnus and Atlas if ever cleared; the employer's apps if permission arrives (adr.sws.006)"
   ],
   "portrait": {
     "source": "images/Petri.jpg (main checkout and worktree, untracked; 960x1200, taken 16.8.2026)",
@@ -103,5 +102,13 @@
     "date": "2026-09-18",
     "files": "docs/mockups/flow-4.html, flow-4-desktop.png, flow-4-phone.png",
     "what": "Flow 3 plus the decided app views (apps-v3.md); all copy decided; the page is the reference for SEED v3.0.0"
+  },
+  "deploy": {
+    "live": "https://sunrisesoftware.app/",
+    "verified_at": "2026-09-18T16:36Z",
+    "pr": "https://github.com/pkorrrhonen-cmd/sunrisesoftware-site/pull/1",
+    "merge": "squash to main",
+    "pages": "Cloudflare Pages Git integration, build command none, output /",
+    "preview_pattern": "<deployment-id>.sunrisesoftware-site.pages.dev (the branch-alias URL answered 404 for this branch name)"
   }
 }

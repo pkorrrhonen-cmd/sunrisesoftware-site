@@ -154,8 +154,20 @@ Paneelista: ei konsolivirheitä, 16/16 kuvaa latautuu, molemmat videot valmiina.
 3,4 MB on klippi joka latautuu vasta näkyvissä; HTML 91 kB. Kaappaukset `docs/mockups/v5-*.png`.
 BUILD_INFO 5.0.0.
 
-**Ei tehty:** committia (Petri sanoo milloin). Seuraava: Petrin luenta sivusta, commit ja PR,
-Pages-esikatselu työpöydällä ja puhelimella, Lighthouse, merge, deploy.
+**Commit, PR ja deploy (Petri: "commit ja deploy / merge liveen").** Haara pushattu, PR #1 avattu.
+Mainiin oli tullut 17.9. commit (perustajatiedot karsittu julkisiin faktoihin, lisenssi, repo
+julkiseksi), joten sama linja tähän: koko repo skannattu ja työnantajan sovellusten nimet,
+kumppanien etunimet ja muiden projektien sisäiset tilat poistettu kaikista jäljitetyistä
+tiedostoista (yksi oli Atlas-laudan korttitekstissä script-lohkossa, jota CI ei tarkistanut;
+kieltolista tarkistaa nyt koko tiedoston), arkistoidut SEEDit ja concept-v3 karsittu, README:n
+lisenssikappale. Rebase mainin päälle (README-konflikti ratkaistu haaran versioon). CI vihreä,
+Cloudflare Pages -esikatselu katsottu paneelista (ei virheitä, kuvat ja videot latautuvat,
+puhelinleveys kunnossa). Squash-merge mainiin 18.9. 16:34 UTC. **V5 livenä** noin 40 s myöhemmin:
+todennettu title, og:image, data-revised, assetit (muotokuva, klippi, OG, robots, sitemap) ja
+turvaotsakkeet.
+
+**Seuraava:** Petrin luenta livesivusta puhelimella ja työpöydällä; korjaukset uuteen haaraan
+mainista. Atlas-ehdotukset, GitHub-profiili, Web Analytics, Lighthouse.
 Aiemmin kirjattu seuraava askel oli: sovellusnäkymäremontti (elävät laatat, laatikkokuvat, Atlas-kaavio uuden kuvauksen mukaan,
 joukon lopputarkistus), sitten SEED v3.0.0.
 
