@@ -27,13 +27,15 @@ scripts/check-site.mjs  the check CI runs (no dependencies)
 CLAUDE.md               working practices for Claude Code sessions
 docs/
   SEED-v3.0.0.md        the spec of V5: design system, content index, assets, technical
-  design/               copy-v3.md (every text, decided), apps-v3.md (every image, decided), look brief
+  design/               copy-v3.md (every text, decided), apps-v3.md (every image, decided), look brief,
+                        decision-method.md (how lists are decided: four boxes a round, and why it works)
   mockups/              the mockup rounds (look, flow, type) with captures; flow-4.html is the reference
   CHANGELOG.md          what each session changed and why (newest first, Finnish)
   BUILD_INFO.json       state, sources checked, next items (the only open-items list)
   LESSONS.md            mistakes and the rule each one produced (Finnish)
   decisions/            one file per decision, Atlas record shape, ids adr.sws.NNN
   archive/              superseded concepts and SEEDs (v2.0.0, the v2.1.0 draft, concept-v3)
+  SESSION-CLOSE-*.md    thread close-outs: result, rounds, decisions, lessons, open items (Finnish)
 ```
 
 ## Develop

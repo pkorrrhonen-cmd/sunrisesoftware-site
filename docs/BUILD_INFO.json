@@ -10,7 +10,7 @@
   "seed": "3.0.0 (accepted 18.9.2026, adr.sws.013); 2.0.0 and the 2.1.0 draft archived",
   "session": 2,
   "updated": "2026-09-18",
-  "state": "Session 2 (18.9.2026) closed with V5 LIVE: PR #1 squash-merged to main and deployed by Cloudflare Pages; verified from the live site (title, og:image, data-revised, assets, headers). Before the merge the branch was rebased on main's public-repo commit and scrubbed: the employer's product names, partner names and other projects' internal states removed from all tracked files (one was in the Atlas board's card data inside the script; CI now checks the whole file). The repo is public with no open-source licence (README).",
+  "state": "Session 2 (18.9.2026) closed with V5 LIVE: PR #1 squash-merged to main and deployed by Cloudflare Pages; verified from the live site (title, og:image, data-revised, assets, headers). Before the merge the branch was rebased on main's public-repo commit and scrubbed: the employer's product names, partner names and other projects' internal states removed from all tracked files (one was in the Atlas board's card data inside the script; CI now checks the whole file). The repo is public with no open-source licence (README). Thread packaged the same evening: the decision-box method researched and written up (docs/design/decision-method.md, Atlas artifact SUNRISE-TYOTAPA-PAATOSLAATIKOT), session close in docs/SESSION-CLOSE-2026-09-18.md.",
   "sources_checked_2026_09_17": {
     "masterforge": "BUILD_INFO 4.44.0, 16.9.2026 (Starter v2 general master); masterforge.app: Free, Starter 4.99, Pro 9.99, one-off 14.99",
     "quaesitor": "repo main 2.13.27 (17.8.2026), SEED v2.14.0; quaesitor.app live",
@@ -110,5 +110,12 @@
     "merge": "squash to main",
     "pages": "Cloudflare Pages Git integration, build command none, output /",
     "preview_pattern": "<deployment-id>.sunrisesoftware-site.pages.dev (the branch-alias URL answered 404 for this branch name)"
-  }
+  },
+  "method": {
+    "name": "päätöslaatikot (decision boxes)",
+    "doc": "docs/design/decision-method.md",
+    "atlas_artifact": "SUNRISE-TYOTAPA-PAATOSLAATIKOT (art_8b3182d865124b2e, v1, draft, 2026-09-18T16:58Z)",
+    "rule": "numbered list file first; four AskUserQuestion boxes a round, each with the current text, 2 to 3 options with one recommended and Other; new wording shown verbatim and marked as a proposal; record each answer at once; refine rounds; check the result live before it counts as decided"
+  },
+  "session_close": "docs/SESSION-CLOSE-2026-09-18.md"
 }

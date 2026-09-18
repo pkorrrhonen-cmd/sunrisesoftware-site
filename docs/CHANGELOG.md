@@ -166,6 +166,20 @@ puhelinleveys kunnossa). Squash-merge mainiin 18.9. 16:34 UTC. **V5 livenä** no
 todennettu title, og:image, data-revised, assetit (muotokuva, klippi, OG, robots, sitemap) ja
 turvaotsakkeet.
 
+**Ketjun paketointi (Petri: "paketoidaan tämä ketju ja tehdään lopetusdokumentaatio").** Petri
+huomasi, että päätösten pilkkominen neljän laatikon eriin tehosti päätöksentekoa: sivukysymykset
+vähenivät ja päätös muotoutui vaihtoehtoja vertaillessa, ja pyysi tutkimaan ilmiötä ja kirjaamaan
+työtavan Atlakseen muiden repojen käyttöön. Tutkittu (verkko): Hickin laki, valintaylikuorma
+(Iyengar ja Lepper 2000), työmuistin nelosraja (Cowan 2001), päätösväsymys (Danziger 2011 ja sen
+kritiikki), oletusvaihtoehdon vaikutus (Johnson ja Goldstein 2003), Raiffan hajota ja kokoa,
+Delphi, yksi kysymys kerrallaan -lomakkeet. Menetelmällä ei ole yhtä vakiintunutta nimeä; perheen
+nimeksi **päätöslaatikot**. Kirjoitettu `docs/design/decision-method.md` (mitä tehtiin, viisi
+ilmiötä, nimi, ainoa virhe ja sen sääntö, seitsemän kohdan ohje muihin repoihin, lähteet) ja
+`docs/SESSION-CLOSE-2026-09-18.md` (ketjun tulos, kierrokset, päätökset, opit, avoimet). Atlakseen
+viety artefakti `SUNRISE-TYOTAPA-PAATOSLAATIKOT` (art_8b3182d865124b2e, v1, draft, system
+sw-sivusto) OAuth-connectorin kautta; projektitason MCP-merkintä hylkää tokenin edelleen (401).
+CLAUDE.md:n päätöslaatikkosääntö viittaa nyt menetelmädokumenttiin.
+
 **Seuraava:** Petrin luenta livesivusta puhelimella ja työpöydällä; korjaukset uuteen haaraan
 mainista. Atlas-ehdotukset, GitHub-profiili, Web Analytics, Lighthouse.
 Aiemmin kirjattu seuraava askel oli: sovellusnäkymäremontti (elävät laatat, laatikkokuvat, Atlas-kaavio uuden kuvauksen mukaan,

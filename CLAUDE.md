@@ -27,7 +27,8 @@ decisions and documentation on its own; it does not edit the page, delete or add
 generate page assets on its own initiative. The plan for a revision lives in the SEED and the
 open decisions in `BUILD_INFO.next`. Lists of decisions are taken through question boxes, about
 four items a round, each with the current text and alternatives; a recommended option with new
-wording is shown verbatim and marked as a proposal.
+wording is shown verbatim and marked as a proposal. The method, why it works and the seven-step
+guide: `docs/design/decision-method.md` (Atlas artifact `SUNRISE-TYOTAPA-PAATOSLAATIKOT`).
 
 ## Rules for the page
 
