@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flow 1 · Sunrise Software · round 2 mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ---------- Palette A′ (adr.sws.010) and system tokens ---------- */
+:root{
+  --base:#F9F7F1; --paper:#FFFDF9; --paper-2:#F1ECE3;
+  --text:#20303C; --text-2:#50606C; --text-meta:#8B96A0;
+  --rule:rgba(32,48,60,.10); --rule-strong:rgba(32,48,60,.22);
+  --sun:#E8A54E; --sun-deep:#C57A2C; --sun-soft:rgba(232,165,78,.16);
+  --sea:#627F92; --sea-mid:#2E4453; --sea-deep:#1B2B36;
+  --glow:rgba(244,186,116,.42); --ember:#D96B3A; --live:#4E987C;
+  --sans:'DM Sans',system-ui,-apple-system,sans-serif;          /* placeholder type for round 2 */
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace;
+  --gutter:clamp(20px,4.5vw,64px);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --p:0;                                   /* scroll progress, set by JS */
+  --dawn:clamp(0, calc(1 - var(--p) * 2.4), 1);   /* hero light strength */
+  --seao:clamp(0, calc((var(--p) - .72) / .28), 1); /* sea ambience at the end */
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--base);scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);color:var(--text);line-height:1.6;font-size:16px;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1220px;margin:0 auto;padding:0 var(--gutter);position:relative}
+::selection{background:var(--sun);color:var(--sea-deep)}
+
+/* ---------- The sky: one fixed layer behind everything ---------- */
+.sky{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:var(--base)}
+.sky-dawn{position:absolute;inset:0;opacity:var(--dawn);
+  background:linear-gradient(180deg,#F8EEE1 0%,#F3E1CF 32%,rgba(226,230,229,.85) 60%,var(--base) 100%)}
+.orb{position:absolute;border-radius:50%;filter:blur(58px);opacity:var(--dawn);will-change:transform}
+.orb-1{width:720px;height:720px;left:38%;top:-16%;background:radial-gradient(circle,rgba(244,186,116,.60) 0%,transparent 64%);animation:drift1 24s ease-in-out infinite alternate}
+.orb-2{width:540px;height:540px;left:64%;top:6%;background:radial-gradient(circle,rgba(240,150,92,.34) 0%,transparent 66%);animation:drift2 31s ease-in-out infinite alternate}
+.orb-3{width:960px;height:960px;left:-6%;top:-30%;background:radial-gradient(circle,rgba(255,214,160,.42) 0%,transparent 64%);animation:drift3 38s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(70px,50px) scale(1.08)}}
+@keyframes drift2{to{transform:translate(-90px,70px) scale(1.12)}}
+@keyframes drift3{to{transform:translate(60px,90px) scale(1.05)}}
+.sky-cursor{position:absolute;left:0;top:0;width:920px;height:920px;border-radius:50%;
+  background:radial-gradient(circle,rgba(244,186,116,.30) 0%,rgba(244,186,116,.10) 30%,transparent 62%);
+  opacity:0;transform:translate(-50%,-50%);will-change:transform;transition:opacity .6s}
+.sky-sea{position:absolute;inset:0;opacity:var(--seao);
+  background:linear-gradient(180deg,transparent 0%,rgba(46,68,83,.35) 60%,rgba(27,43,54,.7) 100%)}
+
+/* ---------- Nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:40;padding:20px 0;border-bottom:1px solid transparent;
+  transition:background .5s,backdrop-filter .5s,padding .5s,border-color .5s,color .5s}
+nav.scrolled{background:rgba(249,247,241,.72);backdrop-filter:blur(14px) saturate(1.1);border-bottom-color:var(--rule);padding:12px 0}
+nav.on-sea{background:rgba(27,43,54,.55);color:var(--paper);border-bottom-color:rgba(255,253,249,.12)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.mark{display:flex;align-items:center;gap:10px;font-weight:500;font-size:18px;letter-spacing:-.01em;text-decoration:none}
+.sunmark{width:22px;height:22px;overflow:visible}
+.sunmark .disc{fill:var(--sun);transform:translateY(calc(var(--p) * -11px));transition:transform .15s linear;
+  filter:drop-shadow(0 0 calc(var(--p) * 7px) rgba(232,165,78,.9))}
+.sunmark .hz{stroke:currentColor;stroke-opacity:.45;stroke-width:1.2}
+.links{display:flex;gap:26px;align-items:center;font-size:13px;font-weight:500}
+.links a{text-decoration:none;opacity:.78;position:relative;transition:opacity .3s}
+.links a::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.links a:hover{opacity:1}.links a:hover::after{transform:none}
+.links a.cta{opacity:1;border:1px solid var(--rule-strong);padding:8px 14px;border-radius:999px}
+nav.on-sea .links a.cta{border-color:rgba(255,253,249,.35)}
+.links a.cta::after{display:none}
+
+/* ---------- Reveal system ---------- */
+[data-reveal]{opacity:0;transform:translateY(22px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+[data-reveal].in{opacity:1;transform:none}
+.words .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+.words .w>span{display:inline-block;transform:translateY(112%);transition:transform 1s var(--ease)}
+.words.in .w>span{transform:none}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;padding:150px 0 100px}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .85fr;gap:64px;align-items:center;width:100%}
+.kicker{font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--sun-deep);margin-bottom:30px;display:flex;gap:12px;align-items:center}
+.kicker::before{content:'';width:22px;height:1px;background:var(--sun-deep)}
+h1{font-weight:300;font-size:clamp(40px,5.6vw,74px);line-height:1.02;letter-spacing:-.028em;max-width:15ch;color:var(--text)}
+h1 .warm{color:var(--sun-deep)}
+.lede{margin-top:28px;max-width:46ch;font-size:18px;font-weight:300;color:var(--text-2)}
+.meta{margin-top:48px;padding-top:24px;border-top:1px solid var(--rule);display:grid;grid-template-columns:repeat(4,1fr);gap:18px;font:12px var(--mono);color:var(--text-2)}
+.meta b{display:block;font-weight:500;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-meta);margin-bottom:6px}
+.meta a{color:var(--sun-deep);text-decoration:none}
+.portrait{position:relative;aspect-ratio:4/5;margin:0;
+  --mask:radial-gradient(ellipse 60% 70% at 50% 46%,#000 50%,rgba(0,0,0,.55) 70%,transparent 100%);
+  -webkit-mask-image:var(--mask);mask-image:var(--mask)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block;mix-blend-mode:multiply;
+  filter:saturate(.82) contrast(1.03);transform:translateY(var(--py,0px)) scale(1.06);will-change:transform}
+.portrait figcaption{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--text-2);white-space:nowrap}
+.scroll-hint{position:absolute;left:var(--gutter);bottom:40px;font:10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--text-meta);display:flex;gap:12px;align-items:center;opacity:var(--dawn)}
+.scroll-hint i{display:block;width:1px;height:36px;background:var(--text-meta);animation:hint 2.4s ease-in-out infinite;transform-origin:top}
+@keyframes hint{0%,100%{transform:scaleY(.3);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+
+/* ---------- Sections ---------- */
+.sec{position:relative;z-index:1;padding:clamp(90px,12vw,170px) 0}
+.num{font:500 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--sun-deep);display:block;margin-bottom:22px}
+h2{font-weight:300;font-size:clamp(32px,4vw,56px);line-height:1.06;letter-spacing:-.025em;max-width:22ch;color:var(--text)}
+.sec-intro{margin-top:26px;max-width:52ch;font-size:17px;font-weight:300;color:var(--text-2)}
+
+/* §01 */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-top:64px}
+.item{position:relative;padding-top:24px}
+.item::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--sun);transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--ease)}
+.item.in::before{transform:none}
+.item .lbl{font:500 10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--text-meta);margin-bottom:14px}
+.item p{font-size:19px;line-height:1.42;font-weight:300;color:var(--text)}
+.item p .warm{color:var(--sun-deep)}
+
+/* §02 plates */
+.plates{margin-top:24px}
+.plate{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;padding:clamp(48px,6vw,88px) 0}
+.plate.flip .frame{order:2}
+.frame{position:relative;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:var(--paper-2);margin:0;cursor:zoom-in;
+  box-shadow:0 44px 80px -44px rgba(32,48,60,.5),0 0 0 1px var(--rule);transform:translateY(28px);opacity:0;transition:transform 1.2s var(--ease),opacity 1.2s var(--ease),box-shadow .6s var(--ease)}
+.frame.in{transform:none;opacity:1}
+.frame:hover{box-shadow:0 60px 100px -44px rgba(32,48,60,.55),0 0 0 1px var(--rule-strong)}
+.frame img{width:112%;height:112%;object-fit:cover;object-position:center top;display:block;margin:-6%;transform:translateY(var(--ix,0px));will-change:transform}
+.frame.on-paper{background:#F6F0E6}
+.frame .pill{position:absolute;right:14px;bottom:14px;background:var(--paper);color:var(--text);font:500 12px var(--sans);padding:8px 13px;border-radius:999px;opacity:0;transform:translateY(6px);transition:.4s var(--ease);box-shadow:0 12px 26px -14px rgba(0,0,0,.45)}
+.frame:hover .pill{opacity:1;transform:none}
+.status{display:inline-flex;align-items:center;gap:8px;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-2)}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 0 3px rgba(78,152,124,.18)}
+.status.infra i{background:var(--sea)}
+h3{font-weight:300;font-size:clamp(32px,3.8vw,50px);line-height:1.02;letter-spacing:-.025em;margin:16px 0 12px;color:var(--text)}
+.tag{font-size:18px;font-weight:400;color:var(--sun-deep);margin-bottom:18px;line-height:1.35;max-width:38ch}
+.desc{color:var(--text-2);max-width:52ch;font-weight:300}
+.desc p+p{margin-top:12px}
+.specs{display:flex;flex-wrap:wrap;gap:8px 20px;margin:22px 0;padding:14px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font:12px var(--mono);color:var(--text-2)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;background:var(--text);color:var(--base);text-decoration:none;font:500 13px var(--sans);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(32,48,60,.6)}
+.btn .arr{transition:transform .35s var(--ease)}.btn:hover .arr{transform:translateX(4px)}
+.btn.quiet{background:transparent;color:var(--text-2);border:1px solid var(--rule-strong);cursor:default}
+.btn.quiet:hover{transform:none;box-shadow:none}
+
+/* Atlas plate: an SVG that lives */
+.atlas{font-family:var(--mono);cursor:default}
+.atlas svg{width:100%;height:100%;display:block}
+.atlas .box{fill:rgba(255,253,249,.55);stroke:var(--sun-deep);stroke-width:1.2}
+.atlas .door{fill:rgba(255,253,249,.35);stroke:var(--sea);stroke-width:1}
+.atlas .t{fill:var(--text);font-size:15px;letter-spacing:.06em}
+.atlas .s{fill:var(--text-2);font-size:12px;letter-spacing:.04em}
+.atlas .m{fill:var(--text-meta);font-size:11px;letter-spacing:.12em}
+.atlas .flow{fill:none;stroke:var(--sun-deep);stroke-width:1.3;stroke-dasharray:5 9;animation:flow 2.8s linear infinite}
+.atlas .flow.back{stroke:var(--sea);animation-direction:reverse}
+@keyframes flow{to{stroke-dashoffset:-28}}
+.atlas .core{animation:breathe 7s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
+@keyframes breathe{50%{transform:scale(1.012)}}
+.atlas .pin{fill:var(--sun);animation:pulse 3.2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+
+/* §03 cabinet drawers */
+.drawers{margin-top:56px;border-top:1px solid var(--rule)}
+.drawer{border-bottom:1px solid var(--rule)}
+.drawer-head{all:unset;display:grid;grid-template-columns:76px 1.15fr 2fr 28px;gap:24px;align-items:baseline;width:100%;padding:22px 0;cursor:pointer;
+  transition:transform .55s var(--ease)}
+.drawer:hover .drawer-head,.drawer.open .drawer-head{transform:translateX(14px)}
+.drawer-head .y{font:12px var(--mono);color:var(--text-meta)}
+.drawer-head .n{font-weight:500;color:var(--text);font-size:16px}
+.drawer-head .n small{font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-meta);margin-left:10px;font-weight:400}
+.drawer-head .d{color:var(--text-2);font-size:14px;font-weight:300}
+.plus{position:relative;width:14px;height:14px;justify-self:end;align-self:center}
+.plus::before,.plus::after{content:'';position:absolute;left:0;top:6px;width:14px;height:1.5px;background:var(--text-meta);transition:transform .5s var(--ease),background .3s}
+.plus::after{transform:rotate(90deg)}
+.open .plus::after{transform:rotate(0)}.open .plus::before,.open .plus::after{background:var(--sun-deep)}
+.drawer-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .75s var(--ease)}
+.drawer.open .drawer-body{grid-template-rows:1fr}
+.drawer-inner{overflow:hidden;min-height:0}
+.drawer-inner>*{margin-left:100px}
+.drawer-inner p{max-width:60ch;color:var(--text-2);font-weight:300;padding-top:4px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font:12px var(--mono);color:var(--text-2)}
+.drawer-inner .link{display:inline-block;margin-top:14px;font:500 13px var(--sans);color:var(--sun-deep);text-decoration:none;border-bottom:1px solid rgba(197,122,44,.4)}
+.strip{display:flex;gap:16px;overflow-x:auto;scrollbar-width:none;padding:22px 0 34px;cursor:grab;scroll-snap-type:x proximity;margin-right:calc(-1 * var(--gutter))}
+.strip::-webkit-scrollbar{display:none}
+.strip.dragging{cursor:grabbing;scroll-snap-type:none}
+.card{flex:0 0 clamp(240px,32vw,400px);aspect-ratio:16/10;margin:0;border-radius:6px;overflow:hidden;background:var(--paper-2);position:relative;
+  box-shadow:0 24px 44px -26px rgba(32,48,60,.45),0 0 0 1px var(--rule);scroll-snap-align:start;user-select:none}
+.card img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;pointer-events:none}
+.card.nopic img{display:none}
+.card figcaption{position:absolute;left:12px;bottom:10px;font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-2);background:rgba(255,253,249,.82);padding:4px 8px;border-radius:3px}
+.card.typo,.card.nopic{display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#FFF9EF,#F0E4D3)}
+.card.typo>span,.card.nopic>span{font-weight:200;font-size:clamp(30px,3.6vw,48px);letter-spacing:-.03em;color:var(--sun-deep);text-align:center;padding:0 20px;line-height:1.1}
+.card.sea{background:linear-gradient(160deg,#2E4453,#1B2B36)}.card.sea>span{color:var(--sun)}
+.card.photo{aspect-ratio:4/3;cursor:zoom-in}
+#peek{position:fixed;z-index:30;width:270px;aspect-ratio:16/10;border-radius:6px;overflow:hidden;pointer-events:none;opacity:0;
+  transform:translate(24px,-50%) scale(.96);transition:opacity .35s var(--ease),transform .35s var(--ease);box-shadow:0 34px 64px -30px rgba(32,48,60,.6),0 0 0 1px var(--rule);background:var(--paper-2)}
+#peek.show{opacity:1;transform:translate(24px,-50%)}
+#peek img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+#peek span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:200;font-size:34px;letter-spacing:-.03em;color:var(--sun-deep);background:linear-gradient(160deg,#FFF9EF,#F0E4D3)}
+
+/* SF3D strip (placement open, adr.sws.003) */
+.sf3d{position:relative;z-index:1;padding:clamp(60px,8vw,110px) 0}
+.sf3d .num{color:var(--ember)}
+.sf3d .lead{max-width:60ch;color:var(--text-2);font-weight:300}
+.sf3d .lead a{color:var(--ember);text-decoration:none;border-bottom:1px solid rgba(217,107,58,.4)}
+.sf3d .strip{margin-top:8px}
+.note{display:inline-block;margin-left:14px;font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-meta);border:1px dashed var(--rule-strong);padding:3px 8px;border-radius:3px;vertical-align:middle}
+
+/* §04 approach */
+.rules{margin-top:56px;max-width:900px}
+.rule{position:relative;padding:34px 0 34px 72px;font-size:clamp(22px,2.6vw,32px);line-height:1.3;font-weight:300;letter-spacing:-.015em}
+.rule .k{position:absolute;left:0;top:44px;font:500 11px var(--mono);letter-spacing:.16em;color:var(--sun-deep)}
+.rule .warm{color:var(--sun-deep)}
+.rule::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--rule-strong);transform:scaleX(0);transform-origin:left;transition:transform 1.2s var(--ease) .1s}
+.rule.in::after{transform:none}
+.creed{margin:clamp(90px,12vw,150px) auto 0;text-align:center;max-width:22ch;font-weight:200;font-size:clamp(36px,5.2vw,68px);line-height:1.04;letter-spacing:-.03em}
+.creed .warm{color:var(--sun-deep);font-weight:300}
+.creed-sub{text-align:center;margin-top:22px;font:11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--text-meta)}
+.method{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;margin-top:clamp(80px,10vw,120px);padding-top:36px;border-top:1px solid var(--rule)}
+.method .lbl{font:500 10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--sun-deep);margin-bottom:12px}
+.method p{font-size:14.5px;color:var(--text-2);font-weight:300}
+
+/* ---------- The sea: contact and footer, no box ---------- */
+.sea{position:relative;z-index:1;margin-top:clamp(80px,10vw,140px);padding:36vh 0 56px;color:var(--paper);overflow:hidden;
+  background:linear-gradient(180deg,rgba(27,43,54,0) 0%,rgba(46,68,83,.45) 26%,var(--sea-mid) 48%,var(--sea-deep) 100%)}
+.sea .glint{position:absolute;left:50%;height:2px;transform:translateX(-50%);filter:blur(.6px);pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(244,186,116,.42),transparent)}
+.sea .g1{top:34%;width:64vw;animation:glint 9s ease-in-out infinite alternate}
+.sea .g2{top:41%;width:38vw;animation:glint 12s ease-in-out infinite alternate-reverse;opacity:.6}
+.sea .g3{top:47%;width:80vw;animation:glint 15s ease-in-out infinite alternate;opacity:.35}
+@keyframes glint{from{transform:translateX(-56%) scaleX(.85);opacity:.35}to{transform:translateX(-44%) scaleX(1.05);opacity:.9}}
+.sea .reflection{position:absolute;left:50%;bottom:-30%;width:70vw;height:60vh;transform:translateX(-50%);pointer-events:none;
+  background:radial-gradient(ellipse at 50% 100%,rgba(232,165,78,.16) 0%,transparent 60%)}
+.sea .num{color:var(--sun)}
+.sea h2{color:var(--paper)}
+.sea .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start}
+.sea p{color:rgba(255,253,249,.72);max-width:42ch;font-weight:300}
+.sea .mail{display:inline-block;margin-top:22px;font-size:clamp(22px,2.6vw,30px);font-weight:300;letter-spacing:-.02em;color:var(--sun);text-decoration:none;border-bottom:1px solid rgba(232,165,78,.5);transition:border-color .3s}
+.sea .mail:hover{border-color:var(--sun)}
+.sea .cols{display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;font-size:14px}
+.sea .cols a{color:rgba(255,253,249,.8);text-decoration:none;padding:10px 0;border-bottom:1px solid rgba(255,253,249,.12);display:flex;flex-direction:column;gap:3px;transition:color .3s}
+.sea .cols a:hover{color:var(--sun)}
+.sea .cols a small{font:10px var(--mono);letter-spacing:.1em;color:rgba(255,253,249,.45)}
+.sea .foot{margin-top:clamp(70px,9vw,120px);padding-top:22px;border-top:1px solid rgba(255,253,249,.14);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,253,249,.5)}
+
+/* ---------- Lightbox ---------- */
+.lightbox{position:fixed;inset:0;z-index:60;background:rgba(27,43,54,.92);backdrop-filter:blur(18px);display:none;align-items:center;justify-content:center;padding:40px;opacity:0;transition:opacity .4s;cursor:zoom-out}
+.lightbox.open{display:flex;opacity:1}
+.lightbox img{max-width:100%;max-height:86vh;border-radius:4px;box-shadow:0 40px 80px -20px rgba(0,0,0,.7);transform:scale(.96);transition:transform .5s var(--ease)}
+.lightbox.open img{transform:none}
+.lightbox .cap{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,253,249,.7)}
+
+/* ---------- Mock tag ---------- */
+.mock-tag{position:fixed;bottom:12px;left:12px;z-index:70;font:500 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--text);color:var(--base);padding:8px 10px;border-radius:2px;opacity:.85}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:40px}
+  .portrait{max-width:380px;margin:0 auto}
+  .meta{grid-template-columns:1fr 1fr}
+  .grid4{grid-template-columns:1fr 1fr;gap:30px}
+  .plate{grid-template-columns:1fr;gap:32px}
+  .plate.flip .frame{order:0}
+  .drawer-head{grid-template-columns:64px 1fr 24px;row-gap:6px}
+  .drawer-head .d{grid-column:2/3}
+  .drawer-inner>*{margin-left:0}
+  .method{grid-template-columns:1fr 1fr}
+  .sea .grid{grid-template-columns:1fr;gap:40px}
+  .links a:not(.cta){display:none}
+  .scroll-hint{display:none}
+}
+@media(max-width:520px){
+  .grid4,.method{grid-template-columns:1fr}
+  .rule{padding-left:52px}
+}
+
+/* ---------- Static render (screenshots) and reduced motion ---------- */
+.static [data-reveal],.reduced [data-reveal]{opacity:1;transform:none;transition:none}
+.static .frame,.reduced .frame{opacity:1;transform:none}
+.static .words .w>span,.reduced .words .w>span{transform:none;transition:none}
+.static .item::before,.static .rule::after,.reduced .item::before,.reduced .rule::after{transform:none}
+.static .orb,.static .glint,.static .atlas .flow,.static .atlas .core,.static .atlas .pin,.static .scroll-hint i,
+.reduced .orb,.reduced .glint,.reduced .atlas .flow,.reduced .atlas .core,.reduced .atlas .pin,.reduced .scroll-hint i{animation:none}
+.static .sky-cursor,.reduced .sky-cursor{display:none}
+.static .frame .pill{opacity:1;transform:none}
+/* a static capture is one tall viewport: no vh-sized blocks, dawn only at the top, sea from the section itself */
+.static .hero{min-height:0;padding:180px 0 120px}
+.static .sea{padding-top:280px}
+.static .sky-dawn{bottom:auto;height:1300px;mask-image:linear-gradient(180deg,#000 70%,transparent 100%);-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%)}
+.static .sky-sea{display:none}
+.static .orb{top:-200px}
+</style>
+</head>
+<body>
+
+<div class="sky" aria-hidden="true">
+  <div class="sky-dawn"></div>
+  <div class="orb orb-3"></div><div class="orb orb-1"></div><div class="orb orb-2"></div>
+  <div class="sky-cursor" id="cursorLight"></div>
+  <div class="sky-sea"></div>
+</div>
+
+<div class="mock-tag">Flow 1 · round 2 · elements, motion, flow · placeholder type and copy · 17.9.2026</div>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Sunrise Software, to the top">
+      <svg class="sunmark" viewBox="0 0 24 24" aria-hidden="true">
+        <defs><clipPath id="aboveHorizon"><rect x="0" y="0" width="24" height="15"/></clipPath></defs>
+        <g clip-path="url(#aboveHorizon)"><circle class="disc" cx="12" cy="21" r="5.6"/></g>
+        <line class="hz" x1="1" y1="15" x2="23" y2="15"/>
+      </svg>
+      Sunrise Software
+    </a>
+    <div class="links">
+      <a href="#work">Work</a><a href="#cabinet">Cabinet</a><a href="#approach">Approach</a><a href="#contact">Contact</a>
+      <a class="cta" href="#">GitHub ↗</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ Hero: the first ray ============ -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="kicker" data-reveal>Sunrise Software Oy · Tampere, Finland · Est. 2024</div>
+      <h1 class="words" data-reveal>
+        <span class="w"><span>Software</span></span> <span class="w"><span>built</span></span> <span class="w"><span>by</span></span> <span class="w"><span>one</span></span> <span class="w"><span>person,</span></span>
+        <span class="w"><span class="warm">shipped</span></span> <span class="w"><span class="warm">early</span></span> <span class="w"><span>and</span></span>
+        <span class="w"><span>kept</span></span> <span class="w"><span>alive</span></span> <span class="w"><span>in</span></span> <span class="w"><span>production.</span></span>
+      </h1>
+      <p class="lede" data-reveal style="transition-delay:.35s">Audio, research engines, marketing, public health, routing, and the control plane that holds them together.</p>
+      <div class="meta" data-reveal style="transition-delay:.5s">
+        <div><b>Principal</b>Petri Korhonen</div>
+        <div><b>Location</b>Tampere, Finland</div>
+        <div><b>Code</b><a href="#">github.com/… ↗</a></div>
+        <div><b>Latest release</b>MasterForge 4.44 · 16 Sep 2026</div>
+      </div>
+    </div>
+    <figure class="portrait" data-reveal style="transition-delay:.2s" id="portrait">
+      <img src="../../images/Petri.jpg" alt="Petri Korhonen">
+      <figcaption>Petri Korhonen · Tampere · 2026</figcaption>
+    </figure>
+  </div>
+  <div class="scroll-hint"><i></i>Scroll into the morning</div>
+</header>
+
+<!-- ============ §01 The connection ============ -->
+<section class="sec" id="connection">
+  <div class="wrap">
+    <span class="num" data-reveal>§01 · The connection</span>
+    <h2 class="words" data-reveal data-split>Four disciplines. One shared method.</h2>
+    <p class="sec-intro" data-reveal>Whatever I work on, a body, a benchmark, a codebase, a threat model, the work is the same. Find the pattern. Locate the root cause. Optimise until the system gives everything it can, stably.</p>
+    <div class="grid4">
+      <div class="item" data-reveal><div class="lbl">01 · Psychophysical physiotherapy</div><p>Twenty years of clinical work. A human is <span class="warm">one system, not a collection of parts.</span></p></div>
+      <div class="item" data-reveal style="transition-delay:.12s"><div class="lbl">02 · Optimisation</div><p>Engines, then silicon at cryogenic temperatures, now inference on a GPU box in the next room. <span class="warm">How much can a system give, and how stably?</span></p></div>
+      <div class="item" data-reveal style="transition-delay:.24s"><div class="lbl">03 · Cybersecurity &amp; health-tech</div><p>Day work: <span class="warm">digital health software to clinical and regulatory standards.</span></p></div>
+      <div class="item" data-reveal style="transition-delay:.36s"><div class="lbl">04 · Software</div><p>Where all of it applies at once, and since 2026 where <span class="warm">agents do the typing and gates do the judging.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §02 Selected work ============ -->
+<section class="sec" id="work">
+  <div class="wrap">
+    <span class="num" data-reveal>§02 · Selected work</span>
+    <h2 class="words" data-reveal data-split>Four pieces of work. Three products in production, and the control plane that runs them.</h2>
+
+    <div class="plates">
+      <article class="plate">
+        <figure class="frame" data-zoom data-cap="MasterForge · Pro Master · parametric EQ, loudness, AI analysis"><img src="../../images/product-masterforge.webp" alt="MasterForge Pro Master"><span class="pill">Open ↗</span></figure>
+        <div>
+          <span class="status" data-reveal><i></i>Live · v4.44 · paying customers · 2023 →</span>
+          <h3 data-reveal>MasterForge</h3>
+          <p class="tag" data-reveal>AI music mastering, for problems that didn't exist a year before it shipped.</p>
+          <div class="desc" data-reveal><p>When Suno and its contemporaries arrived, the outputs carried a specific kind of brittleness: codec artifacts in the upper mids, harsh transients, collapsed stereo, a dull low end. Existing mastering tools were built for microphones, not neural networks.</p><p>In September 2026 the free tier was rebuilt as Starter v2: it measures the track first and derives the whole mastering chain from what it hears.</p></div>
+          <div class="specs" data-reveal><span>Free · Starter · Pro</span><span>Real-time DSP in the browser</span><span>Tracks to 15 min · 400 MB</span><span>Cloudflare Pages · Stripe</span></div>
+          <a class="btn" href="#" data-reveal>masterforge.app <span class="arr">→</span></a>
+        </div>
+      </article>
+
+      <article class="plate flip">
+        <figure class="frame" data-zoom data-cap="Quaesitor · Resonance · three streams and the assembler"><img src="../../images/product-quaesitor.webp" alt="Quaesitor Resonance"><span class="pill">Open ↗</span></figure>
+        <div>
+          <span class="status" data-reveal><i></i>Live · v2.13 · 2023 →</span>
+          <h3 data-reveal>Quaesitor</h3>
+          <p class="tag" data-reveal>A research engine that thinks, falsifies, and verifies, in code and in arithmetic.</p>
+          <div class="desc" data-reveal><p>Three specialised streams run in parallel with a neutral assembler; falsification memory and an information-resistance engine keep the conversation moving. Crystal Memory carries verified facts across sessions.</p><p>Since summer 2026 a local cognition layer, Somnus, runs beside it on a home AMD GPU box over Tailscale.</p></div>
+          <div class="specs" data-reveal><span>Resonance · three streams</span><span>Crystal Memory · Elo</span><span>Somnus · RDNA4</span><span>FastAPI · Hetzner</span></div>
+          <a class="btn" href="#" data-reveal>quaesitor.app <span class="arr">→</span></a>
+        </div>
+      </article>
+
+      <article class="plate">
+        <figure class="frame on-paper" data-zoom data-cap="Luviamo · marketing from idea to publication"><img src="../../images/product-luviamo.webp" alt="Luviamo landing page"><span class="pill">Open ↗</span></figure>
+        <div>
+          <span class="status" data-reveal><i></i>Live · v0.385 · in production since summer 2026</span>
+          <h3 data-reveal>Luviamo</h3>
+          <p class="tag" data-reveal>One brand voice. The whole marketing lifecycle. Replacing five to eight separate tools.</p>
+          <div class="desc" data-reveal><p>Five rooms: ideate, plan, produce, publish, track. A single platform that learns the brand voice and carries it through the lifecycle, publishing to Facebook, Instagram and newsletters, with billing live since August 2026.</p></div>
+          <div class="specs" data-reveal><span>Brand voice, learned once</span><span>Facebook · Instagram · email</span><span>Solo · Team · Business</span><span>React 19 · Hono · D1</span></div>
+          <a class="btn" href="#" data-reveal>luviamo.app <span class="arr">→</span></a>
+        </div>
+      </article>
+
+      <article class="plate flip">
+        <figure class="frame atlas" data-reveal>
+          <svg viewBox="0 0 1600 1000" role="img" aria-label="Atlas schematic: the model in the middle, three doors around it, gates on the lines">
+            <g class="core"><rect class="box" x="560" y="330" width="480" height="300" rx="6"/></g>
+            <text class="m" x="800" y="385" text-anchor="middle">THE MODEL · SOURCE OF TRUTH</text>
+            <text class="t" x="800" y="440" text-anchor="middle">systems · modules · connections · decisions</text>
+            <text class="s" x="800" y="492" text-anchor="middle">19 systems · 208 modules · 175 connections · 116 ADRs</text>
+            <text class="m" x="800" y="524" text-anchor="middle">validated in CI · 7.9.2026</text>
+            <text class="s" x="800" y="590" text-anchor="middle">every module a contract · every decision a record</text>
+            <rect class="door" x="90" y="170" width="340" height="120" rx="6"/>
+            <text class="m" x="120" y="212">DOOR 1 · CLAUDE CHAT</text>
+            <text class="s" x="120" y="246">remote MCP · OAuth 2.1 · scoped per identity</text>
+            <rect class="door" x="90" y="700" width="340" height="120" rx="6"/>
+            <text class="m" x="120" y="742">DOOR 2 · CLAUDE CODE</text>
+            <text class="s" x="120" y="776">stdio and bearer · proposes, never promotes</text>
+            <rect class="door" x="1170" y="430" width="340" height="140" rx="6"/>
+            <text class="m" x="1200" y="472">DOOR 3 · ATLAS CONNECT</text>
+            <text class="s" x="1200" y="506">the phone app for partners and owner</text>
+            <text class="s" x="1200" y="536">messages · workspace · documents</text>
+            <path class="flow" d="M430 230 C 500 230, 520 380, 560 380"/>
+            <path class="flow back" d="M430 760 C 500 760, 520 580, 560 580"/>
+            <path class="flow" d="M1040 500 L 1170 500"/>
+            <text class="m" x="470" y="300">access/policy.json · fail-closed</text>
+            <text class="m" x="440" y="675">proposals → human promote → git</text>
+            <text class="m" x="1105" y="480" text-anchor="middle">same log, same gate</text>
+            <circle class="pin" cx="560" cy="380" r="5"/><circle class="pin" cx="560" cy="580" r="5"/><circle class="pin" cx="1040" cy="500" r="5"/>
+            <text class="m" x="800" y="905" text-anchor="middle">masterforge · quaesitor · luviamo · spectralforge · somnus · virustutka · ultragravel · kalastus · reviewglass · salpa · tilastosilta · sf3d-ai-lab</text>
+          </svg>
+        </figure>
+        <div>
+          <span class="status infra" data-reveal><i></i>In production · v0.9 · 2026 →</span>
+          <h3 data-reveal>Atlas</h3>
+          <p class="tag" data-reveal>The control plane. One model of every system, three doors into it, and a human gate on every change.</p>
+          <div class="desc" data-reveal><p>Nineteen systems is more than one head can hold. Atlas holds them as one machine-readable model with its rationale and decisions, validated in CI. Claude Code and Claude chat read it over MCP and propose changes; a human promotes them into git.</p><p>Since summer 2026 it is also how partners work with me: their own Claude with a scoped window into their projects, and Atlas Connect on their phone.</p></div>
+          <div class="specs" data-reveal><span>One model · 116 decisions</span><span>Proposals · artifacts · decisions</span><span>Teamwork · Connect</span><span>TypeScript · MCP · Workers · D1</span></div>
+          <span class="btn quiet" data-reveal>Access-protected · shown to partners</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §03 The rest of the cabinet ============ -->
+<section class="sec" id="cabinet">
+  <div class="wrap">
+    <span class="num" data-reveal>§03 · The rest of the cabinet</span>
+    <h2 class="words" data-reveal data-split>Twelve more, in drawers. Hover to pull, click to open.</h2>
+
+    <div class="drawers" id="drawers">
+      <article class="drawer" data-peek="shots/virustutka.png">
+        <button class="drawer-head" aria-expanded="false"><span class="y">2026 →</span><span class="n">Virustutka<small>live · v0.24</small></span><span class="d">Open, login-free respiratory-virus situation monitor for Finland.</span><span class="plus"></span></button>
+        <div class="drawer-body"><div class="drawer-inner">
+          <p>Thirteen pathogens across twenty-three wellbeing regions from THL clinical and wastewater signals, a traffic-light state per region, opt-in email alerts. The light was redefined in September 2026 from a four-season backtest. Installable, works offline.</p>
+          <div class="facts"><span>Cloudflare Workers · D1 · KV</span><span>crons 06:30 and 07:00 UTC</span><span>PWA</span></div>
+          <a class="link" href="#">virustutka.app ↗</a>
+          <div class="strip" data-drag>
+            <figure class="card"><img src="shots/virustutka.png" alt="" onerror="this.parentNode.classList.add('nopic')"><span>Virustutka</span><figcaption>virustutka.app · front page</figcaption></figure>
+            <figure class="card typo"><span>13 × 23</span><figcaption>pathogens × regions</figcaption></figure>
+            <figure class="card sea"><span>🟢 🟡 🔴</span><figcaption>one light, three measures</figcaption></figure>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="drawer" data-peek="shots/ultragravel.png">
+        <button class="drawer-head" aria-expanded="false"><span class="y">2026 →</span><span class="n">Ultra Gravel<small>live</small></span><span class="d">Finland-wide gravel route planner and navigator on authoritative data.</span><span class="plus"></span></button>
+        <div class="drawer-body"><div class="drawer-inner">
+          <p>Built on MML Maastotietokanta and Digiroad rather than OSM, so gravel and small forest roads are known across the whole country. Turn-by-turn with Finnish voice guidance, GPX and FIT export, loop planning, hill-aware routing.</p>
+          <div class="facts"><span>GraphHopper · PostGIS · Hetzner</span><span>Expo · MapLibre</span><span>national graph 3.4 M arcs</span></div>
+          <a class="link" href="#">ultragravel.app ↗</a>
+          <div class="strip" data-drag>
+            <figure class="card"><img src="shots/ultragravel.png" alt="" onerror="this.parentNode.classList.add('nopic')"><span>Ultra Gravel</span><figcaption>ultragravel.app</figcaption></figure>
+            <figure class="card typo"><span>3.4 M arcs</span><figcaption>whole of Finland</figcaption></figure>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="drawer" data-peek="shots/tilastosilta.png">
+        <button class="drawer-head" aria-expanded="false"><span class="y">2024 →</span><span class="n">TilastoSilta<small>live</small></span><span class="d">Free Finnish statistics visualisation from eight-plus public sources.</span><span class="plus"></span></button>
+        <div class="drawer-body"><div class="drawer-inner">
+          <p>Semantic search, shareable SVG, CSV and PNG export. No login, no ads. Version 2 has passed its release gates; the cutover from v1 is pending.</p>
+          <div class="facts"><span>Astro · Cloudflare</span><span>D1 · Vectorize · Workers AI</span></div>
+          <a class="link" href="#">tilastosilta.fi ↗</a>
+          <div class="strip" data-drag>
+            <figure class="card"><img src="shots/tilastosilta.png" alt="" onerror="this.parentNode.classList.add('nopic')"><span>TilastoSilta</span><figcaption>tilastosilta.fi</figcaption></figure>
+            <figure class="card typo"><span>8+ sources</span><figcaption>one search</figcaption></figure>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="drawer" data-peek="shots/sf3d.png">
+        <button class="drawer-head" aria-expanded="false"><span class="y">2026 →</span><span class="n">SF3D AI Lab<small>live</small></span><span class="d">Independent research lab site: multi-agent cognition on AMD RDNA4.</span><span class="plus"></span></button>
+        <div class="drawer-body"><div class="drawer-inner">
+          <p>Lab notes, an autonomous news agent under a hard cost cap, and the SF3D heritage: from world records to world models.</p>
+          <div class="facts"><span>Vite · React · Hono</span><span>git is the CMS</span></div>
+          <a class="link" href="#">sf3d.fi ↗</a>
+          <div class="strip" data-drag>
+            <figure class="card"><img src="shots/sf3d.png" alt="" onerror="this.parentNode.classList.add('nopic')"><span>SF3D AI Lab</span><figcaption>sf3d.fi</figcaption></figure>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="drawer">
+        <button class="drawer-head" aria-expanded="false"><span class="y">2026 →</span><span class="n">ReviewGlass<small>pre-alpha · daily use</small></span><span class="d">Windows desktop companion for AI-assisted coding sessions.</span><span class="plus"></span></button>
+        <div class="drawer-body"><div class="drawer-inner">
+          <p>A magnifier glass over any screen region, a panel of every running Claude Code session with quota and burn rate, live diff. Tauri v2, Rust. Open source (Apache-2.0) once the name is cleared.</p>
+          <div class="facts"><span>Rust · Tauri v2 · Svelte</span><span>no network listener</span></div>
+          <div class="strip" data-drag>
+            <figure class="card typo"><span>150 – 400 %</span><figcaption>the glass</figcaption></figure>
+            <figure class="card sea"><span>5h · 7d</span><figcaption>quota and burn rate</figcaption></figure>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="drawer">
+        <button class="drawer-head" aria-expanded="false"><span class="y">2026 →</span><span class="n">Salpa Defence<small>venture</small></span><span class="d">Local AI appliance for environments cloud services cannot legally reach.</span><span class="plus"></span></button>
+        <div class="drawer-body"><div class="drawer-inner">
+          <p>Finnish defence subcontractors first. The vendor never touches the customer's classified material. Sales demo in production since August 2026; product core under way.</p>
+          <div class="facts"><span>llama.cpp · ROCm · Devstral</span><span>no outbound network</span></div>
+          <div class="strip" data-drag><figure class="card sea"><span>TL IV</span><figcaption>where SaaS cannot go</figcaption></figure></div>
+        </div></div>
+      </article>
+
+      <article class="drawer">
+        <button class="drawer-head" aria-expanded="false"><span class="y">2026 →</span><span class="n">Somnus<small>service</small></span><span class="d">Always-on local cognition layer for Quaesitor on a home dual-GPU AMD box.</span><span class="plus"></span></button>
+        <div class="drawer-body"><div class="drawer-inner">
+          <p>A generator, a falsifier, Crystal Memory access and a tiered escalation pipeline with human-gated ignition, over Tailscale to Hetzner.</p>
+          <div class="facts"><span>R9700 32 GB · 7900 XT 20 GB</span><span>llama.cpp · Postgres</span></div>
+          <div class="strip" data-drag><figure class="card typo"><span>THETA · DELTA</span><figcaption>generator and falsifier</figcaption></figure></div>
+        </div></div>
+      </article>
+
+      <article class="drawer" data-peek="shots/kalastus.png">
+        <button class="drawer-head" aria-expanded="false"><span class="y">2026 →</span><span class="n">Kalastus<small>phase 1 · kal.app</small></span><span class="d">A falsifiable state model for stream fishing.</span><span class="plus"></span></button>
+        <div class="drawer-body"><div class="drawer-inner">
+          <p>The prediction is pre-registered before the trip, the visit is logged even when blank, and the app reports its own hit rate. The first system born inside Atlas, with CI and tests from day one.</p>
+          <div class="facts"><span>Expo · SQLite · MapLibre</span><span>Brier score per model version</span></div>
+          <div class="strip" data-drag>
+            <figure class="card"><img src="shots/kalastus.png" alt="" onerror="this.parentNode.classList.add('nopic')"><span>kal.app</span><figcaption>kal.app</figcaption></figure>
+            <figure class="card typo"><span>where · when</span><figcaption>habitat and feeding</figcaption></figure>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="drawer">
+        <button class="drawer-head" aria-expanded="false"><span class="y">2025 →</span><span class="n">Quaesitor Security<small>internal</small></span><span class="d">Verification harness for security findings from any source.</span><span class="plus"></span></button>
+        <div class="drawer-body"><div class="drawer-inner">
+          <p>Declared scope, cross-source deduplication, a verdict that is a function, memory of earlier verdicts. Feeds Atlas's security lens on a schedule.</p>
+          <div class="facts"><span>semgrep · osv-scanner</span><span>0 € per run</span></div>
+          <div class="strip" data-drag><figure class="card sea"><span>verdict = f(x)</span><figcaption>not an opinion</figcaption></figure></div>
+        </div></div>
+      </article>
+
+      <article class="drawer">
+        <button class="drawer-head" aria-expanded="false"><span class="y">2023 →</span><span class="n">HomeTeam<small>beta</small></span><span class="d">Gamified family task system. HomeCoin economy, streaks, push notifications.</span><span class="plus"></span></button>
+        <div class="drawer-body"><div class="drawer-inner"><p>home.sunrisesoftware.app</p><div class="strip" data-drag><figure class="card typo"><span>HomeCoin</span><figcaption>economy</figcaption></figure></div></div></div>
+      </article>
+
+      <article class="drawer">
+        <button class="drawer-head" aria-expanded="false"><span class="y">2025 →</span><span class="n">VitalTrack<small>beta</small></span><span class="d">Personal training and health platform. TSS, NP, HR zones, PMC chart, Garmin sync.</span><span class="plus"></span></button>
+        <div class="drawer-body"><div class="drawer-inner"><p>health.sunrisesoftware.app</p><div class="strip" data-drag><figure class="card typo"><span>TSS · NP · PMC</span><figcaption>the training load</figcaption></figure></div></div></div>
+      </article>
+
+      <article class="drawer">
+        <button class="drawer-head" aria-expanded="false"><span class="y">&nbsp;</span><span class="n">Internal tools<small>production</small></span><span class="d">Command Center, BreathForge Studio, MasterVideo 3D, MasterPromo, PhotoMaster, VideoForge, SongForge.</span><span class="plus"></span></button>
+        <div class="drawer-body"><div class="drawer-inner"><p>Built for daily use; not for sale.</p><div class="strip" data-drag><figure class="card sea"><span>7 tools</span><figcaption>daily use</figcaption></figure></div></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SF3D strip (placement open) ============ -->
+<section class="sf3d">
+  <div class="wrap">
+    <span class="num" data-reveal>Footnote · SF3D · 2006–2016 <span class="note">placement open · adr.sws.003</span></span>
+    <p class="lead" data-reveal>Before the software there was ten years of extreme overclocking under the alias SF3D: liquid nitrogen, then liquid helium, on silicon never designed for it. World records, a top-three HWBot Pro League ranking, a pre-overclocked-PC business and an LN₂ cooling line with EK Water Blocks. The intuition it left, pressure, tolerance, the line between working and failing, is the one applied to DSP and model outputs now. The history lives at <a href="#">sf3d.fi</a>.</p>
+    <div class="strip" data-drag data-reveal>
+      <figure class="card photo" data-zoom data-cap="LN₂ session"><img src="../../images/sf3d-hero-ln2-session.webp" alt=""><figcaption>LN₂ session</figcaption></figure>
+      <figure class="card photo" data-zoom data-cap="SuperPi 32M world record · 2012"><img src="../../images/sf3d-superpi-32m-record.webp" alt="" style="object-fit:contain;background:#F6F0E6;padding:12px"><figcaption>SuperPi 32M · 2012</figcaption></figure>
+      <figure class="card photo" data-zoom data-cap="HWBot Pro League · world #3"><img src="../../images/sf3d-hwbot-league.webp" alt="" style="object-fit:contain;background:#F6F0E6;padding:12px"><figcaption>HWBot · world #3</figcaption></figure>
+      <figure class="card photo" data-zoom data-cap="GALAX OC Carnival · Taiwan"><img src="../../images/sf3d-portrait-taiwan.webp" alt=""><figcaption>Taiwan</figcaption></figure>
+      <figure class="card photo" data-zoom data-cap="Liquid helium · −234 °C"><img src="../../images/sf3d-temp-minus-234.webp" alt=""><figcaption>−234 °C</figcaption></figure>
+      <figure class="card photo" data-zoom data-cap="Triple Point EVO · SF3D × EK"><img src="../../images/sf3d-ek-triple-point-evo.webp" alt="" style="object-fit:contain;background:#F6F0E6;padding:12px"><figcaption>Triple Point EVO</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §04 Approach ============ -->
+<section class="sec" id="approach">
+  <div class="wrap">
+    <span class="num" data-reveal>§04 · Approach</span>
+    <h2 class="words" data-reveal data-split>Three rules. No exceptions.</h2>
+    <div class="rules">
+      <div class="rule" data-reveal><span class="k">01</span>I do not prototype. <span class="warm">The first version ships.</span> If a product is not worth releasing, it is not worth building.</div>
+      <div class="rule" data-reveal><span class="k">02</span>Every tool I build <span class="warm">is one I use daily.</span> The customer and the developer are the same person, separated only by time.</div>
+      <div class="rule" data-reveal><span class="k">03</span>If it is not <span class="warm">better</span> than what exists, I do not publish it. Sameness is not a business model.</div>
+    </div>
+
+    <p class="creed words" data-reveal data-split>Imagination is the limit. Build, then enjoy the world.</p>
+    <p class="creed-sub" data-reveal>placeholder wording · the line is written in the text round</p>
+
+    <div class="method">
+      <div data-reveal><div class="lbl">Build</div><p>Claude Code sessions in git worktrees, one branch and one pull request each, squash-merged. The agent types; I read, decide and merge.</p></div>
+      <div data-reveal style="transition-delay:.1s"><div class="lbl">Gate</div><p>CI is the gate, not the prompt: lint, types and tests in every repo, committed drift and render baselines in Atlas, a security lens on a schedule.</p></div>
+      <div data-reveal style="transition-delay:.2s"><div class="lbl">Run</div><p>Cloudflare Pages, Workers, D1 and R2 for the web; Hetzner for Python engines and routing; a home AMD box for local inference; Tailscale between them.</p></div>
+      <div data-reveal style="transition-delay:.3s"><div class="lbl">Record</div><p>Every repo carries a SEED, a session changelog, machine-readable build info, lessons and decision records. Atlas mirrors them; the repo is the truth.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ The sea: contact and footer ============ -->
+<section class="sea" id="contact">
+  <div class="glint g1"></div><div class="glint g2"></div><div class="glint g3"></div><div class="reflection"></div>
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <span class="num" data-reveal>§05 · Correspondence</span>
+        <h2 class="words" data-reveal data-split>For serious conversations only.</h2>
+        <p data-reveal style="margin-top:20px">If the work above resembles something you need, or something you would like to see done properly, write directly. No forms, no calendars. A sentence or two is enough.</p>
+        <a class="mail" href="#" data-reveal>pete@sunrisesoftware.app</a>
+      </div>
+      <div class="cols" data-reveal>
+        <a href="#">MasterForge<small>masterforge.app</small></a><a href="#">Quaesitor<small>quaesitor.app</small></a>
+        <a href="#">Luviamo<small>luviamo.app</small></a><a href="#">SpectralForge<small>spectral.masterforge.app</small></a>
+        <a href="#">Virustutka<small>virustutka.app</small></a><a href="#">Ultra Gravel<small>ultragravel.app</small></a>
+        <a href="#">TilastoSilta<small>tilastosilta.fi</small></a><a href="#">SF3D AI Lab<small>sf3d.fi</small></a>
+        <a href="#">GitHub<small>↗</small></a>
+      </div>
+    </div>
+    <div class="foot"><span>Sunrise Software Oy · Tampere, Finland</span><span>Est. 2024 · Independent</span><span>Revised 17 Sep 2026</span></div>
+  </div>
+</section>
+
+<div id="peek" aria-hidden="true"><img alt=""><span></span></div>
+<div class="lightbox" id="lightbox" aria-hidden="true"><img id="lightboxImg" alt=""><div class="cap" id="lightboxCap"></div></div>
+
+<script>
+(() => {
+  const html = document.documentElement;
+  const STATIC = /static/.test(location.search);
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (STATIC) html.classList.add('static');
+  if (REDUCED) html.classList.add('reduced');
+  const MOVE = !STATIC && !REDUCED;
+
+  /* words: split plain-text headings for the word reveal */
+  document.querySelectorAll('[data-split]').forEach(el => {
+    const words = el.textContent.trim().split(/\s+/);
+    el.innerHTML = words.map(w => `<span class="w"><span>${w}</span></span>`).join(' ');
+    el.querySelectorAll('.w > span').forEach((s, i) => { s.style.transitionDelay = `${i * 45}ms`; });
+  });
+  document.querySelectorAll('h1.words .w > span').forEach((s, i) => { s.style.transitionDelay = `${i * 55}ms`; });
+
+  /* reveal */
+  const revealables = document.querySelectorAll('[data-reveal], .frame');
+  if (STATIC || REDUCED) {
+    revealables.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+    /* the first screen never waits for the observer (a hidden or prerendered document delays it) */
+    const firstScreen = () => {
+      const vh = innerHeight;
+      revealables.forEach(el => {
+        if (el.classList.contains('in')) return;
+        const r = el.getBoundingClientRect();
+        if (r.top < vh * 0.94 && r.bottom > 0) { el.classList.add('in'); io.unobserve(el); }
+      });
+    };
+    revealables.forEach(el => io.observe(el));
+    requestAnimationFrame(firstScreen);
+    addEventListener('load', firstScreen);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) firstScreen(); });
+  }
+
+  /* scroll progress, nav state, parallax */
+  const nav = document.getElementById('nav');
+  const portraitImg = document.querySelector('#portrait img');
+  const frames = Array.from(document.querySelectorAll('.frame'));
+  let ticking = false;
+  function update() {
+    ticking = false;
+    const max = html.scrollHeight - innerHeight;
+    const p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+    html.style.setProperty('--p', p.toFixed(4));
+    nav.classList.toggle('scrolled', scrollY > 30);
+    nav.classList.toggle('on-sea', p > 0.86);
+    if (!MOVE) return;
+    if (portraitImg) portraitImg.style.setProperty('--py', `${(-scrollY * 0.08).toFixed(1)}px`);
+    const vh = innerHeight;
+    for (const f of frames) {
+      const r = f.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) continue;
+      const centre = (r.top + r.height / 2 - vh / 2) / vh;   /* -0.5 .. 0.5 */
+      const img = f.querySelector('img');
+      if (img) img.style.setProperty('--ix', `${(centre * 34).toFixed(1)}px`);
+    }
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', onScroll);
+  update();
+  if (STATIC) { html.style.setProperty('--p', '0'); }
+
+  /* the warmth that follows the cursor (hero only) */
+  const light = document.getElementById('cursorLight');
+  if (MOVE && light && matchMedia('(pointer: fine)').matches) {
+    let tx = innerWidth * 0.55, ty = innerHeight * 0.4, x = tx, y = ty, raf = null;
+    const step = () => {
+      x += (tx - x) * 0.06; y += (ty - y) * 0.06;
+      light.style.transform = `translate(${x - 460}px, ${y - 460}px)`;
+      if (Math.abs(tx - x) > 0.3 || Math.abs(ty - y) > 0.3) raf = requestAnimationFrame(step); else raf = null;
+    };
+    addEventListener('mousemove', e => {
+      tx = e.clientX; ty = e.clientY;
+      light.style.opacity = scrollY < innerHeight * 1.2 ? 1 : 0;
+      if (!raf) raf = requestAnimationFrame(step);
+    }, { passive: true });
+    step();
+  }
+
+  /* drawers */
+  document.querySelectorAll('.drawer-head').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const d = btn.closest('.drawer');
+      const open = !d.classList.contains('open');
+      d.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      if (open) hidePeek();
+    });
+  });
+  if (STATIC) { const first = document.querySelector('.drawer'); if (first) { first.classList.add('open'); } }
+
+  /* the preview that floats after the cursor */
+  const peek = document.getElementById('peek');
+  const peekImg = peek.querySelector('img');
+  const peekTxt = peek.querySelector('span');
+  let px = 0, py = 0, ptx = 0, pty = 0, praf = null, peekOn = false;
+  function peekStep() {
+    px += (ptx - px) * 0.14; py += (pty - py) * 0.14;
+    peek.style.left = `${px}px`; peek.style.top = `${py}px`;
+    if (peekOn) praf = requestAnimationFrame(peekStep); else praf = null;
+  }
+  function hidePeek() { peekOn = false; peek.classList.remove('show'); }
+  if (MOVE && matchMedia('(pointer: fine)').matches) {
+    document.querySelectorAll('.drawer').forEach(d => {
+      const src = d.dataset.peek;
+      d.addEventListener('mouseenter', e => {
+        if (d.classList.contains('open')) return;
+        const name = d.querySelector('.n').firstChild.textContent.trim();
+        if (src) { peekImg.src = src; peekImg.style.display = 'block'; peekTxt.style.display = 'none'; }
+        else { peekImg.style.display = 'none'; peekTxt.style.display = 'flex'; peekTxt.textContent = name; }
+        peekImg.onerror = () => { peekImg.style.display = 'none'; peekTxt.style.display = 'flex'; peekTxt.textContent = name; };
+        px = ptx = e.clientX; py = pty = e.clientY;
+        peekOn = true; peek.classList.add('show');
+        if (!praf) praf = requestAnimationFrame(peekStep);
+      });
+      d.addEventListener('mousemove', e => { ptx = e.clientX; pty = e.clientY; });
+      d.addEventListener('mouseleave', hidePeek);
+    });
+  }
+
+  /* strips you drag with the mouse */
+  document.querySelectorAll('[data-drag]').forEach(strip => {
+    let down = false, startX = 0, startLeft = 0, moved = 0;
+    strip.addEventListener('pointerdown', e => {
+      if (e.pointerType !== 'mouse') return;
+      down = true; moved = 0; startX = e.clientX; startLeft = strip.scrollLeft; strip.setPointerCapture(e.pointerId);
+    });
+    strip.addEventListener('pointermove', e => {
+      if (!down) return;
+      const dx = e.clientX - startX; moved = Math.max(moved, Math.abs(dx));
+      if (moved > 4) strip.classList.add('dragging');
+      strip.scrollLeft = startLeft - dx;
+    });
+    const up = () => { down = false; setTimeout(() => strip.classList.remove('dragging'), 0); };
+    strip.addEventListener('pointerup', up); strip.addEventListener('pointercancel', up);
+    strip.addEventListener('click', e => { if (moved > 4) { e.preventDefault(); e.stopPropagation(); } }, true);
+  });
+
+  /* lightbox */
+  const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lightboxImg'), lbCap = document.getElementById('lightboxCap');
+  document.addEventListener('click', e => {
+    const z = e.target.closest('[data-zoom]');
+    if (z) { const img = z.querySelector('img'); if (!img) return; lbImg.src = img.src; lbCap.textContent = z.dataset.cap || ''; lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false'); return; }
+    if (e.target === lb || e.target === lbImg) { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); }
+  });
+  addEventListener('keydown', e => { if (e.key === 'Escape') { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); } });
+})();
+</script>
+</body>
+</html>

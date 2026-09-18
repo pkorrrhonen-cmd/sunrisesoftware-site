@@ -1,0 +1,32 @@
+name: CI
+
+# The gate for pull requests and main. Cloudflare Pages deploys on its own Git integration;
+# this workflow does not deploy, it refuses a page that fails scripts/check-site.mjs.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Site checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check the page
+        run: node scripts/check-site.mjs

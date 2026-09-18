@@ -17,3 +17,13 @@ npm-debug.log*
 
 # --- Superseded working folder (originals preserved locally, not versioned) ---
 Verkkosivujen tiedostot/
+
+# --- Claude Code local session files ---
+.claude/
+
+# --- Mockup captures and media copies: reproducible with docs/mockups/shoot.py and build-look.py,
+#     the page's own copies live in images/ and media/ ---
+docs/mockups/*.png
+docs/mockups/shots/
+docs/mockups/media/masterforge-eq.mp4
+docs/mockups/media/petri-cutout.webp

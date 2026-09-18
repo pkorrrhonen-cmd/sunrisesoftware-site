@@ -206,13 +206,13 @@ Each with a cover image, mono meta column (status, year), Fraunces body (name, t
 
 | Year   | Name          | Status                          | Description |
 |--------|---------------|---------------------------------|-------------|
-| 2023 → | Premius Plus  | clinical platform               | Clinical wellness and rehabilitation platform. Programmes for migraine, tension headache, hip osteoarthritis, jaw & bite, men's pelvic floor, wellness assessment. Biopsychosocial methodology. |
+| 2023 → | an employer application  | clinical platform               | Clinical wellness and rehabilitation platform. Programmes for migraine, tension headache, hip osteoarthritis, jaw & bite, men's pelvic floor, wellness assessment. Biopsychosocial methodology. |
 | 2024   | TilastoSilta  | live                            | Finnish statistics aggregator across seven sources, with semantic AI search. tilastosilta.fi |
 | 2025   | HEIJASTE      | entering public distribution    | Psychophysical self-reflection card system. Forty cards, five dimensions, three clinical editions including a veteran/PTSD branch. |
 | 2023   | HomeTeam      | beta                            | Gamified family task system. HomeCoin economy, streaks, push notifications. home.sunrisesoftware.app |
 | 2025   | VitalTrack    | beta                            | Personal training and health platform. TSS, NP, HR zones, PMC chart, Garmin sync. health.sunrisesoftware.app |
 | 2025   | BrightFeed    | coming                          | News aggregation without engagement manipulation. Curated, clean, slow. |
-| —      | Internal tools| production                      | BreathForge Studio, MasterVideo 3D, MasterPromo, PhotoMaster, VideoForge, SongForge, Command Center, Sunrise Marketing Planner, Premius Planner. Built for daily use; not for sale. |
+| —      | Internal tools| production                      | BreathForge Studio, MasterVideo 3D, MasterPromo, PhotoMaster, VideoForge, SongForge, Command Center, Sunrise Marketing Planner, an employer application. Built for daily use; not for sale. |
 
 ### 4.4 §04 Archive · SF3D · 2006–2016 (note: currently says 2008–2016, to be corrected)
 
@@ -366,7 +366,7 @@ Nothing else pending. All content, structure, and visual design are locked.
 | V3 concept | 2026-04-16 | Full-bleed hero photo, Syne font, dramatic glow dividers | Reviewed: font too curvy |
 | V3 revised | 2026-04-16 | Bebas Neue + Exo 2, photo right 70%, sharper geometry | SEED v1.1.0 |
 | **V4 concept** | **2026-04-17** | **Observatory × Atelier. Fraunces + Inter. Cabinet dark palette. Editorial §-sections. SF3D archive with photographs.** | **Direction confirmed** |
-| V4.1 | 2026-04-17 | §01 expanded to four disciplines (psychophysical / optimisation / cybersec / software). Quaesitor rewritten around cognitive streams. Luviamo description about the marketing lifecycle. Archive reordered with Premius Plus first. Em-dashes removed from §06. Email to pete@. GitHub/LinkedIn removed. | Content approved |
+| V4.1 | 2026-04-17 | §01 expanded to four disciplines (psychophysical / optimisation / cybersec / software). Quaesitor rewritten around cognitive streams. Luviamo description about the marketing lifecycle. Archive reordered with an employer application first. Em-dashes removed from §06. Email to pete@. GitHub/LinkedIn removed. | Content approved |
 | V4.2 | 2026-04-17 | First SF3D photographs integrated: hero LN2 session, portrait LN2 pour, three bottom thumbs (3DMark, -234°C, dual-GPU). | Photos approved |
 | V4.3 | 2026-04-17 | SuperPi 32M screenshot, HWBot ranking, Taiwan portrait (replacing Finnish portrait), Vegas bench, EK × SF3D product photos (Triple Point EVO, Critical Point with paper-colour background treatment). Venture cards with images. | Photos approved |
 | V4.4 | 2026-04-17 | Proof rail as 4-tile row equal to bottom row. Hero LN2 image scaled -15% for text-image balance. Taiwan portrait aspect-ratio corrected (16:10, prevents ear crop). Lightbox implemented for all §04 images (data-zoom=true, ESC/close/backdrop dismiss, scroll lock). | Implementation complete |
@@ -406,7 +406,7 @@ PENDING_FIXES:      SF3D years 2008-2016 → 2006-2016
 
 ## 11. DOCUMENT RULES
 
-- **Author name:** Always "Petri Korhonen" (never "Pete Hietanen").
+- **Author name:** Always "Petri Korhonen".
 - **Company name:** "Sunrise Software Oy" appears only in footer and founder meta; not otherwise present on site.
 - **Dashes:** Em-dashes are used in *design commentary* (this document) but not in on-site copy where it was explicitly removed (§06). In on-site copy, prefer commas, colons, or sentence restructuring.
 - **SEED update:** Version + BUILD_INFO updated every session end.
