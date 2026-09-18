@@ -18,7 +18,7 @@ sketches remain only on the §02 plates for Somnus and Atlas, which have no publ
 | Product | What exists | Where |
 |---|---|---|
 | MasterForge | Pro Master UI screenshot (V4.5 cover); real UI capture clips from the ad-video work: EQ (3.4 MB, 12.5 s), compressor (1.6 MB, 12.3 s), AI artifact suppressor (2.0 MB, 7.5 s), plus vertical cuts; feature screenshots (EQ, limiter, de-esser, report, batch, export) | `images/product-masterforge.webp`; `masterforge/data/video creation/captures/`; `masterforge/images/features/` |
-| Luviamo | intro video (5 MB, 16:9, with Joanna) and its poster; product landing screenshot (V4.5 cover) | `luviamo.app/media/luviamo-esittely-v2.mp4`; `images/product-luviamo.webp` |
+| Luviamo | intro video (5 MB, 16:9) and its poster; product landing screenshot (V4.5 cover) | `luviamo.app/media/luviamo-esittely-v2.mp4`; `images/product-luviamo.webp` |
 | Somnus | no public image; four blog figures (U-curve, beta phase, collapse, funnel) in the repo | `somnus/docs/blog/images/` |
 | Atlas | viewer and Connect are access-protected; no cleared screenshot | drawn schematic only |
 | SpectralForge | UI screenshot (V4.5 featured cover) | `images/product-spectralforge.webp` |

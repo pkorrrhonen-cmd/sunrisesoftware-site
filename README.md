@@ -77,4 +77,9 @@ CI (`.github/workflows/ci.yml`) is a gate on pull requests and `main`; it does n
 - Atlas holds a mirror of this repo (`model/systems/sw-sivusto.model.json`, `sw-sivusto.STATUS`).
   The repo is the truth, the mirror follows through the proposals channel.
 
-Sunrise Software Oy · Tampere, Finland · private repository
+## Licence
+
+No open-source licence is granted. The site's text, design and images are the property of Sunrise Software Oy and the people pictured; the repository is public so the work can be read, not reused.
+
+---
+Sunrise Software Oy · Tampere, Finland

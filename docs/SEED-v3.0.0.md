@@ -184,7 +184,7 @@ The copy is decided item by item in **`docs/design/copy-v3.md`**, which is the s
 | §05 and footer | `Let's talk.`, body, email, link list, footer | 6.1 to 6.8 |
 | Shipped with the page | OG title and description | 7.1 to 7.2 |
 
-Rules for copy: English, first person singular, no em dashes, no relative time, every status dated, no hero statistics, no generic adjectives, the company name only in the footer and the structured data, no Premius name (adr.sws.006), no technology names in spec strips.
+Rules for copy: English, first person singular, no em dashes, no relative time, every status dated, no hero statistics, no generic adjectives, the company name only in the footer and the structured data, no employer's product names (adr.sws.006), no technology names in spec strips.
 
 ---
 
@@ -227,19 +227,19 @@ Cloudflare Web Analytics, once the token is fetched from the dashboard (open in 
 
 ### 5.7 CI
 
-`scripts/check-site.mjs` on pull requests and `main`: local file references exist, required head elements, no em dashes in copy, forbidden strings (`Premius`, `Pete Hietanen`, `2008–2016`, "Launching within the month", "coming soon", "within the month", "recently"), footer `data-revised` equals `BUILD_INFO.updated`, the GitHub link appears at least four times.
+`scripts/check-site.mjs` on pull requests and `main`: local file references exist, required head elements, no em dashes in copy, forbidden strings (the employer's product names, `2008–2016`, "Launching within the month", "coming soon", "within the month", "recently"), footer `data-revised` equals `BUILD_INFO.updated`, the GitHub link appears at least four times.
 
 ---
 
 ## 6. FOUNDER DATA (authoritative)
 
 ```
-Name:       Petri Korhonen (never "Pete Hietanen")
+Name:       Petri Korhonen
 Role:       Founder, Sunrise Software Oy, Tampere, Finland, est. 2024
 Email:      pete@sunrisesoftware.app
 GitHub:     github.com/pkorrrhonen-cmd
 Alias:      SF3D (extreme overclocking 2006 to 2016; SF3D AI Lab, sf3d.fi, 2026)
-Day work:   digital health software to clinical and regulatory standards (employer not named on the page)
+Day work:   digital health software to clinical and regulatory standards
 ```
 
 ---

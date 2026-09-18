@@ -38,7 +38,6 @@ if (/—|&mdash;/.test(body)) fail('em dash in on-page copy (use a comma, a colo
 // 4. Forbidden strings: withheld names, corrected errors, relative-time copy (adr.sws.004, 006).
 const forbidden = [
   'Premius',
-  'Pete Hietanen',
   '2008&ndash;2016',
   '2008–2016',
   'Launching within the month',
@@ -47,7 +46,7 @@ const forbidden = [
   'recently',
 ];
 for (const s of forbidden) {
-  if (body.toLowerCase().includes(s.toLowerCase())) fail(`forbidden string on the page: "${s}"`);
+  if (html.toLowerCase().includes(s.toLowerCase())) fail(`forbidden string in index.html (body, script or head): "${s}"`);
 }
 
 // 5. The footer revision date equals BUILD_INFO.updated (adr.sws.004).

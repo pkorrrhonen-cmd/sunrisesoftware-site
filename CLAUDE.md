@@ -37,8 +37,8 @@ The rules below hold once their decision is accepted; a `proposed` decision in
 - Every status on the page carries a version or a date (adr.sws.004). No "coming soon",
   "recently", "within the month". The footer carries the revision date and CI fails when it
   differs from `BUILD_INFO.updated`.
-- No Premius application, workspace or name on the page until Petri has cleared it with
-  Premius (adr.sws.006). CI forbids the string in `index.html`.
+- None of the employer's applications, workspaces or names on the page until Petri has cleared
+  it with the employer (adr.sws.006). CI forbids the name across the whole of `index.html`.
 - The SF3D history is a claim, a lead and a cryo chamber behind a button after §03 (SEED v3
   §3.4). It does not grow back into a full section. Ember (`#D96B3A`) appears only in its section
   mark; the chamber uses the cryo palette.

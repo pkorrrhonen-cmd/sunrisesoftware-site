@@ -226,7 +226,7 @@ CLAUDE.md:tä eikä CI:tä. Atlaksen malli `sw-sivusto` kantoi kaksi ADR:ää jo
 
 **Petrin linjaukset sessiossa:** (1) dokumentaatio Atlaksen ja Luviamon tasolle; (2) kellotushistoria
 vielä enemmän piiloon pieneksi sivuhuomioksi; (3) sivu peilataan nykytilaan, Atlas näkyviin
-yhteistyön työkaluna (työtila ja Atlas Connect); (4) Premius-sovelluksia ei näytetä ennen
+yhteistyön työkaluna (työtila ja Atlas Connect); (4) työnantajan sovelluksia ei näytetä ennen
 erillistä lupaa; (5) ulkoasu tarkastellaan hackathon-vierailijan silmin (Since AI); (6) linkki
 julkiseen GitHub-profiiliin samaan pakettiin; (7) **sivun muokkaukset vain yhdessä sovitusti ja
 suunnittelun päätteeksi.**
@@ -236,7 +236,7 @@ suunnittelun päätteeksi.**
   sessiorutiini, Atlas-peilaus, sääntö sivun yhteismuokkauksesta.
 - `docs/decisions/`: adr.sws.001 ja 002 tuotu Atlaksesta repoon; 003 (historia sivuhuomioksi,
   ehdotettu muoto), 004 (päivätyt tilat, ehdotus), 005 (Atlas §02.4 ja piirretty kansi, ehdotus),
-  006 (Premius pidätetty, hyväksytty), 007 (GitHub-linkki, hyväksytty; osoite vahvistetaan),
+  006 (työnantajan sovellukset pidätetty, hyväksytty), 007 (GitHub-linkki, hyväksytty; osoite vahvistetaan),
   008 (React-siirtymä pois roadmapilta, ehdotus), 009 (dokumentaatiostandardi, hyväksytty).
 - `docs/LESSONS.md`: kolme oppia (suhteellinen aikailmaus, jonossa ollut korjaus ilman paikkaa,
   Atlas tiesi enemmän kuin repo).

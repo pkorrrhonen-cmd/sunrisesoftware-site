@@ -15,7 +15,7 @@ A minor version: the design direction (Observatory × Atelier, Fraunces + Inter,
 
 - **Every product state is stale.** Luviamo has been in production since summer 2026 (v0.385.0 verified 16.9.2026) but the page says "Launching within the month". Quaesitor is 2.13.34 in production (9.9.2026), the page says 2.12.11. MasterForge is 4.44.0 with Starter v2 shipped 16.9.2026 and three tiers plus a service; the page describes four tiers. SpectralForge is 2.0 with a De-tone panel.
 - **Atlas is absent.** Since July 2026 Atlas is the control plane of the whole family and, with the workspace and Atlas Connect (in partner use since 7.9.2026), the collaboration tool for projects. Petri named it on 17.9.2026 as the thing to show.
-- **Six systems are missing** from the cabinet (Virustutka, Ultra Gravel, ReviewGlass, Salpa Defence, Somnus, Kalastus, SF3D AI Lab), while two rows (Premius Plus, Premius Planner) must go (adr.sws.006) and two (HEIJASTE, BrightFeed) have no trace in any repo.
+- **Six systems are missing** from the cabinet (Virustutka, Ultra Gravel, ReviewGlass, Salpa Defence, Somnus, Kalastus, SF3D AI Lab), while two rows (an employer application, an employer application) must go (adr.sws.006) and two (HEIJASTE, BrightFeed) have no trace in any repo.
 - **The SF3D history is the largest section** on the page. Petri's instruction: its role and visibility are redesigned, smaller and further back, not removed. The shape is chosen from mockups (section 4.4). The heritage also lives at sf3d.fi.
 - **No GitHub link.** The public profile is being completed in the same package (adr.sws.007).
 - **No meta, no Open Graph, no structured data, no favicon.** Planned in v2.0.0 §5.3, never done.
@@ -194,7 +194,7 @@ Cover unchanged. Body (revised): Companion to MasterForge. Diagnoses and repairs
 | 2025 → | VitalTrack · beta | Personal training and health platform. TSS, NP, HR zones, PMC chart, Garmin sync. health.sunrisesoftware.app |
 | (empty year cell) | Internal tools · production | Sunrise Command Center (double-entry bookkeeping, an AI secretary, service health), BreathForge Studio, MasterVideo 3D, MasterPromo, PhotoMaster, VideoForge, SongForge. Built for daily use; not for sale. |
 
-Removed from v2.0.0: Premius Plus and Premius Planner (adr.sws.006); HEIJASTE and BrightFeed (no repo, no trace in any README on 17.9.2026; Petri confirms, section 7 item 4).
+Removed from v2.0.0: an employer application and an employer application (adr.sws.006); HEIJASTE and BrightFeed (no repo, no trace in any README on 17.9.2026; Petri confirms, section 7 item 4).
 
 **SF3D: three alternatives to mock up (adr.sws.003, open):**
 
@@ -255,14 +255,14 @@ The site's Atlas status of 26.7.2026 recorded a pending track: generating the si
 
 ### 5.6 CI
 
-`scripts/check-site.mjs` runs on pull requests and `main`: local image references exist; the required head elements exist; no em dashes in copy; forbidden strings absent (Premius, Pete Hietanen, 2008–2016, "launching within the month", "coming soon", "within the month", "recently"); footer `data-revised` equals `BUILD_INFO.updated`; the GitHub link appears at least four times. `--links` HEAD-checks external links locally. Red on V4.5 by design.
+`scripts/check-site.mjs` runs on pull requests and `main`: local image references exist; the required head elements exist; no em dashes in copy; forbidden strings absent (the employer, Pete Hietanen, 2008–2016, "launching within the month", "coming soon", "within the month", "recently"); footer `data-revised` equals `BUILD_INFO.updated`; the GitHub link appears at least four times. `--links` HEAD-checks external links locally. Red on V4.5 by design.
 
 ---
 
 ## 6. FOUNDER DATA (authoritative)
 
 ```
-Name:       Petri Korhonen (never "Pete Hietanen")
+Name:       Petri Korhonen
 Company:    Sunrise Software Oy, Tampere, Finland, est. 2024
 Email:      pete@sunrisesoftware.app
 GitHub:     github.com/pkorrrhonen-cmd (assumed; confirm)

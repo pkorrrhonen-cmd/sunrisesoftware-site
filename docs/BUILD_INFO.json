@@ -14,7 +14,7 @@
   "sources_checked_2026_09_17": {
     "masterforge": "BUILD_INFO 4.44.0, 16.9.2026 (Starter v2 general master); masterforge.app: Free, Starter 4.99, Pro 9.99, one-off 14.99",
     "quaesitor": "repo main 2.13.27 (17.8.2026), SEED v2.14.0; quaesitor.app live",
-    "luviamo": "prod_verified 0.385.0, 16.9.2026; luviamo.app live, Solo 39 / Team 119 / Business 199 per month, 14-day trial; Meta App Review 2A approved 31.8.2026, 2B submitted 17.9.2026",
+    "luviamo": "prod_verified 0.385.0, 16.9.2026; luviamo.app live, Solo 39 / Team 119 / Business 199 per month, 14-day trial",
     "spectralforge": "app 2.0.0 (18.6.2026, Surgical De-tone); api repo 13.9.2026; spectral.masterforge.app live",
     "atlas": "README status session 129 (4.9.2026), BUILD_INFO 0.9.185 session 135 (12.9.2026); 19 systems, 208 modules, 175 connections, 116 ADRs on 7.9.2026; Atlas Connect in use since 7.9.2026",
     "virustutka": "README: production live v0.21.1 (repo 23.8.2026); virustutka.app answers 200",
@@ -46,18 +46,15 @@
   },
   "atlas_read_2026_09_17": {
     "via": "claude.ai OAuth connector Atlas (30 tools); the project-level MCP entry atlas (static bearer) is rejected with 401",
-    "kokonaiskuva": "SUNRISE-KOKONAISKUVA v3 (6.9.2026), 20 systems. Chosen focus area 5.9.2026: consumer products = forecast, its uncertainty and the outcome for one person's decision (kal.app, ZAPP); tools and method = Atlas, MasterForge family, Luviamo, scc2, quaesitor-security; the rest exist and are not reclassified. Since AI (6.-8.11.2026) is already on Atlas's radar (a reachability-graph decision before it)",
     "sw_sivusto_status_v1": "26.7.2026: one static page in production. PENDING TRACK: site generation from Atlas STATUS data; that round was the first fill of the data source",
-    "sw_sivusto_workspace": "no GUIDE, TYOLISTA, PROJEKTI, decisions, messages or documents. Connect guide v3 (12.9.2026) describes decision requests with mockup slugs per decision",
     "sw_sivusto_status_v2": "written 17.9.2026 18:43 UTC (art_8a5693a75da04108)",
     "deltas_vs_local_checks": {
       "quaesitor": "production 2.13.34 (9.9.2026), local checkout 2.13.27 is behind; push to main = deploy, owner's go-ahead",
       "virustutka": "v0.24.0 (6.9.2026): traffic light redefined from a four-season backtest; autumn season on the map",
       "tilastosilta": "v2 release gates met 13.8.; cutover from v1 pending Petri's decision (29.8.2026)",
-      "luviamo": "Stripe live 15.8.2026; Meta #1 approved 7.8., 2A 31.8., 2B submitted 17.9.; partner joanna",
+      "luviamo": "billing live since 15.8.2026",
       "masterforge": "Atlas status 2.9. behind the repo (16.9.: Starter v2 promoted, 4.44.0); repo main is the truth",
-      "somnus": "box down 8.-9.9. for the X570 to X670E swap; Hetzner production healthy",
-      "salpa": "partner olli; demo behind Cloudflare Access; company not founded, name clearance is gate G1",
+      "salpa": "demo behind Cloudflare Access; venture phase",
       "kalastus": "kal.app; G6 built 1.9.2026; not yet run on a device"
     }
   },
