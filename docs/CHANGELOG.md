@@ -49,6 +49,8 @@ READMEn tuotetaulukko generoidaan siitä. Toteutus myöhemmin.
 (video paikallinen), 7 (V5 live, palautekierros), 8 (next). `BUILD_INFO` 5.0.1, `updated`
 19.9.2026, `sources_checked_2026_09_19`, `next` uusiksi (profiili-rivi sulkeutui).
 
+**Deploy:** PR #2 squash-mergattu mainiin (9d85c02) Petrin pyynnöstä, Cloudflare Pages deployasi noin puolessa minuutissa; livestä todennettu data-revised 2026-09-19, muuttuneet tekstit ja molemmat klipit (206 range-pyyntöön). Petri: MasterForge 2024 on ok. Bearer-poisto A ajetaan päivän päätteeksi.
+
 **Atlas-yhteyden 401 selvitetty** (Petrin pyyntö): projektitason `.mcp.json` (24 repoa, pvm
 9.8.2026) määrittelee `atlas`-palvelimen staattisella bearerilla `${ATLAS_MCP_TOKEN}`; muuttuja on
 Windowsin käyttäjätason ympäristömuuttuja, jonka arvo ei enää vastaa MCP-workerin `MCP_TOKEN`-
