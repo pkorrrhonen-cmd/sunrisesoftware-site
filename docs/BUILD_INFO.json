@@ -5,7 +5,7 @@
     "design_version": "V5 (SEED v3.0.0, the sunrise generation)",
     "built": "2026-09-18",
     "last_page_revision": "2026-09-19",
-    "note": "index.html rewritten from docs/mockups/flow-4.html together with Petri (SEED v3.0.0 section 8). Merged to main in PR #1 (squash) and deployed by Cloudflare Pages on 18.9.2026 16:35 UTC; verified live: title, og:image, data-revised 2026-09-18, assets 200, security headers present. Session 3 (19.9.2026): the feedback round on the live page (docs/design/feedback-v5.md), 14 items decided with Petri in three rounds of decision boxes and applied: copy in five places, one status scale, ReviewGlass open source with the repo link, SpectralForge closed beta, the Luviamo clip copied to media/, preload=none on both clips, placeholder src on the two JS-driven images. Merged to main in PR #2 (squash, 9d85c02) and deployed by Cloudflare Pages on 19.9.2026; verified live: data-revised 2026-09-19, the seven changed texts present, both clips served (206 on range requests)."
+    "note": "index.html rewritten from docs/mockups/flow-4.html together with Petri (SEED v3.0.0 section 8). Merged to main in PR #1 (squash) and deployed by Cloudflare Pages on 18.9.2026 16:35 UTC; verified live: title, og:image, data-revised 2026-09-18, assets 200, security headers present. Session 3 (19.9.2026): the feedback round on the live page (docs/design/feedback-v5.md), 14 items decided with Petri in three rounds of decision boxes and applied: copy in five places, one status scale, ReviewGlass open source with the repo link, SpectralForge closed beta, the Luviamo clip copied to media/, preload=none on both clips, placeholder src on the two JS-driven images. Merged to main in PR #2 (squash, 9d85c02) and deployed by Cloudflare Pages on 19.9.2026; verified live: data-revised 2026-09-19, the seven changed texts present, both clips served (206 on range requests). Mobile fix the same morning (PR #3): the EQ clip's video is visible with its poster from the first paint and play is retried on the first gesture; before, a phone that refused play() showed the canvas sketch."
   },
   "seed": "3.0.0 (accepted 18.9.2026, adr.sws.013); 2.0.0 and the 2.1.0 draft archived",
   "session": 3,
@@ -31,7 +31,7 @@
     "github": "pkorrrhonen-cmd: 0 public repos, no name or bio on 17.9.2026; Sunrisesoftware-app: 15 private repos"
   },
   "next": [
-    "Petri looks at the live page (19.9.2026 revision) on the phone and desktop; anything to adjust goes to a new session on a new branch from main",
+    "Petri looks at the live page on the phone after PR #3 (MasterForge EQ: poster at once, clip on the first scroll) and desktop; anything to adjust goes to a new session on a new branch from main",
     "Atlas: sw-sivusto.STATUS written 19.9.2026 over the OAuth connector; proposals for adr.sws.003 to 014 to model/systems/sw-sivusto.model.json still open (the proposals channel takes one at a time; a session with time for the round)",
     "Remove the static-bearer route to Atlas: delete the atlas entry from E:/projects/sunrisesoftware/*/.mcp.json (24 repos), unset the user env ATLAS_MCP_TOKEN, drop enabledMcpjsonServers atlas from ~/.claude/settings.json; the OAuth connector stays (Petri 19.9.2026: run it at the end of the day, other processes are running)",
     "adr.sws.014 (proposed): one source for the facts the page shares with the profile README (state, version, since, licence, url); shape of the facts file and the generator's home are Petri's call; until then the README is checked against the page by hand in the session routine",

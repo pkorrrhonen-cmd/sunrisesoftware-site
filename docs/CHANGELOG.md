@@ -51,6 +51,8 @@ READMEn tuotetaulukko generoidaan siitä. Toteutus myöhemmin.
 
 **Deploy:** PR #2 squash-mergattu mainiin (9d85c02) Petrin pyynnöstä, Cloudflare Pages deployasi noin puolessa minuutissa; livestä todennettu data-revised 2026-09-19, muuttuneet tekstit ja molemmat klipit (206 range-pyyntöön). Petri: MasterForge 2024 on ok. Bearer-poisto A ajetaan päivän päätteeksi.
 
+**Mobiilikorjaus (Petri puhelimelta: MasterForgen EQ oli vanha piirros kultaisilla palkeilla):** video oli `opacity:0` kunnes `canplay`, ja puhelin joka ei käynnistä `play()`-kutsua ilman elettä ei koskaan antanut sitä, joten alla oleva canvas-luonnos jäi näkyviin. Nyt video posterinsa (oikea EQ-ruutu) kanssa näkyy heti, `ready` tulee `playing`-tapahtumasta, ja toisto yritetään uudelleen ensimmäisellä kosketuksella, osoittimella tai vierityksellä sekä välilehden palatessa. Todennettu paneelin mobiiliemulaatiossa: posteri näkyy ilman toistoa, vieritys käynnistää klipin. PR #3.
+
 **Atlas-yhteyden 401 selvitetty** (Petrin pyyntö): projektitason `.mcp.json` (24 repoa, pvm
 9.8.2026) määrittelee `atlas`-palvelimen staattisella bearerilla `${ATLAS_MCP_TOKEN}`; muuttuja on
 Windowsin käyttäjätason ympäristömuuttuja, jonka arvo ei enää vastaa MCP-workerin `MCP_TOKEN`-
