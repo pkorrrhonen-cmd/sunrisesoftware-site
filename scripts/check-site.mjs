@@ -11,7 +11,7 @@ const failures = [];
 const fail = (msg) => failures.push(msg);
 
 // 1. Every local image reference exists.
-const localRefs = [...html.matchAll(/(?:src|href|content)="((?:images|source-assets)\/[^"]+)"/g)].map((m) => m[1]);
+const localRefs = [...html.matchAll(/(?:src|href|content|poster)="((?:images|media|source-assets)\/[^"]+)"/g)].map((m) => m[1]);
 for (const ref of new Set(localRefs)) {
   if (!existsSync(resolve(root, ref))) fail(`missing file referenced from index.html: ${ref}`);
 }

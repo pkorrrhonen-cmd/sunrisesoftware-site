@@ -48,6 +48,8 @@ The rules below hold once their decision is accepted; a `proposed` decision in
   appears only in the footer, the meta row and the structured data.
 - Facts on the page come from the product repos (`BUILD_INFO.json`, `README.md`, the live
   site), checked in the session, never from memory. The CHANGELOG entry says what was checked.
+  The profile README (`github.com/pkorrrhonen-cmd`) is checked against the page in the same
+  session: same products, same states, same years (LESSONS 19.9.2026; adr.sws.014 proposed).
 - Images: WebP first with a JPG or PNG fallback under `images/`; source screenshots under
   `source-assets/`. Every image gets `loading="lazy"` (except above the fold) and an alt text
   that describes the screen, not the product.

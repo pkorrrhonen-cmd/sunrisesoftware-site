@@ -50,7 +50,7 @@ no generic adjectives, the company name only in 0.3, 0.9 and the footer.
 | 1.6 | Item 02 label | `02 · Optimisation` | OK |
 | 1.7 | Item 02 text | `Engines, then silicon at cryogenic temperatures, now inference on a GPU box in the next room. **How much can a system give, and how well can it hold it?**` (Petri 18.9.: "stably" is an irritating word to a Finn; version A) | OK (edit 18.9.) |
 | 1.8 | Item 03 label | `03 · Cybersecurity & health-tech` | OK |
-| 1.9 | Item 03 text | `Day work: **digital health software to clinical and regulatory standards.**` (employer not named, adr.sws.006) | OK |
+| 1.9 | Item 03 text | `Day work: **digital health software to clinical and regulatory standards.** Patient data, audit trails and the security review are part of the product, not a layer added afterwards.` (employer not named, adr.sws.006; second sentence added 19.9.2026, feedback item 11) | OK (edit 19.9.) |
 | 1.10 | Item 04 label | `04 · Software` | OK |
 | 1.11 | Item 04 text | `Where all of it applies at once. **Read the system. Find the root cause. Push past specification.**` (Petri 18.9.: without the agents line) | OK (edit 18.9.) |
 
@@ -69,7 +69,7 @@ order inside them is confirmed in the app-view round. Texts below are per produc
 | 2.2 | Title | `Products people pay for, and the instruments behind them.` (Petri 18.9. evening: "control plane" was the old Atlas wording and had not been decided together; replaced) | OK (edit 18.9.) |
 | **MasterForge** | | | |
 | 2.3 | Plate caption (over the living cover) | `Pro Master · live meters` | later (app-view round) |
-| 2.4 | Status line | `Live · v4.44 · paying customers · 2023 →` | OK |
+| 2.4 | Status line | `Live · v4.44 · paying customers · 2024 →` (Petri 19.9.2026: the years must match the company, 2023 cannot stay; feedback item 9) | OK (edit 19.9.) |
 | 2.5 | Name | `MasterForge` | OK |
 | 2.6 | Tagline | `Mastering built for AI-generated music.` | OK (edit 18.9.) |
 | 2.7 | Body (one paragraph) | `AI-generated music carries a brittleness microphones never had: codec artifacts, harsh transients, collapsed stereo, a dull low end. MasterForge was built for that gap, and in September 2026 its free tier was rebuilt to measure the track first and derive the whole chain from what it hears.` | OK (edit 18.9.: the two paragraphs merged) |
@@ -88,15 +88,15 @@ order inside them is confirmed in the app-view round. Texts below are per produc
 | 2.18 | Button (link) | `Lab notes · sf3d.fi →` | OK (edit 18.9.) |
 | **Luviamo** | | | |
 | 2.19 | Plate caption | `Intro · luviamo.app · muted` | later (app-view round) |
-| 2.20 | Status line | `Live · v0.385 · in production since summer 2026` | OK |
+| 2.20 | Status line | `Live · v0.385 · 2026 →` (one status scale, feedback item 8) | OK (edit 19.9.) |
 | 2.21 | Name | `Luviamo` | OK |
-| 2.22 | Tagline | `One brand voice. The whole marketing lifecycle. Replacing five to eight separate tools.` | OK |
+| 2.22 | Tagline | `One brand voice. The whole marketing lifecycle: ideation, copy, visuals, scheduling, publishing and measurement in one place.` (the tool classes named instead of an unanchored count, feedback item 12) | OK (edit 19.9.) |
 | 2.23 | Body | `Five rooms: ideate, plan, produce, publish, track. A single platform that learns the brand voice and carries it through the whole lifecycle, publishing to Facebook, Instagram and newsletters. Built for Nordic small businesses.` | OK (edit 18.9.: no billing mention) |
 | 2.24 | Spec strip | `Brand voice, learned once` / `Facebook · Instagram · newsletters` / `Solo · Team · Business` (no tech names) | OK (edit 18.9.) |
 | 2.25 | Button | `luviamo.app →` | OK |
 | **Atlas** | | | |
 | 2.26 | Plate: the schematic's labels | `THE MODEL · SOURCE OF TRUTH` / `systems · modules · connections · decisions` / `19 systems · 208 modules · 175 connections · 116 ADRs` / `VALIDATED IN CI · 7.9.2026` / `every module a contract · every decision a record` / `DOOR 1 · CLAUDE CHAT` / `remote MCP · OAuth 2.1 · scoped` / `DOOR 2 · CLAUDE CODE` / `proposes, never promotes` / `DOOR 3 · ATLAS CONNECT` / `the phone app for partners` / `messages · workspace · decisions` / `policy · fail-closed` / `proposal → human → git` / `same log, same gate` / system names along the bottom | later |
-| 2.27 | Status line | `In production · v0.9 · 2026 →` | OK |
+| 2.27 | Status line | `In use · v0.9 · 2026 →` (one status scale, feedback item 8) | OK (edit 19.9.) |
 | 2.28 | Name | `Atlas` | OK |
 | 2.29 | Tagline | `The backbone of the work: every project, every partner and every decision in one place, so nothing drifts from what matters.` (Petri's direction 18.9.: project management and teamwork, situational awareness, library and second memory, tools to validate and build ideas, structure against drift, the link between all parties) | OK (edit 18.9.) |
 | 2.30 | Body 1 | `Atlas is how the work is run. Partners and projects work inside it: who is doing what, what is waiting on whom, which decisions are open and which are made, all in one place, on the phone as well.` | OK (edit 18.9.) |
@@ -141,8 +141,9 @@ Each row has: year, name, status tag, one-line description, drawer paragraph, fa
 | 3.19 | Row | (Somnus) | moved to §02 (2.11 to 2.18) |
 | **ReviewGlass** | | | |
 | 3.22 | Row | `2026 → · ReviewGlass · pre-alpha · daily use · Windows desktop companion for AI-assisted coding sessions.` | OK |
-| 3.23 | Drawer | `A magnifier over any part of the screen, a panel of every running coding session with its quota and burn rate, and the agent's edits as a live diff. Built for my own daily use; open source once the name is cleared.` | OK (edit 18.9.: no tech) |
-| 3.24 | Facts | `Magnifier · sessions · live diff` / `Nothing leaves the machine` / `Open source, soon` | OK (edit 18.9.) |
+| 3.23 | Drawer | `A magnifier over any part of the screen, a panel of every running coding session with its quota and burn rate, and the agent's edits as a live diff. Built for my own daily use. Open source, Apache-2.0.` (repo public since 18.9.2026, feedback item 1) | OK (edit 19.9.) |
+| 3.24 | Facts | `Magnifier · sessions · live diff` / `Nothing leaves the machine` / `Open source, Apache-2.0` | OK (edit 19.9.) |
+| 3.24b | Link (added 19.9.) | `github.com/Sunrisesoftware-app/reviewglass ↗` | OK |
 | **Salpa Defence** | | | |
 | 3.25 | Row | `2026 → · Salpa Defence · venture · Local AI appliance for environments cloud services cannot legally reach.` | OK |
 | 3.26 | Drawer | `Finnish defence subcontractors first. The vendor never touches the customer's classified material. Sales demo in production since August 2026; product core under way.` | OK |
@@ -159,7 +160,7 @@ Each row has: year, name, status tag, one-line description, drawer paragraph, fa
 | 3.34 | Row | `Internal tools · production · Command Center, BreathForge Studio, MasterVideo 3D, MasterPromo, PhotoMaster, VideoForge, SongForge.` | drop (Petri 18.9.: the page shows only what others can use or read) |
 | 3.35 | Drawer | `Built for daily use; not for sale.` | drop |
 | **SpectralForge** (not in Flow 2's rows; was featured in V4.5) | | | |
-| 3.36 | Row (added) | `2025 → · SpectralForge · production · v2.0 · Spectral repair for AI-generated and codec-damaged audio, companion to MasterForge.` (Petri 18.9.: a production tool, not beta) | OK |
+| 3.36 | Row (added) | `2025 → · SpectralForge · closed beta · v2.0 · Spectral repair for AI-generated and codec-damaged audio, companion to MasterForge.` (18.9.: a production tool; 19.9.: the live app gates users without access behind a Closed Beta page and the profile README says Beta, so the status follows the surface; feedback item 2) | OK (edit 19.9.) |
 | 3.37 | Drawer | `Repairs what AI generation and codecs break in audio, before mastering. Four repair stages and a Surgical De-tone panel for stubborn artifacts.` | OK (edit 18.9.: shorter) |
 | 3.38 | Facts | `Companion to MasterForge` / `Four-stage repair pipeline` / `Surgical De-tone` | OK |
 | 3.39 | Link | `spectral.masterforge.app ↗` | OK |
@@ -175,9 +176,9 @@ Each row has: year, name, status tag, one-line description, drawer paragraph, fa
 | 4.5 | Chamber label | `Cryo chamber · archive` | OK |
 | 4.6 | Chamber close | `Close` | OK |
 | 4.7 | Chamber title | `Silicon at temperatures it was never designed for.` | OK |
-| 4.8 | Chamber text, two paragraphs | (1) `Extreme overclocking is about breaking limits. Under the alias SF3D I spent ten years chasing world records with liquid nitrogen and then liquid helium at −269 °C, in competition with the best in the world, sponsored by the manufacturers and representing them at events around the world.` (2) `It was never a hobby on the side. The power delivery on today's motherboards and much of what reached the market in that decade was shaped by what we demanded of the hardware. And no desktop processor sold today runs at the 7 GHz we reached in 2010. The full story lives at sf3d.fi.` (Petri's direction 18.9. evening: breaking limits, records and competition, the technology the industry built because of us, representing the sponsors, the 7 GHz no stock desktop matches) | OK (edit 18.9.) |
+| 4.8 | Chamber text, two paragraphs | (1) `Extreme overclocking is about breaking limits. Under the alias SF3D I spent ten years chasing world records with liquid nitrogen and then liquid helium at −269 °C, in competition with the best in the world, sponsored by the manufacturers and representing them at events around the world.` (2) `It was never a hobby on the side. The power delivery on today's motherboards and much of what reached the market in that decade was shaped by what we demanded of the hardware. And in 2026 no desktop processor on sale runs at the 7 GHz we reached in 2010. The full story lives at sf3d.fi.` (the year anchors the claim, feedback item 14, 19.9.2026; Petri's direction 18.9. evening: breaking limits, records and competition, the technology the industry built because of us, representing the sponsors, the 7 GHz no stock desktop matches) | OK (edit 18.9.) |
 | 4.9 | Records, three | `2006 – 2016 · Multiple world records in 3D and calculation benchmarks` / `2010 · First 7 GHz quad-core CPU, cooled with liquid helium` / `2012 · SuperPi 32M world record, Ivy Bridge class` | OK |
-| 4.10 | Readouts, four | `Coolant · Liquid helium` / `Lowest reading · −234 °C` (measured on the chip; helium's boiling point −269 °C is in the text) / `HWBot Pro League · World #3 · 1335.90 pts` / `Principal sponsors · Intel · AMD · Asus · ASRock · Foxconn · G.Skill · Kingston · Gigabyte · MSI` | OK |
+| 4.10 | Readouts, four | `Coolant · Liquid helium` / `Lowest probe reading · −234 °C` (measured on the chip; helium's boiling point −269 °C is in the text; "probe" added 19.9.2026, feedback item 10) / `HWBot Pro League · World #3 · 1335.90 pts` / `Principal sponsors · Intel · AMD · Asus · ASRock · Foxconn · G.Skill · Kingston · Gigabyte · MSI` | OK |
 | 4.11 | Photo captions, eight | `LN₂ session` / `−234 °C` / `SuperPi 32M · 2012` / `HWBot · world #3` / `Taiwan` / `Las Vegas` / `Triple Point EVO` / `Critical Point` | OK |
 
 ## 5. §04 Approach

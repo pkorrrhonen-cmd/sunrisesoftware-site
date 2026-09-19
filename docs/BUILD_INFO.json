@@ -1,16 +1,16 @@
 {
   "name": "sw-sivusto",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "page": {
     "design_version": "V5 (SEED v3.0.0, the sunrise generation)",
     "built": "2026-09-18",
-    "last_page_revision": "2026-09-18",
-    "note": "index.html rewritten from docs/mockups/flow-4.html together with Petri (SEED v3.0.0 section 8). Merged to main in PR #1 (squash) and deployed by Cloudflare Pages on 18.9.2026 16:35 UTC; verified live: title, og:image, data-revised 2026-09-18, assets 200, security headers present."
+    "last_page_revision": "2026-09-19",
+    "note": "index.html rewritten from docs/mockups/flow-4.html together with Petri (SEED v3.0.0 section 8). Merged to main in PR #1 (squash) and deployed by Cloudflare Pages on 18.9.2026 16:35 UTC; verified live: title, og:image, data-revised 2026-09-18, assets 200, security headers present. Session 3 (19.9.2026): the feedback round on the live page (docs/design/feedback-v5.md), 14 items decided with Petri in three rounds of decision boxes and applied: copy in five places, one status scale, ReviewGlass open source with the repo link, SpectralForge closed beta, the Luviamo clip copied to media/, preload=none on both clips, placeholder src on the two JS-driven images."
   },
   "seed": "3.0.0 (accepted 18.9.2026, adr.sws.013); 2.0.0 and the 2.1.0 draft archived",
-  "session": 2,
-  "updated": "2026-09-18",
-  "state": "Session 2 (18.9.2026) closed with V5 LIVE: PR #1 squash-merged to main and deployed by Cloudflare Pages; verified from the live site (title, og:image, data-revised, assets, headers). Before the merge the branch was rebased on main's public-repo commit and scrubbed: the employer's product names, partner names and other projects' internal states removed from all tracked files (one was in the Atlas board's card data inside the script; CI now checks the whole file). The repo is public with no open-source licence (README). Thread packaged the same evening: the decision-box method researched and written up (docs/design/decision-method.md, Atlas artifact SUNRISE-TYOTAPA-PAATOSLAATIKOT), session close in docs/SESSION-CLOSE-2026-09-18.md.",
+  "session": 3,
+  "updated": "2026-09-19",
+  "state": "Session 3 (19.9.2026): V5 live since 18.9.; the feedback round from chat (Atlas artifact SW-SIVUSTO-MSG-PALAUTE-V5) checked against the product repos and the live services, decided with Petri through three rounds of decision boxes and applied to the page; the profile README corrected on the two years it shared with the page (SF3D 2006, MasterForge 2024; commit 8e190e8 on pkorrrhonen-cmd/pkorrrhonen-cmd); adr.sws.014 (one source for the shared facts) written as proposed. Also diagnosed: the 401 at every session start comes from the project-level .mcp.json static bearer (24 repos, user env ATLAS_MCP_TOKEN stale against the worker's MCP_TOKEN secret), while the claude.ai OAuth connector works; removal proposed to Petri.",
   "sources_checked_2026_09_17": {
     "masterforge": "BUILD_INFO 4.44.0, 16.9.2026 (Starter v2 general master); masterforge.app: Free, Starter 4.99, Pro 9.99, one-off 14.99",
     "quaesitor": "repo main 2.13.27 (17.8.2026), SEED v2.14.0; quaesitor.app live",
@@ -31,11 +31,13 @@
     "github": "pkorrrhonen-cmd: 0 public repos, no name or bio on 17.9.2026; Sunrisesoftware-app: 15 private repos"
   },
   "next": [
-    "Petri looks at the live page on the phone and desktop; anything to adjust goes to a new session on a new branch from main",
-    "Atlas: sw-sivusto.STATUS updated; proposals for adr.sws.003 to 013 to model/systems/sw-sivusto.model.json in one round (the project-level MCP entry atlas with a static bearer is rejected with 401; Petri renews the token or removes the header)",
-    "Fill the public GitHub profile (the page links github.com/pkorrrhonen-cmd four times; the profile had no name, bio or public repos on 17.9.2026); first public repo candidate ReviewGlass once its name is cleared",
+    "Petri looks at the Pages preview of session 3 (desktop and phone), then merge; then the live check",
+    "Atlas: sw-sivusto.STATUS written 19.9.2026 over the OAuth connector; proposals for adr.sws.003 to 014 to model/systems/sw-sivusto.model.json still open (the proposals channel takes one at a time; a session with time for the round)",
+    "Remove the static-bearer route to Atlas: delete the atlas entry from E:/projects/sunrisesoftware/*/.mcp.json (24 repos), unset the user env ATLAS_MCP_TOKEN, drop enabledMcpjsonServers atlas from ~/.claude/settings.json; the OAuth connector stays (proposed to Petri 19.9.2026, not run without his word)",
+    "adr.sws.014 (proposed): one source for the facts the page shares with the profile README (state, version, since, licence, url); shape of the facts file and the generator's home are Petri's call; until then the README is checked against the page by hand in the session routine",
+    "The profile README still names the employer's applications (feedback item 4); the page's CI forbids them (adr.sws.006); Petri's call for the README",
     "Cloudflare Web Analytics still not enabled; needs a token from the dashboard",
-    "Lighthouse on the live page; the EQ clip (3.4 MB) loads lazily but is the heaviest asset: a shorter or narrower capture if the score asks for it",
+    "Lighthouse and the HTML validator on the live page; the two clips (3.4 and 5.1 MB) load only in view now (preload=none)",
     "Later, no design change needed: a wider MasterForge EQ capture; a fresh TilastoSilta chart-view capture; real captures for Somnus and Atlas if ever cleared; the employer's apps if permission arrives (adr.sws.006)"
   ],
   "portrait": {
@@ -117,5 +119,19 @@
     "atlas_artifact": "SUNRISE-TYOTAPA-PAATOSLAATIKOT (art_8b3182d865124b2e, v1, draft, 2026-09-18T16:58Z)",
     "rule": "numbered list file first; four AskUserQuestion boxes a round, each with the current text, 2 to 3 options with one recommended and Other; new wording shown verbatim and marked as a proposal; record each answer at once; refine rounds; check the result live before it counts as decided"
   },
-  "session_close": "docs/SESSION-CLOSE-2026-09-18.md"
+  "session_close": "docs/SESSION-CLOSE-2026-09-18.md",
+  "sources_checked_2026_09_19": {
+    "reviewglass": "github.com/Sunrisesoftware-app/reviewglass public (pushed 18.9.2026 16:51Z), Apache-2.0; repo BUILD_INFO session 4, 18.9.2026, pre-alpha in daily use",
+    "spectralforge": "package.json 2.0.0; the live app shows users without access a Closed Beta gate (src/pages/BetaGatePage.tsx); profile README says Beta",
+    "luviamo_video": "https://luviamo.app/media/luviamo-esittely-v2.mp4, 5 118 732 bytes, copied to media/luviamo-intro.mp4",
+    "ultragravel": "repo BUILD_INFO 0.1.0 (13.8.2026), live whole country, no version shown on the live site: the drawer keeps 'live' without a number",
+    "github": "pkorrrhonen-cmd: name, bio and 2 public repos on 19.9.2026; profile README filled (banner, product table, family map); the next row about the profile closes",
+    "sf3d_years": "the page's 2006-2016 is the corrected value (LESSONS 17.9.2026, check-site forbids 2008-2016); the README said 2008 and was corrected"
+  },
+  "feedback_round_1": {
+    "date": "2026-09-19",
+    "source": "Atlas artifact SW-SIVUSTO-MSG-PALAUTE-V5 (art_cbd6dba3d59a4f8b, chat, 18.9.2026)",
+    "list": "docs/design/feedback-v5.md",
+    "result": "14 items: 11 applied to the page, 1 README fix (two years), 1 no change (creed), 1 dropped (Quaesitor, decided 18.9.); structural note recorded as adr.sws.014 proposed"
+  }
 }

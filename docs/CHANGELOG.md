@@ -3,6 +3,58 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 3 (19.9.2026): palautekierros V5-livesivuun, 14 kohtaa päätöslaatikoilla
+
+**Lähtökohta:** chat luki livesivun ja GitHub-profiilin tekstinä ja jätti Atlakseen palautteen
+`SW-SIVUSTO-MSG-PALAUTE-V5` (art_cbd6dba3d59a4f8b): 5 vahvuutta, 14 korjauskohtaa kolmessa
+luokassa (A ristiriidat sivun ja profiili-READMEn välillä, B tekniset, C tekstit) ja yksi
+rakenteellinen huomio (jaetut faktat yhdestä lähteestä). Luettu OAuth-connectorin kautta.
+
+**Tarkistettu ennen päätöksiä (ei muistista):** ReviewGlassin repo julkinen 18.9. 16:51Z,
+Apache-2.0, BUILD_INFO sessio 4 pre-alpha; SpectralForgen live-appi näyttää käyttäjälle ilman
+oikeutta "Closed Beta"-portin (`src/pages/BetaGatePage.tsx`), package.json 2.0.0; Luviamon video
+5 118 732 tavua luviamo.appissa; Ultra Gravelin repo 0.1.0, livesivulla ei versionumeroa;
+GitHub-profiili täytetty (nimi, bio, 2 julkista repoa, README bannerilla ja taulukolla); SF3D:n
+vuodet: sivun 2006–2016 on korjattu arvo (LESSONS 17.9., check-site kieltää 2008), README sanoi
+2008. Palautteen väitteistä yksi (A2) osoitti siis READMEen, ei sivuun.
+
+**Päätetty Petrin kanssa kolmessa laatikkokierroksessa** (`docs/design/feedback-v5.md`, jokainen
+rivi tilalla): ReviewGlass "Built for my own daily use. Open source, Apache-2.0." + repolinkki
+laatikkoon; SpectralForge "closed beta · v2.0"; yksi tila-asteikko Live / In use / Closed beta /
+Pre-alpha / Venture, versio heti tilan perään (Luviamo "Live · v0.385 · 2026 →", Atlas "In use ·
+v0.9 · 2026 →"); MasterForge "paying customers · 2024 →" (Petri: vuosien pitää täsmätä yhtiöön,
+2023 ei voi jäädä); kryokammion lukema "Lowest probe reading"; §01 kohta 03 sai toisen lauseen
+"Patient data, audit trails and the security review are part of the product, not a layer added
+afterwards."; Luviamon tagline nimeää työkaluluokat ("ideation, copy, visuals, scheduling,
+publishing and measurement in one place"); 7 GHz -väite ankkuroitu ("And in 2026 no desktop
+processor on sale…"); creed pysyy molempine lauseineen; Quaesitor pysyy poissa (päätetty 18.9.).
+Tekniset: `#peek img` ja `#lightboxImg` saivat läpinäkyvän 1×1-paikkamerkin src:ksi; Luviamon
+video kopioitu `media/luviamo-intro.mp4`; molemmat klipit `preload="none"`.
+
+**Sivu muokattu yhdessä suunnittelun päätteeksi:** 14 korvausta `index.html`:ään, footer 19 Sep
+2026, `check-site` vihreä (skripti kattaa nyt myös `media/`-viittaukset ja `poster`-attribuutit:
+19 paikallista tiedostoa). Katsottu paikallisesti selaimessa: ReviewGlass-laatikko linkkeineen,
+molemmat videot toistuvat näkyviin tullessaan `preload="none"`:lla, kryokammio puhelinleveydellä.
+
+**Profiili-README** (`pkorrrhonen-cmd/pkorrrhonen-cmd`, eri repo, Petrin luvalla): SF3D 2006 to
+2016 ja MasterForge paying customers since 2024, commit 8e190e8, pushattu. Työnantajan sovellusten
+nimet READMEssä jäävät Petrin päätettäväksi (kohta 4).
+
+**Rakenteellinen huomio kirjattu** `adr.sws.014`:ksi (proposed): sivun ja READMEn jakamat faktat
+(tila, versio, alkuvuosi, lisenssi, url) yhdestä lähteestä, check-site vertaa sivua siihen ja
+READMEn tuotetaulukko generoidaan siitä. Toteutus myöhemmin.
+
+**Dokumentit:** copy-v3 rivit 1.9, 2.4, 2.20, 2.22, 2.27, 3.23, 3.24 (+3.24b linkki), 3.36, 4.8,
+4.10; apps-v3 Luviamon lähde; SEED 3.4 (probe reading), 4 (tila-asteikko sääntöihin), 5.2
+(video paikallinen), 7 (V5 live, palautekierros), 8 (next). `BUILD_INFO` 5.0.1, `updated`
+19.9.2026, `sources_checked_2026_09_19`, `next` uusiksi (profiili-rivi sulkeutui).
+
+**Atlas-yhteyden 401 selvitetty** (Petrin pyyntö): projektitason `.mcp.json` (24 repoa, pvm
+9.8.2026) määrittelee `atlas`-palvelimen staattisella bearerilla `${ATLAS_MCP_TOKEN}`; muuttuja on
+Windowsin käyttäjätason ympäristömuuttuja, jonka arvo ei enää vastaa MCP-workerin `MCP_TOKEN`-
+secretiä; `~/.claude/settings.json` kytkee sen päälle (`enabledMcpjsonServers`). OAuth-connector
+on toiminut koko ajan. Ehdotettu poisto (kaikki kolme paikkaa), ei ajettu ilman Petrin sanaa.
+
 ## Sessio 2 (18.9.2026 aamu): Petrin vastaukset Flow 1:een, Flow 2 rakennettu
 
 **Petrin vastaukset:** sivu on pitkä ja harva, tiivistetään hieman; kuvan yläreuna häivytetään
