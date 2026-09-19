@@ -2,6 +2,23 @@
 
 Opitut virheet ja estosäännöt, jotta niitä ei toisteta. Uusin ensin.
 
+## 19.9.2026: kaksi julkista pintaa erosivat toisistaan vuorokaudessa
+
+**Mitä tapahtui:** V5 julkaistiin 18.9. ja samana päivänä profiili-README täytettiin toisessa
+repossa. Seuraavana aamuna sivu ja README sanoivat eri asian viidestä faktasta (ReviewGlassin
+lisenssi, SF3D:n vuodet, SpectralForgen tila, MasterForgen alkuvuosi, Quaesitorin olemassaolo).
+Yksi ero oli READMEn vika (2008), yksi sivun (ReviewGlass), yksi molempien (2023). Kumpikin pinta
+oli tarkistettu erikseen tuoterepoista, mutta ei toisiaan vasten, ja ReviewGlassin repo muuttui
+julkiseksi sivun julkaisun jälkeen samana iltana.
+
+**Estosääntö:**
+- Sessiorutiinin faktatarkistus kattaa sivun lisäksi profiili-READMEn: samat tuotteet, samat
+  tilat, samat vuodet. Ero on korjattava ennen kuin sessio päättyy, kumpaan tahansa suuntaan.
+- Fakta, joka elää kahdella julkisella pinnalla, kuuluu yhteen lähteeseen (adr.sws.014,
+  proposed). Kunnes se on rakennettu, tarkistus tehdään käsin joka sessiossa.
+- Kun toinen repo muuttuu julkiseksi (tai sen tila muuttuu), sivun vastaava rivi tarkistetaan
+  samassa sessiossa, ei seuraavassa.
+
 ## 18.9.2026: suositus ei ole päätös ennen kuin se on luettu ääneen
 
 **Mitä tapahtui:** kahdessa kysymyslaatikossa vaihtoehto "Recommended" sisälsi otsikon, jonka olin

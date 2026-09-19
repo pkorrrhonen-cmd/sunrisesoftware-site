@@ -146,7 +146,7 @@ Google Fonts: Familjen+Grotesk:wght@400;500;600, Public+Sans:wght@300;400;500;60
 
 **Drawer (§03).** A row: year (mono) · name + mono status tag · one-line description · the plus. The row slides 12 px right on hover. The plus is a 48 px disc that scales from 0.62 to 1.4 as the pointer nears (within 320 px) and gets a paper disc and a shadow when near. On hover a 540 px preview parks at the row's right edge beside the plus (never follows the pointer), showing the product's real capture or its living canvas. Click opens the body (`grid-template-rows` 0fr → 1fr): paragraph, three facts, link, and one big image or canvas (16:9, max 820 px). One drawer open at a time.
 
-**Cryo chamber.** Above it: the section mark in `--ember`, the claim (h2), the lead, and the button (a dark pill with a pulsing ice dot, `Open the cryo chamber`). The chamber unfolds below: `--cryo` gradient, ice hairlines, a fog canvas (drifting radial gradients), a top bar with the label and Close, the title, two paragraphs, three records (ice left rules), four readouts (Coolant, Lowest reading, HWBot Pro League, Principal sponsors), then a draggable strip of eight 4:3 photo cards in a cold treatment (desaturated, ice captions), each opening the lightbox.
+**Cryo chamber.** Above it: the section mark in `--ember`, the claim (h2), the lead, and the button (a dark pill with a pulsing ice dot, `Open the cryo chamber`). The chamber unfolds below: `--cryo` gradient, ice hairlines, a fog canvas (drifting radial gradients), a top bar with the label and Close, the title, two paragraphs, three records (ice left rules), four readouts (Coolant, Lowest probe reading, HWBot Pro League, Principal sponsors), then a draggable strip of eight 4:3 photo cards in a cold treatment (desaturated, ice captions), each opening the lightbox.
 
 **Approach.** Title, three rules (mono index left, display sentence with the coloured clause, a line drawn on reveal), the creed (centred, 200/400 weights, the second sentence coloured), then the method: four columns (Build, Gate, Run, Record) with mono labels and 14 px body.
 
@@ -184,7 +184,7 @@ The copy is decided item by item in **`docs/design/copy-v3.md`**, which is the s
 | §05 and footer | `Let's talk.`, body, email, link list, footer | 6.1 to 6.8 |
 | Shipped with the page | OG title and description | 7.1 to 7.2 |
 
-Rules for copy: English, first person singular, no em dashes, no relative time, every status dated, no hero statistics, no generic adjectives, the company name only in the footer and the structured data, no employer's product names (adr.sws.006), no technology names in spec strips.
+Rules for copy: English, first person singular, no em dashes, no relative time, every status dated, one status scale (Live, In use, Closed beta, Pre-alpha, Venture; the version right after the state where one exists; feedback round 19.9.2026), no hero statistics, no generic adjectives, the company name only in the footer and the structured data, no employer's product names (adr.sws.006), no technology names in spec strips.
 
 ---
 
@@ -200,7 +200,7 @@ Static `index.html` with inline CSS and JS (about 600 lines of JS: reveals, the 
 |---|---|---|
 | Portrait cutout | `images/Petri.jpg` (16.8.2026), cut out 18.9.2026 | `images/petri-cutout.webp` + `.png` fallback, two sizes (880 and 440 px wide) |
 | MasterForge EQ clip | `masterforge/data/video creation/captures/eq/eq.mp4` | `media/masterforge-eq.mp4` (3.4 MB) + poster `media/masterforge-eq.jpg` |
-| Luviamo video | streamed from `https://luviamo.app/media/luviamo-esittely-v2.mp4` | poster `images/luviamo-poster.jpg` |
+| Luviamo video | `luviamo.app/media/luviamo-esittely-v2.mp4`, copied 19.9.2026 | `media/luviamo-intro.mp4` (5.1 MB) + poster `images/luviamo-poster.jpg`; both clips `preload="none"` |
 | Drawer captures | `docs/mockups/shots/` | `images/shot-virustutka.webp`, `shot-ultragravel.webp`, `shot-ultragravel-preview.webp`, `shot-tilastosilta.webp`, `shot-sf3d.webp`, each with a JPG fallback |
 | SpectralForge | `images/product-spectralforge.webp` (exists) | as is |
 | Salpa mark | `salpa defence/docs/salpa-brand/logo/` | `images/salpa-defence-logo-horizontal-dark.svg` |
@@ -255,17 +255,18 @@ Day work:   digital health software to clinical and regulatory standards
 | Type 1 | 2026-09-18 | six pairs; Familjen Grotesk + Public Sans chosen (adr.sws.012) | done |
 | Flow 3 | 2026-09-18 | the decided copy (copy-v3.md); two headings and the cryo text re-decided | done |
 | Flow 4 | 2026-09-18 | the decided app views (apps-v3.md): real EQ clip, video, rack panel, workspace board, real captures, Salpa mark, ReviewGlass mockup | **accepted (adr.sws.013)** |
-| **V5** | 2026-09-18 | `index.html` rewritten to Flow 4 with the page assets, together with Petri; check-site green | **built, awaiting commit and merge** |
+| **V5** | 2026-09-18 | `index.html` rewritten to Flow 4 with the page assets, together with Petri; check-site green | **live 18.9.2026 (PR #1)** |
+| V5 feedback | 2026-09-19 | 14 items from chat's reading of the live page (`docs/design/feedback-v5.md`): ReviewGlass open source, SpectralForge closed beta, one status scale, MasterForge 2024, §01 item 03, Luviamo tagline, probe reading, 2026 anchor on the 7 GHz claim, Luviamo clip local, placeholder `src` | done, decided with Petri |
 
 ---
 
 ## 8. NEXT STEPS
 
-1. Rewrite `index.html` to Flow 4 together: the mockup's markup and code become the page, absolute media paths, the page assets of 5.2, head of 5.3, `data-revised` in the footer.
-2. `node scripts/check-site.mjs` green; the Pages preview looked at on desktop and phone; Lighthouse.
-3. Archive SEED v2.0.0 and v2.1.0; `BUILD_INFO.version` 5.0.0; CHANGELOG; commit and PR when Petri says.
-4. Mirror to Atlas: `sw-sivusto.STATUS`, proposals for adr.sws.003 to 013.
-5. GitHub profile filled in the same package; Cloudflare Web Analytics token.
+1. Done 18.9.2026: `index.html` rewritten to Flow 4, check-site green, SEED v2 archived, V5 live. Done 19.9.2026: the feedback round, the GitHub profile filled.
+2. Lighthouse and the HTML validator on the live page.
+3. Mirror to Atlas: `sw-sivusto.STATUS`, proposals for adr.sws.003 to 014.
+4. One source for the facts shared by the page and the profile README (adr.sws.014, proposed).
+5. Cloudflare Web Analytics token.
 
 ---
 
