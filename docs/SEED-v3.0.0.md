@@ -18,7 +18,7 @@ A change of direction (adr.sws.010), so a major version. Between v2.0.0 (April 2
 - **Motion added on purpose.** A sky layer whose light follows the reader, a nav sun that rises with scroll, word reveals, parallax plates, drawers pulled out with the mouse, living product plates, a cryo chamber, a shore instead of a footer (adr.sws.011).
 - **Content rewritten and re-decided item by item** (`docs/design/copy-v3.md`): the story now leads with people and the present, not with clinics and overclocking. Quaesitor leaves the page; Somnus and Atlas join the products as instruments. The cabinet is seven rows of real products. The SF3D history is a claim, a lead and a cryo chamber behind a button (adr.sws.003 closed by this).
 - **Every image is the real product** (`docs/design/apps-v3.md`): a real EQ capture, the real intro video, real captures in the drawers, the Salpa brand mark, the portrait cut out of its studio backdrop. Drawn instruments only where the product has no public surface (Somnus, Atlas, ReviewGlass).
-- **The page is dated.** Every status carries a version or a date; the footer carries the revision date and CI checks it (adr.sws.004).
+- **The page is dated.** Every status carries a date, never a product version number (adr.sws.004, amended by adr.sws.015 on 20.9.2026: versions typed by hand are stale the day after); the footer carries the revision date and CI checks it.
 
 What survives from v2.0.0: the numbered sections, first person singular, restraint (no hero statistics, no generic adjectives, no em dashes), the lightbox, the static single-file delivery (adr.sws.001, adr.sws.008), and the founder data.
 
@@ -50,7 +50,7 @@ Software for people, built by someone who spent twenty years understanding them.
 /
 ├─ SKY (fixed layer)            dawn gradient + drifting orbs at the top; the reading light; the sea rising at the end
 ├─ NAV (fixed, blur on scroll)  Sunrise Software (sun mark rises with scroll) · Products · Approach · Contact · GitHub ↗
-├─ HERO                         kicker · headline · lede · meta row (Founder, Location, Code, Latest release) · portrait cutout
+├─ HERO                         kicker · headline · lede · meta row (Founder, Location, Code, Email) · portrait cutout
 ├─ §01 The connection           title · intro · four disciplines
 ├─ §02 Products                 title · group "Commercial products": MasterForge, Luviamo
 │                               · group "Tools and research instruments": Somnus, Atlas
@@ -175,7 +175,7 @@ The copy is decided item by item in **`docs/design/copy-v3.md`**, which is the s
 
 | Part | What | Source items |
 |---|---|---|
-| Frame | title, meta description, nav, kicker, headline `Understand the human first. Then build the better product for them.`, lede `The world is open. Wherever better software is needed, from audio to public health, I build it.`, meta row (Founder · Location · Code · Latest release), portrait caption | 0.1 to 0.10 |
+| Frame | title, meta description, nav, kicker, headline `Understand the human first. Then build the better product for them.`, lede `The world is open. Wherever better software is needed, from audio to public health, I build it.`, meta row (Founder · Location · Code · Email), portrait caption | 0.1 to 0.10 |
 | §01 | `Four disciplines. One shared method.`, intro, four items | 1.1 to 1.11 |
 | §02 | `Products people pay for, and the instruments behind them.`, groups, MasterForge, Luviamo, Somnus, Atlas | 2.1 to 2.34 |
 | §03 | `More products, tools and instruments.`, seven rows | 3.1 to 3.39 |
@@ -184,7 +184,7 @@ The copy is decided item by item in **`docs/design/copy-v3.md`**, which is the s
 | §05 and footer | `Let's talk.`, body, email, link list, footer | 6.1 to 6.8 |
 | Shipped with the page | OG title and description | 7.1 to 7.2 |
 
-Rules for copy: English, first person singular, no em dashes, no relative time, every status dated, one status scale (Live, In use, Closed beta, Pre-alpha, Venture; the version right after the state where one exists; feedback round 19.9.2026), no hero statistics, no generic adjectives, the company name only in the footer and the structured data, no employer's product names (adr.sws.006), no technology names in spec strips.
+Rules for copy: English, first person singular, no em dashes, no relative time, every status dated and no product version numbers (adr.sws.015), one status scale (Live, In use, Closed beta, Pre-alpha, Venture; feedback round 19.9.2026), no hero statistics, no generic adjectives, the company name only in the footer and the structured data, no employer's product names (adr.sws.006), no technology names in spec strips.
 
 ---
 

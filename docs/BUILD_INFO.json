@@ -1,16 +1,16 @@
 {
   "name": "sw-sivusto",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "page": {
     "design_version": "V5 (SEED v3.0.0, the sunrise generation)",
     "built": "2026-09-18",
-    "last_page_revision": "2026-09-19",
-    "note": "index.html rewritten from docs/mockups/flow-4.html together with Petri (SEED v3.0.0 section 8). Merged to main in PR #1 (squash) and deployed by Cloudflare Pages on 18.9.2026 16:35 UTC; verified live: title, og:image, data-revised 2026-09-18, assets 200, security headers present. Session 3 (19.9.2026): the feedback round on the live page (docs/design/feedback-v5.md), 14 items decided with Petri in three rounds of decision boxes and applied: copy in five places, one status scale, ReviewGlass open source with the repo link, SpectralForge closed beta, the Luviamo clip copied to media/, preload=none on both clips, placeholder src on the two JS-driven images. Merged to main in PR #2 (squash, 9d85c02) and deployed by Cloudflare Pages on 19.9.2026; verified live: data-revised 2026-09-19, the seven changed texts present, both clips served (206 on range requests). Mobile fix the same morning (PR #3): the EQ clip's video is visible with its poster from the first paint and play is retried on the first gesture; before, a phone that refused play() showed the canvas sketch."
+    "last_page_revision": "2026-09-20",
+    "note": "index.html rewritten from docs/mockups/flow-4.html together with Petri (SEED v3.0.0 section 8). Merged to main in PR #1 (squash) and deployed by Cloudflare Pages on 18.9.2026 16:35 UTC; verified live: title, og:image, data-revised 2026-09-18, assets 200, security headers present. Session 3 (19.9.2026): the feedback round on the live page (docs/design/feedback-v5.md), 14 items decided with Petri in three rounds of decision boxes and applied: copy in five places, one status scale, ReviewGlass open source with the repo link, SpectralForge closed beta, the Luviamo clip copied to media/, preload=none on both clips, placeholder src on the two JS-driven images. Merged to main in PR #2 (squash, 9d85c02) and deployed by Cloudflare Pages on 19.9.2026; verified live: data-revised 2026-09-19, the seven changed texts present, both clips served (206 on range requests). Mobile fix the same morning (PR #3): the EQ clip's video is visible with its poster from the first paint and play is retried on the first gesture; before, a phone that refused play() showed the canvas sketch. Session 4 (20.9.2026): every product version number removed from the page (adr.sws.015); the hero meta cell Latest release became Email; check-site forbids version strings."
   },
   "seed": "3.0.0 (accepted 18.9.2026, adr.sws.013); 2.0.0 and the 2.1.0 draft archived",
-  "session": 3,
-  "updated": "2026-09-19",
-  "state": "Session 3 (19.9.2026): V5 live since 18.9.; the feedback round from chat (Atlas artifact SW-SIVUSTO-MSG-PALAUTE-V5) checked against the product repos and the live services, decided with Petri through three rounds of decision boxes and applied to the page; the profile README corrected on the two years it shared with the page (SF3D 2006, MasterForge 2024; commit 8e190e8 on pkorrrhonen-cmd/pkorrrhonen-cmd); adr.sws.014 (one source for the shared facts) written as proposed. Also diagnosed: the 401 at every session start comes from the project-level .mcp.json static bearer (24 repos, user env ATLAS_MCP_TOKEN stale against the worker's MCP_TOKEN secret), while the claude.ai OAuth connector works; removal proposed to Petri.",
+  "session": 4,
+  "updated": "2026-09-20",
+  "state": "Session 4 (20.9.2026): Petri saw Luviamo v0.385 on the page while production was at 0.388 and ruled that hand-typed product versions go. Eight mentions listed (five status lines, the hero meta cell, two drawn Atlas board cards), decided in one decision box round and removed as one batch; adr.sws.015 accepted, adr.sws.004 amended (a status carries a date, never a version); check-site fails on v1.2-shaped strings and '<product> 1.2' anywhere in index.html. Session 3 (19.9.2026) did the feedback round (PR #2) and the mobile clip fix (PR #3), both live.",
   "sources_checked_2026_09_17": {
     "masterforge": "BUILD_INFO 4.44.0, 16.9.2026 (Starter v2 general master); masterforge.app: Free, Starter 4.99, Pro 9.99, one-off 14.99",
     "quaesitor": "repo main 2.13.27 (17.8.2026), SEED v2.14.0; quaesitor.app live",
@@ -31,8 +31,8 @@
     "github": "pkorrrhonen-cmd: 0 public repos, no name or bio on 17.9.2026; Sunrisesoftware-app: 15 private repos"
   },
   "next": [
-    "Petri looks at the live page on the phone after PR #3 (MasterForge EQ: poster at once, clip on the first scroll) and desktop; anything to adjust goes to a new session on a new branch from main",
-    "Atlas: sw-sivusto.STATUS written 19.9.2026 over the OAuth connector; proposals for adr.sws.003 to 014 to model/systems/sw-sivusto.model.json still open (the proposals channel takes one at a time; a session with time for the round)",
+    "Petri looks at the live page after PR #4 (no version numbers; Email in the meta row) on the phone and desktop",
+    "Atlas: sw-sivusto.STATUS written 19.9.2026 over the OAuth connector; proposals for adr.sws.003 to 015 to model/systems/sw-sivusto.model.json still open (the proposals channel takes one at a time; a session with time for the round)",
     "Remove the static-bearer route to Atlas: delete the atlas entry from E:/projects/sunrisesoftware/*/.mcp.json (24 repos), unset the user env ATLAS_MCP_TOKEN, drop enabledMcpjsonServers atlas from ~/.claude/settings.json; the OAuth connector stays (Petri 19.9.2026: run it at the end of the day, other processes are running)",
     "adr.sws.014 (proposed): one source for the facts the page shares with the profile README (state, version, since, licence, url); shape of the facts file and the generator's home are Petri's call; until then the README is checked against the page by hand in the session routine",
     "The profile README still names the employer's applications (feedback item 4); the page's CI forbids them (adr.sws.006); Petri's call for the README",
@@ -133,5 +133,18 @@
     "source": "Atlas artifact SW-SIVUSTO-MSG-PALAUTE-V5 (art_cbd6dba3d59a4f8b, chat, 18.9.2026)",
     "list": "docs/design/feedback-v5.md",
     "result": "14 items: 11 applied to the page, 1 README fix (two years), 1 no change (creed), 1 dropped (Quaesitor, decided 18.9.); structural note recorded as adr.sws.014 proposed"
+  },
+  "no_versions_2026_09_20": {
+    "rule": "adr.sws.015",
+    "removed": [
+      "hero meta: Latest release · MasterForge 4.44 · 16 Sep 2026 (cell became Email)",
+      "MasterForge v4.44",
+      "Luviamo v0.385",
+      "Atlas v0.9",
+      "Virustutka v0.24",
+      "SpectralForge v2.0",
+      "Atlas board card MasterForge · Starter v2 (now free tier rebuilt)",
+      "Atlas board card Virustutka · v0.24 (now autumn season)"
+    ]
   }
 }

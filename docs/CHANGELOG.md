@@ -3,6 +3,27 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 4 (20.9.2026): tuoteversiot pois sivulta (adr.sws.015)
+
+**Petrin havainto:** sivulla luki Luviamo v0.385, tuotannossa oli jo 0.388. Käsin kirjoitettu
+versionumero vanhenee päivässä eikä mikään sivulla päivitä sitä, joten kaikki tuoteversiot
+poistetaan. Pyyntö: etsi, listaa, poista yhtenä koontina.
+
+**Löydetty ja listattu 8 kohtaa** (head, JSON-LD ja alt-tekstit puhtaat): heron metasolu
+"Latest release · MasterForge 4.44 · 16 Sep 2026", tilarivit MasterForge v4.44, Luviamo v0.385,
+Atlas v0.9, Virustutka v0.24, SpectralForge v2.0, ja Atlas-laudan piirretyt kortit "MasterForge ·
+Starter v2" ja "Virustutka · v0.24". Yksi laatikkokierros (3 kysymystä): koonti hyväksytty,
+metasolu vaihtuu "Email · pete@sunrisesoftware.app" (pysyvä fakta; Since 2024 olisi ollut kolmas
+Est.-maininta), laudan kortit "MasterForge · free tier rebuilt" ja "Virustutka · autumn season".
+
+**Tehty:** 8 korvausta index.html:ään, footer 20 Sep 2026. Tilarivit nyt "Live · paying customers
+· 2024 →", "Live · 2026 →", "In use · 2026 →", "live", "closed beta"; päiväys jää, versio ei.
+`check-site` kieltää `v1.2`-muotoiset merkkijonot ja "<tuote> 1.2" koko tiedostosta (kattaa myös
+canvas-korttien datan); regex testattu positiivisilla ja negatiivisilla (CSS-luvut, "1335.90 pts",
+`version="1.0"` eivät osu). Päätöstietue adr.sws.015 accepted, adr.sws.004 merkitty muutetuksi
+("versio tai päiväys" → päiväys), sääntö SEEDiin (0, 4), CLAUDE.md:hen, copy-v3 (0.9, 2.4, 2.20,
+2.27, 3.3, 3.36) ja apps-v3 (A.6 kortit). BUILD_INFO 5.0.2.
+
 ## Sessio 3 (19.9.2026): palautekierros V5-livesivuun, 14 kohtaa päätöslaatikoilla
 
 **Lähtökohta:** chat luki livesivun ja GitHub-profiilin tekstinä ja jätti Atlakseen palautteen
