@@ -24,6 +24,8 @@ canvas-korttien datan); regex testattu positiivisilla ja negatiivisilla (CSS-luv
 ("versio tai päiväys" → päiväys), sääntö SEEDiin (0, 4), CLAUDE.md:hen, copy-v3 (0.9, 2.4, 2.20,
 2.27, 3.3, 3.36) ja apps-v3 (A.6 kortit). BUILD_INFO 5.0.2.
 
+**Deploy:** PR #4 squash-mergattu, Cloudflare Pages deployasi; livestä todennettu data-revised 2026-09-20 ja ettei tarjoillussa HTML:ssä ole yhtään v1.2-muotoista tai "<tuote> 1.2" -merkkijonoa. Atlas sw-sivusto.STATUS v8 kirjoitettu OAuth-connectorilla.
+
 ## Sessio 3 (19.9.2026): palautekierros V5-livesivuun, 14 kohtaa päätöslaatikoilla
 
 **Lähtökohta:** chat luki livesivun ja GitHub-profiilin tekstinä ja jätti Atlakseen palautteen

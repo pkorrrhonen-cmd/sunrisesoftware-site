@@ -5,7 +5,7 @@
     "design_version": "V5 (SEED v3.0.0, the sunrise generation)",
     "built": "2026-09-18",
     "last_page_revision": "2026-09-20",
-    "note": "index.html rewritten from docs/mockups/flow-4.html together with Petri (SEED v3.0.0 section 8). Merged to main in PR #1 (squash) and deployed by Cloudflare Pages on 18.9.2026 16:35 UTC; verified live: title, og:image, data-revised 2026-09-18, assets 200, security headers present. Session 3 (19.9.2026): the feedback round on the live page (docs/design/feedback-v5.md), 14 items decided with Petri in three rounds of decision boxes and applied: copy in five places, one status scale, ReviewGlass open source with the repo link, SpectralForge closed beta, the Luviamo clip copied to media/, preload=none on both clips, placeholder src on the two JS-driven images. Merged to main in PR #2 (squash, 9d85c02) and deployed by Cloudflare Pages on 19.9.2026; verified live: data-revised 2026-09-19, the seven changed texts present, both clips served (206 on range requests). Mobile fix the same morning (PR #3): the EQ clip's video is visible with its poster from the first paint and play is retried on the first gesture; before, a phone that refused play() showed the canvas sketch. Session 4 (20.9.2026): every product version number removed from the page (adr.sws.015); the hero meta cell Latest release became Email; check-site forbids version strings."
+    "note": "index.html rewritten from docs/mockups/flow-4.html together with Petri (SEED v3.0.0 section 8). Merged to main in PR #1 (squash) and deployed by Cloudflare Pages on 18.9.2026 16:35 UTC; verified live: title, og:image, data-revised 2026-09-18, assets 200, security headers present. Session 3 (19.9.2026): the feedback round on the live page (docs/design/feedback-v5.md), 14 items decided with Petri in three rounds of decision boxes and applied: copy in five places, one status scale, ReviewGlass open source with the repo link, SpectralForge closed beta, the Luviamo clip copied to media/, preload=none on both clips, placeholder src on the two JS-driven images. Merged to main in PR #2 (squash, 9d85c02) and deployed by Cloudflare Pages on 19.9.2026; verified live: data-revised 2026-09-19, the seven changed texts present, both clips served (206 on range requests). Mobile fix the same morning (PR #3): the EQ clip's video is visible with its poster from the first paint and play is retried on the first gesture; before, a phone that refused play() showed the canvas sketch. Session 4 (20.9.2026): every product version number removed from the page (adr.sws.015); the hero meta cell Latest release became Email; check-site forbids version strings. Merged in PR #4 (squash) and live on 20.9.2026; verified: data-revised 2026-09-20, no version strings in the served HTML."
   },
   "seed": "3.0.0 (accepted 18.9.2026, adr.sws.013); 2.0.0 and the 2.1.0 draft archived",
   "session": 4,
@@ -107,8 +107,8 @@
   },
   "deploy": {
     "live": "https://sunrisesoftware.app/",
-    "verified_at": "2026-09-19T07:40Z",
-    "pr": "https://github.com/pkorrrhonen-cmd/sunrisesoftware-site/pull/2",
+    "verified_at": "2026-09-20T11:44Z",
+    "pr": "https://github.com/pkorrrhonen-cmd/sunrisesoftware-site/pull/4",
     "merge": "squash to main",
     "pages": "Cloudflare Pages Git integration, build command none, output /",
     "preview_pattern": "<deployment-id>.sunrisesoftware-site.pages.dev (the branch-alias URL answered 404 for this branch name)"
@@ -146,5 +146,6 @@
       "Atlas board card MasterForge · Starter v2 (now free tier rebuilt)",
       "Atlas board card Virustutka · v0.24 (now autumn season)"
     ]
-  }
+  },
+  "atlas_status": "sw-sivusto.STATUS v8, 2026-09-20T11:45Z, over the OAuth connector"
 }
