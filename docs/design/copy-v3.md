@@ -35,7 +35,7 @@ no generic adjectives, the company name only in 0.3, 0.9 and the footer.
 | 0.7 | **Headline** (the coloured clause is the emphasis) | `Understand the human first. **Then build the better product for them.**` (Petri's direction 18.9.: software for people, understanding the user, twenty years with people, not coding in a basement; version A1 chosen) | OK (edit 18.9.) |
 | 0.7 alt | Rejected alternatives, kept for the record | `Software built by one person, shipped early and kept alive in production.` / `One builder, a fleet of agents, and a control plane that keeps them honest.` / `Twenty years reading bodies. Now reading systems.` / `Software for people, built by someone who spent twenty years listening to them.` / `One logic behind every product.` / `Twenty years with people, not in a basement.` | drop |
 | 0.8 | Hero lede (one sentence under the headline) | `The world is open. Wherever better software is needed, from audio to public health, I build it.` (Petri's direction: broad range, open and innovative) | OK (edit 18.9.) |
-| 0.9 | Meta row, four cells | `Founder · Petri Korhonen` / `Location · Tampere, Finland` / `Code · github.com/pkorrrhonen-cmd ↗` / `Latest release · MasterForge 4.44 · 16 Sep 2026` | OK (edit 18.9.: Founder) |
+| 0.9 | Meta row, four cells | `Founder · Petri Korhonen` / `Location · Tampere, Finland` / `Code · github.com/pkorrrhonen-cmd ↗` / `Email · pete@sunrisesoftware.app` (mailto) | OK (edit 20.9.: Latest release needed a hand update at every product release, adr.sws.015) |
 | 0.10 | Portrait caption | `Petri Korhonen` | OK (edit 18.9.) |
 
 ## 1. §01 The connection
@@ -69,7 +69,7 @@ order inside them is confirmed in the app-view round. Texts below are per produc
 | 2.2 | Title | `Products people pay for, and the instruments behind them.` (Petri 18.9. evening: "control plane" was the old Atlas wording and had not been decided together; replaced) | OK (edit 18.9.) |
 | **MasterForge** | | | |
 | 2.3 | Plate caption (over the living cover) | `Pro Master · live meters` | later (app-view round) |
-| 2.4 | Status line | `Live · v4.44 · paying customers · 2024 →` (Petri 19.9.2026: the years must match the company, 2023 cannot stay; feedback item 9) | OK (edit 19.9.) |
+| 2.4 | Status line | `Live · paying customers · 2024 →` (19.9.: 2024, the years match the company; 20.9.: version dropped, adr.sws.015) | OK (edit 20.9.) |
 | 2.5 | Name | `MasterForge` | OK |
 | 2.6 | Tagline | `Mastering built for AI-generated music.` | OK (edit 18.9.) |
 | 2.7 | Body (one paragraph) | `AI-generated music carries a brittleness microphones never had: codec artifacts, harsh transients, collapsed stereo, a dull low end. MasterForge was built for that gap, and in September 2026 its free tier was rebuilt to measure the track first and derive the whole chain from what it hears.` | OK (edit 18.9.: the two paragraphs merged) |
@@ -88,7 +88,7 @@ order inside them is confirmed in the app-view round. Texts below are per produc
 | 2.18 | Button (link) | `Lab notes · sf3d.fi →` | OK (edit 18.9.) |
 | **Luviamo** | | | |
 | 2.19 | Plate caption | `Intro · luviamo.app · muted` | later (app-view round) |
-| 2.20 | Status line | `Live · v0.385 · 2026 →` (one status scale, feedback item 8) | OK (edit 19.9.) |
+| 2.20 | Status line | `Live · 2026 →` (one status scale; version dropped 20.9., adr.sws.015) | OK (edit 20.9.) |
 | 2.21 | Name | `Luviamo` | OK |
 | 2.22 | Tagline | `One brand voice. The whole marketing lifecycle: ideation, copy, visuals, scheduling, publishing and measurement in one place.` (the tool classes named instead of an unanchored count, feedback item 12) | OK (edit 19.9.) |
 | 2.23 | Body | `Five rooms: ideate, plan, produce, publish, track. A single platform that learns the brand voice and carries it through the whole lifecycle, publishing to Facebook, Instagram and newsletters. Built for Nordic small businesses.` | OK (edit 18.9.: no billing mention) |
@@ -96,7 +96,7 @@ order inside them is confirmed in the app-view round. Texts below are per produc
 | 2.25 | Button | `luviamo.app →` | OK |
 | **Atlas** | | | |
 | 2.26 | Plate: the schematic's labels | `THE MODEL · SOURCE OF TRUTH` / `systems · modules · connections · decisions` / `19 systems · 208 modules · 175 connections · 116 ADRs` / `VALIDATED IN CI · 7.9.2026` / `every module a contract · every decision a record` / `DOOR 1 · CLAUDE CHAT` / `remote MCP · OAuth 2.1 · scoped` / `DOOR 2 · CLAUDE CODE` / `proposes, never promotes` / `DOOR 3 · ATLAS CONNECT` / `the phone app for partners` / `messages · workspace · decisions` / `policy · fail-closed` / `proposal → human → git` / `same log, same gate` / system names along the bottom | later |
-| 2.27 | Status line | `In use · v0.9 · 2026 →` (one status scale, feedback item 8) | OK (edit 19.9.) |
+| 2.27 | Status line | `In use · 2026 →` (one status scale; version dropped 20.9., adr.sws.015) | OK (edit 20.9.) |
 | 2.28 | Name | `Atlas` | OK |
 | 2.29 | Tagline | `The backbone of the work: every project, every partner and every decision in one place, so nothing drifts from what matters.` (Petri's direction 18.9.: project management and teamwork, situational awareness, library and second memory, tools to validate and build ideas, structure against drift, the link between all parties) | OK (edit 18.9.) |
 | 2.30 | Body 1 | `Atlas is how the work is run. Partners and projects work inside it: who is doing what, what is waiting on whom, which decisions are open and which are made, all in one place, on the phone as well.` | OK (edit 18.9.) |
@@ -118,7 +118,7 @@ Each row has: year, name, status tag, one-line description, drawer paragraph, fa
 | 3.1 | Section mark | `§03 · Also in production` | OK (edit 18.9.) |
 | 3.2 | Title | `More products, tools and instruments.` (Petri 18.9. evening: "Smaller" was not decided together; "instruments" covers SpectralForge as a callable service in the MasterForge ecosystem, Salpa and the lab, same word as the §02 group) | OK (edit 18.9.) |
 | **Virustutka** | | | |
-| 3.3 | Row | `2026 → · Virustutka · live · v0.24 · Open, login-free respiratory-virus situation monitor for Finland.` | OK |
+| 3.3 | Row | `2026 → · Virustutka · live · Open, login-free respiratory-virus situation monitor for Finland.` (version dropped 20.9., adr.sws.015) | OK (edit 20.9.) |
 | 3.4 | Drawer | `Thirteen pathogens across twenty-three wellbeing regions from THL clinical and wastewater signals, a traffic-light state per region, opt-in email alerts. The light was redefined in September 2026 from a four-season backtest. Installable, works offline.` | OK |
 | 3.5 | Facts | `13 pathogens · 23 regions` / `Email alerts for your region` / `Works offline, installable` | OK (edit 18.9.: no tech) |
 | 3.6 | Link | `virustutka.app ↗` | OK |
@@ -160,7 +160,7 @@ Each row has: year, name, status tag, one-line description, drawer paragraph, fa
 | 3.34 | Row | `Internal tools · production · Command Center, BreathForge Studio, MasterVideo 3D, MasterPromo, PhotoMaster, VideoForge, SongForge.` | drop (Petri 18.9.: the page shows only what others can use or read) |
 | 3.35 | Drawer | `Built for daily use; not for sale.` | drop |
 | **SpectralForge** (not in Flow 2's rows; was featured in V4.5) | | | |
-| 3.36 | Row (added) | `2025 → · SpectralForge · closed beta · v2.0 · Spectral repair for AI-generated and codec-damaged audio, companion to MasterForge.` (18.9.: a production tool; 19.9.: the live app gates users without access behind a Closed Beta page and the profile README says Beta, so the status follows the surface; feedback item 2) | OK (edit 19.9.) |
+| 3.36 | Row (added) | `2025 → · SpectralForge · closed beta · Spectral repair for AI-generated and codec-damaged audio, companion to MasterForge.` (18.9.: a production tool; 19.9.: the live app gates users without access behind a Closed Beta page and the profile README says Beta, so the status follows the surface; feedback item 2) | OK (edit 19.9.) |
 | 3.37 | Drawer | `Repairs what AI generation and codecs break in audio, before mastering. Four repair stages and a Surgical De-tone panel for stubborn artifacts.` | OK (edit 18.9.: shorter) |
 | 3.38 | Facts | `Companion to MasterForge` / `Four-stage repair pipeline` / `Surgical De-tone` | OK |
 | 3.39 | Link | `spectral.masterforge.app ↗` | OK |

@@ -129,7 +129,8 @@ h1 .warm{color:var(--sun-deep)}
 .lede{margin-top:22px;max-width:46ch;font-size:17px;font-weight:300;color:var(--text-2)}
 .meta{margin-top:36px;padding-top:20px;border-top:1px solid var(--rule);display:grid;grid-template-columns:repeat(4,1fr);gap:16px;font:12px var(--mono);color:var(--text-2)}
 .meta b{display:block;font-weight:500;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-meta);margin-bottom:5px}
-.meta a{color:var(--sun-deep);text-decoration:none}
+.meta div{min-width:0}
+.meta a{color:var(--sun-deep);text-decoration:none;overflow-wrap:anywhere}
 /* the portrait: the top and the sides fade completely, so the page's tone can be tuned there (Petri 18.9.) */
 .portrait{position:relative;aspect-ratio:798/1094;margin:0;max-width:440px;justify-self:center}
 .portrait::before{content:'';position:absolute;left:50%;top:58%;width:120%;height:70%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(ellipse,rgba(244,196,130,.28) 0%,transparent 62%);filter:blur(24px);pointer-events:none}
@@ -422,7 +423,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
         <div><b>Founder</b>Petri Korhonen</div>
         <div><b>Location</b>Tampere, Finland</div>
         <div><b>Code</b><a href="https://github.com/pkorrrhonen-cmd" rel="me">github.com/pkorrrhonen-cmd ↗</a></div>
-        <div><b>Latest release</b>MasterForge 4.44 · 16 Sep 2026</div>
+        <div><b>Email</b><a href="mailto:pete@sunrisesoftware.app">pete@<wbr>sunrisesoftware.app</a></div>
       </div>
     </div>
     <figure class="portrait" data-reveal style="transition-delay:.15s" id="portrait">
@@ -458,7 +459,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
       <article class="plate">
         <figure class="frame clip" data-live="masterforge"><canvas></canvas><video muted loop playsinline preload="none" poster="media/masterforge-eq-poster.jpg" src="media/masterforge-eq.mp4" aria-label="MasterForge Pro Master: the parametric EQ moving over a live spectrum"></video><span class="cap">Pro Master · EQ, live</span><a class="pill" href="https://masterforge.app" aria-label="Visit masterforge.app">Visit ↗</a></figure>
         <div>
-          <span class="status" data-reveal><i></i>Live · v4.44 · paying customers · 2024 →</span>
+          <span class="status" data-reveal><i></i>Live · paying customers · 2024 →</span>
           <h3 data-reveal>MasterForge</h3>
           <p class="tag" data-reveal>Mastering built for AI-generated music.</p>
           <div class="desc" data-reveal><p>AI-generated music carries a brittleness microphones never had: codec artifacts, harsh transients, collapsed stereo, a dull low end. MasterForge was built for that gap, and in September 2026 its free tier was rebuilt to measure the track first and derive the whole chain from what it hears.</p></div>
@@ -475,7 +476,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
           <a class="pill" href="https://luviamo.app" aria-label="Visit luviamo.app">Visit ↗</a>
         </figure>
         <div>
-          <span class="status" data-reveal><i></i>Live · v0.385 · 2026 →</span>
+          <span class="status" data-reveal><i></i>Live · 2026 →</span>
           <h3 data-reveal>Luviamo</h3>
           <p class="tag" data-reveal>One brand voice. The whole marketing lifecycle: ideation, copy, visuals, scheduling, publishing and measurement in one place.</p>
           <div class="desc" data-reveal><p>Five rooms: ideate, plan, produce, publish, track. A single platform that learns the brand voice and carries it through the whole lifecycle, publishing to Facebook, Instagram and newsletters. Built for Nordic small businesses.</p></div>
@@ -500,7 +501,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
       <article class="plate flip">
         <figure class="frame" data-live="atlas"><canvas></canvas><span class="cap">Atlas · the workspace</span><span class="pill quiet-pill">Access-protected</span></figure>
         <div>
-          <span class="status infra" data-reveal><i></i>In use · v0.9 · 2026 →</span>
+          <span class="status infra" data-reveal><i></i>In use · 2026 →</span>
           <h3 data-reveal>Atlas</h3>
           <p class="tag" data-reveal>The backbone of the work: every project, every partner and every decision in one place, so nothing drifts from what matters.</p>
           <div class="desc" data-reveal><p>Atlas is how the work is run. Partners and projects work inside it: who is doing what, what is waiting on whom, which decisions are open and which are made, all in one place, on the phone as well.</p><p>It is also the library and the second memory: everything built, with the reasons behind it, kept beside the code. And it carries its own tools for validating an idea and building it, so a project stays on its core instead of drifting.</p></div>
@@ -522,7 +523,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
       <div id="peek" aria-hidden="true"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""><canvas></canvas><span class="cap"></span></div>
 
       <article class="drawer" data-peek="images/shot-virustutka.webp" data-cap="virustutka.app · the situation map">
-        <button class="drawer-head" aria-expanded="false"><span class="y">2026 →</span><span class="n">Virustutka<small>live · v0.24</small></span><span class="d">Open, login-free respiratory-virus situation monitor for Finland.</span><span class="plus"></span></button>
+        <button class="drawer-head" aria-expanded="false"><span class="y">2026 →</span><span class="n">Virustutka<small>live</small></span><span class="d">Open, login-free respiratory-virus situation monitor for Finland.</span><span class="plus"></span></button>
         <div class="drawer-body"><div class="drawer-inner">
           <p>Thirteen pathogens across twenty-three wellbeing regions from THL clinical and wastewater signals, a traffic-light state per region, opt-in email alerts. The light was redefined in September 2026 from a four-season backtest. Installable, works offline.</p>
           <div class="facts"><span>13 pathogens · 23 regions</span><span>Email alerts for your region</span><span>Works offline, installable</span></div>
@@ -581,7 +582,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
       </article>
 
       <article class="drawer" data-peek="images/product-spectralforge.webp" data-cap="spectral.masterforge.app · repair before mastering">
-        <button class="drawer-head" aria-expanded="false"><span class="y">2025 →</span><span class="n">SpectralForge<small>closed beta · v2.0</small></span><span class="d">Spectral repair for AI-generated and codec-damaged audio, companion to MasterForge.</span><span class="plus"></span></button>
+        <button class="drawer-head" aria-expanded="false"><span class="y">2025 →</span><span class="n">SpectralForge<small>closed beta</small></span><span class="d">Spectral repair for AI-generated and codec-damaged audio, companion to MasterForge.</span><span class="plus"></span></button>
         <div class="drawer-body"><div class="drawer-inner">
           <p>Repairs what AI generation and codecs break in audio, before mastering. Four repair stages and a Surgical De-tone panel for stubborn artifacts.</p>
           <div class="facts"><span>Companion to MasterForge</span><span>Four-stage repair pipeline</span><span>Surgical De-tone</span></div>
@@ -686,7 +687,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
         <a href="https://github.com/pkorrrhonen-cmd" rel="me">GitHub<small>github.com/pkorrrhonen-cmd ↗</small></a>
       </div>
     </div>
-    <div class="foot"><span>Sunrise Software Oy · Tampere, Finland</span><span>Est. 2024</span><span data-revised="2026-09-19">Revised 19 Sep 2026</span></div>
+    <div class="foot"><span>Sunrise Software Oy · Tampere, Finland</span><span>Est. 2024</span><span data-revised="2026-09-20">Revised 20 Sep 2026</span></div>
   </div>
 </section>
 
@@ -1032,7 +1033,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
 
   /* Atlas: the workspace board (apps-v3 A.6) */
   const ATLAS_COLS = [
-    ['PROJECTS', ['Luviamo · in production', 'MasterForge · Starter v2', 'Salpa Defence · demo live', 'Virustutka · v0.24']],
+    ['PROJECTS', ['Luviamo · in production', 'MasterForge · free tier rebuilt', 'Salpa Defence · demo live', 'Virustutka · autumn season']],
     ['WAITING ON', ['partner: two decisions', 'Meta: app review', 'me: meeting date', 'brand: font files']],
     ['DECIDED', ['pricing tiers · partner', 'launch window · me', 'channel order · together', 'brand voice · partner']],
   ];

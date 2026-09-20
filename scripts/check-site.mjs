@@ -35,6 +35,11 @@ const body = html.slice(html.indexOf('<body'), html.lastIndexOf('</body>'))
   .replace(/<style[\s\S]*?<\/style>/g, '');
 if (/—|&mdash;/.test(body)) fail('em dash in on-page copy (use a comma, a colon, or restructure)');
 
+// 3b. No product version numbers on the page: they age silently (adr.sws.015). Statuses carry a date.
+// Checked over the whole file so the drawn instruments' card data is covered too.
+const versionHit = html.match(/vd+.d+(?:.d+)?|(?:MasterForge|Luviamo|Virustutka|Atlas|Somnus|SpectralForge|TilastoSilta|ReviewGlass)s+d+.d+/);
+if (versionHit) fail(`product version number on the page: "${versionHit[0]}" (adr.sws.015: statuses carry a date, not a version)`);
+
 // 4. Forbidden strings: withheld names, corrected errors, relative-time copy (adr.sws.004, 006).
 const forbidden = [
   'Premius',

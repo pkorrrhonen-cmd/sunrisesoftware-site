@@ -35,7 +35,8 @@ guide: `docs/design/decision-method.md` (Atlas artifact `SUNRISE-TYOTAPA-PAATOSL
 The rules below hold once their decision is accepted; a `proposed` decision in
 `docs/decisions/` is a rule only after Petri accepts it.
 
-- Every status on the page carries a version or a date (adr.sws.004). No "coming soon",
+- Every status on the page carries a date, never a product version number (adr.sws.004 as
+  amended by adr.sws.015: versions typed by hand are stale the day after). No "coming soon",
   "recently", "within the month". The footer carries the revision date and CI fails when it
   differs from `BUILD_INFO.updated`.
 - None of the employer's applications, workspaces or names on the page until Petri has cleared

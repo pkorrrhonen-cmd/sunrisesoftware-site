@@ -6,6 +6,7 @@
 | Date | 2026-09-17 |
 | Proposed by | Claude Code, session 1, from Petri's instruction to bring the site to the present |
 | Links | sws.site, sws.deployment |
+| Amended by | adr.sws.015 (20.9.2026): a status carries a date, never a product version |
 
 ## Context
 
