@@ -9,3 +9,9 @@
 
 /images/*
   Cache-Control: public, max-age=604800
+
+# SCC2 app icons (repo pkorrrhonen-cmd/scc2, scripts/kuvakkeet.mjs). Public because SCC2 sits
+# behind Cloudflare Access and Chrome downloads install icons without cookies (adr.sws.016).
+/scc/*
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
