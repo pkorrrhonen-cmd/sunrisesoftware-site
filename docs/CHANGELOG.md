@@ -3,6 +3,18 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 5 (27.9.2026): SCC2:n asennuskuvakkeet /scc/-polkuun (ei sivumuutosta)
+
+**Tehty:** SCC2-sovelluksen neljä asennuskuvaketta (192, 512, maskattava 512 ja 180 px
+apple-touch-icon) kansioon `scc/` ja niille `_headers`-sääntö (välimuisti vuorokausi,
+`Access-Control-Allow-Origin: *`). Syy: SCC2 on Cloudflare Accessin takana, ja Chrome hakee
+asennuskuvakkeet ilman evästeitä, joten ne eivät voi olla sovelluksen omassa osoitteessa
+(adr.sws.016, Petrin valinta 27.9.2026). Kuvakkeet tehdään scc2-repossa (`scripts/kuvakkeet.mjs`,
+kuvake: kolikko ja numero 1 mustepohjalla, kaksoisviiva).
+
+**Tarkistettu:** `index.html` ei muutu, joten alaviitteen päiväys ja `BUILD_INFO.updated` pysyvät;
+`node scripts/check-site.mjs` vihreä.
+
 ## Sessio 4 (20.9.2026): tuoteversiot pois sivulta (adr.sws.015)
 
 **Petrin havainto:** sivulla luki Luviamo v0.385, tuotannossa oli jo 0.388. Käsin kirjoitettu
