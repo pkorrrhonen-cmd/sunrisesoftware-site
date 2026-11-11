@@ -37,7 +37,15 @@ if (/—|&mdash;/.test(body)) fail('em dash in on-page copy (use a comma, a colo
 
 // 3b. No product version numbers on the page: they age silently (adr.sws.015). Statuses carry a date.
 // Checked over the whole file so the drawn instruments' card data is covered too.
-const versionHit = html.match(/vd+.d+(?:.d+)?|(?:MasterForge|Luviamo|Virustutka|Atlas|Somnus|SpectralForge|TilastoSilta|ReviewGlass)s+d+.d+/);
+// The escapes in this pattern were eaten once (\b became a literal backspace and
+// \d became "d"), so from 20.9. to 11.11.2026 the guard matched nothing at all.
+// The self-test below keeps a broken pattern from passing silently again.
+const VERSION_RE = /\bv\d+\.\d+(?:\.\d+)?\b|\b(?:MasterForge|Luviamo|Virustutka|Atlas|Somnus|SpectralForge|TilastoSilta|ReviewGlass)\s+\d+\.\d+/;
+const mustHit = ['Luviamo v0.385', 'Atlas v0.9', 'MasterForge 4.44', 'SpectralForge v2.0'];
+const mustMiss = ['1335.90 pts', 'version="1.0"', 'cubic-bezier(.22,1,.36,1)', 'Revised 20 Sep 2026'];
+for (const s of mustHit) if (!VERSION_RE.test(s)) fail(`version guard broken: it does not catch "${s}"`);
+for (const s of mustMiss) if (VERSION_RE.test(s)) fail(`version guard too wide: it catches "${s}"`);
+const versionHit = html.match(VERSION_RE);
 if (versionHit) fail(`product version number on the page: "${versionHit[0]}" (adr.sws.015: statuses carry a date, not a version)`);
 
 // 4. Forbidden strings: withheld names, corrected errors, relative-time copy (adr.sws.004, 006).
@@ -65,7 +73,23 @@ else if (revised[1] !== buildInfo.updated) {
 const github = (html.match(/https:\/\/github\.com\/pkorrrhonen-cmd/g) || []).length;
 if (github < 4) fail(`GitHub profile link appears ${github} times, expected at least 4 (adr.sws.007)`);
 
-// 7. Optional: external links answer (2xx/3xx). Not run in CI.
+// 7. sitemap.xml lastmod equals the page revision (SEED 5.3), and the sitemap
+// names the canonical address.
+const sitemap = readFileSync(resolve(root, 'sitemap.xml'), 'utf8');
+const lastmod = sitemap.match(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/);
+if (!lastmod) fail('sitemap.xml has no <lastmod>');
+else if (lastmod[1] !== buildInfo.updated) {
+  fail(`sitemap.xml lastmod ${lastmod[1]} differs from docs/BUILD_INFO.json updated ${buildInfo.updated}`);
+}
+if (!sitemap.includes('<loc>https://sunrisesoftware.app/</loc>')) fail('sitemap.xml does not name the canonical address');
+
+// 8. The files a crawler, a browser and a phone ask for by name must exist as
+// files, not be answered by the front page (adr.sws.017).
+for (const f of ['404.html', 'favicon.ico', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png', 'apple-touch-icon.png', 'site.webmanifest']) {
+  if (!existsSync(resolve(root, f))) fail(`missing site file: ${f}`);
+}
+
+// 9. Optional: external links answer (2xx/3xx). Not run in CI.
 if (process.argv.includes('--links')) {
   const urls = [...new Set([...html.matchAll(/href="(https?:\/\/[^"]+)"/g)].map((m) => m[1]))]
     .filter((u) => !u.startsWith('https://fonts.'));

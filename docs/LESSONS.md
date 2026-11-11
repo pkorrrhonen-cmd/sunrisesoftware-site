@@ -2,6 +2,30 @@
 
 Opitut virheet ja estosäännöt, jotta niitä ei toisteta. Uusin ensin.
 
+## 11.11.2026: vahti joka ei voi laueta ei ole vahti
+
+**Mitä tapahtui:** sessiossa 4 (20.9.2026) kirjoitettiin CI-tarkistus, joka kieltää tuoteversiot
+sivulta (adr.sws.015). Säännön regexistä katosivat kenoviivat jo kirjoitushetkellä: sanarajasta
+(kenoviiva b) tuli merkki 0x08, numerosta (kenoviiva d) kirjain `d` ja välilyönnistä (kenoviiva s)
+kirjain `s`. Lopputulos oli kuvio, jota mikään sivun teksti ei voi osua. Sessio 4 kirjasi
+CHANGELOGiin "regex testattu positiivisilla ja negatiivisilla", ja CI oli vihreä, koska rikkinäinen
+kuvio ei osu mihinkään. Vika eli mainissa seitsemän viikkoa ja löytyi vasta kun skripti luettiin
+riviltä riville 11.11.2026. Sinä aikana sivulle olisi voinut kirjoittaa minkä tahansa
+versionumeron ilman että portti huomaa. Sama virhe toistui tätä merkintää kirjoitettaessa, kun
+kenoviivat katosivat jälleen kirjoitustyökalun läpi: siksi viimeinen estosääntö alla.
+
+**Miksi se meni läpi:** kielto, jonka onnistuminen näyttää samalta kuin sen rikkoutuminen. Vihreä
+CI oli todiste siitä, ettei sivulla ole versionumeroita, ja yhtä hyvin siitä, ettei tarkistus
+tarkista mitään. Testaus tehtiin erillisessä ajossa, ei siinä tiedostossa joka jäi elämään.
+
+**Estosääntö:**
+- Jokaisella kieltävällä tarkistuksella on itsetesti samassa tiedostossa: lista merkkijonoja
+  joiden on osuttava ja lista joiden ei saa osua. Tarkistus kaatuu, jos oma testi ei mene läpi.
+- "Testattu" CHANGELOGissa tarkoittaa testiä, joka on commitoitu ja ajetaan uudelleen joka
+  ajossa. Kertaluontoista kokeilua ei kirjata todisteeksi.
+- Kun kuvio sisältää kenoviivoja, sen tavut tarkistetaan tiedostosta kirjoittamisen jälkeen
+  (`cat -A` tai vastaava), ei vain sitä miltä se näytti editorissa.
+
 ## 19.9.2026: kaksi julkista pintaa erosivat toisistaan vuorokaudessa
 
 **Mitä tapahtui:** V5 julkaistiin 18.9. ja samana päivänä profiili-README täytettiin toisessa

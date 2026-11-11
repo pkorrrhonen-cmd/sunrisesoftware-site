@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Not found · Sunrise Software</title>
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#F9F7F1">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+:root{
+  --base:#F9F7F1; --paper:#FFFDF9; --text:#20303C; --text-2:#50606C; --text-meta:#8B96A0;
+  --rule:rgba(32,48,60,.10); --sun:#E8A54E; --sun-deep:#C57A2C;
+  --sans:system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--base)}
+body{
+  font-family:var(--sans);color:var(--text);line-height:1.55;font-size:16px;
+  min-height:100svh;display:grid;place-items:center;padding:clamp(20px,6vw,64px);
+  background:linear-gradient(180deg,#FBF4EA 0%,#F7ECDD 34%,var(--base) 100%);
+}
+main{max-width:34rem;text-align:left}
+.mark{display:block;width:44px;height:44px;margin-bottom:28px}
+.num{
+  font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--sun-deep);display:block;margin-bottom:14px;
+}
+h1{font-size:clamp(28px,5vw,40px);line-height:1.12;letter-spacing:-.02em;font-weight:600}
+p{color:var(--text-2);margin-top:16px}
+.back{
+  display:inline-block;margin-top:32px;padding:11px 18px;border-radius:999px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--text);
+  text-decoration:none;font-weight:500;transition:border-color .2s,transform .2s;
+}
+.back:hover{border-color:var(--sun);transform:translateY(-1px)}
+.back:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
+.meta{margin-top:40px;font:400 13px var(--mono);color:var(--text-meta)}
+</style>
+</head>
+<body>
+<main>
+  <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+    <clipPath id="h"><rect x="0" y="0" width="32" height="19"/></clipPath>
+    <circle cx="16" cy="23" r="8" fill="#E8A54E" clip-path="url(#h)"/>
+    <line x1="5" y1="19" x2="27" y2="19" stroke="#20303C" stroke-opacity=".5" stroke-width="1.5"/>
+  </svg>
+  <span class="num">Error 404</span>
+  <h1>There is nothing at this address.</h1>
+  <p>The page you asked for does not exist, or it never did. Everything this site has is on the front page.</p>
+  <a class="back" href="/">Back to the front page</a>
+  <p class="meta">sunrisesoftware.app</p>
+</main>
+</body>
+</html>

@@ -1,9 +1,11 @@
 # CLAUDE.md: working practices for the Sunrise Software site
 
 The company site at https://sunrisesoftware.app/ (repo `pkorrrhonen-cmd/sunrisesoftware-site`).
-One static page, no build step. Read `README.md` for layout and deploy, and the current
-`docs/SEED-v3.0.0.md` for the design system, with `docs/design/copy-v3.md` (every text) and
-`docs/design/apps-v3.md` (every image), before editing copy or layout.
+Static pages, no build step. Read `README.md` for layout and deploy, and the current
+`docs/SEED-v4.0.0.md` for the design system and the site's architecture, with
+`docs/design/copy-v3.md` (every text on the front page) and `docs/design/apps-v3.md` (every
+image), before editing copy or layout. `docs/SEED-v3.0.0.md` describes what production serves
+until V6 is live.
 
 ## Documents and where things go
 
@@ -19,12 +21,14 @@ One static page, no build step. Read `README.md` for layout and deploy, and the 
 The same fact lives in one place; everywhere else is a reference. When CLAUDE.md and the SEED
 disagree, CLAUDE.md wins on working practice and the SEED wins on the page.
 
-## The page is edited together, not alone
+## The site is edited together, not alone
 
-`index.html` changes only together with Petri, as agreed, and after the planning for a
-revision is concluded (Petri, 17.9.2026). A session may research, draft the SEED, write
-decisions and documentation on its own; it does not edit the page, delete or add images, or
-generate page assets on its own initiative. The plan for a revision lives in the SEED and the
+`index.html` and every sub-page change only together with Petri, as agreed, and after the
+planning for a revision is concluded (Petri, 17.9.2026). A session may research, draft the
+SEED, write decisions and documentation on its own; it does not edit a page, delete or add
+images, or generate page assets on its own initiative. Files beside the pages (`404.html`, the
+icon files, `_headers`, `sitemap.xml`, `scripts/`) are a session's own work when a decision
+covers them. The plan for a revision lives in the SEED and the
 open decisions in `BUILD_INFO.next`. Lists of decisions are taken through question boxes, about
 four items a round, each with the current text and alternatives; a recommended option with new
 wording is shown verbatim and marked as a proposal. The method, why it works and the seven-step
@@ -58,6 +62,12 @@ The rules below hold once their decision is accepted; a `proposed` decision in
   product has no public surface: Somnus, Atlas, ReviewGlass (`docs/design/apps-v3.md`).
 - Spec strips carry no technology names; the AMD mention is exactly "AMD R9700 sample program ·
   white paper in progress".
+- Each subject worth presenting has its own page under its own directory, with the same frame
+  and a button back to the front page; the front page keeps the short version (adr.sws.018).
+  A page links the long writing where it was published instead of copying it.
+- A check that forbids something carries a self-test in the same file: strings that must match
+  and strings that must not. A guard whose failure looks like success is not a guard
+  (LESSONS 11.11.2026).
 
 ## Session routine
 
