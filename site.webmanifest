@@ -1,0 +1,15 @@
+{
+  "name": "Sunrise Software",
+  "short_name": "Sunrise",
+  "description": "Software for people, built in Tampere, Finland.",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "en",
+  "theme_color": "#F9F7F1",
+  "background_color": "#F9F7F1",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

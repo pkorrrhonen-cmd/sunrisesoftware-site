@@ -25,3 +25,7 @@ decision). A decision is never deleted: a wrong one is superseded and the file s
 | [adr.sws.013](adr.sws.013.md) | Flow 4 is the page; SEED v3.0.0 records it | accepted |
 | [adr.sws.014](adr.sws.014.md) | One source for the facts the page shares with the profile README | proposed |
 | [adr.sws.015](adr.sws.015.md) | No product version numbers on the page; a status carries a date | accepted |
+| [adr.sws.016](adr.sws.016.md) | The site serves the SCC2 app icons under /scc/ | accepted |
+| [adr.sws.017](adr.sws.017.md) | The site answers for itself, with a 404 page and real icon files | accepted |
+| [adr.sws.018](adr.sws.018.md) | The site gains pages, and the front page keeps the short version | accepted |
+| [adr.sws.019](adr.sws.019.md) | The structured data names the products | accepted |

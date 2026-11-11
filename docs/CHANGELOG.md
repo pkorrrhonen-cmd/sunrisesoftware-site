@@ -3,6 +3,51 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 6 (11.11.2026): tilannetarkastus, sivuston omat tiedostot ja SEED v4.0.0 (ei sivumuutosta)
+
+**Lähtökohta:** Petri palasi Since AI 2026 -tapahtumasta (Turku 6.-8.11.), jossa Silent context
+oli kolmas viidestätoista Elisan haasteessa. Pyyntö: saada tulos näkyville, tarkistaa koko
+projektin tila Atlasta vasten, ja laittaa SEO, GEO ja pienkuvake kuntoon.
+
+**Tarkistettu tässä sessiossa** (ei muistista): Atlaksen statukset kaikista 25 järjestelmästä
+11.11., `atlas_get_workspace sw-sivusto`, livesivun otsakkeet ja resurssit HTTP-pyynnöillä,
+`node scripts/check-site.mjs --links` (kymmenen ulkoista linkkiä 200), sinceai2026-repo ja sen
+video (1080x1920, 77,8 s, 15,7 MB), `github.com/pkorrrhonen-cmd/silent-context` julkinen,
+sf3d.fi:n julkaistut huoneartikkelit ja `sf3d-ai-lab/media/publish/` renderöidyt videot.
+
+**Löydetty, kolme merkittävää:**
+1. **Jokainen tuntematon osoite vastasi 200:lla ja koko etusivulla** (94 886 tavua). `/favicon.ico`,
+   `/apple-touch-icon.png` ja `/site.webmanifest` palauttivat HTML:ää. Soft 404 hakukoneelle, eikä
+   sivustolla ollut kuvaketta missään selaimen välilehden ulkopuolella, koska ainoa favicon oli
+   inline-SVG data-URI, jota ei voi hakea osoitteesta.
+2. **adr.sws.015:n versiovahti ei ollut koskaan lauennut.** `check-site.mjs`:n regexistä olivat
+   kadonneet kenoviivat jo sessiossa 4, eli kuvio ei voinut osua mihinkään. Seitsemän viikkoa
+   mainissa. LESSONS 11.11.2026.
+3. **Sivu oli seitsemän viikkoa jäljessä tuotetyöstä:** kaksi hackathontulosta, HomeTeam
+   tuotannossa 10.10. alkaen, AvoQ ja SCC2 eivät näy sivulla, eikä uutisosiota ollut olemassa.
+
+**Päätetty Petrin kanssa kolmessa laatikkokierroksessa** (`docs/design/review-2026-11.md`,
+jokainen rivi tilalla): **sivusto lakkaa olemasta yksi sivu** (adr.sws.018). Etusivulle lyhyet
+jutut ja uusi päivätty osio §04 Recent, esiteltävät asiat omille sivuilleen `/rooms/`,
+`/reviewglass/`, `/silent-context/` ja `/hometeam/`, joista palataan painikkeella etusivulle.
+Huonejärjestelmä kerrotaan tieteen nimillä (multi-agent debate, devil's advocate, dialectical
+inquiry, LLM-as-a-judge, pre-registration, maximin), lähteenä Atlaksen
+`ATLAS-HUONEET-KAR-ARV-20261031`; sanaa "Delphi" ei käytetä ilman lähdettä. Video kopioidaan
+tänne ja pitkä evidenssi jää sf3d.fi:hin. Rakenteinen data nimeää tuotteet (adr.sws.019, muuttaa
+18.9. päätöstä). HomeTeam saa oman laatikon §03:een. Tekniset korjaukset omaan PR:ään ensin.
+
+**Tehty (PR A, index.html ei muutu):** `404.html`; `scripts/icons.py` ja sen tuotokset
+(`favicon.ico` 16/32/48, `icon-192`, `icon-512`, `icon-maskable-512`, `apple-touch-icon`,
+`site.webmanifest`) samasta aurinkomerkistä kuin inline-favicon; `_headers`-säännöt niille;
+`sitemap.xml` lastmod 2026-09-20; versiovahti korjattu ja sille itsetesti samaan tiedostoon
+(neljä osuvaa, neljä ei-osuvaa merkkijonoa); kaksi uutta CI-tarkistusta (sitemapin lastmod ja
+kanoninen osoite, sivuston omien tiedostojen olemassaolo). `docs/SEED-v4.0.0.md` kirjoitettu,
+`adr.sws.017`, `018` ja `019` kirjattu, ja `adr.sws.016` lisätty päätösindeksiin josta se puuttui.
+
+**Ei tehty, seuraaviin sessioihin:** copy-v4-pages.md, mediat (Since AI -videon uudelleenkoodaus
+720x1280, huonevideon kopiointi, HomeTeam-kaappaus, OG-kuva per alasivu), PR B etusivulle ja
+yksi PR per alasivu. Järjestys on SEED v4.0.0 luvussa 8.
+
 ## Sessio 5 (27.9.2026): SCC2:n asennuskuvakkeet /scc/-polkuun (ei sivumuutosta)
 
 **Tehty:** SCC2-sovelluksen neljä asennuskuvaketta (192, 512, maskattava 512 ja 180 px
