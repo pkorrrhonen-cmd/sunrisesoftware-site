@@ -44,9 +44,23 @@ tänne ja pitkä evidenssi jää sf3d.fi:hin. Rakenteinen data nimeää tuotteet
 kanoninen osoite, sivuston omien tiedostojen olemassaolo). `docs/SEED-v4.0.0.md` kirjoitettu,
 `adr.sws.017`, `018` ja `019` kirjattu, ja `adr.sws.016` lisätty päätösindeksiin josta se puuttui.
 
-**Ei tehty, seuraaviin sessioihin:** copy-v4-pages.md, mediat (Since AI -videon uudelleenkoodaus
-720x1280, huonevideon kopiointi, HomeTeam-kaappaus, OG-kuva per alasivu), PR B etusivulle ja
-yksi PR per alasivu. Järjestys on SEED v4.0.0 luvussa 8.
+**Tekstit (sama sessio, PR B:n osalta valmis):** ennen tekstejä luettiin hometeam-repo
+(tuotannossa app.hometeam.fi 29.9. alkaen, mutta kirjautuminen vain sallituilla osoitteilla, joten
+asteikon sana on In use eikä Live), todettiin SpectralForgen `BetaGatePage.tsx` yhä repossa
+(closed beta pitää) ja verrattiin profiili-README sivuun: kuusi eroa, ei yhtään sivumuutosta,
+listattu `copy-v4-pages.md`:n osaan F. Niistä yksi on vanha avoin asia, README nimeää työnantajan
+ja kaksi sen sovellusta.
+
+`docs/design/copy-v4-pages.md` kirjoitettu ja **PR B:n tekstit päätetty kolmessa laatikkokierroksessa
+(23 kohtaa)**: §04 Recent -otsikko "What I have been building, with dates.", kaksi päivättyä
+merkintää (Since AI 8.11., As Prescribed 18.10.), ei palkintorahaa eikä voittajien nimiä
+etusivulle, HomeTeamin laatikko ReviewGlassin jälkeen tilalla "in use · my own family", ilman
+linkkiä ja piirretyllä instrumentilla, navin kohta "Recent", og:image:alt otsikkona, ja kuusi
+tuotetta joille tulee SoftwareApplication-merkintä (adr.sws.019 täydennetty).
+
+**Ei tehty, seuraaviin sessioihin:** PR B etusivulle (tekstit valmiina), alasivujen tekstit omina
+kierroksinaan, mediat (Since AI -videon uudelleenkoodaus 720x1280, huonevideon kopiointi, OG-kuva
+per alasivu) ja yksi PR per alasivu. Järjestys on SEED v4.0.0 luvussa 8.
 
 ## Sessio 5 (27.9.2026): SCC2:n asennuskuvakkeet /scc/-polkuun (ei sivumuutosta)
 

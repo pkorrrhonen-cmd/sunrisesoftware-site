@@ -32,8 +32,8 @@
   },
   "next": [
     "PR B, the page, together with Petri: section 04 Recent with the Since AI and AMD ACT III entries, the HomeTeam drawer, the nav Recent link, the icon links and max-image-preview in head, og:image:alt, and the structured data of adr.sws.019",
-    "Read before any copy is written: the hometeam repository README and BUILD_INFO (the drawer and its page), the live SpectralForge beta gate (review-2026-11 A7), and the profile README against the page (A10, the session routine; the profile repo was last pushed 24.9.2026 and knows nothing of the two hackathons, HomeTeam, AvoQ or SCC2)",
-    "docs/design/copy-v4-pages.md: every new text as a numbered item, decided through decision boxes, four a round",
+    "Done 11.11.2026: hometeam repository read (production app.hometeam.fi since 29.9., sign-in restricted to allowed addresses, so the scale word is In use not Live); SpectralForge still has BetaGatePage.tsx so closed beta holds; the profile README checked against the page and its six differences listed in docs/design/copy-v4-pages.md section F, none of them a page change",
+    "Done 11.11.2026: docs/design/copy-v4-pages.md written and PR B’s copy decided in three rounds (23 items): section 04 Recent with its two entries, the HomeTeam drawer, the nav item, og:image:alt, and the six products that get a SoftwareApplication entity. The sub-pages’ prose has not been asked yet; their checked facts and skeletons are in the same file",
     "Media for the pages: re-encode sinceai2026/silent-context-third-place-9x16-captions.mp4 (1080x1920, 77.8 s, 15.7 MB) to 720x1280 at 4 to 6 MB plus a poster; copy rooms-en.mp4 and rooms-en-916.mp4 from sf3d-ai-lab/media/publish/ plus posters; take the HomeTeam capture; generate an OG image per sub-page",
     "One pull request per sub-page: /rooms/, /reviewglass/, /silent-context/, /hometeam/, each with its sitemap entry and its own check-site pass",
     "Atlas: sw-sivusto.STATUS written 11.11.2026; proposals for adr.sws.003 to 019 to model/systems/sw-sivusto.model.json still open (one at a time)",
@@ -171,6 +171,7 @@
   "review_round_2026_11": {
     "list": "docs/design/review-2026-11.md",
     "rounds": "three rounds of decision boxes, 12 questions, all recorded in the list",
-    "result": "adr.sws.017 (the site answers for itself), adr.sws.018 (the site gains pages), adr.sws.019 (the structured data names the products); SEED v4.0.0"
+    "result": "adr.sws.017 (the site answers for itself), adr.sws.018 (the site gains pages), adr.sws.019 (the structured data names the products); SEED v4.0.0",
+    "copy": "docs/design/copy-v4-pages.md: PR B decided in rounds A to C on 11.11.2026; sections B to E (the four sub-pages) carry checked facts and skeletons and wait for their own rounds"
   }
 }
