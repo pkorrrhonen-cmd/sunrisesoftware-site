@@ -62,6 +62,14 @@ tuotetta joille tulee SoftwareApplication-merkintä (adr.sws.019 täydennetty).
 kierroksinaan, mediat (Since AI -videon uudelleenkoodaus 720x1280, huonevideon kopiointi, OG-kuva
 per alasivu) ja yksi PR per alasivu. Järjestys on SEED v4.0.0 luvussa 8.
 
+**Deploy:** PR #6 squash-mergattu 11.11.2026 19:43Z (`2aef4d2`) CI:n ollessa vihreä (Site checks ja
+Cloudflare Pages). Ennen mergea preview `803057f6.sunrisesoftware-site.pages.dev` tarkistettu: 404-sivu
+puhelin- ja työpöytäleveydellä, tuntematon osoite 404. Cloudflare Pages julkaisi noin 30 sekunnissa;
+livestä todennettu: `/favicon.ico` 200 `image/vnd.microsoft.icon`, `/icon-192.png` ja
+`/apple-touch-icon.png` 200 `image/png`, `/site.webmanifest` 200 `application/manifest+json`,
+`/nonexistent-xyz.html` **404**, etusivu 200 ja `data-revised="2026-09-20"` ennallaan, sitemapin
+`lastmod` 2026-09-20. Työ jatkuu 12.11.2026 PR B:stä.
+
 ## Sessio 5 (27.9.2026): SCC2:n asennuskuvakkeet /scc/-polkuun (ei sivumuutosta)
 
 **Tehty:** SCC2-sovelluksen neljä asennuskuvaketta (192, 512, maskattava 512 ja 180 px

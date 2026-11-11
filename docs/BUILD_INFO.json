@@ -31,7 +31,7 @@
     "github": "pkorrrhonen-cmd: 0 public repos, no name or bio on 17.9.2026; Sunrisesoftware-app: 15 private repos"
   },
   "next": [
-    "PR B, the page, together with Petri: section 04 Recent with the Since AI and AMD ACT III entries, the HomeTeam drawer, the nav Recent link, the icon links and max-image-preview in head, og:image:alt, and the structured data of adr.sws.019",
+    "Tomorrow (12.11.2026): PR B, the page, together with Petri. Its copy is decided in docs/design/copy-v4-pages.md (rounds A to C): section 04 Recent with the Since AI and AMD ACT III entries, the HomeTeam drawer after ReviewGlass with a drawn instrument and no link, the nav Recent link, the icon links and max-image-preview in head, og:image:alt, and the structured data of adr.sws.019 for the six products anyone can open",
     "Done 11.11.2026: hometeam repository read (production app.hometeam.fi since 29.9., sign-in restricted to allowed addresses, so the scale word is In use not Live); SpectralForge still has BetaGatePage.tsx so closed beta holds; the profile README checked against the page and its six differences listed in docs/design/copy-v4-pages.md section F, none of them a page change",
     "Done 11.11.2026: docs/design/copy-v4-pages.md written and PR B’s copy decided in three rounds (23 items): section 04 Recent with its two entries, the HomeTeam drawer, the nav item, og:image:alt, and the six products that get a SoftwareApplication entity. The sub-pages’ prose has not been asked yet; their checked facts and skeletons are in the same file",
     "Media for the pages: re-encode sinceai2026/silent-context-third-place-9x16-captions.mp4 (1080x1920, 77.8 s, 15.7 MB) to 720x1280 at 4 to 6 MB plus a poster; copy rooms-en.mp4 and rooms-en-916.mp4 from sf3d-ai-lab/media/publish/ plus posters; take the HomeTeam capture; generate an OG image per sub-page",
@@ -112,11 +112,12 @@
   },
   "deploy": {
     "live": "https://sunrisesoftware.app/",
-    "verified_at": "2026-09-20T11:44Z",
-    "pr": "https://github.com/pkorrrhonen-cmd/sunrisesoftware-site/pull/4",
-    "merge": "squash to main",
+    "verified_at": "2026-11-11T19:45Z",
+    "pr": "https://github.com/pkorrrhonen-cmd/sunrisesoftware-site/pull/6",
+    "merge": "squash to main, 2aef4d2, 2026-11-11T19:43:49Z",
+    "verified": "favicon.ico image/vnd.microsoft.icon, icon-192.png and apple-touch-icon.png image/png, site.webmanifest application/manifest+json, an unknown address 404 with 404.html, the front page 200 with data-revised 2026-09-20, sitemap lastmod 2026-09-20",
     "pages": "Cloudflare Pages Git integration, build command none, output /",
-    "preview_pattern": "<deployment-id>.sunrisesoftware-site.pages.dev (the branch-alias URL answered 404 for this branch name)"
+    "preview_pattern": "<deployment-id>.sunrisesoftware-site.pages.dev; the branch alias claude-website-status-check.sunrisesoftware-site.pages.dev also answered for this branch"
   },
   "method": {
     "name": "päätöslaatikot (decision boxes)",
@@ -152,7 +153,7 @@
       "Atlas board card Virustutka · v0.24 (now autumn season)"
     ]
   },
-  "atlas_status": "sw-sivusto.STATUS v10, 2026-11-11, over the OAuth connector",
+  "atlas_status": "sw-sivusto.STATUS v12, 2026-11-11, over the OAuth connector",
   "updated_note": "The page revision, not the session date. index.html has not changed since 20.9.2026, so the footer date, this field and sitemap.xml lastmod all stay there. Sessions 5 (27.9.) and 6 (11.11.) changed only files beside the page.",
   "sources_checked_2026_11_11": {
     "method": "Atlas statuses for all 25 systems (atlas_get_status), atlas_get_workspace sw-sivusto, HTTP requests against the live site and the product sites, the local repositories, node scripts/check-site.mjs --links",
