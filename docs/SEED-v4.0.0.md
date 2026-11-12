@@ -279,7 +279,7 @@ Static files with inline CSS and JS, `images/`, `media/`, Google Fonts, Cloudfla
 | Rooms video | `sf3d-ai-lab/media/publish/rooms-en.mp4` (6.2 MB) and `rooms-en-916.mp4` (5.6 MB) | `media/rooms-en.mp4`, `media/rooms-en-916.mp4` + posters |
 | Silent context video | `sinceai2026/silent-context-third-place-9x16-captions.mp4` (1080x1920, 77.8 s, 15.7 MB) | `media/silent-context-916.mp4`, re-encoded to 720x1280, target 4 to 6 MB, + poster |
 | Drawer captures | `docs/mockups/shots/` | `images/shot-*.webp` with JPG fallbacks |
-| HomeTeam capture | to be taken from `app.hometeam.fi` | `images/shot-hometeam.webp` + JPG |
+| HomeTeam | a drawn instrument, the Today view with its coins (decided 11.11.2026: the application is behind a list of allowed addresses and a capture would carry the family's own data) | the `hometeam` canvas sketch in `index.html` |
 | SpectralForge, Salpa mark, SF3D photographs | as in v3.0.0 | unchanged |
 | OG image, front page | generated 18.9.2026, 1200x630 | `images/og-cover.jpg` |
 | OG image, per sub-page | generated from the page's own title on the same paper | `images/og-<page>.jpg`, 1200x630 |
@@ -297,7 +297,9 @@ Structured data (adr.sws.019, amending the decision of 18.9.2026) in the front p
 - `WebSite` with `name`, `url` and `publisher` pointing at the Organization
 - `Organization` as today, with `sameAs` naming `masterforge.app`, `luviamo.app`, `virustutka.app`, `ultragravel.app`, `tilastosilta.fi`, `sf3d.fi` and the GitHub profile
 - `Person` as today
-- one `SoftwareApplication` per product the page marks live, each with `name`, `url`, `applicationCategory`, `operatingSystem` where it means something, and `author` pointing at the Person
+- one `SoftwareApplication` per product anyone can open (five: MasterForge, Luviamo, Virustutka, Ultra Gravel, TilastoSilta), each with `name`, `url`, the page's own one-line description, `applicationCategory`, `operatingSystem`, `author` pointing at the Person and `publisher` pointing at the Organization
+- SF3D AI Lab as a `WebSite`, because it is a research lab site and not an application
+- `logo` on the Organization, the sun mark at `/icon-512.png`
 
 A sub-page carries only what it is about: `WebPage` with `isPartOf` the WebSite, plus the one `SoftwareApplication` or `CreativeWork` the page describes. No entity on a sub-page that the front page does not also know.
 
@@ -353,7 +355,8 @@ Day work:   digital health software to clinical and regulatory standards
 | V5 feedback | 2026-09-19 | 14 items from chat's reading of the live page (`docs/design/feedback-v5.md`) | done, decided with Petri |
 | V5 dates | 2026-09-20 | every product version number removed; a status carries a date (adr.sws.015) | live 20.9.2026 (PR #4) |
 | Site files | 2026-11-11 | `404.html`, the icon files and the manifest, the sitemap's date, the version guard repaired (adr.sws.017) | **PR A, no page change** |
-| **V6** | 2026-11-11 | the site gains pages (adr.sws.018), §04 Recent, HomeTeam's drawer, the structured data names the products (adr.sws.019) | **spec written, not built** |
+| V6 spec | 2026-11-11 | the site gains pages (adr.sws.018), §04 Recent, HomeTeam's drawer, the structured data names the products (adr.sws.019) | spec written |
+| **V6 front page** | 2026-11-12 | PR B: §04 Recent with two entries, Approach and Correspondence renumbered, the nav's Recent, HomeTeam's drawer with its drawn instrument, the icon links, `max-image-preview`, `og:image:alt`, the structured data | **PR B, built together with Petri** |
 
 ---
 
@@ -365,7 +368,7 @@ The order is the order of the decisions taken on 11.11.2026, and nothing that to
 2. **Read before any copy is written:** the `hometeam` repository's README and BUILD_INFO for the drawer and its page, the live SpectralForge beta gate (A7), and the profile README against the page (A10, the session routine).
 3. **`docs/design/copy-v4-pages.md`**: every new text as a numbered item, decided with Petri through decision boxes, four a round.
 4. **The media**: re-encode the Since AI vertical video to 720x1280 and cut its poster; copy `rooms-en.mp4` and its 9:16 cut from the lab repository and cut their posters; take the HomeTeam capture; generate an OG image per sub-page.
-5. **PR B, the page**: §04 Recent with the two entries, the HomeTeam drawer, the nav's Recent link, the icon links and `max-image-preview` in `<head>`, `og:image:alt`, and the structured data of adr.sws.019. Checked on the preview URL at desktop and phone width before merging.
+5. **Built 12.11.2026, PR B, the page**: §04 Recent with the two entries, the HomeTeam drawer, the nav's Recent link, the icon links and `max-image-preview` in `<head>`, `og:image:alt`, and the structured data of adr.sws.019. Checked on the preview URL at desktop and phone width before merging.
 6. **PR C and after, one sub-page at a time**: `/rooms/`, `/reviewglass/`, `/silent-context/`, `/hometeam/`, each with its sitemap entry and its own `check-site` pass.
 7. **Still open from before:** Cloudflare Web Analytics token, Lighthouse and the HTML validator on the live site, adr.sws.014 (one source for the facts the page shares with the profile README), the Atlas model proposals for adr.sws.003 to 019, the static-bearer removal, and the employer's names in the profile README.
 

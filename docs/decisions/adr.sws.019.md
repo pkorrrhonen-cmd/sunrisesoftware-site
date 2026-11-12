@@ -28,10 +28,15 @@ The front page's `@graph` gains, beside the Organization and the Person:
 - `sameAs` on the Organization naming the product domains and the GitHub profile
 - one `SoftwareApplication` per product anyone can open, each with `name`, `url`,
   `applicationCategory`, `operatingSystem` where it means something, and `author` pointing at
-  the Person. Decided on 11.11.2026, these are the six: MasterForge, Luviamo, Virustutka,
-  Ultra Gravel, TilastoSilta and SF3D AI Lab. An entity promises an application the reader can
-  use, and that promise does not hold for SpectralForge (closed beta), ReviewGlass (a repository
-  rather than a service), Somnus, Atlas, Salpa Defence or HomeTeam, so none of them gets one
+  the Person and `publisher` pointing at the Organization. These are five: MasterForge,
+  Luviamo, Virustutka, Ultra Gravel and TilastoSilta. An entity promises an application the
+  reader can use, and that promise does not hold for SpectralForge (closed beta), ReviewGlass (a
+  repository rather than a service), Somnus, Atlas, Salpa Defence or HomeTeam, so none of them
+  gets one
+- SF3D AI Lab as a `WebSite` with its own description and `author` pointing at the Person: it is
+  a research lab site, as the page says, not an application. Round C on 11.11.2026 had it as the
+  sixth application; corrected on 12.11.2026 before it shipped (copy-v4-pages.md D.1)
+- `logo` on the Organization, pointing at `/icon-512.png` (adr.sws.017)
 
 A sub-page carries only what it is about: a `WebPage` with `isPartOf` the WebSite, plus the one
 `SoftwareApplication` or `CreativeWork` that page describes. No entity appears on a sub-page

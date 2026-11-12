@@ -2,6 +2,22 @@
 
 Opitut virheet ja estosäännöt, jotta niitä ei toisteta. Uusin ensin.
 
+## 12.11.2026: suosituksen jokainen jäsen tarkistetaan sitä sääntöä vasten, josta päätetään
+
+**Mitä tapahtui:** 11.11. päätöslaatikossa suosittelin, että SoftwareApplication-merkinnän saavat
+"kuusi julkisesti avattavaa tuotetta", ja listasin niihin SF3D AI Labin. Petri valitsi suosituksen.
+Seuraavana päivänä rakentaessa huomasin, että sf3d.fi on tutkimuslaboratorion sivusto eikä
+sovellus, ja sivu itse sanoo niin. Merkintä olisi väittänyt koneelle asian, jota sivu ei sano, eli
+rikkonut juuri sitä päätöstä (adr.sws.019), jota laatikko vahvisti. Korjattiin ennen julkaisua
+uudella laatikolla.
+
+**Estosääntö:**
+- Kun suositus on lista, jokainen listan jäsen tarkistetaan erikseen sitä sääntöä vasten, josta
+  laatikko päättää, ennen kuin laatikko esitetään. "Julkisesti avattava" ja "sovellus" ovat eri
+  ehtoja.
+- Kun rakentaessa paljastuu, että päätetty kohta oli väärä, sitä ei korjata hiljaa eikä rakenneta
+  väärin: se kysytään uudelleen ja korjaus kirjataan päätöksen riville.
+
 ## 11.11.2026: vahti joka ei voi laueta ei ole vahti
 
 **Mitä tapahtui:** sessiossa 4 (20.9.2026) kirjoitettiin CI-tarkistus, joka kieltää tuoteversiot

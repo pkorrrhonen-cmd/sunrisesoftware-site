@@ -3,6 +3,32 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 7 (12.11.2026): PR B, ensimmäinen V6-muutos etusivulle
+
+**Tehty yhdessä Petrin kanssa** tekstien pohjalta, jotka päätettiin 11.11. (`docs/design/copy-v4-pages.md`):
+uusi osio **§04 Recent** "What I have been building, with dates." kahdella päivätyllä merkinnällä
+(Since AI 2026, 8 Nov; As Prescribed, 18 Oct), Approach ja Correspondence numeroitu §05:ksi ja §06:ksi,
+naviin **Recent** Productsin ja Approachin väliin, **HomeTeamin laatikko** ReviewGlassin jälkeen
+(tila "in use · my own family", ei linkkiä, piirretty Today-näkymä: viisi geneeristä tehtävää
+kuittautuu ja jokainen lähettää kolikon lompakkoon), headiin kuvakelinkit ja manifesti,
+`max-image-preview:large`, `og:image:alt` ja `twitter:image:alt`, ja rakenteinen data adr.sws.019:n
+mukaan (WebSite, Organization sameAs-listalla ja logolla, viisi SoftwareApplicationia, SF3D AI Lab
+WebSitena, Person). Vanha käyttämätön HomeTeam-luonnos (putki ja kolikot) korvattiin. Alaviite,
+`BUILD_INFO.updated` ja sitemapin lastmod 2026-11-12. BUILD_INFO 5.2.0.
+
+**Päätetty rakentaessa (kierros D):** SF3D AI Lab tyypitetään WebSiteksi eikä sovellukseksi, koska se
+on tutkimuslaboratorion sivusto; eilinen suositukseni oli väärä (LESSONS 12.11.2026). Kolme lisäystä
+hyväksytty: `twitter:image:alt`, `Organization.logo` ja `publisher` sovelluksille.
+
+**Ei vielä:** merkinnän 1 linkki `/silent-context/`-sivulle ja merkintöjen posterit tulevat sivun
+omassa PR:ssä, koska sivua ei ole ja linkki vastaisi 404.
+
+**Tarkistettu:** `node scripts/check-site.mjs` vihreä. Korjattu versiovahti löysi ensimmäisellä
+oikealla ajollaan "SEED v4.0.0" -merkkijonon omasta CSS-kommentistani, ja se poistettiin. Rakenteinen
+data jäsentyy (9 entiteettiä). Paikallisesti työpöytä- ja puhelinleveydellä: §04, navi, HomeTeamin
+laatikko ja piirros, ei vaakavieritystä (375 px), ei konsolivirheitä, laatikoiden järjestys ja osioiden
+numerot päätetyt.
+
 ## Sessio 6 (11.11.2026): tilannetarkastus, sivuston omat tiedostot ja SEED v4.0.0 (ei sivumuutosta)
 
 **Lähtökohta:** Petri palasi Since AI 2026 -tapahtumasta (Turku 6.-8.11.), jossa Silent context
