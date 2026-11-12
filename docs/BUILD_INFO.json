@@ -156,7 +156,7 @@
       "Atlas board card Virustutka · v0.24 (now autumn season)"
     ]
   },
-  "atlas_status": "sw-sivusto.STATUS v14, 2026-11-12, over the OAuth connector",
+  "atlas_status": "sw-sivusto.STATUS v15, 2026-11-12, over the OAuth connector",
   "updated_note": "The page revision: index.html changed in session 7 (PR B), so the footer date, this field and sitemap.xml lastmod all moved to 2026-11-12.",
   "sources_checked_2026_11_11": {
     "method": "Atlas statuses for all 25 systems (atlas_get_status), atlas_get_workspace sw-sivusto, HTTP requests against the live site and the product sites, the local repositories, node scripts/check-site.mjs --links",
