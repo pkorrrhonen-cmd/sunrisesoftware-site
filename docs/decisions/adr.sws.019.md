@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Status | accepted (Petri, 11.11.2026, round 1 of the status review) |
+| Status | accepted (Petri, 11.11.2026, round 1 of the status review); amended 12.11.2026 (round H, a sub-page's own video) |
 | Date | 2026-11-11 |
 | Decided by | Petri Korhonen |
 | Amends | the decision of 18.9.2026, "JSON-LD for Organization and Person only" (SEED v3.0.0 section 5.3) |
@@ -58,3 +58,21 @@ entity in the same pull request as its status line changes.
 
 The 18.9.2026 decision is not withdrawn in spirit: the structured data still describes only
 what the page itself says, and it still carries no claim the page does not make.
+
+## Amendment, 12.11.2026: a sub-page's own video
+
+Decided by Petri in round H of `docs/design/copy-v4-pages.md`, while the copy of `/silent-context/`
+was decided.
+
+A sub-page whose lead medium is a video of its own describes that video as a `VideoObject`
+(`name`, `description`, `thumbnailUrl` the poster, `contentUrl` the site's own file, `uploadDate`,
+`duration`), so that a search engine can show the video for the page. This is the one entity a
+sub-page may carry that the front page does not, because the video plays only on its page (SEED
+v4.0.0 section 3.6). It carries no view count, no rating and no interaction statistics, for the
+same reason as the rest of this decision.
+
+A sub-page about something that is code rather than a service describes it as a
+`SoftwareSourceCode` (`codeRepository`, `license`, `programmingLanguage`, `author` the Person). The
+front page's graph gains the same entity in the same pull request, so the rule that a sub-page names
+nothing the front page does not know still holds for everything but the video. The first is Silent
+context: `/silent-context/` carries `WebPage`, `SoftwareSourceCode` and `VideoObject`.

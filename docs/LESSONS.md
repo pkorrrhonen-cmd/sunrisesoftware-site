@@ -2,6 +2,24 @@
 
 Opitut virheet ja estosäännöt, jotta niitä ei toisteta. Uusin ensin.
 
+## 12.11.2026: Atlaksen kuvaus repon sisällöstä ei ole repon tarkistus
+
+**Mitä tapahtui:** 11.11. kirjoitin `copy-v4-pages.md`:n `/silent-context/`-runkoon todisteeksi
+retrospektiivin polun `docs/retrospective.md` ja kierroksen A riville A.4, että palkintosummat ja
+joukkueet ovat "retrospektiivissä repossa". Molemmat tulivat Atlaksen artefaktista
+`SINCEAI-2026-HACKATHON-TAKEAWAY`, joka sanoo "Pysyvä versio on repossa docs/retrospective.md".
+Repon puuta en avannut. Tiedosto oli poistettu reposta 8.11. klo 18.23Z (`f1b893a`), yksitoista
+minuuttia artefaktin kirjoittamisen jälkeen. Virhe löytyi 12.11., kun sivun faktoja tarkistettiin
+itse reposta. Sivulle olisi tullut linkki, joka vastaa 404, ja osio, joka nojaa julkaisemattomaan
+tekstiin.
+
+**Estosääntö:**
+- Polku tai linkki repoon tarkistetaan repon puusta samassa sessiossa ennen kuin se kirjoitetaan
+  tekstitiedostoon tai päätöslaatikkoon. Atlas on peili, repon `main` on totuus (CLAUDE.md,
+  totuushierarkia).
+- Kun Atlas ja repo ovat eri mieltä, repo voittaa ja ero kirjataan sille riville, joka nojasi
+  Atlakseen.
+
 ## 12.11.2026: suosituksen jokainen jäsen tarkistetaan sitä sääntöä vasten, josta päätetään
 
 **Mitä tapahtui:** 11.11. päätöslaatikossa suosittelin, että SoftwareApplication-merkinnän saavat

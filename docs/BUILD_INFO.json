@@ -1,6 +1,6 @@
 {
   "name": "sw-sivusto",
-  "version": "5.2.0",
+  "version": "5.2.1",
   "page": {
     "design_version": "V5 with the V6 front page changes (SEED v4.0.0); the sub-pages are not built",
     "built": "2026-09-18",
@@ -10,7 +10,7 @@
   "seed": "4.0.0 (accepted as the spec 11.11.2026, adr.sws.018); 3.0.0 stays in docs/ until V6 is live; 2.0.0 and the 2.1.0 draft archived",
   "session": 7,
   "updated": "2026-11-12",
-  "state": "Session 7 (12.11.2026): PR B built and live (PR #7, 14d267d, 13:47Z), the first change to the page since 20.9.2026. Every text came from docs/design/copy-v4-pages.md, decided with Petri on 11.11. One correction was decided while building: SF3D AI Lab is typed as a WebSite, not an application, because it is a research lab site (my recommendation the day before had been wrong; LESSONS 12.11.2026). The repaired version guard caught a \"SEED v4.0.0\" in a code comment on its first real run. Checked locally at desktop and phone width: no horizontal scroll, no console errors, the drawer order and the section marks as decided. Session 6 (11.11.) shipped PR #6: the 404 page, the icon files, the repaired guard and SEED v4.0.0.",
+  "state": "Session 7 (12.11.2026): PR B built and live (PR #7, 14d267d, 13:47Z), the first change to the page since 20.9.2026. Every text came from docs/design/copy-v4-pages.md, decided with Petri on 11.11. One correction was decided while building: SF3D AI Lab is typed as a WebSite, not an application, because it is a research lab site (my recommendation the day before had been wrong; LESSONS 12.11.2026). The repaired version guard caught a \"SEED v4.0.0\" in a code comment on its first real run. Checked locally at desktop and phone width: no horizontal scroll, no console errors, the drawer order and the section marks as decided. Session 6 (11.11.) shipped PR #6: the 404 page, the icon files, the repaired guard and SEED v4.0.0. Later the same day the copy of /silent-context/ was decided with Petri in rounds E to H (docs/design/copy-v4-pages.md, items SC.1 to SC.14) and adr.sws.019 was amended for a sub-page’s own video; no page change.",
   "sources_checked_2026_09_17": {
     "masterforge": "BUILD_INFO 4.44.0, 16.9.2026 (Starter v2 general master); masterforge.app: Free, Starter 4.99, Pro 9.99, one-off 14.99",
     "quaesitor": "repo main 2.13.27 (17.8.2026), SEED v2.14.0; quaesitor.app live",
@@ -31,8 +31,9 @@
     "github": "pkorrrhonen-cmd: 0 public repos, no name or bio on 17.9.2026; Sunrisesoftware-app: 15 private repos"
   },
   "next": [
-    "Next: the sub-pages’ copy rounds in docs/design/copy-v4-pages.md, /silent-context/ first (it carries the Since AI video and the link from section 04’s first entry), then /rooms/, /reviewglass/ and /hometeam/ (SEED v4.0.0 section 8)",
+    "Next: the media for /silent-context/ (the vertical video re-encoded to 720x1280 at 4 to 6 MB with a poster, the share image with the subject mark and the h1), then PR C builds the page from items SC.1 to SC.14 together with Petri, with the front page’s entry 1 pill, the SoftwareSourceCode on the front page and the sitemap entry. After it: the copy rounds for /rooms/, /reviewglass/ and /hometeam/",
     "Done 12.11.2026: PR B live (PR #7, squash 14d267d); verified on the live site, see deploy",
+    "Done 12.11.2026: the copy of /silent-context/ decided in rounds E to H (15 questions); the retrospective turned out to have left the silent-context repository on 8.11., so the page says the lesson in its own words and links only the code and the hosted demo",
     "Done 11.11.2026: hometeam repository read (production app.hometeam.fi since 29.9., sign-in restricted to allowed addresses, so the scale word is In use not Live); SpectralForge still has BetaGatePage.tsx so closed beta holds; the profile README checked against the page and its six differences listed in docs/design/copy-v4-pages.md section F, none of them a page change",
     "Done 11.11.2026: docs/design/copy-v4-pages.md written and PR B’s copy decided in three rounds (23 items): section 04 Recent with its two entries, the HomeTeam drawer, the nav item, og:image:alt, and the six products that get a SoftwareApplication entity. The sub-pages’ prose has not been asked yet; their checked facts and skeletons are in the same file",
     "Media for the pages: re-encode sinceai2026/silent-context-third-place-9x16-captions.mp4 (1080x1920, 77.8 s, 15.7 MB) to 720x1280 at 4 to 6 MB plus a poster; copy rooms-en.mp4 and rooms-en-916.mp4 from sf3d-ai-lab/media/publish/ plus posters; take the HomeTeam capture; generate an OG image per sub-page",
