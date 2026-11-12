@@ -29,6 +29,24 @@ data jäsentyy (9 entiteettiä). Paikallisesti työpöytä- ja puhelinleveydell�
 laatikko ja piirros, ei vaakavieritystä (375 px), ei konsolivirheitä, laatikoiden järjestys ja osioiden
 numerot päätetyt.
 
+**Deploy:** PR #7 squash-mergattu 12.11.2026 13:47Z (`14d267d`) Petrin sanasta CI:n ollessa vihreä
+(Site checks ja Cloudflare Pages). Ennen mergea preview `c4e2b76a.sunrisesoftware-site.pages.dev`
+tarkistettu: sen `index.html` on tavu tavulta sama kuin paikallisesti tarkistettu tiedosto, osiot §01:stä §06:een,
+kuvakkeet ja manifesti oikeilla tyypeillä, tuntematon osoite 404, JSON-LD 9 entiteettiä. Livestä
+todennettu noin minuutin kuluttua: `data-revised="2026-11-12"`, osiot §01:stä §06:een ja niiden joukossa §04 Recent, navissa
+Products, Recent, Approach, Contact, HomeTeamin laatikko ja piirros, `og:image:alt`, `twitter:image:alt`
+ja `max-image-preview:large`, kuvakelinkit headissa, `/favicon.ico` `image/vnd.microsoft.icon`, PNG-kuvakkeet
+`image/png`, `/site.webmanifest` `application/manifest+json`, `/nonexistent-xyz.html` 404, sitemapin
+`lastmod` 2026-11-12, JSON-LD jäsentyy 9 entiteetiksi (WebSite, Organization, viisi SoftwareApplicationia,
+SF3D AI Lab WebSitena, Person).
+
+**Havainto, ei muutos:** tuotantoverkkotunnuksen sivu eroaa repon tiedostosta vain Cloudflaren
+sähköpostiosoitteiden suojauksen verran: vyöhyke korvaa kaksi `mailto`-linkkiä `/cdn-cgi/l/email-protection`
+-osoitteella ja lisää purkuskriptin. Preview-osoitteessa (`pages.dev`) suojausta ei ole. Sama näkyy jo
+arkistoidussa `docs/archive/concept-v3.html`:ssä, joten asetus on ollut päällä aiemminkin. Ilman
+JavaScriptiä yhteystieto näkyy muodossa "[email protected]"; päätetäänkö asetuksesta, on Petrin asia
+(BUILD_INFO.next).
+
 ## Sessio 6 (11.11.2026): tilannetarkastus, sivuston omat tiedostot ja SEED v4.0.0 (ei sivumuutosta)
 
 **Lähtökohta:** Petri palasi Since AI 2026 -tapahtumasta (Turku 6.-8.11.), jossa Silent context
