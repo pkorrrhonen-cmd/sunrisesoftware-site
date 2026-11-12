@@ -47,6 +47,24 @@ arkistoidussa `docs/archive/concept-v3.html`:ssä, joten asetus on ollut pääll
 JavaScriptiä yhteystieto näkyy muodossa "[email protected]"; päätetäänkö asetuksesta, on Petrin asia
 (BUILD_INFO.next).
 
+**Iltapäivällä: `/silent-context/`-sivun tekstit päätetty** neljällä kierroksella (E–H, 15 kysymystä,
+kohdat SC.1–SC.14 `copy-v4-pages.md`:ssä). Otsikko on "An agent that knows where its advice came
+from." ja statusrivi "Built 6 to 8 Nov 2026 · third of fifteen". Osiot ovat ingressi, What Elisa
+asked, What Silent context does, What I measured, and what I did not, sekä Why third, in my own
+reading omin sanoin ilman joukkueiden nimiä. Video näytetään sellaisenaan, vaikka sen kohtauksessa 3
+näkyy tulostaulu nimineen ja summineen; sivun teksti ei nimeä kumpaakaan. Todisteissa ovat koodi ja
+hostattu demo. Jakokuvassa on aiheleima ja otsikko. Rakenteinen data: WebPage, SoftwareSourceCode
+(myös etusivulle) ja VideoObject; adr.sws.019 täydennetty sallimaan alasivun oma video. SEED v4.0.0
+luvut 2.2, 5.3 ja 8 päivitetty: `/silent-context/` rakennetaan ensimmäisenä alasivuna, kun sen
+mediat ovat valmiit.
+
+**Tarkistettu tekstejä varten 12.11.:** `pkorrrhonen-cmd/silent-context` (README, CHANGELOG,
+hosting.md, tagit ja commitit), poistettu retrospektiivi repon historiasta (`da250e8`), Atlas
+`SINCEAI-2026-HACKATHON-TAKEAWAY` v1, videotiedosto ffprobella ja kuvakoosteena, HTTP-pyynnöt
+demoon (200 ja `/health` ok) ja tapahtuman sivulle (`sinceai.ai` 200). **Löydetty:** retrospektiivi
+poistettiin reposta 8.11. illalla, joten 11.11. kirjattu todistepolku ja rivin A.4 viittaus olivat
+vääriä; korjattu ja kirjattu LESSONSiin. Sivua ei muutettu. BUILD_INFO 5.2.1.
+
 ## Sessio 6 (11.11.2026): tilannetarkastus, sivuston omat tiedostot ja SEED v4.0.0 (ei sivumuutosta)
 
 **Lähtökohta:** Petri palasi Since AI 2026 -tapahtumasta (Turku 6.-8.11.), jossa Silent context

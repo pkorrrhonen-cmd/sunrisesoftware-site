@@ -99,7 +99,7 @@ A sub-page carries no hero statistics, no generic adjectives, and no product ver
 |---|---|---|---|
 | `/rooms/` | The Atlas decision rooms, told with the names the field uses | `media/rooms-en.mp4` (16:9) copied from `sf3d-ai-lab/media/publish/`, with its 9:16 cut where the layout is narrow | the sf3d.fi articles `decision-rooms-in-a-minute`, `the-room-that-disagreed`, `blind-to-anything-taken-away`, `why-i-built-atlas` |
 | `/reviewglass/` | What the glass does during an AI-assisted coding session | the ReviewGlass canvas instrument from §03, enlarged; a capture when one exists | `github.com/Sunrisesoftware-app/reviewglass` (Apache-2.0) |
-| `/silent-context/` | Silent context and the Since AI 2026 result | `media/silent-context-916.mp4`, the vertical cut re-encoded to 720x1280 | `github.com/pkorrrhonen-cmd/silent-context`, tag `submission` |
+| `/silent-context/` | Silent context and the Since AI 2026 result | `media/silent-context-916.mp4`, the vertical cut re-encoded to 720x1280 | `github.com/pkorrrhonen-cmd/silent-context`, tag `submission`; the hosted demo `silent-context.pkorrrhonen.workers.dev` (decided 12.11.2026) |
 | `/hometeam/` | The family application in production | the real capture, read from the hometeam repository first | `app.hometeam.fi` |
 
 ### 2.3 The names the rooms page uses
@@ -301,7 +301,7 @@ Structured data (adr.sws.019, amending the decision of 18.9.2026) in the front p
 - SF3D AI Lab as a `WebSite`, because it is a research lab site and not an application
 - `logo` on the Organization, the sun mark at `/icon-512.png`
 
-A sub-page carries only what it is about: `WebPage` with `isPartOf` the WebSite, plus the one `SoftwareApplication` or `CreativeWork` the page describes. No entity on a sub-page that the front page does not also know.
+A sub-page carries only what it is about: `WebPage` with `isPartOf` the WebSite, plus the one `SoftwareApplication`, `SoftwareSourceCode` or `CreativeWork` the page describes, and a `VideoObject` for the page's own video where it has one. No entity on a sub-page that the front page does not also know, except that video (adr.sws.019, amended 12.11.2026). `/silent-context/` carries `WebPage`, `SoftwareSourceCode` and `VideoObject`, and the front page's graph gains the same `SoftwareSourceCode`.
 
 ### 5.4 The site answers for itself (adr.sws.017)
 
@@ -366,10 +366,10 @@ The order is the order of the decisions taken on 11.11.2026, and nothing that to
 
 1. **Done 11.11.2026, PR A, no page change:** `404.html`, `favicon.ico` and the four PNG icons from `scripts/icons.py`, `site.webmanifest`, the `_headers` rules for them, `sitemap.xml` `lastmod`, the repaired version guard with its self-test, and the two new checks in `check-site.mjs`.
 2. **Read before any copy is written:** the `hometeam` repository's README and BUILD_INFO for the drawer and its page, the live SpectralForge beta gate (A7), and the profile README against the page (A10, the session routine).
-3. **`docs/design/copy-v4-pages.md`**: every new text as a numbered item, decided with Petri through decision boxes, four a round.
+3. **`docs/design/copy-v4-pages.md`**: every new text as a numbered item, decided with Petri through decision boxes, four a round. The front page's items were decided 11.11.2026 (rounds A to C); `/silent-context/` was decided 12.11.2026 (rounds E to H, items SC.1 to SC.14).
 4. **The media**: re-encode the Since AI vertical video to 720x1280 and cut its poster; copy `rooms-en.mp4` and its 9:16 cut from the lab repository and cut their posters; take the HomeTeam capture; generate an OG image per sub-page.
 5. **Built 12.11.2026, PR B, the page**: §04 Recent with the two entries, the HomeTeam drawer, the nav's Recent link, the icon links and `max-image-preview` in `<head>`, `og:image:alt`, and the structured data of adr.sws.019. Checked on the preview URL at desktop and phone width before merging.
-6. **PR C and after, one sub-page at a time**: `/rooms/`, `/reviewglass/`, `/silent-context/`, `/hometeam/`, each with its sitemap entry and its own `check-site` pass.
+6. **PR C and after, one sub-page at a time**: `/silent-context/` first (its copy is decided; it waits for its media and brings the front page's entry 1 its pill), then `/rooms/`, `/reviewglass/`, `/hometeam/`, each with its sitemap entry and its own `check-site` pass.
 7. **Still open from before:** Cloudflare Web Analytics token, Lighthouse and the HTML validator on the live site, adr.sws.014 (one source for the facts the page shares with the profile README), the Atlas model proposals for adr.sws.003 to 019, the static-bearer removal, and the employer's names in the profile README.
 
 ---
