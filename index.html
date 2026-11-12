@@ -14,11 +14,18 @@
 <meta property="og:image" content="https://sunrisesoftware.app/images/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sunrise Software: Understand the human first. Then build the better product for them.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sunrise Software · Petri Korhonen">
 <meta name="twitter:description" content="Software for people, built in Tampere, Finland by someone who spent twenty years understanding them.">
 <meta name="twitter:image" content="https://sunrisesoftware.app/images/og-cover.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23F9F7F1'/%3E%3Cclippath id='h'%3E%3Crect x='0' y='0' width='32' height='19'/%3E%3C/clippath%3E%3Ccircle cx='16' cy='23' r='8' fill='%23E8A54E' clip-path='url(%23h)'/%3E%3Cline x1='5' y1='19' x2='27' y2='19' stroke='%2320303C' stroke-opacity='.5' stroke-width='1.5'/%3E%3C/svg%3E">
+<meta name="twitter:image:alt" content="Sunrise Software: Understand the human first. Then build the better product for them.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23F9F7F1'/%3E%3Cclippath id='h'%3E%3Crect x='0' y='0' width='32' height='19'/%3E%3C/clippath%3E%3Ccircle cx='16' cy='23' r='8' fill='%23E8A54E' clip-path='url(%23h)'/%3E%3Cline x1='5' y1='19' x2='27' y2='19' stroke='%2320303C' stroke-opacity='.5' stroke-width='1.5'/%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600&family=Public+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -27,14 +34,95 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebSite",
+      "@id": "https://sunrisesoftware.app/#website",
+      "name": "Sunrise Software",
+      "url": "https://sunrisesoftware.app/",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://sunrisesoftware.app/#org" }
+    },
+    {
       "@type": "Organization",
       "@id": "https://sunrisesoftware.app/#org",
       "name": "Sunrise Software Oy",
       "url": "https://sunrisesoftware.app/",
+      "logo": "https://sunrisesoftware.app/icon-512.png",
       "foundingDate": "2024",
       "address": { "@type": "PostalAddress", "addressLocality": "Tampere", "addressCountry": "FI" },
       "founder": { "@id": "https://sunrisesoftware.app/#petri" },
-      "email": "pete@sunrisesoftware.app"
+      "email": "pete@sunrisesoftware.app",
+      "sameAs": [
+        "https://masterforge.app/",
+        "https://luviamo.app/",
+        "https://virustutka.app/",
+        "https://ultragravel.app/",
+        "https://tilastosilta.fi/",
+        "https://sf3d.fi/",
+        "https://github.com/pkorrrhonen-cmd"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://sunrisesoftware.app/#masterforge",
+      "name": "MasterForge",
+      "url": "https://masterforge.app/",
+      "description": "Mastering built for AI-generated music.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Web",
+      "author": { "@id": "https://sunrisesoftware.app/#petri" },
+      "publisher": { "@id": "https://sunrisesoftware.app/#org" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://sunrisesoftware.app/#luviamo",
+      "name": "Luviamo",
+      "url": "https://luviamo.app/",
+      "description": "One brand voice. The whole marketing lifecycle: ideation, copy, visuals, scheduling, publishing and measurement in one place.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "author": { "@id": "https://sunrisesoftware.app/#petri" },
+      "publisher": { "@id": "https://sunrisesoftware.app/#org" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://sunrisesoftware.app/#virustutka",
+      "name": "Virustutka",
+      "url": "https://virustutka.app/",
+      "description": "Open, login-free respiratory-virus situation monitor for Finland.",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "author": { "@id": "https://sunrisesoftware.app/#petri" },
+      "publisher": { "@id": "https://sunrisesoftware.app/#org" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://sunrisesoftware.app/#ultragravel",
+      "name": "Ultra Gravel",
+      "url": "https://ultragravel.app/",
+      "description": "Finland-wide gravel route planner and navigator on authoritative data.",
+      "applicationCategory": "SportsApplication",
+      "operatingSystem": "Web",
+      "author": { "@id": "https://sunrisesoftware.app/#petri" },
+      "publisher": { "@id": "https://sunrisesoftware.app/#org" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://sunrisesoftware.app/#tilastosilta",
+      "name": "TilastoSilta",
+      "url": "https://tilastosilta.fi/",
+      "description": "Free Finnish statistics visualisation from eight-plus public sources.",
+      "applicationCategory": "ReferenceApplication",
+      "operatingSystem": "Web",
+      "author": { "@id": "https://sunrisesoftware.app/#petri" },
+      "publisher": { "@id": "https://sunrisesoftware.app/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://sunrisesoftware.app/#sf3d",
+      "name": "SF3D AI Lab",
+      "url": "https://sf3d.fi/",
+      "description": "Independent research lab site: multi-agent cognition on AMD RDNA4.",
+      "author": { "@id": "https://sunrisesoftware.app/#petri" }
     },
     {
       "@type": "Person",
@@ -247,6 +335,14 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
   transform:translateY(-50%) translateX(12px) scale(.97);transition:opacity .35s var(--ease),transform .45s var(--ease);box-shadow:0 44px 80px -34px rgba(32,48,60,.6),0 0 0 1px var(--rule);background:var(--paper-2)}
 #peek.show{opacity:1;transform:translateY(-50%) translateX(0)}
 #peek img,#peek canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+/* ---------- §04 Recent: dated entries, newest first (the SEED, section 3.6) ---------- */
+.recent{list-style:none;margin-top:40px;border-top:1px solid var(--rule);max-width:980px}
+.entry{display:grid;grid-template-columns:140px 1fr;gap:24px;padding:28px 0 30px;border-bottom:1px solid var(--rule)}
+.entry .when{font:12px var(--mono);letter-spacing:.06em;color:var(--text-meta);padding-top:9px}
+.entry h3{font-size:clamp(22px,2.4vw,30px);line-height:1.12;margin:0 0 10px}
+.entry p{max-width:62ch;color:var(--text-2);font-weight:300;font-size:15.5px}
+@media(max-width:900px){.entry{grid-template-columns:1fr;gap:6px}.entry .when{padding-top:0}}
+
 #peek .cap{position:absolute;left:12px;bottom:10px;font:500 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-2);background:rgba(255,253,249,.86);padding:4px 8px;border-radius:3px}
 
 /* ---------- Cryo chamber: SF3D behind a button (Petri 18.9.) ---------- */
@@ -402,7 +498,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
       Sunrise Software
     </a>
     <div class="links">
-      <a href="#work">Products</a><a href="#approach">Approach</a><a href="#contact">Contact</a>
+      <a href="#work">Products</a><a href="#recent">Recent</a><a href="#approach">Approach</a><a href="#contact">Contact</a>
       <a class="cta" href="https://github.com/pkorrrhonen-cmd" rel="me">GitHub ↗</a>
     </div>
   </div>
@@ -572,6 +668,15 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
         </div></div>
       </article>
 
+      <article class="drawer" data-live="hometeam" data-cap="hometeam · the today view, drawn">
+        <button class="drawer-head" aria-expanded="false"><span class="y">2026 →</span><span class="n">HomeTeam<small>in use · my own family</small></span><span class="d">The application my family runs the week on.</span><span class="plus"></span></button>
+        <div class="drawer-body"><div class="drawer-inner">
+          <p>A shared Today view for tasks, the calendar, meals and the shopping list, and an economy each family sets for itself: HomeCoin or euros, a weekly allowance, a loan, rewards, a savings goal. Adults sign in with a code sent to their address; children use nickname profiles on devices an adult has paired. A change appears on the other devices at once.</p>
+          <div class="facts"><span>Installable, works on every device</span><span>Children sign in without an address</span><span>The family's data stays in the EU</span></div>
+          <div class="big"><canvas data-live="hometeam" role="img" aria-label="A drawing of the HomeTeam Today view: a list of the day's tasks ticking off one by one, each finished task sending a coin to the wallet beside it"></canvas></div>
+        </div></div>
+      </article>
+
       <article class="drawer" data-live="salpa" data-cap="salpa defence · access denied">
         <button class="drawer-head" aria-expanded="false"><span class="y">2026 →</span><span class="n">Salpa Defence<small>venture</small></span><span class="d">Local AI appliance for environments cloud services cannot legally reach.</span><span class="plus"></span></button>
         <div class="drawer-body"><div class="drawer-inner">
@@ -591,6 +696,30 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
         </div></div>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- ============ §04 Recent (the SEED, section 2; copy-v4-pages.md items 4.1 to 4.11) ============ -->
+<section class="sec" id="recent">
+  <div class="wrap">
+    <span class="num" data-reveal>§04 · Recent</span>
+    <h2 class="words" data-reveal data-split>What I have been building, with dates.</h2>
+    <ol class="recent">
+      <li class="entry" data-reveal>
+        <time class="when" datetime="2026-11-08">8 Nov 2026</time>
+        <div class="what">
+          <h3>Third of fifteen at Since AI 2026</h3>
+          <p>Elisa's challenge in Turku, built alone over three days with AI tools. Silent context reads a maintenance conversation and binds every claim to the words it came from, with two clocks on each one, so you can ask what was known at any moment. The code is public.</p>
+        </div>
+      </li>
+      <li class="entry" data-reveal>
+        <time class="when" datetime="2026-10-18">18 Oct 2026</time>
+        <div class="what">
+          <h3>As Prescribed, for the AMD Developer Hackathon</h3>
+          <p>Five days on the health track. It turns a physiotherapy session into the patient's home program in the patient's own language, and it checks the therapist's prescription rather than the patient: every line is traced back to the words in the session, checked against the restrictions already on file, and translated back before anyone sees it. A conflict stops the program. Synthetic data only, and it was never opened to the public.</p>
+        </div>
+      </li>
+    </ol>
   </div>
 </section>
 
@@ -648,10 +777,10 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
   </div>
 </div>
 
-<!-- ============ §04 ============ -->
+<!-- ============ §05 ============ -->
 <section class="sec" id="approach">
   <div class="wrap">
-    <span class="num" data-reveal>§04 · Approach</span>
+    <span class="num" data-reveal>§05 · Approach</span>
     <h2 class="words" data-reveal data-split>How the work gets done.</h2>
     <div class="rules">
       <div class="rule" data-reveal><span class="k">01</span>Understand the person before the problem. <span class="warm">Every product starts with someone, not a feature list.</span></div>
@@ -674,7 +803,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
   <div class="wrap">
     <div class="grid">
       <div>
-        <span class="num" data-reveal>§05 · Correspondence</span>
+        <span class="num" data-reveal>§06 · Correspondence</span>
         <h2 class="words" data-reveal data-split>Let's talk.</h2>
         <p data-reveal style="margin-top:16px">If something above resembles what you need, or you have an idea worth building, write to me directly. I am always open to good ideas and new ways of doing things.</p>
         <a class="mail" href="mailto:pete@sunrisesoftware.app" data-reveal>pete@sunrisesoftware.app</a>
@@ -687,7 +816,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
         <a href="https://github.com/pkorrrhonen-cmd" rel="me">GitHub<small>github.com/pkorrrhonen-cmd ↗</small></a>
       </div>
     </div>
-    <div class="foot"><span>Sunrise Software Oy · Tampere, Finland</span><span>Est. 2024</span><span data-revised="2026-09-20">Revised 20 Sep 2026</span></div>
+    <div class="foot"><span>Sunrise Software Oy · Tampere, Finland</span><span>Est. 2024</span><span data-revised="2026-11-12">Revised 12 Nov 2026</span></div>
   </div>
 </section>
 
@@ -955,12 +1084,59 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
     }
     ctx.fillStyle = INK; ctx.font = `${Math.round(h * 0.045)}px JetBrains Mono, monospace`; ctx.fillText('FINDINGS IN · VERDICTS OUT · 0 € PER RUN', w * 0.06, h * 0.95);
   };
-  /* HomeTeam: a streak filling, coins */
+  /* HomeTeam: the Today view, drawn (the application is invitation only and a capture would carry
+     the family's own data; copy-v4-pages.md 3.46). The day's tasks tick off one by one and each one
+     sends a coin to the wallet. Generic tasks, no names. */
   sketches.hometeam = (cv, t) => {
     const { ctx, w, h } = fit(cv);
+    const mono = s => `${Math.round(h * s)}px JetBrains Mono, monospace`;
+    const sans = s => `300 ${Math.round(h * s)}px Public Sans, sans-serif`;
     ctx.fillStyle = '#F6F0E6'; ctx.fillRect(0, 0, w, h);
-    for (let i = 0; i < 14; i++) { const on = ((t * 0.0006) % 14) > i; ctx.fillStyle = on ? SUN : 'rgba(32,48,60,.12)'; ctx.beginPath(); ctx.arc(w * (0.08 + i * 0.065), h * 0.5, Math.min(w, h) * 0.035, 0, 7); ctx.fill(); }
-    ctx.fillStyle = INK; ctx.font = `${Math.round(h * 0.045)}px JetBrains Mono, monospace`; ctx.fillText(`STREAK ${Math.floor((t * 0.0006) % 14)} DAYS · HOMECOIN`, w * 0.06, h * 0.95);
+    const tasks = ['Empty the dishwasher', 'Football practice 17:30', 'Tacos for dinner', 'Milk, bread, apples', 'Feed the cat'];
+    const who = [SEA, SUN_D, '#4E987C', SEA, SUN_D];
+    const n = tasks.length, P = 11000, ph = ((t + 4000) % P) / P * (n + 1.5);
+    const done = Math.min(n, Math.floor(ph)), frac = ph - Math.floor(ph);
+    /* the Today card */
+    const cx = w * 0.06, cy = h * 0.09, cw = w * 0.54, ch = h * 0.78;
+    ctx.fillStyle = '#FFFDF9'; ctx.beginPath(); ctx.roundRect(cx, cy, cw, ch, 10); ctx.fill();
+    ctx.strokeStyle = 'rgba(32,48,60,.10)'; ctx.lineWidth = 1; ctx.stroke();
+    ctx.fillStyle = SUN_D; ctx.font = mono(0.04); ctx.fillText('TODAY', cx + cw * 0.06, cy + ch * 0.12);
+    ctx.fillStyle = '#8B96A0'; ctx.fillText(`${done} / ${n}`, cx + cw * 0.84, cy + ch * 0.12);
+    const rowY = i => cy + ch * (0.25 + i * 0.15);
+    for (let i = 0; i < n; i++) {
+      const y = rowY(i), r = h * 0.026, ok = i < done, x0 = cx + cw * 0.08;
+      ctx.beginPath(); ctx.arc(x0, y, r, 0, 7);
+      if (ok) { ctx.fillStyle = SUN; ctx.fill(); ctx.strokeStyle = '#FFFDF9'; ctx.lineWidth = Math.max(1.5, h / 220); ctx.beginPath(); ctx.moveTo(x0 - r * 0.45, y); ctx.lineTo(x0 - r * 0.1, y + r * 0.38); ctx.lineTo(x0 + r * 0.5, y - r * 0.4); ctx.stroke(); }
+      else { ctx.strokeStyle = 'rgba(32,48,60,.28)'; ctx.lineWidth = 1.2; ctx.stroke(); }
+      ctx.font = sans(0.042); ctx.fillStyle = ok ? 'rgba(32,48,60,.38)' : INK;
+      const tx = x0 + r * 2.2; ctx.fillText(tasks[i], tx, y + h * 0.014);
+      if (ok) { const tw = ctx.measureText(tasks[i]).width; ctx.fillRect(tx, y, tw, Math.max(1, h / 400)); }
+      ctx.fillStyle = who[i]; ctx.beginPath(); ctx.arc(cx + cw * 0.92, y, h * 0.014, 0, 7); ctx.fill();
+    }
+    /* the wallet */
+    const wx = w * 0.64, wy = h * 0.09, ww = w * 0.3, wh = h * 0.78, kx = wx + ww / 2, ky = wy + wh * 0.42, kr = Math.min(ww, wh) * 0.24;
+    const coins = 7 + done * 2;
+    ctx.fillStyle = '#FFFDF9'; ctx.beginPath(); ctx.roundRect(wx, wy, ww, wh, 10); ctx.fill();
+    ctx.strokeStyle = 'rgba(32,48,60,.10)'; ctx.lineWidth = 1; ctx.stroke();
+    ctx.fillStyle = SUN_D; ctx.font = mono(0.04); ctx.fillText('WALLET', wx + ww * 0.1, wy + wh * 0.12);
+    ctx.fillStyle = SUN; ctx.beginPath(); ctx.arc(kx, ky, kr, 0, 7); ctx.fill();
+    ctx.strokeStyle = SUN_D; ctx.lineWidth = Math.max(1.5, h / 200); ctx.beginPath(); ctx.arc(kx, ky, kr * 0.8, 0, 7); ctx.stroke();
+    ctx.fillStyle = INK; ctx.font = `500 ${Math.round(kr * 0.8)}px Familjen Grotesk, sans-serif`; ctx.textAlign = 'center'; ctx.fillText(String(coins), kx, ky + kr * 0.28);
+    ctx.font = mono(0.032); ctx.fillStyle = '#8B96A0'; ctx.fillText('HOMECOIN', kx, ky + kr + h * 0.07);
+    /* the savings goal */
+    const gx = wx + ww * 0.12, gy = wy + wh * 0.84, gw = ww * 0.76;
+    ctx.textAlign = 'left'; ctx.fillText('GOAL', gx, gy - h * 0.025);
+    ctx.fillStyle = 'rgba(32,48,60,.10)'; ctx.fillRect(gx, gy, gw, h * 0.016);
+    ctx.fillStyle = SUN; ctx.fillRect(gx, gy, gw * Math.min(1, coins / 24), h * 0.016);
+    /* a coin on its way from the task just finished */
+    if (done > 0 && done <= n && frac < 0.45) {
+      const p = frac / 0.45, e = 1 - Math.pow(1 - p, 3);
+      const sx = cx + cw * 0.92, sy = rowY(done - 1);
+      const x = sx + (kx - sx) * e, y = sy + (ky - sy) * e - Math.sin(p * Math.PI) * h * 0.12;
+      ctx.fillStyle = SUN; ctx.beginPath(); ctx.arc(x, y, h * 0.028, 0, 7); ctx.fill();
+      ctx.strokeStyle = SUN_D; ctx.lineWidth = 1.2; ctx.stroke();
+    }
+    ctx.fillStyle = '#8B96A0'; ctx.font = mono(0.03); ctx.fillText('TASKS · CALENDAR · MEALS · SHOPPING · HOMECOIN', w * 0.06, h * 0.965);
   };
   /* VitalTrack: a PMC-style chart drawing */
   sketches.vitaltrack = (cv, t) => {

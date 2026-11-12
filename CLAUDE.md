@@ -59,7 +59,7 @@ The rules below hold once their decision is accepted; a `proposed` decision in
   `source-assets/`. Every image gets `loading="lazy"` (except above the fold) and an alt text
   that describes the screen, not the product.
 - Product plates show the real product (a capture or clip); drawn instruments only where the
-  product has no public surface: Somnus, Atlas, ReviewGlass (`docs/design/apps-v3.md`).
+  product has no public surface: Somnus, Atlas, ReviewGlass, HomeTeam (`docs/design/apps-v3.md`).
 - Spec strips carry no technology names; the AMD mention is exactly "AMD R9700 sample program ·
   white paper in progress".
 - Each subject worth presenting has its own page under its own directory, with the same frame

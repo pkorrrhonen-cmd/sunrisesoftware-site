@@ -204,3 +204,24 @@ which stands as written and lands with that page.
 **Section 04 and the HomeTeam drawer are now fully decided and ready to build as PR B**, together
 with items 0.11 to 0.14 and the structured data of adr.sws.019. Nothing in section B to E of this
 file has been asked yet.
+
+### Round D, while building PR B (12.11.2026)
+
+| # | Question | Decision |
+|---|---|---|
+| D.1 | SF3D AI Lab in the structured data | **`WebSite`, not `SoftwareApplication`.** Round C.3 had it as an application on my recommendation, but sf3d.fi is a research lab site and the page itself calls it one; an application entity would claim something the page does not, which adr.sws.019 forbids. Five applications remain: MasterForge, Luviamo, Virustutka, Ultra Gravel, TilastoSilta |
+| D.2 | Three additions not on the list | **All three accepted:** `twitter:image:alt` with the same text as `og:image:alt`; `Organization.logo` pointing at `/icon-512.png`; `publisher` on each application pointing at the Organization, beside `author` pointing at the Person |
+
+### How PR B was built (12.11.2026)
+
+- Section marks keep the page's house style with a middle dot: `§04 · Recent`, and Approach and
+  Correspondence renumbered to `§05 · Approach` and `§06 · Correspondence`.
+- Entry 1 has no pill yet. Item 4.7 links `/silent-context/`, which does not exist until its own
+  pull request, and a link to it now would answer 404. The pill lands with the page.
+- Neither entry shows a poster. SEED v4.0.0 section 3.6 gives an entry with a video a poster frame,
+  but the video plays on the entry's own page, which is not built yet.
+- The HomeTeam instrument (item 3.46) draws a Today card with five generic tasks (no names) ticking
+  off one by one, each sending a coin to a wallet with a HomeCoin count and a savings-goal bar.
+  Labels in English, as the page is; the application itself is in Finnish. Its canvas carries an
+  `aria-label` that describes the drawing.
+
