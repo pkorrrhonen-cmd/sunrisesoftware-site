@@ -3,6 +3,38 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 10 (13.11.2026): `/hometeam/`-ketju alkoi, kuvitus päätetty (kierros Y, ei sivumuutosta)
+
+**Alkutarkistus palvelukatkojen päivänä:** session 9 työ meni perille. Avoimia PR:iä ei ole; `main` on
+`e5bc2d2` ja CI vihreä jokaisessa session 9 commitissa. Cloudflare Pages raportoi onnistuneen buildin
+commiteille `975dda7`, `f8ac691` ja `e5bc2d2`. Livestä: `/silent-context/`, `/rooms/`, `/reviewglass/` ja
+sitemap tavu tavulta samat kuin main, `og-reviewglass.jpg` ja `og-rooms.jpg` 200, `data-revised="2026-11-13"`,
+`/hometeam/` 404. Etusivu eroaa mainista vain Cloudflaren sähköpostisuojauksen kahdessa mailto-linkissä ja
+sen skriptissä (jo `BUILD_INFO.next`:ssä). Atlaksen `sw-sivusto.STATUS` v22 löytyi. Työpuissa ei ole
+keskeneräistä: vanhan työpuun kaksi commitia ovat PR #8:n pää, joka on squash-mergattu.
+
+**Kierros Y yhdessä Petrin kanssa** Petrin sanasta "hometeam repossa on paljon mockuppeja, joten käytetään
+niitä kuvituksessa sivulla". Luettu HomeTeamin reposta (`origin/main` `1c98b23`, muuttunut viimeksi
+10.10.2026, joten osan A3 faktat 11.11. pitävät): `mockups/README.md` ja sen 21 mockupin taulukko.
+Kymmenen mockupia kuvattiin 1440 px:n leveydellä, ja valituista vaihtoehdoista leikattiin yhdeksän
+ehdokasnäkymän arkki. Arkki jäi scratchpadiin, koska kolmessa näkymässä on oikeita nimiä (perheen sukunimi
+ja kolmen lapsen etunimet), ja tämä repo on julkinen. Päätökset (`copy-v4-pages.md`, kierros Y):
+
+- **Y.1** pääkuvana lapsen ja aikuisen Tänään rinnakkain, leipätekstin jälkeen Wallet, pistetaulu ja
+  aarresaari; pysäytyskuvat 2x, WebP + PNG.
+- **Y.2** näkymät suomeksi sellaisinaan, jokaisen alla englanninkielinen kuvateksti, ja sivulla rivi siitä,
+  että sovellus on suomeksi.
+- **Y.3** `Hei, Petri!` saa jäädä; sukunimi ja lasten nimet vaihdetaan mockupien omiin nimimerkkeihin
+  kaappauskopiossa repon ulkopuolella. Mikään nimellinen kuva tai lähdetiedosto ei tule repoon.
+- **Y.4** etusivun HomeTeam-laatikon piirros (B.3, 11.11.) vaihtuu lapsen Tänään-näkymään PR F:ssä.
+
+**Päätös:** adr.sws.020 (hyväksytty) sallii HomeTeamille mockup-näkymät ja kirjaa nimisäännön. CLAUDE.md:n
+piirrettyjen instrumenttien sääntö ei enää nimeä HomeTeamia, ja siihen kirjattiin Petrin linja muille
+tuotteille. SEED v4.1.0 (luvut 2.2, 7 ja 8), apps-v3 (HomeTeamin rivi ja B.6b) ja päätösindeksi päivitetty.
+**Seuraavaksi** tekstikierros Z: kuvatekstit, suomen kieli -rivi, miten sivu sanoo näkymien olevan
+suunnitelmia eikä tuotannon kaappauksia, ja fonttien (OFL) ja Fluent Emoji -kuvien (MIT) maininta. Sivuihin
+ei koskettu, joten alatunnisteen päivä ja sitemap pysyvät. BUILD_INFO 5.6.0.
+
 ## Sessio 9, päätös (13.11.2026): ketju paketoitu, seuraavaksi `/hometeam/`
 
 **Petrin linja ketjun lopuksi:** "Oikeat mockupit sovelluksesta täytyy saada sivuille, mutta review glass

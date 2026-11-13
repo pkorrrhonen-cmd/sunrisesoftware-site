@@ -382,7 +382,10 @@ the ADR files), the GitHub API and Atlas `reviewglass.STATUS` v38 (12.11.2026):
 ## E. `/hometeam/` (PR F)
 
 - **Status line:** `In use · my own family · 2026 →`.
-- **Lead medium:** open, the same question as item 3.46.
+- **Lead medium:** decided 13.11.2026 in round Y (below): screens cut from the HomeTeam design
+  mockups, the child's and the adult's Today side by side, then a row of three (Wallet, the weekly
+  scoreboard, the treasure island). The front page's drawer takes the child's Today in place of its
+  drawing (Y.4, adr.sws.020).
 - **Body:** from the facts under A3, plus what the page can say about why it exists: it was built
   for one family and it runs that family's week.
 - **Evidence:** none public. The page says so rather than linking a door the reader cannot open.
@@ -778,3 +781,35 @@ ReviewGlass it has to be built some other way than a screen capture, because the
 one: the glass, its halo and the finder exclude themselves from capture (`WDA_EXCLUDEFROMCAPTURE`, so
 the glass never captures itself), and only the dock and its drawer are visible to it (ReviewGlass
 adr.rg.025). RG.8's drawing stays until that mockup exists; how it is made is decided with Petri.
+
+### Round Y, `/hometeam/`: the mockups as its images (13.11.2026)
+
+Petri opened the `/hometeam/` thread on 13.11.2026: the hometeam repository holds many mockups, so they
+illustrate the page. Read in the session from the hometeam repository (`origin/main` `1c98b23`, last
+changed 10.10.2026, so the facts under A3, checked 11.11., still hold): `mockups/README.md` and its
+table of 21 mockups, each a self-contained page with the options A, B, C and the one Petri chose. Ten
+were rendered at 1440 px and nine candidate screens cut from the chosen options into a contact sheet
+(kept outside the repository, because some screens carry real names): 1 the child's Today (Comic,
+011), 2 the adult's Today (Comic, 011), 3 Wallet (005), 4 the weekly scoreboard (019), 5 the treasure
+island (020), 6 mood and the family map (021), 7 the amusement park (012), 8 the electricity card
+(013), 9 the living HomeCoin (018).
+
+Found before the round: the screens are in Finnish and the site is in English; screens 1, 2 and 8
+carry `Hei, Petri!`, the family's surname and three children's first names, while the others use
+nicknames (Kettu, Pöllö, Panda, Äiti, Isä); a mockup is the plan the application was built from, not
+a capture of production (mood moved behind the settings on 8.10.2026, hometeam PR #35, after
+mockup 021 was drawn).
+
+| # | Question | Decision |
+|---|---|---|
+| Y.1 | Which screens, in what form | **The pair and a row of three**: the lead is the child's and the adult's Today side by side (1, 2); after the body, a row of Wallet, the weekly scoreboard and the treasure island (3, 4, 5). Stills cut from the chosen options at 2x, WebP with a PNG fallback |
+| Y.2 | The language of the screens | **Finnish as they are, an English caption under each**, and one line on the page saying the application is in Finnish. Nothing staged |
+| Y.3 | Names in the screens | **`Hei, Petri!` may stay**, as the name is already on the page. The family's surname and every child's name become the mockups' own nicknames in the copy that is captured (screen 1 `HEI, KETTU!`, screen 2 the children's tiles and `Vuorossa` line in nicknames, the surname line gone or a nickname). No screen or source file with a surname or a child's name enters this repository, which is public |
+| Y.4 | The front page's drawer (3.46, B.3) | **The mockup replaces the drawing**: the drawer shows screen 1 in PR F, together with the page. adr.sws.020 records the rule's change |
+
+**For the build:** the captures are taken from a copy of the mockup files outside this repository,
+with the names replaced (Y.3) and the chosen option set, at 2x; `source-assets/` gets the name-free
+captures only. **For the copy round (Z):** the captions' words (Y.2), the line saying the application
+is in Finnish, and how the page says that these are the design mockups the application was built
+from rather than captures of production; the fonts (OFL) and the 3D images (Microsoft Fluent Emoji,
+MIT) in the screens, and whether the page credits them.

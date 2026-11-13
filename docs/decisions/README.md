@@ -29,3 +29,4 @@ decision). A decision is never deleted: a wrong one is superseded and the file s
 | [adr.sws.017](adr.sws.017.md) | The site answers for itself, with a 404 page and real icon files | accepted |
 | [adr.sws.018](adr.sws.018.md) | The site gains pages, and the front page keeps the short version | accepted |
 | [adr.sws.019](adr.sws.019.md) | The structured data names the products | accepted, amended 12.11.2026 |
+| [adr.sws.020](adr.sws.020.md) | HomeTeam's plates show its design mockups | accepted |
