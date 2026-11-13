@@ -1,6 +1,6 @@
 {
   "name": "sw-sivusto",
-  "version": "5.3.1",
+  "version": "5.3.2",
   "page": {
     "design_version": "V6 in progress (SEED v4.1.0): the front page with the V6 changes, and the first sub-page /silent-context/; the copy of /rooms/ is decided (R.1 to R.15) and the page is not built; /reviewglass/ and /hometeam/ are not built",
     "built": "2026-09-18",
@@ -10,7 +10,7 @@
   "seed": "4.1.0 (13.11.2026: section 3.6 narrowed while building /silent-context/, rounds I and J; sections 2.2, 4, 5.2 and 8 corrected for /rooms/ the same day, session 9); 4.0.0 archived in docs/archive/; 3.0.0 stays in docs/ until V6 is live; 2.0.0 and the 2.1.0 draft archived",
   "session": 9,
   "updated": "2026-11-13",
-  "state": "Session 9 (13.11.2026, docs only): the copy of /rooms/ decided with Petri in rounds K to O (19 questions, items R.1 to R.15 in docs/design/copy-v4-pages.md). The h1 is 'Before I settle how my software is built, I ask a panel of AI models for a second opinion.'; the first draft ('Before AI builds ...') was turned down because the page must not read as if AI does the building. Found while checking: SEED 2.2 listed blind-to-anything-taken-away (a Somnus article) as rooms evidence; the renders sit one folder deeper (media/publish/rooms/) and are not in the lab's git; the share of disagreements moved from one in five (24.10.) to one in four (90 of 335, 13.11.), and the first pre-registered test has read its 20 outcomes. Petri also decided that Atlas and Somnus each need a page of their own later. Session 8 (13.11.) built and shipped /silent-context/ (PR #9).",
+  "state": "Session 9 (13.11.2026): the copy of /rooms/ decided in rounds K to O (PR #10, docs only, merged c5019d8), then its media decided in round P and made on branch claude/rooms-pr-d: the two cuts copied byte for byte from the lab (6 448 529 and 5 855 181 bytes), the lab's rooms-en.vtt with captions on by default, posters from the BLIND card at 23 s, and images/og-rooms.jpg. The page is not built. Petri also decided that Atlas and Somnus each need a page of their own later. Session 8 (13.11.) built and shipped /silent-context/ (PR #9).",
   "sources_checked_2026_09_17": {
     "masterforge": "BUILD_INFO 4.44.0, 16.9.2026 (Starter v2 general master); masterforge.app: Free, Starter 4.99, Pro 9.99, one-off 14.99",
     "quaesitor": "repo main 2.13.27 (17.8.2026), SEED v2.14.0; quaesitor.app live",
@@ -31,13 +31,14 @@
     "github": "pkorrrhonen-cmd: 0 public repos, no name or bio on 17.9.2026; Sunrisesoftware-app: 15 private repos"
   },
   "next": [
-    "Next: build /rooms/ together with Petri as PR D (copy decided 13.11.2026, R.1 to R.15): first its media round (rooms-en.mp4 and rooms-en-916.mp4 from sf3d-ai-lab/media/publish/rooms/, posters, rooms-en.vtt from the lab's site/public/video/, og-rooms.jpg), then the page; read R.12's numbers again from atlas_decision_calibration on the build day. SEED 2.2 and 5.2 already corrected (13.11.2026). Then the copy rounds for /reviewglass/ and /hometeam/",
+    "Next: build the /rooms/ page together with Petri, on branch claude/rooms-pr-d (PR D): the copy is decided (R.1 to R.15, 13.11.2026) and the media are made (round P, 13.11.2026). Read R.12's numbers again from atlas_decision_calibration on the build day; check the .vtt's content type on the preview. Then the copy rounds for /reviewglass/ and /hometeam/",
+    "Done 13.11.2026: the media of /rooms/ decided in round P and made (videos copied as they are, posters at 23 s, captions on by default, og-rooms.jpg)",
     "Done 13.11.2026: the copy of /rooms/ decided in rounds K to O (19 questions), docs-only PR",
     "Done 13.11.2026: PR C live (PR #9, squash 0baab20); verified on the live site, see deploy",
     "Done 13.11.2026: the media for /silent-context/ (round I) and the page itself (round J), PR C",
     "Done 12.11.2026: PR B live (PR #7, squash 14d267d); verified on the live site, see deploy",
     "Done 12.11.2026: the copy of /silent-context/ decided in rounds E to H (15 questions)",
-    "Media for the other pages: for /rooms/ see the first item (the renders are at sf3d-ai-lab/media/publish/rooms/, not media/publish/); take the HomeTeam capture; an OG image per page from docs/mockups/og-<page>.html",
+    "Media for the other pages: take the HomeTeam capture; an OG image per page from docs/mockups/og-<page>.html",
     "One pull request per sub-page: /rooms/, /reviewglass/, /hometeam/, each with its sitemap entry; check-site picks each up from the sitemap",
     "Atlas and Somnus each need a sub-page of their own (Petri 13.11.2026, round K.3): on the front page they are listed as products, but their drawn instruments and stories do not make anyone understand them. Their texts and the products themselves are assessed as a separate piece of work when its time comes",
     "Atlas: sw-sivusto.STATUS written 11.11.2026; proposals for adr.sws.003 to 019 to model/systems/sw-sivusto.model.json still open (one at a time)",

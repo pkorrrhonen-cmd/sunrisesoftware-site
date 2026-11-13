@@ -532,3 +532,29 @@ its media exist. What the build needs, none of it made in this session:
   date with them.
 - **Lands with this page:** the Atlas plate's button (R.15) and the page's `<url>` in `sitemap.xml`.
   SEED sections 2.2 (the evidence list of K.3) and 5.2 (the renders' path) were corrected the same day.
+
+### Round P, `/rooms/`: the media (13.11.2026)
+
+Shown with `docs/mockups/rooms/round-P-media.jpg` (three poster scenes from each cut and the share
+image draft). Checked first: both renders already have `moov` before `mdat` (faststart), and both are
+byte for byte the files `sf3d-media.pages.dev/rooms/` serves (SHA-256 compared 13.11.2026).
+
+| # | Question | Decision |
+|---|---|---|
+| P.1 | The video files (R.8) | **Copied as they are**: `rooms-en.mp4` (1920x1080, 6 448 529 bytes) and `rooms-en-916.mp4` (1080x1920, 5 855 181 bytes), the same bytes and names as the lab's published files, so there is one source. Not re-encoded: they are already the size the silent-context video was brought down to, and a smaller frame would soften the room's small mono text |
+| P.2 | The poster (R.8) | **B, the blind task at 0:23**, for both cuts: the queued room's card with the `BLIND` stamp, the task and the options as the room reads them, and the line `Not in the task: the owner's choice, a recommendation.` It says at a glance what the lede says. Not A (the room's result, sf3d.fi's poster scene: dense and small in an 820 px frame), not C (the end card: mostly empty at 16:9, and it shows one judge where the page says two). The workbench's name shows small in the card, as K.4 allows for the video |
+| P.3 | The share image (R.3) | **As drafted**: the h1 at 58 px in four lines broken by hand, `Before I settle how my` / `software is built,` / and the second clause `I ask a panel of AI models` / `for a second opinion.` in `--sun-deep`, otherwise exactly I.2's build. Source `docs/mockups/og-rooms.html` |
+| P.4 | Captions on or off (R.8) | **On by default** (`<track default>`): the video has no text in the picture, only the narration, so the captions show at once, also on a muted phone, and the viewer can turn them off. The same experience as the silent-context video, whose captions are burnt in |
+
+### How PR D's media were made (13.11.2026)
+
+- `media/rooms-en.mp4` and `media/rooms-en-916.mp4`: copied from `sf3d-ai-lab/media/publish/rooms/`,
+  SHA-256 checked equal to the lab's files and to `sf3d-media.pages.dev/rooms/` (P.1).
+- `media/rooms-en.vtt`: the lab's `site/public/video/rooms-en.vtt` from its `origin/main`, unchanged
+  (27 cues, UTF-8 without BOM, LF), for both cuts, whose narration is the same (O.3, P.4).
+- `media/rooms-en-poster.jpg` (1920x1080, 187 KB) and `media/rooms-en-916-poster.jpg` (1080x1920,
+  169 KB): the frame at 23 s of each cut, the `BLIND` card (P.2), at the video's own size.
+- `images/og-rooms.jpg` (1200x630, 71 KB): `docs/mockups/og-rooms.html` rendered by
+  `docs/mockups/shoot.py` and converted with ffmpeg (P.3).
+- Not yet: the page itself, the Atlas plate's button and the sitemap entry. They are built together with
+  Petri; the page's `<track>` must be checked on the preview for the `.vtt`'s content type.
