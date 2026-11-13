@@ -1,6 +1,6 @@
 {
   "name": "sw-sivusto",
-  "version": "5.5.0",
+  "version": "5.5.1",
   "page": {
     "design_version": "V6 in progress (SEED v4.1.0): the front page with the V6 changes, /silent-context/, /rooms/ and /reviewglass/ live (13.11.2026); /hometeam/ is not built",
     "built": "2026-09-18",
@@ -10,7 +10,7 @@
   "seed": "4.1.0 (13.11.2026: section 3.6 narrowed while building /silent-context/, rounds I and J; sections 2.2, 4, 5.2 and 8 corrected for /rooms/ the same day, session 9; sections 2.2, 3.6, 4, 5.2, 7 and 8 for /reviewglass/ in PR E); 4.0.0 archived in docs/archive/; 3.0.0 stays in docs/ until V6 is live; 2.0.0 and the 2.1.0 draft archived",
   "session": 9,
   "updated": "2026-11-13",
-  "state": "Session 9 (13.11.2026), later: /reviewglass/ live since 16:30Z (PR #13, squash 1ad52ba), built together with Petri from RG.1 to RG.14 verbatim, with the round X choices as built. The merge's production build stuck behind Cloudflare's Workers API incident; the build of the docs commit 975dda7 took the site live. The front page's ReviewGlass drawer links the page and says 'Screen pixels never leave the machine'; the sitemap names four addresses. Earlier the same day /rooms/ went live (PR #11) and the copy of /reviewglass/ was decided (PR #12).",
+  "state": "Session 9 (13.11.2026) closed: /rooms/ (PR #11) and /reviewglass/ (PR #13) live and verified, their copy decided with Petri in rounds K to Q and S to X. At the close Petri set the next direction: real mockups of the applications onto the pages, ReviewGlass's built without a screen capture (the glass excludes itself from capture). The next thread starts with /hometeam/.",
   "sources_checked_2026_09_17": {
     "masterforge": "BUILD_INFO 4.44.0, 16.9.2026 (Starter v2 general master); masterforge.app: Free, Starter 4.99, Pro 9.99, one-off 14.99",
     "quaesitor": "repo main 2.13.27 (17.8.2026), SEED v2.14.0; quaesitor.app live",
@@ -31,7 +31,8 @@
     "github": "pkorrrhonen-cmd: 0 public repos, no name or bio on 17.9.2026; Sunrisesoftware-app: 15 private repos"
   },
   "next": [
-    "Next: the copy round for /hometeam/ (copy-v4-pages section E), together with Petri",
+    "Next (a new thread, Petri 13.11.2026): the copy round for /hometeam/ (copy-v4-pages section E), together with Petri, with the HomeTeam capture and its real mockup in view (the item below)",
+    "Petri 13.11.2026, at the close of session 9: real mockups of the applications have to get onto the pages, in place of the drawn instruments. ReviewGlass's has to be built some other way than a screen capture, because the glass itself vanishes from one: the glass, its halo and the finder exclude themselves from capture (WDA_EXCLUDEFROMCAPTURE, so the glass never captures itself), and only the dock and its drawer are visible to it (ReviewGlass adr.rg.025). How each mockup is made is decided with Petri, one product at a time; it changes CLAUDE.md's rule on drawn instruments and apps-v3 (B.5 for ReviewGlass), so it gets a decision file when the method is settled. /reviewglass/ keeps the drawing (RG.8, X.1) until then",
     "Done 13.11.2026: PR E live (PR #13, squash 1ad52ba; the build of 975dda7 took it live at 16:30Z after Cloudflare's incident); verified on the live site, see deploy",
     "Done 13.11.2026: the /reviewglass/ page built (PR E, round X), with the drawer's link and fact, the code entity on the front page and the sitemap entry",
     "Done 13.11.2026: the copy of /reviewglass/ decided in rounds S to W (18 questions), docs-only PR",
@@ -166,7 +167,7 @@
       "Atlas board card Virustutka · v0.24 (now autumn season)"
     ]
   },
-  "atlas_status": "sw-sivusto.STATUS v21, 2026-11-13T16:31Z, through the static bearer ATLAS_MCP_TOKEN (art_a1d1b0b880904141): /reviewglass/ live (PR #13)",
+  "atlas_status": "sw-sivusto.STATUS v22, 2026-11-13T16:35Z, through the static bearer ATLAS_MCP_TOKEN (art_6dde2b1e801e4e14): session 9 closed, Petri's direction on real mockups, next /hometeam/",
   "updated_note": "The page revision: index.html (the ReviewGlass drawer's link and fact, the code entity) and the new reviewglass/index.html changed in session 9 on 13.11.2026, so the footers, this field and the sitemap lastmod values stay 2026-11-13.",
   "sources_checked_2026_11_11": {
     "method": "Atlas statuses for all 25 systems (atlas_get_status), atlas_get_workspace sw-sivusto, HTTP requests against the live site and the product sites, the local repositories, node scripts/check-site.mjs --links",

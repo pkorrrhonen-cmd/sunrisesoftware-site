@@ -772,3 +772,9 @@ while building, none of them in RG.1 to RG.15:
 - The profile README (`pkorrrhonen-cmd`, pushed 24.9.2026) still says ReviewGlass will have "later a
   live diff"; the live diff is built and the page says so. The README is Petri's; the difference is in
   `BUILD_INFO.next`.
+
+**Petri at the close of 13.11.2026:** real mockups of the applications have to get onto the pages. For
+ReviewGlass it has to be built some other way than a screen capture, because the glass vanishes from
+one: the glass, its halo and the finder exclude themselves from capture (`WDA_EXCLUDEFROMCAPTURE`, so
+the glass never captures itself), and only the dock and its drawer are visible to it (ReviewGlass
+adr.rg.025). RG.8's drawing stays until that mockup exists; how it is made is decided with Petri.

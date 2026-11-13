@@ -3,6 +3,23 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 9, päätös (13.11.2026): ketju paketoitu, seuraavaksi `/hometeam/`
+
+**Petrin linja ketjun lopuksi:** "Oikeat mockupit sovelluksesta täytyy saada sivuille, mutta review glass
+kohdalla se täytyy rakentaa muuten kuin kuvankaappauksella koska itse suurennuslasi katoaa kun otetaan
+kuvankaappaus." Tarkistettu ReviewGlassin reposta: lasi, sen halo ja etsin sulkevat itsensä pois
+kaappauksesta (`WDA_EXCLUDEFROMCAPTURE`, jotta lasi ei kuvaa itseään), ja kaappaukseen näkyvät vain dokki
+ja sen laatikko (adr.rg.025). Linja muuttaa CLAUDE.md:n piirrettyjen instrumenttien sääntöä ja apps-v3:n
+kohtaa B.5, joten tapa päätetään Petrin kanssa tuote kerrallaan ja kirjataan päätöstiedostoon. Siihen asti
+`/reviewglass/` pitää piirroksen (RG.8, X.1). Kirjattu `BUILD_INFO.next`:iin, SEEDin lukuun 8 ja
+`copy-v4-pages.md`:n osan D loppuun.
+
+**Session 9 tulos:** `/rooms/` (PR #10 ja #11) ja `/reviewglass/` (PR #12 ja #13) ovat livenä ja livestä
+todennettuja; nimi ReviewGlass kirjattiin pysyväksi myös ReviewGlassin repoon ja Atlakseen. **Seuraava
+ketju** aloittaa `/hometeam/`-sivun tekstikierroksesta (`copy-v4-pages.md` osa E), ja oikea mockup on
+mukana alusta asti. BUILD_INFO 5.5.1; sivuihin ei koskettu, joten alatunnisteen päivä ja sitemap pysyvät.
+Atlaksen `sw-sivusto.STATUS` v22.
+
 ## Sessio 9, jatko 3 (13.11.2026): `/reviewglass/`-sivu (kierros X, PR E)
 
 **Tehty yhdessä Petrin kanssa** Petrin sanasta "Rakennetaan /reviewglass/-sivu". Rakennusaikaiset valinnat
