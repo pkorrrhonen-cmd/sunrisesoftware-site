@@ -556,5 +556,35 @@ byte for byte the files `sf3d-media.pages.dev/rooms/` serves (SHA-256 compared 1
   169 KB): the frame at 23 s of each cut, the `BLIND` card (P.2), at the video's own size.
 - `images/og-rooms.jpg` (1200x630, 71 KB): `docs/mockups/og-rooms.html` rendered by
   `docs/mockups/shoot.py` and converted with ffmpeg (P.3).
-- Not yet: the page itself, the Atlas plate's button and the sitemap entry. They are built together with
-  Petri; the page's `<track>` must be checked on the preview for the `.vtt`'s content type.
+- The page, the Atlas plate's button and the sitemap entry followed the same day (round Q below).
+
+### Round Q, `/rooms/`: the page as built (13.11.2026)
+
+Shown with `docs/mockups/rooms/round-Q-page.jpg` (the built page at 1440 px and at 375 px, and the
+Atlas plate) and on the local server. Two choices made while building, none of them in R.1 to R.15:
+
+| # | Question | Decision |
+|---|---|---|
+| Q.1 | The video block | **As built**: on a desktop the 16:9 cut across the 820 px column on its left edge, the caption on the same edge under it; up to 600 px the 9:16 cut and its poster in a 420 px frame, the caption centred. A short script picks the cut once at load, before anything is fetched (`preload="none"`); without JavaScript the 16:9 cut plays everywhere |
+| Q.2 | The Atlas plate's buttons (R.15) | **As built**: the dark `How the decision rooms work →` first and the quiet `Access-protected · shown to partners` beside it, 10 px apart in a `.btns` row that wraps on a phone. The link comes first because it is what the reader can do; the quiet one says why Atlas itself does not open |
+
+### How PR D was built (13.11.2026)
+
+- `rooms/index.html` copies the frame of `silent-context/index.html` (palette, sky, nav, reveals, the
+  reading light, the shore) and changes only the status dot (the sea of infrastructure, the front
+  page's `infra` look), the video block (Q.1) and one short script for the cut.
+- Every text on the page is R.1 to R.14 verbatim. R.12's numbers were read again from
+  `atlas_decision_calibration` at about 12.30 local on the build day and had not moved: 335 and 90,
+  the first test 20 of 20 with none overturned, the stricter one 0 of 20, Jev 272 of 309.
+- The vertical cut and its poster sit on the `<video>` as `data-src` and `data-poster`, so
+  `check-site.mjs` checks that both files exist like any other reference. The captions are a
+  `<track kind="captions" srclang="en" label="English" default>` on the lab's `.vtt` (O.3, P.4); the
+  local server sends it as `text/vtt` and the browser shows its cues.
+- The front page gains the Atlas plate's `.btns` row (Q.2) and one CSS rule for it; its text is
+  unchanged. The sitemap names three addresses, all with `lastmod` 2026-11-13.
+- Checked locally: at 1440 px the page has no horizontal scroll, no console errors, the three fonts
+  load, JSON-LD parses to `WebPage` and `VideoObject`, the 16:9 video plays at 1920x1080 with its
+  first cue showing; at 375 px with device emulation `scrollWidth` 375, nothing past the edge, the
+  9:16 cut and its poster chosen, the nav showing only the sun mark; on the front page at 375 px the
+  two Atlas buttons stack. Seeking was not tried locally, because Python's server does not answer
+  range requests; it is checked on the preview.

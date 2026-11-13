@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas decision rooms: a second opinion from AI models · Petri Korhonen</title>
+<meta name="description" content="Before I settle how my software is built, two AI agents from two model families argue the decision blind, two judging models score them, and I decide.">
+<link rel="canonical" href="https://sunrisesoftware.app/rooms/">
+<meta name="theme-color" content="#F9F7F1">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sunrisesoftware.app/rooms/">
+<meta property="og:title" content="Atlas decision rooms: a second opinion from AI models · Petri Korhonen">
+<meta property="og:description" content="Before I settle how my software is built, two AI agents from two model families argue the decision blind, two judging models score them, and I decide.">
+<meta property="og:image" content="https://sunrisesoftware.app/images/og-rooms.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Atlas decision rooms: before I settle how my software is built, I ask a panel of AI models for a second opinion.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atlas decision rooms: a second opinion from AI models · Petri Korhonen">
+<meta name="twitter:description" content="Before I settle how my software is built, two AI agents from two model families argue the decision blind, two judging models score them, and I decide.">
+<meta name="twitter:image" content="https://sunrisesoftware.app/images/og-rooms.jpg">
+<meta name="twitter:image:alt" content="Atlas decision rooms: before I settle how my software is built, I ask a panel of AI models for a second opinion.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23F9F7F1'/%3E%3Cclippath id='h'%3E%3Crect x='0' y='0' width='32' height='19'/%3E%3C/clippath%3E%3Ccircle cx='16' cy='23' r='8' fill='%23E8A54E' clip-path='url(%23h)'/%3E%3Cline x1='5' y1='19' x2='27' y2='19' stroke='%2320303C' stroke-opacity='.5' stroke-width='1.5'/%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600&family=Public+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://sunrisesoftware.app/rooms/#webpage",
+      "url": "https://sunrisesoftware.app/rooms/",
+      "name": "Atlas decision rooms: a second opinion from AI models",
+      "description": "Before I settle how my software is built, two AI agents from two model families argue the decision blind, two judging models score them, and I decide.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://sunrisesoftware.app/#website" },
+      "author": { "@id": "https://sunrisesoftware.app/#petri" },
+      "video": { "@id": "https://sunrisesoftware.app/rooms/#video" }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://sunrisesoftware.app/rooms/#video",
+      "name": "The Room That Disagreed With Me",
+      "description": "A video: a decision about which secret scanner a security gate should use, the blind room it went to, two AI agents voting and arguing in two rounds, the room's answer on a condition, the code that followed it, and the decisions the rooms had checked by 24 Oct 2026.",
+      "thumbnailUrl": "https://sunrisesoftware.app/media/rooms-en-poster.jpg",
+      "contentUrl": "https://sunrisesoftware.app/media/rooms-en.mp4",
+      "uploadDate": "2026-11-13",
+      "duration": "PT1M58S",
+      "width": 1920,
+      "height": 1080,
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+<style>
+/* ---------- Palette A′ (adr.sws.010), copied from the front page; check-site keeps the copies honest ---------- */
+:root{
+  --base:#F9F7F1; --paper:#FFFDF9; --paper-2:#F1ECE3;
+  --text:#20303C; --text-2:#50606C; --text-meta:#8B96A0;
+  --rule:rgba(32,48,60,.10); --rule-strong:rgba(32,48,60,.22);
+  --sun:#E8A54E; --sun-deep:#C57A2C; --sun-soft:rgba(232,165,78,.16);
+  --sea:#627F92; --sea-mid:#3D5A6C; --sea-shore:#6F8FA3; --sea-deep:#243B4A;
+  --live:#4E987C;
+  --display:'Familjen Grotesk',system-ui,sans-serif;   /* adr.sws.012 */
+  --sans:'Public Sans',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace;
+  --gutter:clamp(20px,4.5vw,64px);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --p:0;
+  --dawn:clamp(0, calc(1 - var(--p) * 2.2), 1);
+  --seao:clamp(0, calc((var(--p) - .74) / .26), 1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--sea-mid);scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--base)}
+body{font-family:var(--sans);color:var(--text);line-height:1.55;font-size:16px;overflow-x:hidden}
+a{color:inherit}
+.skip{position:absolute;left:-999px;top:8px;z-index:100;background:var(--text);color:var(--base);padding:8px 12px;border-radius:4px;font:500 13px var(--sans)}
+.skip:focus{left:8px}
+.wrap{max-width:1220px;margin:0 auto;padding:0 var(--gutter);position:relative}
+::selection{background:var(--sun);color:var(--sea-deep)}
+:focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:4px}
+
+/* ---------- The sky ---------- */
+.sky{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:var(--base)}
+.sky-dawn{position:absolute;inset:0;opacity:var(--dawn);background:linear-gradient(180deg,#FBF4EA 0%,#F7ECDD 30%,rgba(232,234,232,.7) 60%,var(--base) 100%)}
+.orb{position:absolute;border-radius:50%;filter:blur(58px);opacity:var(--dawn);will-change:transform}
+.orb-1{width:720px;height:720px;left:8%;top:-22%;background:radial-gradient(circle,rgba(244,196,130,.40) 0%,transparent 64%);animation:drift1 24s ease-in-out infinite alternate}
+.orb-2{width:540px;height:540px;left:30%;top:-10%;background:radial-gradient(circle,rgba(244,180,120,.18) 0%,transparent 66%);animation:drift2 31s ease-in-out infinite alternate}
+.orb-3{width:960px;height:960px;left:-16%;top:-34%;background:radial-gradient(circle,rgba(255,222,176,.34) 0%,transparent 64%);animation:drift3 38s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(50px,40px) scale(1.06)}}
+@keyframes drift2{to{transform:translate(-40px,60px) scale(1.08)}}
+@keyframes drift3{to{transform:translate(60px,90px) scale(1.05)}}
+.sky-reading{position:absolute;left:50%;top:38%;width:1500px;height:1100px;border-radius:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(ellipse at center,rgba(244,190,124,.22) 0%,rgba(240,176,120,.08) 38%,transparent 66%);filter:blur(44px);
+  opacity:calc(1 - var(--dawn));will-change:transform}
+.sky-cursor{position:absolute;left:0;top:0;width:880px;height:880px;border-radius:50%;background:radial-gradient(circle,rgba(244,190,124,.16) 0%,rgba(244,190,124,.05) 32%,transparent 62%);opacity:0;transform:translate(-50%,-50%);will-change:transform;transition:opacity .6s}
+.sky-sea{position:absolute;inset:0;opacity:var(--seao);background:linear-gradient(180deg,transparent 0%,rgba(111,143,163,.22) 55%,rgba(61,90,108,.45) 100%)}
+
+/* ---------- Nav: the wordmark goes home, one link back (the SEED, section 3.6) ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:40;padding:18px 0;border-bottom:1px solid transparent;transition:background .5s,backdrop-filter .5s,padding .5s,border-color .5s,color .5s}
+nav.scrolled{background:rgba(249,247,241,.72);backdrop-filter:blur(14px) saturate(1.1);border-bottom-color:var(--rule);padding:11px 0}
+nav.on-sea{background:rgba(36,59,74,.5);color:var(--paper);border-bottom-color:rgba(255,253,249,.12)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.mark{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:500;font-size:18px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.sunmark{width:22px;height:22px;overflow:visible;flex:none}
+.sunmark .disc{fill:var(--sun);transform:translateY(calc(var(--p) * -11px));transition:transform .15s linear;filter:drop-shadow(0 0 calc(var(--p) * 7px) rgba(232,165,78,.9))}
+.sunmark .hz{stroke:currentColor;stroke-opacity:.45;stroke-width:1.2}
+.links{display:flex;gap:26px;align-items:center;font-size:13px;font-weight:500}
+.links a{text-decoration:none;opacity:.78;position:relative;transition:opacity .3s;white-space:nowrap}
+.links a::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.links a:hover{opacity:1}.links a:hover::after{transform:none}
+
+/* ---------- Reveal ---------- */
+[data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+[data-reveal].in{opacity:1;transform:none}
+.words .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+.words .w>span{display:inline-block;transform:translateY(112%);transition:transform .9s var(--ease)}
+.words.in .w>span{transform:none}
+
+/* ---------- The sub-page (the SEED, sections 2.1 and 3.6) ---------- */
+.page{position:relative;z-index:1;padding:clamp(120px,13vw,170px) 0 clamp(24px,4vw,48px)}
+.col{max-width:820px}
+.num{font:500 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--sun-deep);display:block;margin-bottom:16px}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.4vw,48px);line-height:1.06;letter-spacing:-.03em;max-width:22ch;color:var(--text)}
+.lede{margin-top:20px;max-width:58ch;font-size:17px;font-weight:300;color:var(--text-2)}
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-2)}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--sea);box-shadow:0 0 0 3px rgba(78,152,124,.18)}
+/* the video block: 16:9 in the column; on a phone the 9:16 cut in a frame at most 420 px wide (the SEED, section 3.6) */
+.vblock{margin-top:clamp(40px,6vw,64px)}
+.vframe{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#0F171F;box-shadow:0 44px 80px -44px rgba(32,48,60,.5),0 0 0 1px var(--rule)}
+.vframe video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain}
+.vblock.v916{max-width:420px;margin-left:auto;margin-right:auto}
+.vblock.v916 .vframe{aspect-ratio:9/16}
+.vblock figcaption{margin-top:14px;font:12px/1.6 var(--mono);color:var(--text-meta);max-width:62ch}
+.vblock.v916 figcaption{text-align:center}
+/* the body: short sections, a heading and one or two paragraphs each */
+.body{margin-top:clamp(48px,7vw,84px)}
+.body section{padding:28px 0 32px;border-top:1px solid var(--rule)}
+.body h2{font-family:var(--display);font-weight:400;font-size:clamp(22px,2.4vw,30px);line-height:1.12;letter-spacing:-.03em;max-width:30ch;margin-bottom:12px;color:var(--text)}
+.body p{max-width:62ch;color:var(--text-2);font-weight:300;font-size:16.5px}
+.body p+p{margin-top:12px}
+/* evidence: the name over the address, as the shore's link list, with one line under it */
+.evidence{padding-top:22px;border-top:1px solid var(--rule)}
+.evidence .lbl{font:500 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--text-meta)}
+.ev{display:grid;grid-template-columns:1fr 1fr;gap:4px 28px;margin-top:8px}
+.ev a{display:flex;flex-direction:column;gap:4px;padding:12px 0 14px;border-bottom:1px solid var(--rule);text-decoration:none;line-height:1.35}
+.ev a b{font-weight:500;font-size:15px;color:var(--text);transition:color .3s}
+.ev a small{font:11px var(--mono);letter-spacing:.06em;color:var(--sun-deep);overflow-wrap:anywhere}
+.ev a span{font-size:14px;font-weight:300;color:var(--text-2)}
+.ev a:hover b{color:var(--sun-deep)}
+
+/* ---------- The shore and the foot of a sub-page ---------- */
+.sea{position:relative;z-index:1;margin-top:clamp(40px,6vw,80px);padding:30vh 0 40px;color:var(--paper);overflow:hidden;
+  background:linear-gradient(180deg,rgba(36,59,74,0) 0%,rgba(111,143,163,.35) 22%,var(--sea-shore) 46%,var(--sea-mid) 100%)}
+.sea .glint{position:absolute;left:50%;height:2px;transform:translateX(-50%);filter:blur(.6px);pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,224,170,.7),transparent)}
+.sea .g1{top:12%;width:64vw;animation:glint 9s ease-in-out infinite alternate}
+.sea .g2{top:17%;width:38vw;animation:glint 12s ease-in-out infinite alternate-reverse;opacity:.6}
+.sea .g3{top:22%;width:80vw;animation:glint 15s ease-in-out infinite alternate;opacity:.4}
+@keyframes glint{from{transform:translateX(-56%) scaleX(.85);opacity:.35}to{transform:translateX(-44%) scaleX(1.05);opacity:.95}}
+.sea .sunpath{position:absolute;left:50%;top:0;width:34vw;height:100%;transform:translateX(-50%);pointer-events:none;background:linear-gradient(180deg,rgba(255,214,150,.0) 0%,rgba(255,214,150,.22) 40%,rgba(255,214,150,.10) 100%);filter:blur(30px)}
+.back-pill{position:relative;z-index:2;display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:999px;background:var(--paper);color:var(--text);text-decoration:none;font:500 13px var(--sans);box-shadow:0 14px 30px -14px rgba(0,0,0,.45);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.back-pill:hover{transform:translateY(-2px);box-shadow:0 20px 36px -14px rgba(0,0,0,.5)}
+.back-pill .arr{transition:transform .35s var(--ease)}.back-pill:hover .arr{transform:translateX(-4px)}
+.sea .foot{position:relative;z-index:2;margin-top:clamp(32px,5vw,56px);padding-top:20px;border-top:1px solid rgba(255,253,249,.18);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,253,249,.6)}
+
+/* ---------- Responsive ---------- */
+@media(max-width:700px){.ev{grid-template-columns:1fr}}
+@media(max-width:420px){.mark .word{display:none}}
+
+/* ---------- Static capture and reduced motion ---------- */
+.static [data-reveal],.reduced [data-reveal]{opacity:1;transform:none;transition:none}
+.static .words .w>span,.reduced .words .w>span{transform:none;transition:none}
+.static .orb,.static .glint,.reduced .orb,.reduced .glint{animation:none}
+.static .sky-cursor,.reduced .sky-cursor,.static .sky-reading{display:none}
+.static .sky-dawn{bottom:auto;height:1200px;mask-image:linear-gradient(180deg,#000 70%,transparent 100%);-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%)}
+.static .sky-sea{display:none}
+.static .orb{top:-200px}
+.static .sea{padding-top:260px}
+</style>
+</head>
+<body>
+
+<div class="sky" aria-hidden="true">
+  <div class="sky-dawn"></div>
+  <div class="orb orb-3"></div><div class="orb orb-1"></div><div class="orb orb-2"></div>
+  <div class="sky-reading" id="readingLight"></div>
+  <div class="sky-cursor" id="cursorLight"></div>
+  <div class="sky-sea"></div>
+</div>
+
+<a class="skip" href="#main">Skip to content</a>
+<nav id="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="/" aria-label="Sunrise Software, the front page">
+      <svg class="sunmark" viewBox="0 0 24 24" aria-hidden="true">
+        <defs><clipPath id="aboveHorizon"><rect x="0" y="0" width="24" height="15"/></clipPath></defs>
+        <g clip-path="url(#aboveHorizon)"><circle class="disc" cx="12" cy="21" r="5.6"/></g>
+        <line class="hz" x1="1" y1="15" x2="23" y2="15"/>
+      </svg>
+      <span class="word">Sunrise Software</span>
+    </a>
+    <div class="links">
+      <a href="/">← Back to the front page</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ /rooms/ (copy-v4-pages.md, items R.1 to R.14) ============ -->
+<main class="page" id="main">
+  <div class="wrap">
+    <div class="col">
+
+      <header class="title">
+        <span class="num" data-reveal>Atlas · decision rooms</span>
+        <h1 class="words" data-reveal data-split>Before I settle how my software is built, I ask a panel of AI models for a second opinion.</h1>
+        <p class="lede" data-reveal style="transition-delay:.25s">When I have to decide how a feature or a part of my software is built, and the choice would be hard to undo, I ask my judging panel. Two AI agents from two different model families get the facts and the options, but never my choice. Each seals its first vote before it reads the other's, they argue in rounds, and two judging models score the arguments. If the panel disagrees with me, the decision comes back with its reasons, and I decide again. In Atlas, the shared record of everything I build, a panel is called a room.</p>
+        <span class="status" data-reveal style="transition-delay:.4s"><i></i>In use · 2026 →</span>
+      </header>
+
+      <figure class="vblock" id="roomVideo" data-reveal style="transition-delay:.5s">
+        <div class="vframe">
+          <video controls preload="none" playsinline poster="/media/rooms-en-poster.jpg" src="/media/rooms-en.mp4" data-src="/media/rooms-en-916.mp4" data-poster="/media/rooms-en-916-poster.jpg" aria-label="A video: a decision about which secret scanner a security gate should use, the blind room it went to, two AI agents voting and arguing in two rounds, the room's answer on a condition, the code that followed it, and the decisions the rooms had checked by 24 Oct 2026.">
+            <track kind="captions" srclang="en" label="English" src="/media/rooms-en.vtt" default>
+          </video>
+        </div>
+        <figcaption>One room in two minutes: R-G of 17 Oct 2026, replayed from its own record at four times speed, with the real room in Atlas Connect. Recorded 24 Oct 2026; the narration is my voice, generated from my script.</figcaption>
+      </figure>
+
+      <div class="body">
+        <section data-reveal>
+          <h2>How a room is built</h2>
+          <p>A room is a multi-agent debate with rules against the way such debates go wrong. Language models in a panel tend to agree with each other instead of checking each other, which the field calls sycophancy and conformity, and published comparisons find that a debate often does no better than asking one model several times, with mixed model families doing better. So the two seats come from two families, Claude and GPT, and each seals its first vote before it can read the other's; the votes are revealed together. Then come two rounds of arguments, in which a seat can have a web page fetched and kept as evidence. Between the rounds two judging models score the arguments, not the votes: Jev, a fast judging model from TypeSafe, whose score counts, and Clef, on trial, whose readings are kept but not counted.</p>
+          <p>The room does not average its seats. It reads each option at the seat that supports it least and picks the option whose weakest support is highest. That is the maximin rule (Wald, 1950): one enthusiastic seat cannot carry an option the other barely accepts, and a low value is the room saying it is unsure.</p>
+        </section>
+        <section data-reveal>
+          <h2>The room in the video</h2>
+          <p>On 17 Oct 2026 I decided which secret scanner the security gate of my coding workbench should use, and from which release. The room had the scanner's releases page fetched and found that the release I had chosen did not exist yet, only a release candidate. It chose the same scanner on a condition: pin the release candidate and its rule file together, and let the gate refuse anything it cannot read. Its value was only 0.15, far under the bar of 0.6 written down before the room ran, so I read it as a warning rather than as the room knowing better. I took the condition 41 minutes after the room closed, and the gate's first code, the next day, was pinned exactly as the room asked.</p>
+        </section>
+        <section data-reveal>
+          <h2>The challenger</h2>
+          <p>Since 30 Oct 2026 a room can take a third agent that never votes. Each round this challenger writes up to three objections to the option in the lead, the judges read whether each one carries weight, and both agents have to answer every one that does before their final vote. It is the devil's advocate, close to dialectical inquiry, two devices that group-decision research found better than plain consensus (Schweiger, Sandberg and Ragan, 1986). The same research carries a warning I keep in view: an assigned devil's advocate can harden the view it attacks, and a genuine minority did better (Nemeth, Brown and Rogers, 2001). My challenger also comes from the same family as one of the agents and shares its blind spots, so whether it helps is measured over the rooms, not assumed.</p>
+        </section>
+        <section data-reveal>
+          <h2>What the record shows, and what it cannot</h2>
+          <p>Every room leaves a record, and every decision it checks is counted. By 13 Nov 2026 the rooms had checked 335 of my decisions and disagreed with me on 90, about one in four. Who was right shows only when the world answers, so each outcome is recorded as it arrives. The first test I pre-registered has read its twenty outcomes: none of those decisions was overturned, so it could not tell a confident room from an unsure one. A stricter test, locked on 27 Oct 2026, counts only outcomes thirty days old, and on 13 Nov 2026 it had none. The judges need the same scrutiny: Jev found weight in 272 of 309 objections, the leniency known from work on LLM-as-a-judge, so that reading separates little. Until the outcomes come in, a room is a second opinion I can show, not one I can prove right.</p>
+        </section>
+
+        <div class="evidence" data-reveal>
+          <span class="lbl">Evidence</span>
+          <div class="ev">
+            <a href="https://sf3d.fi/blog/the-room-that-disagreed"><b>The Room That Disagreed With Me</b><small>sf3d.fi/blog/the-room-that-disagreed</small><span>The room in the video, its arithmetic and its record, 24 Oct 2026</span></a>
+            <a href="https://sf3d.fi/blog/decision-rooms-in-a-minute"><b>Decision Rooms in a Minute</b><small>sf3d.fi/blog/decision-rooms-in-a-minute</small><span>Another room in one minute, 25 Oct 2026</span></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- ============ The shore ============ -->
+<footer class="sea">
+  <div class="sunpath"></div><div class="glint g1"></div><div class="glint g2"></div><div class="glint g3"></div>
+  <div class="wrap">
+    <a class="back-pill" href="/"><span class="arr">←</span> Back to the front page</a>
+    <div class="foot"><span>Sunrise Software Oy · Tampere, Finland</span><span>Est. 2024</span><span data-revised="2026-11-13">Revised 13 Nov 2026</span></div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const html = document.documentElement;
+  const STATIC = /static/.test(location.search);
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (STATIC) html.classList.add('static');
+  if (REDUCED) html.classList.add('reduced');
+  const MOVE = !STATIC && !REDUCED;
+  const FINE = matchMedia('(pointer: fine)').matches;
+
+  /* ---------- word reveals ---------- */
+  document.querySelectorAll('[data-split]').forEach(el => {
+    const words = el.textContent.trim().split(/\s+/);
+    el.innerHTML = words.map(w => `<span class="w"><span>${w}</span></span>`).join(' ');
+    el.querySelectorAll('.w > span').forEach((s, i) => { s.style.transitionDelay = `${Math.min(i, 14) * 45}ms`; });
+  });
+
+  const revealables = document.querySelectorAll('[data-reveal]');
+  if (!MOVE) revealables.forEach(el => el.classList.add('in'));
+  else {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+    const firstScreen = () => {
+      revealables.forEach(el => {
+        if (el.classList.contains('in')) return;
+        const r = el.getBoundingClientRect();
+        if (r.top < innerHeight * 0.94 && r.bottom > 0) { el.classList.add('in'); io.unobserve(el); }
+      });
+    };
+    revealables.forEach(el => io.observe(el));
+    requestAnimationFrame(firstScreen);
+    addEventListener('load', firstScreen);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) firstScreen(); });
+  }
+
+  /* ---------- the video: on a phone the 9:16 cut and its poster, chosen once before anything loads ---------- */
+  const vfig = document.getElementById('roomVideo');
+  const vid = vfig && vfig.querySelector('video');
+  if (vid && matchMedia('(max-width: 600px)').matches) {
+    vid.src = vid.dataset.src;
+    vid.poster = vid.dataset.poster;
+    vfig.classList.add('v916');
+  }
+
+  /* ---------- scroll: progress, nav, the reading light ---------- */
+  const nav = document.getElementById('nav');
+  const reading = document.getElementById('readingLight');
+  const parts = Array.from(document.querySelectorAll('.title, .body section'));
+  let ticking = false, rx = 0.5, ry = 0.4, rtx = 0.5, rty = 0.4, rraf = null;
+  function readingStep() {
+    rx += (rtx - rx) * 0.05; ry += (rty - ry) * 0.05;
+    reading.style.transform = `translate(calc(${(rx * 100).toFixed(2)}vw - 50%), calc(${(ry * 100).toFixed(2)}vh - 50%))`;
+    if (Math.abs(rtx - rx) > 0.001 || Math.abs(rty - ry) > 0.001) rraf = requestAnimationFrame(readingStep); else rraf = null;
+  }
+  function update() {
+    ticking = false;
+    const max = html.scrollHeight - innerHeight;
+    const p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+    html.style.setProperty('--p', p.toFixed(4));
+    nav.classList.toggle('scrolled', scrollY > 30);
+    nav.classList.toggle('on-sea', p > 0.92);
+    if (!MOVE) return;
+    /* the reading light: aim the sun at the part whose middle is nearest the reader's eye line */
+    const vh = innerHeight;
+    let best = null, bestD = 1e9;
+    for (const s of parts) {
+      const r = s.getBoundingClientRect();
+      const mid = r.top + Math.min(r.height, vh) / 2;
+      const d = Math.abs(mid - vh * 0.42);
+      if (d < bestD) { bestD = d; best = { r, s }; }
+    }
+    if (best) {
+      const heading = best.s.querySelector('h2, h1');
+      const hr = heading ? heading.getBoundingClientRect() : best.r;
+      rtx = Math.min(0.78, Math.max(0.22, (hr.left + hr.width * 0.5) / innerWidth));
+      rty = Math.min(0.85, Math.max(0.15, (hr.top + hr.height * 0.5) / vh));
+      if (!rraf) rraf = requestAnimationFrame(readingStep);
+    }
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', onScroll);
+  update();
+  if (STATIC) html.style.setProperty('--p', '0');
+
+  /* ---------- the warmth that follows the cursor, over the title block ---------- */
+  const light = document.getElementById('cursorLight');
+  if (MOVE && light && FINE) {
+    let tx = innerWidth * 0.4, ty = innerHeight * 0.4, x = tx, y = ty, raf = null;
+    const step = () => {
+      x += (tx - x) * 0.06; y += (ty - y) * 0.06;
+      light.style.transform = `translate(${x - 440}px, ${y - 440}px)`;
+      if (Math.abs(tx - x) > 0.3 || Math.abs(ty - y) > 0.3) raf = requestAnimationFrame(step); else raf = null;
+    };
+    addEventListener('mousemove', e => {
+      tx = e.clientX; ty = e.clientY;
+      light.style.opacity = scrollY < innerHeight * 0.9 ? 1 : 0;
+      if (!raf) raf = requestAnimationFrame(step);
+    }, { passive: true });
+    step();
+  }
+})();
+</script>
+</body>
+</html>
