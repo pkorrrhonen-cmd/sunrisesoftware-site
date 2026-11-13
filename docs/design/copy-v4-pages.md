@@ -931,3 +931,45 @@ Each claim was read from the hometeam repository the same day (section E's two l
 the page: the screens cut from a copy of the mockups outside this repository with the names swapped
 (Y.3), the share image, the front page's drawer (its image, link and caption), the sitemap entry and
 its own `check-site` pass.
+
+### Round AD, `/hometeam/`: the page as built (13.11.2026)
+
+Shown with `docs/mockups/hometeam/round-AD-page.jpg` (the built page at 1440 px, the front page's drawer
+image and the share image); 375 px checked in the browser pane. Four choices made while building:
+
+| # | Question | Decision |
+|---|---|---|
+| AD.1 | The lead pair (HT.8) | **As built**: the two phones side by side, up to 300 px wide on a desktop and 160 px on a phone, still side by side; the caption under them |
+| AD.2 | Where the mockups differ from production | **As built**: the "Ruoka" tab of the scoreboard's chosen option (N2) is removed in the captured copy, since meals are not built and the module is off by default; the child's Today keeps its "PELI" tab, renamed Huvipuisto on 5.10.2026, as the mockup has it. The caption already says these are design mockups |
+| AD.3 | The row of three (HT.12) | **As built**: after the body, three across on a desktop, stacked at 280 px on a phone; Wallet a little taller, an older prototype (24.9.2026) in another frame |
+| AD.4 | The front page's drawer image (Y.4) | **As built**: the child's Today centred on the drawer's paper in 16:9 with a soft shadow, the same image as the row's hover preview |
+
+### How PR F was built (13.11.2026)
+
+- **The captures.** `hometeam/mockups/` and `apps/web/public/kuvat/` (origin/main `1c98b23`) were copied
+  to a folder outside this repository and the copy edited (Y.3, AD.2): the child's greeting and the
+  three children's tiles take their avatars' animals (Kettu, Pingviini, Pupu), the family-surname line
+  is deleted, `Hei, Petri!` stays, and the scoreboard's N2 tab list loses "Ruoka". The copy was checked
+  for names before capturing. `docs/mockups/hometeam-capture.py` (Playwright, Edge, 1440 px viewport,
+  device scale 2) captures each `.puhelin` element of the chosen option: 011 (child, adult), 005 (A),
+  019 (A, N2 clicked), 020 (the island at 5 of 12). The mockups' own outer shadow is switched off for the
+  capture, because it bleeds into the corners of an element capture; the page draws its own.
+- **The images.** `docs/mockups/hometeam-images.py`: five screens 720 px wide as WebP (46 to 98 KB) with
+  PNG fallbacks, the 2x sources in `source-assets/`, and the drawer's 16:9 `images/shot-hometeam.webp`
+  (48 KB) with a JPG fallback. `images/og-hometeam.jpg` (1200x630, 66 KB) from
+  `docs/mockups/og-hometeam.html`, rendered by `shoot.py` and converted with ffmpeg; the h1 in three
+  lines, the second sentence in `--sun-deep` (AC.1, in the build of X.3).
+- **The page.** `hometeam/index.html` copies the frame of `reviewglass/index.html`; the drawing block
+  became the phones (`.phones`, `.row3`), the drawing's script went. Every text is HT.1 to HT.16
+  verbatim: the build read them from section E and stopped on any row not decided. The lead pair loads
+  at once, the row lazily; alt texts describe each screen. JSON-LD a `WebPage` only (AC.2).
+- **The front page.** The HomeTeam drawer: `data-peek` the new 16:9 image, the caption
+  `hometeam · a child's today, a design mockup`, the link `How my family uses it →` and the image in
+  place of the canvas (HT.15, Y.4); the `sketches.hometeam` drawing is removed. The sitemap names five
+  addresses.
+- **Checked locally:** at 1024 and 1440 px no horizontal scroll, no console errors, fonts loaded, all five
+  images load, JSON-LD parses; at 375 px with device emulation `scrollWidth` 375 and nothing in `main`
+  past the edge, the pair at 160 px each, the row stacked; the front page's drawer at 375 px with its link
+  and image. `check-site` green over five pages and 37 local files. No surname or child's name in any
+  committed text, and the images were looked at screen by screen.
+

@@ -25,7 +25,7 @@ sketches remain only on the §02 plates for Somnus and Atlas, which have no publ
 | Virustutka, Ultra Gravel, TilastoSilta, SF3D AI Lab | live-site front-page captures (17.9.2026) | `docs/mockups/shots/` |
 | ReviewGlass | nothing public (pre-alpha desktop app) | sketch |
 | Salpa Defence | demo behind Cloudflare Access; nothing public | sketch |
-| HomeTeam | production behind a list of allowed addresses; a capture would carry the family's own data. 21 design mockups in `hometeam/mockups/` (private repository), some with real names | sketch (added 12.11.2026); mockup screens from PR F (adr.sws.020) |
+| HomeTeam | production behind a list of allowed addresses; a capture would carry the family's own data. 21 design mockups in `hometeam/mockups/` (private repository), some with real names | mockup screens since PR F, 13.11.2026 (adr.sws.020): `images/shot-hometeam.webp` in the drawer, five screens on `/hometeam/` |
 | SF3D archive | ten photographs (in git) | `images/sf3d-*` |
 
 ---
@@ -60,7 +60,7 @@ facts, a link and one big image or living canvas (16:9, up to 820 px).
 | B.4 | SF3D AI Lab | live-site capture, both | keep | OK |
 | B.5 | ReviewGlass | sketch: a magnifier drifting over text lines | **Mockup of the real thing** (Petri 18.9.: a screenshot would need every line of text blurred): a text pane drawn as blurred lines, a rectangular viewing area (the glass) and the reading frame over the text columns, in the app's own proportions; no real text | OK (edit 18.9.) |
 | B.6 | Salpa Defence | sketch: a sealed box, dots that cannot leave | **The brand mark from the Salpa brand guide** (`salpa defence/docs/salpa-brand/logo/`, copied to `docs/mockups/media/`): the horizontal logo on the brand's Kuusi `#0A1810` dark with Messinki `#C9A227` as the accent; on hover an `ACCESS DENIED` stamp appears over it, in the brand's mono register | OK (edit 18.9.) |
-| B.6b | HomeTeam (added 12.11.2026, SEED v4.0.0) | none | **A drawn instrument**, the Today view: five generic tasks ticking off one by one, each sending a coin to a wallet with a HomeCoin count and a savings-goal bar; no names, no real data (`docs/design/copy-v4-pages.md` 3.46, B.3). **Superseded 13.11.2026** (round Y.4, adr.sws.020): the child's Today screen from the design mockups, nicknames only, lands with PR F | OK (12.11.), superseded (13.11.) |
+| B.6b | HomeTeam (added 12.11.2026, SEED v4.0.0) | none | **A drawn instrument**, the Today view: five generic tasks ticking off one by one, each sending a coin to a wallet with a HomeCoin count and a savings-goal bar; no names, no real data (`docs/design/copy-v4-pages.md` 3.46, B.3). **Superseded 13.11.2026** (round Y.4, adr.sws.020): the child's Today screen from the design mockups, nicknames only, built in PR F (round AD.4) | OK (12.11.), superseded (13.11.) |
 | B.7 | SpectralForge | the V4.5 UI screenshot in the drawer; the MasterForge sketch reused as the preview | **Real product only**: the UI screenshot (`images/product-spectralforge.webp`) in both the preview and the drawer; no sketch | OK (edit 18.9.) |
 | B.8 | Drawer image size | 16:9, max 820 px | keep | OK |
 | B.9 | Preview size and parking | 540 px, parked beside the plus | keep (decided in Flow 2) | OK |
