@@ -3,6 +3,48 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 9, jatko (13.11.2026): `/rooms/`-sivu ja sen mediat (kierrokset P ja Q, PR D)
+
+**Tehty yhdessä Petrin kanssa** kahdella laatikkokierroksella (P, neljä kysymystä, vertailukuvana
+`docs/mockups/rooms/round-P-media.jpg`; Q, kaksi kysymystä, kuvana `docs/mockups/rooms/round-Q-page.jpg`).
+Työ on haarassa `claude/rooms-pr-d`.
+
+**Sivu.** `rooms/index.html` rakennettu kohdista R.1–R.14 sanasta sanaan `silent-context`-sivun kehyksellä;
+muuttuivat vain statusrivin pallo (infrastruktuurin meri, kuten Atlas-laatassa), videolohko ja yksi lyhyt
+skripti. R.12:n luvut luettiin Atlaksesta uudelleen rakennuspäivänä noin klo 12.30, eivätkä ne olleet
+muuttuneet (335 ja 90, ensimmäinen testi 20/20 ilman kumoutuneita, tiukempi 0/20, Jev 272/309).
+Etusivun Atlas-laattaan tuli nappi `How the decision rooms work →` hiljaisen tekstin eteen, ja sitemap
+nimeää kolme osoitetta. **Päätetty rakentaessa (kierros Q), molemmat kuten rakennettu:** työpöydällä
+16:9-video sarakkeen levyisenä ja kuvateksti sarakkeen reunassa, puhelimella (alle 600 px) 9:16-leikkaus
+posteineen 420 px:n kehyksessä ja kuvateksti keskellä, leikkauksen valitsee skripti kerran latautuessa
+ja ilman JavaScriptiä toistuu 16:9 (Q.1); Atlas-laatan napit vierekkäin linkki ensin, puhelimella
+allekkain (Q.2). Pystyleikkaus ja sen posteri ovat videon `data-src`- ja `data-poster`-määritteissä, joten
+`check-site.mjs` tarkistaa niiden olemassaolon. SEED v4.1.0:n luvut 2.2, 3.6, 7 ja 8 päivitetty.
+BUILD_INFO 5.4.0.
+
+**Tarkistettu paikallisesti:** 1440 px: ei vaakavieritystä, ei konsolivirheitä, kolme fonttia latautuu,
+JSON-LD jäsentyy (WebPage, VideoObject), 16:9-video toistuu 1920x1080:na ja ensimmäinen tekstitysrivi
+näkyy, `.vtt` tulee `text/vtt`:nä. 375 px laite-emuloinnilla: `scrollWidth` 375, mikään ei ylitä reunaa,
+9:16-leikkaus ja sen posteri valittu, navissa vain aurinkomerkki; etusivun Atlas-napit allekkain.
+Kelausta ei voitu kokeilla paikallisesti, koska Pythonin palvelin ei vastaa osapyyntöihin; se
+tarkistetaan esikatselussa. `node scripts/check-site.mjs` vihreä: kolme sivua, 29 paikallista tiedostoa.
+
+**Mediat (kierros P).** Videot kopioitiin sellaisinaan (P.1): `media/rooms-en.mp4` (1920x1080, 6 448 529
+tavua) ja `media/rooms-en-916.mp4` (1080x1920, 5 855 181 tavua). Ne olivat jo verkkovalmiita (moov ennen
+mdatia) ja samaa kokoluokkaa kuin silent-contextin uudelleenkoodattu video, eikä pienempi kuva olisi
+pitänyt huoneen pientä mono-tekstiä luettavana. Posteriksi molempiin leikkauksiin BLIND-kortti 23
+sekunnin kohdalta (P.2): huoneen tehtävä ja vaihtoehdot ja rivi "Not in the task: the owner's choice, a
+recommendation.", eli ingressin asia yhdellä silmäyksellä; ei huoneen tulosta (sf3d.fi:n posteri,
+tiheä 820 px:n kehyksessä) eikä loppukorttia (tyhjä 16:9:ssä ja näyttää yhden tuomarin). Jakokuva
+`images/og-rooms.jpg` luonnoksen mukaan (P.3): h1 58 px:nä neljällä käsin katkaistulla rivillä, toinen
+lause `--sun-deep`-värissä, lähde `docs/mockups/og-rooms.html`. Tekstitys `media/rooms-en.vtt` on labran
+tiedosto sellaisenaan ja päällä oletuksena (P.4), koska videossa ei ole tekstiä kuvassa.
+
+**Medioista tarkistettu:** molemmat videot SHA-256:lla samoiksi kuin labran tiedostot ja `sf3d-media.pages.dev`:n
+julkaisemat; atomijärjestys (faststart) tiedostosta; posterit ja jakokuva silmällä tehdyistä tiedostoista;
+`.vtt` 27 riviä, UTF-8 ilman BOMia, LF. `node scripts/check-site.mjs` vihreä. SEED v4.1.0:n 5.2 ja 8
+päivitetty. BUILD_INFO 5.3.2.
+
 ## Sessio 9 (13.11.2026): `/rooms/`-sivun tekstit päätetty (kierrokset K–O, ei sivumuutosta)
 
 **Tehty yhdessä Petrin kanssa** viidellä laatikkokierroksella (K–O, 19 kysymystä), kohdat R.1–R.15

@@ -5,7 +5,7 @@
 **Owner:** Petri Korhonen / Sunrise Software Oy
 **Created:** 2026-11-11 (v4.0.0); v4.1.0 on 2026-11-13, when the first sub-page was built
 **Supersedes:** v4.0.0 (11.11.2026, in `docs/archive/`) and v3.0.0 (18.9.2026), which stays in `docs/` until V6 is live and is archived in the session that deploys it
-**Status:** The spec for the revision. The front page carries the V6 changes of PR B (12.11.2026); `/silent-context/` is live since 13.11.2026 (PR #9); the other sub-pages are not. Nothing here is built until it is built together with Petri (CLAUDE.md).
+**Status:** The spec for the revision. The front page carries the V6 changes of PR B (12.11.2026); `/silent-context/` is live since 13.11.2026 (PR #9); `/rooms/` is built (PR D, 13.11.2026); `/reviewglass/` and `/hometeam/` are not. Nothing here is built until it is built together with Petri (CLAUDE.md).
 
 ---
 
@@ -109,7 +109,7 @@ A sub-page carries no hero statistics, no generic adjectives, and no product ver
 
 | Page | Subject | Lead medium | Evidence it links to |
 |---|---|---|---|
-| `/rooms/` | The Atlas decision rooms, told with the names the field uses; **copy decided 13.11.2026** (rounds K to O, R.1 to R.15) | `media/rooms-en.mp4` (16:9) copied from `sf3d-ai-lab/media/publish/rooms/`, with its 9:16 cut where the layout is narrow, and the lab's `rooms-en.vtt` as its captions | the sf3d.fi articles `the-room-that-disagreed` and `decision-rooms-in-a-minute` (13.11.2026, K.3: `blind-to-anything-taken-away` is a Somnus article and had come into this list by its title; `why-i-built-atlas` waits for Atlas's own page) |
+| `/rooms/` | The Atlas decision rooms, told with the names the field uses; **copy decided 13.11.2026** (rounds K to O, R.1 to R.15), media round P, **built 13.11.2026 (PR D)**, round Q | `media/rooms-en.mp4` (16:9) copied from `sf3d-ai-lab/media/publish/rooms/`, with its 9:16 cut where the layout is narrow, and the lab's `rooms-en.vtt` as its captions | the sf3d.fi articles `the-room-that-disagreed` and `decision-rooms-in-a-minute` (13.11.2026, K.3: `blind-to-anything-taken-away` is a Somnus article and had come into this list by its title; `why-i-built-atlas` waits for Atlas's own page) |
 | `/reviewglass/` | What the glass does during an AI-assisted coding session | the ReviewGlass canvas instrument from §03, enlarged; a capture when one exists | `github.com/Sunrisesoftware-app/reviewglass` (Apache-2.0) |
 | `/silent-context/` | Silent context and the Since AI 2026 result; **built 13.11.2026 (PR C)** | `media/silent-context-916.mp4`, the vertical cut re-encoded to 720x1280 | `github.com/pkorrrhonen-cmd/silent-context`, tag `submission`; the hosted demo `silent-context.pkorrrhonen.workers.dev` (decided 12.11.2026) |
 | `/hometeam/` | The family application in production | the real capture, read from the hometeam repository first | `app.hometeam.fi` |
@@ -243,7 +243,7 @@ Drawers: Virustutka (map capture, preview and drawer), Ultra Gravel (Petri's pla
 
 **Sub-page title block.** Mono subject mark in `--sun-deep`, h1 at the front page's h2 size (`clamp(28px,3.4vw,48px)`), the lede in Public Sans 300 at 17px, max 58ch, and the status line in the §02 style with its dot: green for Live, the sea for infrastructure, and the sun when the line is a result rather than a word from the product scale (J.3). The column sits on the left edge of `.wrap`, on the wordmark's line, as the front page's headings do (J.2).
 
-**Video block.** A 16:9 frame in `--paper-2` with radius 8 and the plate's long shadow, holding a `<video controls preload="none" playsinline>` with its poster and, where a `.srt` exists, a `<track kind="captions">` converted to WebVTT. Under it, a mono caption: what it shows and its length. On a phone the vertical cut is used where one exists, in a 9:16 frame at most 420 px wide, centred. A page whose only video is vertical uses that 9:16 frame at every width, centred in the column (I.3); a 16:9 frame would shrink it to a strip between black bars.
+**Video block.** A 16:9 frame in `--paper-2` with radius 8 and the plate's long shadow, holding a `<video controls preload="none" playsinline>` with its poster and, where a `.srt` exists, a `<track kind="captions">` converted to WebVTT. Under it, a mono caption: what it shows and its length. On a phone the vertical cut is used where one exists, in a 9:16 frame at most 420 px wide, centred; on `/rooms/` the phone is a viewport up to 600 px, a short script picks the cut and its poster once at load, and without JavaScript the 16:9 cut plays everywhere (Q.1). The caption sits on the column's left edge under a 16:9 frame and is centred under a 9:16 one. A page whose only video is vertical uses that 9:16 frame at every width, centred in the column (I.3); a 16:9 frame would shrink it to a strip between black bars.
 
 **Evidence block.** A hairline, a mono label `Evidence`, and a list of links in two columns on wide screens: the name over the address, exactly as the shore's link list. This is where a page sends the reader for the long version.
 
@@ -288,13 +288,13 @@ Static files with inline CSS and JS, `images/`, `media/`, Google Fonts, Cloudfla
 | Portrait cutout | `images/Petri.jpg` (16.8.2026), cut out 18.9.2026 | `images/petri-cutout.webp` + `.png`, two sizes (880 and 440 px) |
 | MasterForge EQ clip | the MasterForge captures | `media/masterforge-eq.mp4` (3.4 MB) + poster |
 | Luviamo video | `luviamo.app/media/luviamo-esittely-v2.mp4`, copied 19.9.2026 | `media/luviamo-intro.mp4` (5.1 MB) + poster; both clips `preload="none"` |
-| Rooms video | `sf3d-ai-lab/media/publish/rooms/rooms-en.mp4` (1920x1080, 118 s, 6.4 MB) and `rooms/rooms-en-916.mp4` (1080x1920, 5.9 MB), local renders the lab's git ignores; captions `sf3d-ai-lab/site/public/video/rooms-en.vtt` | `media/rooms-en.mp4`, `media/rooms-en-916.mp4`, `media/rooms-en.vtt` + posters |
+| Rooms video | `sf3d-ai-lab/media/publish/rooms/rooms-en.mp4` (1920x1080, 118 s, 6.4 MB) and `rooms/rooms-en-916.mp4` (1080x1920, 5.9 MB), local renders the lab's git ignores; captions `sf3d-ai-lab/site/public/video/rooms-en.vtt` | `media/rooms-en.mp4`, `media/rooms-en-916.mp4` (copied as they are, P.1), `media/rooms-en.vtt` (on by default, P.4) + `media/rooms-en-poster.jpg` and `media/rooms-en-916-poster.jpg`, the `BLIND` card at 23 s (P.2); made 13.11.2026 |
 | Silent context video | `sinceai2026/silent-context-third-place-9x16-captions.mp4` (1080x1920, 77.8 s, 15.7 MB) | `media/silent-context-916.mp4` (720x1280, H.264 CRF 25, AAC 128 kb/s, faststart, 5.55 MB, made 13.11.2026) + `media/silent-context-916-poster.jpg`, the frame at 1.5 s (I.1) |
 | Drawer captures | `docs/mockups/shots/` | `images/shot-*.webp` with JPG fallbacks |
 | HomeTeam | a drawn instrument, the Today view with its coins (decided 11.11.2026: the application is behind a list of allowed addresses and a capture would carry the family's own data) | the `hometeam` canvas sketch in `index.html` |
 | SpectralForge, Salpa mark, SF3D photographs | as in v3.0.0 | unchanged |
 | OG image, front page | generated 18.9.2026, 1200x630 | `images/og-cover.jpg` |
-| OG image, per sub-page | `docs/mockups/og-<page>.html` (the subject mark and the h1 on the dawn sky, in `og-cover.jpg`'s build, with the site's own fonts) rendered by `docs/mockups/shoot.py` | `images/og-<page>.jpg`, 1200x630; `og-silent-context.jpg` made 13.11.2026 (I.2) |
+| OG image, per sub-page | `docs/mockups/og-<page>.html` (the subject mark and the h1 on the dawn sky, in `og-cover.jpg`'s build, with the site's own fonts) rendered by `docs/mockups/shoot.py` | `images/og-<page>.jpg`, 1200x630; `og-silent-context.jpg` made 13.11.2026 (I.2), `og-rooms.jpg` made 13.11.2026 (P.3) |
 | Icons | `scripts/icons.py`, drawn from the sun mark | `/favicon.ico` (16, 32, 48), `/icon-192.png`, `/icon-512.png`, `/icon-maskable-512.png`, `/apple-touch-icon.png`, `/site.webmanifest` |
 | Favicon, inline | the sun mark as an SVG data URI | kept as the first `<link rel="icon">` in every `<head>` |
 
@@ -369,7 +369,8 @@ Day work:   digital health software to clinical and regulatory standards
 | Site files | 2026-11-11 | `404.html`, the icon files and the manifest, the sitemap's date, the version guard repaired (adr.sws.017) | **PR A, no page change** |
 | V6 spec | 2026-11-11 | the site gains pages (adr.sws.018), §04 Recent, HomeTeam's drawer, the structured data names the products (adr.sws.019) | spec written |
 | V6 front page | 2026-11-12 | PR B: §04 Recent with two entries, Approach and Correspondence renumbered, the nav's Recent, HomeTeam's drawer with its drawn instrument, the icon links, `max-image-preview`, `og:image:alt`, the structured data | PR B, live 12.11.2026 (PR #7) |
-| **V6 /silent-context/** | 2026-11-13 | PR C: the first sub-page, its video, poster and share image; the front page's entry 1 pill and `SoftwareSourceCode`; CI over every page | **PR C, live 13.11.2026 (PR #9)** |
+| V6 /silent-context/ | 2026-11-13 | PR C: the first sub-page, its video, poster and share image; the front page's entry 1 pill and `SoftwareSourceCode`; CI over every page | PR C, live 13.11.2026 (PR #9) |
+| **V6 /rooms/** | 2026-11-13 | PR D: the decision rooms page, its two cuts with captions on by default, posters and share image; the Atlas plate's button in §02 | **PR D, built 13.11.2026** |
 
 ---
 
@@ -380,9 +381,9 @@ The order is the order of the decisions taken on 11.11.2026, and nothing that to
 1. **Done 11.11.2026, PR A, no page change:** `404.html`, `favicon.ico` and the four PNG icons from `scripts/icons.py`, `site.webmanifest`, the `_headers` rules for them, `sitemap.xml` `lastmod`, the repaired version guard with its self-test, and the two new checks in `check-site.mjs`.
 2. **Read before any copy is written:** the `hometeam` repository's README and BUILD_INFO for the drawer and its page, the live SpectralForge beta gate (A7), and the profile README against the page (A10, the session routine).
 3. **`docs/design/copy-v4-pages.md`**: every new text as a numbered item, decided with Petri through decision boxes, four a round. The front page's items were decided 11.11.2026 (rounds A to C); `/silent-context/` was decided 12.11.2026 (rounds E to H, items SC.1 to SC.14); `/rooms/` 13.11.2026 (rounds K to O, items R.1 to R.15).
-4. **The media**: done 13.11.2026 for `/silent-context/` (the video, its poster, the share image). Still to do: copy `rooms-en.mp4`, its 9:16 cut and `rooms-en.vtt` from the lab and cut their posters; take the HomeTeam capture; generate an OG image per sub-page.
+4. **The media**: done 13.11.2026 for `/silent-context/` (the video, its poster, the share image). Done 13.11.2026 for `/rooms/` (round P: the two cuts and their captions copied, two posters, the share image). Still to do: take the HomeTeam capture; generate an OG image per sub-page.
 5. **Built 12.11.2026, PR B, the page**: §04 Recent with the two entries, the HomeTeam drawer, the nav's Recent link, the icon links and `max-image-preview` in `<head>`, `og:image:alt`, and the structured data of adr.sws.019. Checked on the preview URL at desktop and phone width before merging.
-6. **PR C and after, one sub-page at a time**: `/silent-context/` built 13.11.2026 (PR C, with the front page's entry 1 pill), then `/rooms/`, `/reviewglass/`, `/hometeam/`, each with its sitemap entry and its own `check-site` pass.
+6. **PR C and after, one sub-page at a time**: `/silent-context/` built 13.11.2026 (PR C, with the front page's entry 1 pill), `/rooms/` built 13.11.2026 (PR D, with the Atlas plate's button), then `/reviewglass/`, `/hometeam/`, each with its sitemap entry and its own `check-site` pass.
 7. **Still open from before:** Cloudflare Web Analytics token, Lighthouse and the HTML validator on the live site, adr.sws.014 (one source for the facts the page shares with the profile README), the Atlas model proposals for adr.sws.003 to 019, the static-bearer removal, and the employer's names in the profile README.
 
 ---
