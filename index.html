@@ -135,6 +135,16 @@
       "author": { "@id": "https://sunrisesoftware.app/#petri" }
     },
     {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://sunrisesoftware.app/#reviewglass",
+      "name": "ReviewGlass",
+      "description": "A glass for reading what the AI agent writes, while it is writing.",
+      "codeRepository": "https://github.com/Sunrisesoftware-app/reviewglass",
+      "license": "https://www.apache.org/licenses/LICENSE-2.0",
+      "programmingLanguage": ["Rust", "Svelte"],
+      "author": { "@id": "https://sunrisesoftware.app/#petri" }
+    },
+    {
       "@type": "Person",
       "@id": "https://sunrisesoftware.app/#petri",
       "name": "Petri Korhonen",
@@ -339,6 +349,8 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
 .drawer-inner p{max-width:60ch;color:var(--text-2);font-weight:300;padding-top:2px;font-size:15px}
 .facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px;font:12px var(--mono);color:var(--text-2)}
 .drawer-inner .link{display:inline-block;margin-top:12px;margin-bottom:22px;font:500 13px var(--sans);color:var(--sun-deep);text-decoration:none;border-bottom:1px solid rgba(197,122,44,.4)}
+.dlinks{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:12px;margin-bottom:22px}
+.dlinks .link{margin:0}
 .drawer-inner .big{margin-left:100px;margin-right:0;margin-bottom:26px;aspect-ratio:16/9;max-width:820px;border-radius:8px;overflow:hidden;background:var(--paper-2);box-shadow:0 30px 60px -34px rgba(32,48,60,.5),0 0 0 1px var(--rule);position:relative}
 .drawer-inner .big img,.drawer-inner .big canvas{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 /* the preview: twice the size of Flow 1, parked at the row's right edge next to the plus, not following the pointer */
@@ -675,8 +687,8 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
         <button class="drawer-head" aria-expanded="false"><span class="y">2026 →</span><span class="n">ReviewGlass<small>pre-alpha · daily use</small></span><span class="d">Windows desktop companion for AI-assisted coding sessions.</span><span class="plus"></span></button>
         <div class="drawer-body"><div class="drawer-inner">
           <p>A magnifier over any part of the screen, a panel of every running coding session with its quota and burn rate, and the agent's edits as a live diff. Built for my own daily use. Open source, Apache-2.0.</p>
-          <div class="facts"><span>Magnifier · sessions · live diff</span><span>Nothing leaves the machine</span><span>Open source, Apache-2.0</span></div>
-          <a class="link" href="https://github.com/Sunrisesoftware-app/reviewglass">github.com/Sunrisesoftware-app/reviewglass ↗</a>
+          <div class="facts"><span>Magnifier · sessions · live diff</span><span>Screen pixels never leave the machine</span><span>Open source, Apache-2.0</span></div>
+          <div class="dlinks"><a class="link" href="/reviewglass/">How the glass works →</a><a class="link" href="https://github.com/Sunrisesoftware-app/reviewglass">github.com/Sunrisesoftware-app/reviewglass ↗</a></div>
           <div class="big"><canvas data-live="reviewglass"></canvas></div>
         </div></div>
       </article>

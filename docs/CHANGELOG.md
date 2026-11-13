@@ -3,6 +3,43 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 9, jatko 3 (13.11.2026): `/reviewglass/`-sivu (kierros X, PR E)
+
+**Tehty yhdessä Petrin kanssa** Petrin sanasta "Rakennetaan /reviewglass/-sivu". Rakennusaikaiset valinnat
+kysyttiin yhdellä laatikkokierroksella (X, kolme kysymystä, kuvana
+`docs/mockups/reviewglass/round-X-page.jpg`), ja kaikki kolme hyväksyttiin rakennettuina. Työ on haarassa
+`claude/reviewglass-page`.
+
+**Sivu.** `reviewglass/index.html` rakennettu kohdista RG.1–RG.14 sanasta sanaan `/rooms/`-sivun
+kehyksellä. Rakennusskripti luki tekstit `copy-v4-pages.md`:n osasta D ja pysähtyi, jos jokin rivi ei
+ollut päätetty. Päämediana on etusivun §03-piirros 16:9-kehyksessä sarakkeen levyisenä, piirrettynä
+sivun omalla kopiolla etusivun canvas-koodista (X.1). Ensin näkyy etusivun pysäytyskuva, ja lasi liikkuu
+vain kehyksen ollessa näkyvissä; liikettä vähentäessä ja `?static=1`:llä näkyy pelkkä pysäytyskuva.
+Jakokuva `images/og-reviewglass.jpg` on tehty `/rooms/`-kuvan tapaan, ja h1 on kolmella käsin katkaistulla
+rivillä, joista viimeinen `--sun-deep`-värissä (X.3). **Etusivu:** ReviewGlass-laatikon toinen fakta on nyt
+`Screen pixels never leave the machine` (RG.15), koska vanha `Nothing leaves the machine` ei pidä paikkaansa
+Explainin etäversion ollessa päällä. Laatikkoon tuli linkki `How the glass works →` ennen repolinkkiä:
+työpöydällä rinnakkain ja puhelimella allekkain (RG.14, X.2). Rakenteiseen dataan tuli
+`SoftwareSourceCode` `#reviewglass` (RG.13), ja sitemap nimeää neljä osoitetta. Etusivun muut tekstit
+eivät muuttuneet.
+
+**Tarkistettu rakennuspäivänä:** ReviewGlassin repo `origin/main` `2654ab4` (kierroksen jälkeen vain
+oma nimikirjaukseni): README ja BUILD_INFO (sessio 11), GitHubin API (julkinen, Apache-2.0, ei julkaisuja
+eikä tageja, kielet). RG.9–RG.11 pitävät sellaisinaan. **Profiilin README** (`pkorrrhonen-cmd`, 24.9.2026)
+sanoo ReviewGlassista "and later a live diff", vaikka live diff on rakennettu ja sivu sanoo niin. README
+on Petrin, joten ero kirjattiin `BUILD_INFO.next`:iin.
+
+**Tarkistettu paikallisesti:** 1440 px: ei vaakavieritystä, ei konsolivirheitä, fontit latautuvat,
+JSON-LD jäsentyy (WebPage, SoftwareSourceCode), piirros täyttää 820x461-kehyksen. 375 px laite-emuloinnilla:
+`scrollWidth` 375, mikään ei ylitä reunaa, navissa vain aurinkomerkki; etusivun laatikon linkit allekkain.
+`node scripts/check-site.mjs` vihreä: neljä sivua, 30 paikallista tiedostoa.
+
+**Korjattu kesken:** otin vertailukuvan puhelinsarakkeen ensin `shoot.py`:llä 375 px:n leveydellä, vaikka
+LESSONS 13.11. kieltää sen. Kuvassa teksti leikkautui oikeasta reunasta. Huomasin sen ennen kuin kuva
+näytettiin Petrille, otin sarakkeen uudelleen selainpaneelista, ja nyt `shoot.py` kieltäytyy alle 500 px:n
+leveydestä. SEED v4.1.0:n 2.2, 3.6, 4, 5.2, 7 ja 8 päivitetty; copy-v3:n 3.24 ja 3.24b osoittavat
+korvaaviin kohtiin. BUILD_INFO 5.5.0.
+
 ## Sessio 9, jatko 2 (13.11.2026): `/reviewglass/`-sivun tekstit päätetty (kierrokset S–W, ei sivumuutosta)
 
 **Tehty yhdessä Petrin kanssa** viidellä laatikkokierroksella (S–W, 18 kysymystä), kohdat RG.1–RG.15

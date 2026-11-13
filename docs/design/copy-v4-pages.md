@@ -730,3 +730,45 @@ ready to build as PR E together with Petri. What the build needs, none of it mad
   `a757696`, both Atlas workers deployed), and the repository's README, CLAUDE.md, BUILD_INFO and
   NAME-CLEARANCE no longer say a release waits on the name (reviewglass `2654ab4`). Its spec follows
   with spec v0.5.
+
+### Round X, `/reviewglass/`: the page as built (13.11.2026)
+
+Shown with `docs/mockups/reviewglass/round-X-page.jpg` (the built page at 1440 px and at 375 px, the
+front page's drawer at both widths, and the share image) and on the local server. Three choices made
+while building, none of them in RG.1 to RG.15:
+
+| # | Question | Decision |
+|---|---|---|
+| X.1 | The lead medium (RG.8) | **As built**: the front page's drawing in a 16:9 frame across the 820 px column, drawn by the page's own copy of the front page's canvas code; the front page's still at once, the glass moving only while the frame is on screen, the still alone under reduced motion or `?static=1`. On a phone the same drawing smaller, its mono labels decoration; the caption says what it is |
+| X.2 | The drawer's links (RG.14) | **As built**: `How the glass works →` before the repository link, in the drawer's own link style, in one row: side by side 24 px apart on a desktop, stacked on a phone |
+| X.3 | The share image (RG.3) | **As built**: the h1 at 58 px in three lines broken by hand, `A glass for reading` / `what the AI agent writes,` / and `while it is writing.` in `--sun-deep`, otherwise exactly the rooms' build (P.3). Source `docs/mockups/og-reviewglass.html` |
+
+### How PR E was built (13.11.2026)
+
+- `reviewglass/index.html` copies the frame of `rooms/index.html` (itself `silent-context`'s frame): the
+  status dot was already the sea; the video block became the drawing block (X.1) and the cut script
+  became the drawing's script.
+- Every text on the page is RG.1 to RG.14 verbatim: the build script read them from this file's section
+  D and stopped on any row not marked decided.
+- Read again on the build day: the ReviewGlass repository's `origin/main` `2654ab4`, whose only change
+  since the copy round (`45609db`) is the name record of the same day; its README (the glass at 150 to
+  400 %, Follow, Lens, Still, the dock and its drawer, Explain off by default, the privacy posture, the
+  independence line) and `BUILD_INFO` (session 11); GitHub: public, Apache-2.0, no releases and no
+  tags, Rust 581 138 and Svelte 167 759 bytes. RG.9 to RG.11 hold as written.
+- `images/og-reviewglass.jpg` (1200x630, 72 KB): `docs/mockups/og-reviewglass.html` rendered by
+  `docs/mockups/shoot.py` and converted with ffmpeg at the rooms' quality (X.3).
+- The front page: the drawer's second fact is `Screen pixels never leave the machine` (RG.15); the
+  drawer's two links sit in a `.dlinks` row with two CSS rules (RG.14, X.2); the graph gains the
+  `SoftwareSourceCode` `#reviewglass` (RG.13). Its other texts are unchanged. The sitemap names four
+  addresses, all with `lastmod` 2026-11-13.
+- Checked locally: at 1440 px no horizontal scroll, no console errors, the fonts load, JSON-LD parses
+  to `WebPage` and `SoftwareSourceCode`, the drawing fills its 820x461 frame; at 375 px with device
+  emulation `scrollWidth` 375, nothing past the edge, the nav showing only the sun mark; on the front
+  page the drawer's links side by side at 1440 px and stacked at 375 px. `check-site` green over four
+  pages.
+- The comparison image's phone column comes from the browser pane. A first try took it with
+  `shoot.py` at 375 px, which crops a wider layout (LESSONS 13.11.2026); it was caught before the round
+  and `shoot.py` now refuses widths under 500 px.
+- The profile README (`pkorrrhonen-cmd`, pushed 24.9.2026) still says ReviewGlass will have "later a
+  live diff"; the live diff is built and the page says so. The README is Petri's; the difference is in
+  `BUILD_INFO.next`.
