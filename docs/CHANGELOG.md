@@ -3,6 +3,24 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 10, jatko (13.11.2026): `/hometeam/`-sivun tekstit päätetty (kierrokset AA–AC, ei sivumuutosta)
+
+**Tehty yhdessä Petrin kanssa** kolmella laatikkokierroksella (AA–AC, 12 kysymystä). Kaikki
+suositukset hyväksyttiin sellaisinaan, joten `/hometeam/`-sivun kohdat HT.1–HT.16 ovat nyt päätetty
+(`copy-v4-pages.md` osa E):
+
+- **AA** leipäteksti: `What it does` (Today, Wallet ja talous, pelikerros), `Why it exists`
+  (ensimmäisen version kaksi opetusta ja perheen äänestys), `Where it stands` (käytössä 29.9.2026 alkaen,
+  vain sallitut osoitteet, yksityinen repo, data EU:ssa, sovellus suomeksi); kolmen kuvan kuvatekstit.
+- **AB** `<title>` `HomeTeam: the application my family runs the week on · Petri Korhonen`, kuvaus,
+  aihemerkki `HomeTeam · my own family`, todistelohkon rivi `No public link: ...`.
+- **AC** jakokuva muiden sivujen rakenteella, JSON-LD:ssä vain `WebPage` (C.3 pysyy), etusivun linkki
+  `How my family uses it →` ja kuvan kuvateksti, kiitosrivi fonteille (OFL) ja Fluent Emoji -kuville
+  (MIT; lisenssi luettu `microsoft/fluentui-emoji`-reposta).
+
+Jokainen väite on luettu samana päivänä HomeTeamin reposta ja koodista (osan E kaksi listaa). Sivuja ei
+muutettu. BUILD_INFO 5.7.0. **Seuraavaksi PR F:** `/hometeam/`-sivu rakennetaan yhdessä Petrin kanssa.
+
 ## Sessio 10 (13.11.2026): `/hometeam/`-ketju alkoi, kuvitus ja ensimmäiset tekstit päätetty (kierrokset Y–Z), etusivun HomeTeam-laatikon virhe korjattu
 
 **Alkutarkistus palvelukatkojen päivänä:** session 9 työ meni perille. Avoimia PR:iä ei ole; `main` on
