@@ -50,8 +50,12 @@ Kierros Z (neljä kysymystä, kaikki suositukset hyväksytty):
 - **Z.3** ingressi ehdotuksen mukaan (HT.6).
 - **Z.4** pääkuvan kuvateksti `Design mockups, not captures: a child's Today and a parent's, in Finnish
   as the application is. A capture would show my family's own week.`
+- **Z.5** (kysytty, kun PR #14:n esikatselua katsottiin) laatikon piirros lupasi samaa: alarivi
+  `TASKS · CALENDAR · MEALS · SHOPPING · HOMECOIN` ja tehtävät `Tacos for dinner` ja `Milk, bread, apples`.
+  Korjattu samaan PR:ään: alarivi `TASKS · CALENDAR · WALLET · HOMECOIN`, tehtävät `Take out the rubbish` ja
+  `Make the bed`.
 
-**Sivumuutos:** `index.html`:n HomeTeam-laatikon leipäteksti (Z.1). Alatunnisteen päivä on jo 2026-11-13,
+**Sivumuutos:** `index.html`:n HomeTeam-laatikon leipäteksti (Z.1) ja piirroksen alarivi ja kaksi tehtävää (Z.5). Alatunnisteen päivä on jo 2026-11-13,
 joten se ja sitemap pysyvät. Profiilin README (push 24.9.2026) mainitsee HomeTeamin vain perhekartassa
 eikä lupaa aterioita, joten F2 pysyy ennallaan. BUILD_INFO 5.6.1. **Seuraavaksi** kierrokset AA alkaen:
 HT.1–HT.4 ja HT.9–HT.16.

@@ -1112,13 +1112,14 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
   };
   /* HomeTeam: the Today view, drawn (the application is invitation only and a capture would carry
      the family's own data; copy-v4-pages.md 3.46). The day's tasks tick off one by one and each one
-     sends a coin to the wallet. Generic tasks, no names. */
+     sends a coin to the wallet. Generic tasks, no names; nothing that is not built (round Z.5:
+     meals and the shopping list are not). */
   sketches.hometeam = (cv, t) => {
     const { ctx, w, h } = fit(cv);
     const mono = s => `${Math.round(h * s)}px JetBrains Mono, monospace`;
     const sans = s => `300 ${Math.round(h * s)}px Public Sans, sans-serif`;
     ctx.fillStyle = '#F6F0E6'; ctx.fillRect(0, 0, w, h);
-    const tasks = ['Empty the dishwasher', 'Football practice 17:30', 'Tacos for dinner', 'Milk, bread, apples', 'Feed the cat'];
+    const tasks = ['Empty the dishwasher', 'Football practice 17:30', 'Take out the rubbish', 'Make the bed', 'Feed the cat'];
     const who = [SEA, SUN_D, '#4E987C', SEA, SUN_D];
     const n = tasks.length, P = 11000, ph = ((t + 4000) % P) / P * (n + 1.5);
     const done = Math.min(n, Math.floor(ph)), frac = ph - Math.floor(ph);
@@ -1162,7 +1163,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
       ctx.fillStyle = SUN; ctx.beginPath(); ctx.arc(x, y, h * 0.028, 0, 7); ctx.fill();
       ctx.strokeStyle = SUN_D; ctx.lineWidth = 1.2; ctx.stroke();
     }
-    ctx.fillStyle = '#8B96A0'; ctx.font = mono(0.03); ctx.fillText('TASKS · CALENDAR · MEALS · SHOPPING · HOMECOIN', w * 0.06, h * 0.965);
+    ctx.fillStyle = '#8B96A0'; ctx.font = mono(0.03); ctx.fillText('TASKS · CALENDAR · WALLET · HOMECOIN', w * 0.06, h * 0.965);
   };
   /* VitalTrack: a PMC-style chart drawing */
   sketches.vitaltrack = (cv, t) => {

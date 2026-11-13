@@ -894,5 +894,6 @@ drawer's body (3.43, live since 12.11.2026) names meals and the shopping list, w
 | Z.2 | The h1 (HT.5) | **As proposed**: `The application my family runs the week on. My children voted on how it looks.` |
 | Z.3 | The lede (HT.6) | **As proposed** |
 | Z.4 | The lead caption (HT.8) | **As proposed**: `Design mockups, not captures: a child's Today and a parent's, in Finnish as the application is. A capture would show my family's own week.`, in the shape of `/reviewglass/`'s `A drawing, not a capture` |
+| Z.5 | The drawing in the drawer (asked while checking the preview of Z.1) | **Corrected in the same pull request**: its footer `TASKS · CALENDAR · MEALS · SHOPPING · HOMECOIN` becomes `TASKS · CALENDAR · WALLET · HOMECOIN`, and the tasks `Tacos for dinner` and `Milk, bread, apples` become `Take out the rubbish` and `Make the bed`. The drawing gives way to the mockup in PR F (Y.4) |
 
 Open for the next rounds (AA onwards): HT.1 to HT.4, HT.9 to HT.16.

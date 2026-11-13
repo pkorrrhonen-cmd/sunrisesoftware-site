@@ -10,7 +10,9 @@ kauppalista)". Kuvaus on tuotteen suunnitelma. Ateriat ja kauppalista eivät ole
 HomeTeamin reitittimessä `/ruoka` on "tulossa"-paikkamerkki, kauppalistalla on moduulikytkin mutta ei
 sivua, ja molemmat ovat backlogissa kohdassa "Myöhemmin" (KOORD-2, KOORD-3). Teksti oli livenä
 12.11.–13.11. Virhe löytyi 13.11., kun `/hometeam/`-sivun faktat luettiin koodista ennen tekstikierrosta.
-Korjattiin samana päivänä omalla PR:llä (kierros Z.1).
+Korjattiin samana päivänä omalla PR:llä (kierros Z.1). Esikatselua katsottaessa sama lupaus löytyi
+laatikon piirroksesta: alarivi `TASKS · CALENDAR · MEALS · SHOPPING · HOMECOIN` ja tehtävät "Tacos for
+dinner" ja "Milk, bread, apples". Tekstin tarkistus ei ollut katsonut piirrosta (korjattu, Z.5).
 
 **Estosääntö:**
 - Kun sivu sanoo tuotteen tekevän jotain, väite tarkistetaan siitä, mikä on rakennettu: reitit tai
@@ -18,6 +20,8 @@ Korjattiin samana päivänä omalla PR:llä (kierros Z.1).
   tuotekuvaus tai lupaus ei riitä, koska ne kertovat suunnitelman.
 - Faktalista kirjoitetaan tekstitiedostoon kahtena listana, "rakennettu ja tuotannossa" ja "ei
   rakennettu", kuten copy-v4-pages osassa E, niin että jokaiselle väitteelle on nimetty lähde.
+- Kun väite korjataan, sama väite haetaan sivun kaikista paikoista: leipäteksti, faktat, piirrosten
+  tekstit, kuvatekstit, alt-tekstit ja rakenteinen data.
 
 ## 13.11.2026: todistelistaan valittiin artikkeli otsikon perusteella
 
