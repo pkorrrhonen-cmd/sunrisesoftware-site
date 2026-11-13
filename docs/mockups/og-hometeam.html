@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- The share image of /hometeam/ (copy-v4-pages.md HT.3, round AC.1): the subject mark and the h1 on
+     the dawn sky, in the build of og-reviewglass.html (round X.3), rendered with the site's own fonts.
+     Render: python docs/mockups/shoot.py file docs/mockups/og-hometeam.html <out.png> 1200 630
+     then convert to images/og-hometeam.jpg (1200x630). -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500&family=JetBrains+Mono:wght@500&display=block" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{position:relative;background:#F9F7F1;color:#20303C;-webkit-font-smoothing:antialiased}
+  .sky{position:absolute;inset:0;overflow:hidden}
+  .dawn{position:absolute;inset:0;background:linear-gradient(180deg,#FBF4EA 0%,#F7ECDD 34%,rgba(232,234,232,.7) 70%,#F9F7F1 100%)}
+  .orb{position:absolute;border-radius:50%;filter:blur(58px)}
+  .o1{width:900px;height:900px;left:520px;top:-420px;background:radial-gradient(circle,rgba(244,196,130,.46) 0%,transparent 64%)}
+  .o2{width:700px;height:700px;left:760px;top:-120px;background:radial-gradient(circle,rgba(255,222,176,.52) 0%,transparent 66%)}
+  .o3{width:820px;height:620px;left:640px;top:210px;background:radial-gradient(ellipse,rgba(200,190,176,.30) 0%,transparent 64%)}
+  .in{position:absolute;left:72px;top:58px;right:72px;bottom:46px;display:flex;flex-direction:column}
+  .mark{display:flex;align-items:center;gap:14px;font:500 27px 'Familjen Grotesk',sans-serif;letter-spacing:-.01em}
+  .mark svg{width:30px;height:30px;overflow:visible}
+  .subject{margin-top:28px;font:500 15px 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#C57A2C}
+  h1{margin-top:40px;font:400 58px/1.05 'Familjen Grotesk',sans-serif;letter-spacing:-.03em;max-width:none}
+  h1 .warm{color:#C57A2C}
+  .url{margin-top:auto;font:500 15px 'JetBrains Mono',monospace;letter-spacing:.04em;color:#8B96A0}
+</style>
+</head>
+<body>
+  <div class="sky"><div class="dawn"></div><div class="orb o3"></div><div class="orb o1"></div><div class="orb o2"></div></div>
+  <div class="in">
+    <div class="mark">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <defs><clipPath id="h"><rect x="0" y="0" width="24" height="15"/></clipPath></defs>
+        <g clip-path="url(#h)"><circle cx="12" cy="13" r="5.6" fill="#E8A54E"/></g>
+        <line x1="1" y1="15" x2="23" y2="15" stroke="#20303C" stroke-opacity=".45" stroke-width="1.2"/>
+      </svg>
+      Sunrise Software
+    </div>
+    <div class="subject">HomeTeam · my own family</div>
+    <h1>The application my family<br>runs the week on.<br><span class="warm">My children voted on how it looks.</span></h1>
+    <div class="url">sunrisesoftware.app/hometeam/</div>
+  </div>
+</body>
+</html>

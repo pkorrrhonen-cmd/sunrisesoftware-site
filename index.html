@@ -693,12 +693,13 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
         </div></div>
       </article>
 
-      <article class="drawer" data-live="hometeam" data-cap="hometeam · the today view, drawn">
+      <article class="drawer" data-peek="images/shot-hometeam.webp" data-cap="hometeam · a child's today, a design mockup">
         <button class="drawer-head" aria-expanded="false"><span class="y">2026 →</span><span class="n">HomeTeam<small>in use · my own family</small></span><span class="d">The application my family runs the week on.</span><span class="plus"></span></button>
         <div class="drawer-body"><div class="drawer-inner">
           <p>A shared Today view for the day's tasks and the family calendar, and an economy each family sets for itself: HomeCoin or euros, a weekly allowance, a loan, rewards, a savings goal. Adults sign in with a code sent to their address; children use nickname profiles on devices an adult has paired. A change appears on the other devices at once.</p>
           <div class="facts"><span>Installable, works on every device</span><span>Children sign in without an address</span><span>The family's data stays in the EU</span></div>
-          <div class="big"><canvas data-live="hometeam" role="img" aria-label="A drawing of the HomeTeam Today view: a list of the day's tasks ticking off one by one, each finished task sending a coin to the wallet beside it"></canvas></div>
+          <a class="link" href="/hometeam/">How my family uses it →</a>
+          <div class="big"><img src="images/shot-hometeam.webp" alt="A phone screen in a comic style: a greeting, a progress bar and six task cards on coloured notes, each with its coin value." loading="lazy"></div>
         </div></div>
       </article>
 
@@ -1109,61 +1110,6 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
       ctx.beginPath(); past ? ctx.rect(x - 5, y - 5, 10, 10) : ctx.arc(x, y, 5, 0, 7); ctx.fill();
     }
     ctx.fillStyle = INK; ctx.font = `${Math.round(h * 0.045)}px JetBrains Mono, monospace`; ctx.fillText('FINDINGS IN · VERDICTS OUT · 0 € PER RUN', w * 0.06, h * 0.95);
-  };
-  /* HomeTeam: the Today view, drawn (the application is invitation only and a capture would carry
-     the family's own data; copy-v4-pages.md 3.46). The day's tasks tick off one by one and each one
-     sends a coin to the wallet. Generic tasks, no names; nothing that is not built (round Z.5:
-     meals and the shopping list are not). */
-  sketches.hometeam = (cv, t) => {
-    const { ctx, w, h } = fit(cv);
-    const mono = s => `${Math.round(h * s)}px JetBrains Mono, monospace`;
-    const sans = s => `300 ${Math.round(h * s)}px Public Sans, sans-serif`;
-    ctx.fillStyle = '#F6F0E6'; ctx.fillRect(0, 0, w, h);
-    const tasks = ['Empty the dishwasher', 'Football practice 17:30', 'Take out the rubbish', 'Make the bed', 'Feed the cat'];
-    const who = [SEA, SUN_D, '#4E987C', SEA, SUN_D];
-    const n = tasks.length, P = 11000, ph = ((t + 4000) % P) / P * (n + 1.5);
-    const done = Math.min(n, Math.floor(ph)), frac = ph - Math.floor(ph);
-    /* the Today card */
-    const cx = w * 0.06, cy = h * 0.09, cw = w * 0.54, ch = h * 0.78;
-    ctx.fillStyle = '#FFFDF9'; ctx.beginPath(); ctx.roundRect(cx, cy, cw, ch, 10); ctx.fill();
-    ctx.strokeStyle = 'rgba(32,48,60,.10)'; ctx.lineWidth = 1; ctx.stroke();
-    ctx.fillStyle = SUN_D; ctx.font = mono(0.04); ctx.fillText('TODAY', cx + cw * 0.06, cy + ch * 0.12);
-    ctx.fillStyle = '#8B96A0'; ctx.fillText(`${done} / ${n}`, cx + cw * 0.84, cy + ch * 0.12);
-    const rowY = i => cy + ch * (0.25 + i * 0.15);
-    for (let i = 0; i < n; i++) {
-      const y = rowY(i), r = h * 0.026, ok = i < done, x0 = cx + cw * 0.08;
-      ctx.beginPath(); ctx.arc(x0, y, r, 0, 7);
-      if (ok) { ctx.fillStyle = SUN; ctx.fill(); ctx.strokeStyle = '#FFFDF9'; ctx.lineWidth = Math.max(1.5, h / 220); ctx.beginPath(); ctx.moveTo(x0 - r * 0.45, y); ctx.lineTo(x0 - r * 0.1, y + r * 0.38); ctx.lineTo(x0 + r * 0.5, y - r * 0.4); ctx.stroke(); }
-      else { ctx.strokeStyle = 'rgba(32,48,60,.28)'; ctx.lineWidth = 1.2; ctx.stroke(); }
-      ctx.font = sans(0.042); ctx.fillStyle = ok ? 'rgba(32,48,60,.38)' : INK;
-      const tx = x0 + r * 2.2; ctx.fillText(tasks[i], tx, y + h * 0.014);
-      if (ok) { const tw = ctx.measureText(tasks[i]).width; ctx.fillRect(tx, y, tw, Math.max(1, h / 400)); }
-      ctx.fillStyle = who[i]; ctx.beginPath(); ctx.arc(cx + cw * 0.92, y, h * 0.014, 0, 7); ctx.fill();
-    }
-    /* the wallet */
-    const wx = w * 0.64, wy = h * 0.09, ww = w * 0.3, wh = h * 0.78, kx = wx + ww / 2, ky = wy + wh * 0.42, kr = Math.min(ww, wh) * 0.24;
-    const coins = 7 + done * 2;
-    ctx.fillStyle = '#FFFDF9'; ctx.beginPath(); ctx.roundRect(wx, wy, ww, wh, 10); ctx.fill();
-    ctx.strokeStyle = 'rgba(32,48,60,.10)'; ctx.lineWidth = 1; ctx.stroke();
-    ctx.fillStyle = SUN_D; ctx.font = mono(0.04); ctx.fillText('WALLET', wx + ww * 0.1, wy + wh * 0.12);
-    ctx.fillStyle = SUN; ctx.beginPath(); ctx.arc(kx, ky, kr, 0, 7); ctx.fill();
-    ctx.strokeStyle = SUN_D; ctx.lineWidth = Math.max(1.5, h / 200); ctx.beginPath(); ctx.arc(kx, ky, kr * 0.8, 0, 7); ctx.stroke();
-    ctx.fillStyle = INK; ctx.font = `500 ${Math.round(kr * 0.8)}px Familjen Grotesk, sans-serif`; ctx.textAlign = 'center'; ctx.fillText(String(coins), kx, ky + kr * 0.28);
-    ctx.font = mono(0.032); ctx.fillStyle = '#8B96A0'; ctx.fillText('HOMECOIN', kx, ky + kr + h * 0.07);
-    /* the savings goal */
-    const gx = wx + ww * 0.12, gy = wy + wh * 0.84, gw = ww * 0.76;
-    ctx.textAlign = 'left'; ctx.fillText('GOAL', gx, gy - h * 0.025);
-    ctx.fillStyle = 'rgba(32,48,60,.10)'; ctx.fillRect(gx, gy, gw, h * 0.016);
-    ctx.fillStyle = SUN; ctx.fillRect(gx, gy, gw * Math.min(1, coins / 24), h * 0.016);
-    /* a coin on its way from the task just finished */
-    if (done > 0 && done <= n && frac < 0.45) {
-      const p = frac / 0.45, e = 1 - Math.pow(1 - p, 3);
-      const sx = cx + cw * 0.92, sy = rowY(done - 1);
-      const x = sx + (kx - sx) * e, y = sy + (ky - sy) * e - Math.sin(p * Math.PI) * h * 0.12;
-      ctx.fillStyle = SUN; ctx.beginPath(); ctx.arc(x, y, h * 0.028, 0, 7); ctx.fill();
-      ctx.strokeStyle = SUN_D; ctx.lineWidth = 1.2; ctx.stroke();
-    }
-    ctx.fillStyle = '#8B96A0'; ctx.font = mono(0.03); ctx.fillText('TASKS · CALENDAR · WALLET · HOMECOIN', w * 0.06, h * 0.965);
   };
   /* VitalTrack: a PMC-style chart drawing */
   sketches.vitaltrack = (cv, t) => {

@@ -3,6 +3,35 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 10, jatko 2 (13.11.2026): `/hometeam/`-sivu (kierros AD, PR F)
+
+**Tehty yhdessä Petrin kanssa** Petrin sanasta "Rakennetaan nyt". Rakennusaikaiset valinnat kysyttiin
+yhdellä laatikkokierroksella (AD, neljä kysymystä, kuvana `docs/mockups/hometeam/round-AD-page.jpg`), ja
+kaikki neljä hyväksyttiin rakennettuina. Työ on haarassa `claude/hometeam-page`.
+
+**Kaappaukset nimet vaihdettuina.** HomeTeamin `mockups/` ja kuvakansio kopioitiin tämän repon
+ulkopuolelle, ja kopiota muokattiin (Y.3, AD.2): lapsen tervehdys ja lasten laatat saivat avatar-eläintensä
+nimet (Kettu, Pingviini, Pupu), sukunimirivi poistettiin, `Hei, Petri!` jäi, ja pistetaulun valitun
+vaihtoehdon (N2) alapalkista poistettiin rakentamaton "Ruoka". Viisi näkymää kaapattiin 2x-tarkkuudella
+Playwrightilla (`docs/mockups/hometeam-capture.py`). Ensimmäisessä kaappauksessa mockupin oma varjo näkyi
+kulmissa puoliläpinäkyvänä, joten varjo kytkettiin pois kaappauksen ajaksi. Kuvat tehtiin skriptillä
+`docs/mockups/hometeam-images.py`: viisi WebP-kuvaa PNG-varakuvineen, 2x-lähteet `source-assets/`-kansioon
+ja etusivun laatikon 16:9-kuva. Jakokuva on `docs/mockups/og-hometeam.html`:stä.
+
+**Sivu.** `hometeam/index.html` on rakennettu `/reviewglass/`-sivun kehykselle. Rakennusskripti luki
+tekstit HT.1–HT.16 osasta E ja pysähtyi, jos jokin rivi ei ollut päätetty. Kaksi virhettä korjattiin
+ennen kierrosta: skripti luki ensin otsikoksi sarakkeen nimen `<title>`, ja kiitosrivi peri leipätekstin
+koon. **Etusivu:** HomeTeam-laatikossa on nyt lapsen Tänään-näkymä piirroksen tilalla, linkki
+`How my family uses it →` ja kuvateksti `hometeam · a child's today, a design mockup`. Piirroksen koodi
+poistettiin, ja sitemap nimeää viisi osoitetta.
+
+**Tarkistettu paikallisesti:** 1024 ja 1440 px: ei vaakavieritystä eikä konsolivirheitä, fontit ja kaikki
+viisi kuvaa latautuvat, JSON-LD jäsentyy. 375 px laite-emuloinnilla: `scrollWidth` 375, mikään `main`-
+elementissä ei ylitä reunaa, kuvapari 160 px:n levyisinä rinnakkain, rivi allekkain. Etusivun laatikko
+375 px:n leveydellä linkkeineen ja kuvineen. `check-site` vihreä viidellä sivulla (37 paikallista
+tiedostoa). Yhdessäkään commitoitavassa tekstitiedostossa ei ole sukunimeä eikä lasten nimiä, ja kuvat
+katsottiin näkymä kerrallaan. BUILD_INFO 5.8.0.
+
 ## Sessio 10, jatko (13.11.2026): `/hometeam/`-sivun tekstit päätetty (kierrokset AA–AC, ei sivumuutosta)
 
 **Tehty yhdessä Petrin kanssa** kolmella laatikkokierroksella (AA–AC, 12 kysymystä). Kaikki
