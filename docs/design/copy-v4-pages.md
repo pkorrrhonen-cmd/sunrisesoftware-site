@@ -425,10 +425,10 @@ AA, AB and so on.
 
 | # | Where | Proposal | State |
 |---|---|---|---|
-| HT.1 | `<title>` and `og:title` | `HomeTeam: the application my family runs the week on · Petri Korhonen` | draft |
-| HT.2 | `description` and `og:description` | `A family application I built for my own family: the day's tasks and the calendar in one Today view, and children's money that works like money, with a weekly allowance, a loan and a savings goal. In use since September 2026.` | draft |
-| HT.3 | `og:image` and its alt | an image of its own in the build of the other pages (the subject mark and the h1 on the dawn sky); alt the h1 | draft |
-| HT.4 | Subject mark (mono) | `HomeTeam · my own family` | draft |
+| HT.1 | `<title>` and `og:title` | `HomeTeam: the application my family runs the week on · Petri Korhonen` | decided 13.11.2026 (AB.1) |
+| HT.2 | `description` and `og:description` | `A family application I built for my own family: the day's tasks and the calendar in one Today view, and children's money that works like money, with a weekly allowance, a loan and a savings goal. In use since September 2026.` | decided 13.11.2026 (AB.2) |
+| HT.3 | `og:image` and its alt | an image of its own in the build of the other pages (the subject mark and the h1 on the dawn sky); alt the h1 | decided 13.11.2026 (AC.1) |
+| HT.4 | Subject mark (mono) | `HomeTeam · my own family` | decided 13.11.2026 (AB.3) |
 | HT.5 | h1 | `The application my family runs the week on. My children voted on how it looks.` | decided 13.11.2026 (Z.2) |
 | HT.6 | Lede | `HomeTeam keeps my family's week in one place. The children see what needs doing today and what it earns them, the adults see the whole week, and the children's money works like money: a weekly allowance, a loan to pay back, a goal to save for. I built it for my own family, and the family tried the first designs on their own phones and voted on them.` | decided 13.11.2026 (Z.3) |
 | HT.7 | Status line | `In use · my own family · 2026 →`, as the drawer | decided 11.11.2026 (B.1) |
@@ -443,19 +443,19 @@ AA, AB and so on.
 
 | # | Heading | Proposal | State |
 |---|---|---|---|
-| HT.9 | `What it does` | `Today is the first screen. A child sees the day's tasks as large cards: a tap and a confirmation mark one done, and its coins go straight to the child's wallet. A parent sees how far each child has got and what is waiting for an adult. The calendar holds the family's week with week numbers, and an entry a child adds waits for a parent's approval.` ¶ `Each family sets its own economy: coins with a euro value or plain euros, a weekly allowance, a loan paid back from earnings, rewards to save for and a savings goal. On top sits a game layer the family can switch on: a weekly scoreboard where the adults' housework counts too, a treasure island that rises from the sand as tasks get done, and a wheel to spin once a day.` | draft |
-| HT.10 | `Why it exists` | `HomeTeam replaced an earlier version my family used. Two lessons from it shaped this one. The children lost interest in collecting points after about two months, so this version rests on things that keep their value: real money, a shared goal and content that changes. And small lists and icons made the old one heavy to use, so here a routine task takes two taps, and every screen starts as a mockup.` ¶ `The first designs went to the family as clickable prototypes on their own phones, and everyone voted, the children included.` | draft |
-| HT.11 | `Where it stands` | `In use by my family since 29 September 2026. Only the addresses I have allowed can sign in, so there is no public way in, and the code is in a private repository. The family's data is kept in the EU. The application is in Finnish.` | draft |
-| HT.12 | The row of three (Y.1), a mono caption under each | Wallet (005): `Wallet: the balance in coins and euros, a savings goal, every coin in and out.` Scoreboard (019): `The week's scoreboard: the whole family on one podium, the adults included.` Treasure island (020): `The treasure island: a chest rises from the sand as the tasks get done.` Alts describe each screen | draft |
+| HT.9 | `What it does` | `Today is the first screen. A child sees the day's tasks as large cards: a tap and a confirmation mark one done, and its coins go straight to the child's wallet. A parent sees how far each child has got and what is waiting for an adult. The calendar holds the family's week with week numbers, and an entry a child adds waits for a parent's approval.` ¶ `Each family sets its own economy: coins with a euro value or plain euros, a weekly allowance, a loan paid back from earnings, rewards to save for and a savings goal. On top sits a game layer the family can switch on: a weekly scoreboard where the adults' housework counts too, a treasure island that rises from the sand as tasks get done, and a wheel to spin once a day.` | decided 13.11.2026 (AA.1) |
+| HT.10 | `Why it exists` | `HomeTeam replaced an earlier version my family used. Two lessons from it shaped this one. The children lost interest in collecting points after about two months, so this version rests on things that keep their value: real money, a shared goal and content that changes. And small lists and icons made the old one heavy to use, so here a routine task takes two taps, and every screen starts as a mockup.` ¶ `The first designs went to the family as clickable prototypes on their own phones, and everyone voted, the children included.` | decided 13.11.2026 (AA.2) |
+| HT.11 | `Where it stands` | `In use by my family since 29 September 2026. Only the addresses I have allowed can sign in, so there is no public way in, and the code is in a private repository. The family's data is kept in the EU. The application is in Finnish.` | decided 13.11.2026 (AA.3) |
+| HT.12 | The row of three (Y.1), a mono caption under each | Wallet (005): `Wallet: the balance in coins and euros, a savings goal, every coin in and out.` Scoreboard (019): `The week's scoreboard: the whole family on one podium, the adults included.` Treasure island (020): `The treasure island: a chest rises from the sand as the tasks get done.` Alts describe each screen | decided 13.11.2026 (AA.4) |
 
 ### HT.13 to HT.16, evidence, structured data, credits and the front page
 
 | # | Where | Proposal | State |
 |---|---|---|---|
-| HT.13 | Evidence block | No link. One line in the block's place: `No public link: the application admits only my family's addresses, and its code is private.` | draft |
-| HT.14 | JSON-LD | a `WebPage` with `isPartOf` the WebSite, and nothing else: HomeTeam gets no `SoftwareApplication` (C.3), as no reader can open it | draft |
-| HT.15 | The front page | the drawer gains a link `How my family uses it →` to `/hometeam/`, in the words of `How the glass works →`; its drawing becomes screen 1 (Y.4) with the caption `hometeam · a child's today, a design mockup`; its body (3.43) already corrected on 13.11.2026 in its own pull request (Z.1) | draft |
-| HT.16 | Credits | one mono line under the row of three: `Typefaces in the mockups: Bangers, Gochi Hand, Patrick Hand (SIL Open Font License). 3D images: Microsoft Fluent Emoji (MIT).` | draft |
+| HT.13 | Evidence block | No link. One line in the block's place: `No public link: the application admits only my family's addresses, and its code is private.` | decided 13.11.2026 (AB.4) |
+| HT.14 | JSON-LD | a `WebPage` with `isPartOf` the WebSite, and nothing else: HomeTeam gets no `SoftwareApplication` (C.3), as no reader can open it | decided 13.11.2026 (AC.2) |
+| HT.15 | The front page | the drawer gains a link `How my family uses it →` to `/hometeam/`, in the words of `How the glass works →`; its drawing becomes screen 1 (Y.4) with the caption `hometeam · a child's today, a design mockup`; the image's alt as the page's lead (HT.8, the child's screen); its body (3.43) already corrected on 13.11.2026 in its own pull request (Z.1) | decided 13.11.2026 (AC.3) |
+| HT.16 | Credits | one mono line under the row of three: `Typefaces in the mockups: Bangers, Gochi Hand, Patrick Hand (SIL Open Font License). 3D images: Microsoft Fluent Emoji (MIT).` The name `Microsoft Fluent Emoji` links to `github.com/microsoft/fluentui-emoji` (MIT, read 13.11.2026) | decided 13.11.2026 (AC.4) |
 
 ---
 
@@ -897,3 +897,37 @@ drawer's body (3.43, live since 12.11.2026) names meals and the shopping list, w
 | Z.5 | The drawing in the drawer (asked while checking the preview of Z.1) | **Corrected in the same pull request**: its footer `TASKS · CALENDAR · MEALS · SHOPPING · HOMECOIN` becomes `TASKS · CALENDAR · WALLET · HOMECOIN`, and the tasks `Tacos for dinner` and `Milk, bread, apples` become `Take out the rubbish` and `Make the bed`. The drawing gives way to the mockup in PR F (Y.4) |
 
 Open for the next rounds (AA onwards): HT.1 to HT.4, HT.9 to HT.16.
+
+### Round AA, `/hometeam/`: the body and the row's captions (13.11.2026)
+
+Each claim was read from the hometeam repository the same day (section E's two lists).
+
+| # | Question | Decision |
+|---|---|---|
+| AA.1 | `What it does` (HT.9) | **As proposed**, two paragraphs, the game layer included |
+| AA.2 | `Why it exists` (HT.10) | **As proposed**, the two lessons of the first version and the family's vote |
+| AA.3 | `Where it stands` (HT.11) | **As proposed**, without the date of the latest release, which would age |
+| AA.4 | The row's captions (HT.12) | **As proposed** |
+
+### Round AB, `/hometeam/`: the head, the subject mark and the evidence (13.11.2026)
+
+| # | Question | Decision |
+|---|---|---|
+| AB.1 | `<title>` and `og:title` (HT.1) | **As proposed**: `HomeTeam: the application my family runs the week on · Petri Korhonen` |
+| AB.2 | `description` and `og:description` (HT.2) | **As proposed** |
+| AB.3 | The subject mark (HT.4) | **`HomeTeam · my own family`**, the word of the status line and the drawer's tag |
+| AB.4 | The evidence block (HT.13) | **A line in the link's place**: `No public link: the application admits only my family's addresses, and its code is private.` |
+
+### Round AC, `/hometeam/`: the share image, the structured data, the front page and the credits (13.11.2026)
+
+| # | Question | Decision |
+|---|---|---|
+| AC.1 | The share image (HT.3) | **The build of the other pages**: the subject mark and the h1 in two lines on the dawn sky, no screen; alt the h1 |
+| AC.2 | The structured data (HT.14) | **A `WebPage` only**, with `isPartOf` the WebSite and `author` the Person. C.3 stands, and the front page's graph does not change |
+| AC.3 | The front page (HT.15) | **`How my family uses it →`**; the drawer's image is screen 1 with the caption `hometeam · a child's today, a design mockup` |
+| AC.4 | The credits (HT.16) | **One mono line under the row of three**, the Fluent Emoji name linking to its repository, where the MIT licence is |
+
+**Every item of `/hometeam/` (HT.1 to HT.16) is now decided**, with the images of round Y. PR F builds
+the page: the screens cut from a copy of the mockups outside this repository with the names swapped
+(Y.3), the share image, the front page's drawer (its image, link and caption), the sitemap entry and
+its own `check-site` pass.
