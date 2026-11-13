@@ -725,6 +725,8 @@ ready to build as PR E together with Petri. What the build needs, none of it mad
   `SoftwareSourceCode` entity in the front page's graph (RG.13), and the page's `<url>` in `sitemap.xml`.
 - **Read again on the build day:** the repository's README and `BUILD_INFO.json`, so that RG.9 to RG.11
   still hold (the glass's ways and the privacy posture move with the product).
-- **Outside this site:** the ReviewGlass repository still records the name as unresolved (adr.rg.008
-  *proposed*, `docs/NAME-CLEARANCE.md`, its README's "gated on the name", its `BUILD_INFO.next`).
-  Petri's word of 13.11.2026 (S.1) that the name is kept belongs there too.
+- **Outside this site, done the same day:** Petri's word (S.1) that the name is kept was recorded in
+  the ReviewGlass repository and in Atlas on 13.11.2026: adr.rg.008 accepted in the model (Atlas #673,
+  `a757696`, both Atlas workers deployed), and the repository's README, CLAUDE.md, BUILD_INFO and
+  NAME-CLEARANCE no longer say a release waits on the name (reviewglass `2654ab4`). Its spec follows
+  with spec v0.5.

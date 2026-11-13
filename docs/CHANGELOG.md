@@ -11,7 +11,10 @@ Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet 
 
 **Päätetty.** Isot linjat ensin (S): sivu tehdään nyt, koska **Petrin mukaan nimi ReviewGlass on ja pysyy**,
 ja ReviewGlassin repon merkintä nimen avoimuudesta (adr.rg.008 *proposed*, NAME-CLEARANCE, README:n
-"gated on the name") on vanha; AvoQ:ta ei mainita (K.4). Claude Code nimetään ja README:n
+"gated on the name") oli vanha; AvoQ:ta ei mainita (K.4). Petrin pyynnöstä päätös kirjattiin samana
+päivänä myös ReviewGlassiin ja Atlakseen: adr.rg.008 hyväksytty mallissa (Atlas #673, `a757696`,
+molemmat workerit deployattu) ja ReviewGlassin README, CLAUDE.md, BUILD_INFO ja NAME-CLEARANCE
+korjattu (`2654ab4`); spec seuraa versiossa 0.5. Claude Code nimetään ja README:n
 riippumattomuuslause sanotaan. Päämedia on §03:n piirros suurennettuna. **Etusivun laatikon fakta
 `Nothing leaves the machine` oli epätosi**, kun Explainin etäversio on päällä, ja se korjataan sivun
 mukana muotoon `Screen pixels never leave the machine` (RG.15). Otsikko on "A glass for reading what the
