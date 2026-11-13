@@ -1,6 +1,6 @@
 {
   "name": "sw-sivusto",
-  "version": "5.6.1",
+  "version": "5.6.2",
   "page": {
     "design_version": "V6 in progress (SEED v4.1.0): the front page with the V6 changes, /silent-context/, /rooms/ and /reviewglass/ live (13.11.2026); /hometeam/ images decided (round Y), copy and build to come",
     "built": "2026-09-18",
@@ -10,7 +10,7 @@
   "seed": "4.1.0 (13.11.2026: section 3.6 narrowed while building /silent-context/, rounds I and J; sections 2.2, 4, 5.2 and 8 corrected for /rooms/ the same day, session 9; sections 2.2, 3.6, 4, 5.2, 7 and 8 for /reviewglass/ in PR E); 4.0.0 archived in docs/archive/; 3.0.0 stays in docs/ until V6 is live; 2.0.0 and the 2.1.0 draft archived",
   "session": 10,
   "updated": "2026-11-13",
-  "state": "Session 10 (13.11.2026): the /hometeam/ thread opened. Checked at the start that session 9 landed despite the day's outages: no open PRs, main e5bc2d2 with CI green, Cloudflare built every commit through e5bc2d2, the three sub-pages and the sitemap byte for byte the same as main, Atlas STATUS v22. Round Y decided the images of /hometeam/ with Petri: screens cut from the HomeTeam design mockups (adr.sws.020), the front page drawer included. The copy round Z is next. Round Z (13.11.2026): the h1, the lede and the lead caption of /hometeam/ decided, and an error on the live front page corrected in its own pull request: the HomeTeam drawer and its drawing named meals and the shopping list, which are not built (Z.1, Z.5; LESSONS 13.11.2026).",
+  "state": "Session 10 (13.11.2026): the /hometeam/ thread opened. Checked at the start that session 9 landed despite the day's outages: no open PRs, main e5bc2d2 with CI green, Cloudflare built every commit through e5bc2d2, the three sub-pages and the sitemap byte for byte the same as main, Atlas STATUS v22. Round Y decided the images of /hometeam/ with Petri: screens cut from the HomeTeam design mockups (adr.sws.020), the front page drawer included. The copy round Z is next. Round Z (13.11.2026): the h1, the lede and the lead caption of /hometeam/ decided, and an error on the live front page corrected in its own pull request: the HomeTeam drawer and its drawing named meals and the shopping list, which are not built (Z.1, Z.5; LESSONS 13.11.2026). PR #14 merged and live at 17:44Z, verified.",
   "sources_checked_2026_09_17": {
     "masterforge": "BUILD_INFO 4.44.0, 16.9.2026 (Starter v2 general master); masterforge.app: Free, Starter 4.99, Pro 9.99, one-off 14.99",
     "quaesitor": "repo main 2.13.27 (17.8.2026), SEED v2.14.0; quaesitor.app live",
@@ -32,6 +32,7 @@
   },
   "next": [
     "Next (session 10 continues): the copy rounds AA onwards for /hometeam/ (copy-v4-pages section E): HT.1 to HT.4 (title, description, share image, subject mark) and HT.9 to HT.16 (the body, the row of three captions, evidence, JSON-LD, the front page link and image, credits). Then PR F: cut the screens from a copy of the mockups outside the repository with the names swapped (Y.3), the share image, the front page drawer's screen (Y.4), the sitemap entry",
+    "Done 13.11.2026: PR #14 live (squash bac9f62, Cloudflare build 0df20e7a at 17:43:53Z); verified on the live site: the HomeTeam drawer's text and drawing corrected, the sub-pages and the sitemap the same as main",
     "Done 13.11.2026: round Z (HT.5, HT.6, HT.8 decided) and the HomeTeam drawer's body and drawing corrected in their own pull request (Z.1, Z.5; PR #14): meals and the shopping list are not built in HomeTeam",
     "Petri 13.11.2026, at the close of session 9: real mockups of the applications have to get onto the pages, in place of the drawn instruments. ReviewGlass's has to be built some other way than a screen capture, because the glass itself vanishes from one: the glass, its halo and the finder exclude themselves from capture (WDA_EXCLUDEFROMCAPTURE, so the glass never captures itself), and only the dock and its drawer are visible to it (ReviewGlass adr.rg.025). How each mockup is made is decided with Petri, one product at a time (HomeTeam decided 13.11.2026 in round Y, adr.sws.020: screens cut from its design mockups); it changes CLAUDE.md's rule on drawn instruments and apps-v3 (B.5 for ReviewGlass), so it gets a decision file when the method is settled. /reviewglass/ keeps the drawing (RG.8, X.1) until then",
     "Done 13.11.2026: round Y, the images of /hometeam/ (Y.1 to Y.4) and adr.sws.020; CLAUDE.md's rule on drawn instruments no longer names HomeTeam",

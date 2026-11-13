@@ -60,6 +60,14 @@ joten se ja sitemap pysyvät. Profiilin README (push 24.9.2026) mainitsee HomeTe
 eikä lupaa aterioita, joten F2 pysyy ennallaan. BUILD_INFO 5.6.1. **Seuraavaksi** kierrokset AA alkaen:
 HT.1–HT.4 ja HT.9–HT.16.
 
+**Deploy:** PR #14 squash-mergattu Petrin sanasta 13.11.2026 17:43Z (`bac9f62`). Cloudflaren tuotantobuild
+(`0df20e7a`) valmistui 17:43:53Z, ja livesivu tarjosi korjatun laatikon 17:44Z. Livestä todennettu:
+laatikon teksti ja piirroksen alarivi ja tehtävät uudet, aterioita ja kauppalistaa ei mainita missään
+(ainoa osuma on piirroksen koodikommentti, joka kertoo korjauksesta), `data-revised="2026-11-13"`.
+Etusivu eroaa mainista vain Cloudflaren sähköpostisuojauksen kahdessa mailto-linkissä ja sen skriptissä.
+`/silent-context/`, `/rooms/`, `/reviewglass/` ja sitemap tavu tavulta samat kuin main. Atlaksen
+`sw-sivusto.STATUS` v24.
+
 ## Sessio 9, päätös (13.11.2026): ketju paketoitu, seuraavaksi `/hometeam/`
 
 **Petrin linja ketjun lopuksi:** "Oikeat mockupit sovelluksesta täytyy saada sivuille, mutta review glass
