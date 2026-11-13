@@ -3,6 +3,63 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 10 (13.11.2026): `/hometeam/`-ketju alkoi, kuvitus ja ensimmäiset tekstit päätetty (kierrokset Y–Z), etusivun HomeTeam-laatikon virhe korjattu
+
+**Alkutarkistus palvelukatkojen päivänä:** session 9 työ meni perille. Avoimia PR:iä ei ole; `main` on
+`e5bc2d2` ja CI vihreä jokaisessa session 9 commitissa. Cloudflare Pages raportoi onnistuneen buildin
+commiteille `975dda7`, `f8ac691` ja `e5bc2d2`. Livestä: `/silent-context/`, `/rooms/`, `/reviewglass/` ja
+sitemap tavu tavulta samat kuin main, `og-reviewglass.jpg` ja `og-rooms.jpg` 200, `data-revised="2026-11-13"`,
+`/hometeam/` 404. Etusivu eroaa mainista vain Cloudflaren sähköpostisuojauksen kahdessa mailto-linkissä ja
+sen skriptissä (jo `BUILD_INFO.next`:ssä). Atlaksen `sw-sivusto.STATUS` v22 löytyi. Työpuissa ei ole
+keskeneräistä: vanhan työpuun kaksi commitia ovat PR #8:n pää, joka on squash-mergattu.
+
+**Kierros Y yhdessä Petrin kanssa** Petrin sanasta "hometeam repossa on paljon mockuppeja, joten käytetään
+niitä kuvituksessa sivulla". Luettu HomeTeamin reposta (`origin/main` `1c98b23`, muuttunut viimeksi
+10.10.2026, joten osan A3 faktat 11.11. pitävät): `mockups/README.md` ja sen 21 mockupin taulukko.
+Kymmenen mockupia kuvattiin 1440 px:n leveydellä, ja valituista vaihtoehdoista leikattiin yhdeksän
+ehdokasnäkymän arkki. Arkki jäi scratchpadiin, koska kolmessa näkymässä on oikeita nimiä (perheen sukunimi
+ja kolmen lapsen etunimet), ja tämä repo on julkinen. Päätökset (`copy-v4-pages.md`, kierros Y):
+
+- **Y.1** pääkuvana lapsen ja aikuisen Tänään rinnakkain, leipätekstin jälkeen Wallet, pistetaulu ja
+  aarresaari; pysäytyskuvat 2x, WebP + PNG.
+- **Y.2** näkymät suomeksi sellaisinaan, jokaisen alla englanninkielinen kuvateksti, ja sivulla rivi siitä,
+  että sovellus on suomeksi.
+- **Y.3** `Hei, Petri!` saa jäädä; sukunimi ja lasten nimet vaihdetaan mockupien omiin nimimerkkeihin
+  kaappauskopiossa repon ulkopuolella. Mikään nimellinen kuva tai lähdetiedosto ei tule repoon.
+- **Y.4** etusivun HomeTeam-laatikon piirros (B.3, 11.11.) vaihtuu lapsen Tänään-näkymään PR F:ssä.
+
+**Päätös:** adr.sws.020 (hyväksytty) sallii HomeTeamille mockup-näkymät ja kirjaa nimisäännön. CLAUDE.md:n
+piirrettyjen instrumenttien sääntö ei enää nimeä HomeTeamia, ja siihen kirjattiin Petrin linja muille
+tuotteille. SEED v4.1.0 (luvut 2.2, 7 ja 8), apps-v3 (HomeTeamin rivi ja B.6b) ja päätösindeksi päivitetty.
+**Seuraavaksi** tekstikierros Z: kuvatekstit, suomen kieli -rivi, miten sivu sanoo näkymien olevan
+suunnitelmia eikä tuotannon kaappauksia, ja fonttien (OFL) ja Fluent Emoji -kuvien (MIT) maininta. BUILD_INFO 5.6.0.
+
+**Kierros Z ja virhe livesivulla.** Ennen tekstikierrosta `/hometeam/`-sivun faktat luettiin HomeTeamin
+koodista eikä vain kuvauksista (`routes.tsx`, `moduleOptions.ts`, `i18n.ts`, `apps/api/src/family/index.ts`,
+BACKLOG, `product.md`, `v1-reference.md`; `app.hometeam.fi` ja `hometeam.fi` 200). Löytyi virhe:
+etusivun HomeTeam-laatikko (3.43, livenä 12.11. alkaen) lupaa ateriat ja kauppalistan, joita ei ole
+rakennettu (`/ruoka` on paikkamerkki, kauppalistalla ei ole sivua, KOORD-2 ja -3 kohdassa "Myöhemmin").
+11.11. tarkistus luki README:n kuvauksen, joka on suunnitelma; LESSONS 13.11.2026. `/hometeam/`-sivun
+tekstiehdotukset HT.1–HT.16 kirjoitettiin osaan E (`HT.n`, koska `H.n` ovat `/silent-context/`-sivun
+kierroksen H päätöksiä), ja faktat kahtena listana: rakennettu ja tuotannossa, ei rakennettu.
+Kierros Z (neljä kysymystä, kaikki suositukset hyväksytty):
+
+- **Z.1** laatikon leipäteksti korjataan heti omalla PR:llä: `A shared Today view for the day's tasks and
+  the family calendar, and an economy ...` (muu teksti ennallaan). Etusivun muu osa odottaa PR F:ää.
+- **Z.2** h1 `The application my family runs the week on. My children voted on how it looks.`
+- **Z.3** ingressi ehdotuksen mukaan (HT.6).
+- **Z.4** pääkuvan kuvateksti `Design mockups, not captures: a child's Today and a parent's, in Finnish
+  as the application is. A capture would show my family's own week.`
+- **Z.5** (kysytty, kun PR #14:n esikatselua katsottiin) laatikon piirros lupasi samaa: alarivi
+  `TASKS · CALENDAR · MEALS · SHOPPING · HOMECOIN` ja tehtävät `Tacos for dinner` ja `Milk, bread, apples`.
+  Korjattu samaan PR:ään: alarivi `TASKS · CALENDAR · WALLET · HOMECOIN`, tehtävät `Take out the rubbish` ja
+  `Make the bed`.
+
+**Sivumuutos:** `index.html`:n HomeTeam-laatikon leipäteksti (Z.1) ja piirroksen alarivi ja kaksi tehtävää (Z.5). Alatunnisteen päivä on jo 2026-11-13,
+joten se ja sitemap pysyvät. Profiilin README (push 24.9.2026) mainitsee HomeTeamin vain perhekartassa
+eikä lupaa aterioita, joten F2 pysyy ennallaan. BUILD_INFO 5.6.1. **Seuraavaksi** kierrokset AA alkaen:
+HT.1–HT.4 ja HT.9–HT.16.
+
 ## Sessio 9, päätös (13.11.2026): ketju paketoitu, seuraavaksi `/hometeam/`
 
 **Petrin linja ketjun lopuksi:** "Oikeat mockupit sovelluksesta täytyy saada sivuille, mutta review glass

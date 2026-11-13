@@ -73,7 +73,8 @@ Checked 11.11.2026 from the hometeam repository (`docs/BUILD_INFO.json`, `prod_s
 - **Sign-in is restricted to allowed addresses** (`ALLOWED_EMAILS`, verified 403 for any other
   address on 29.9.2026), so a visitor cannot use it. `hometeam.fi` is a landing image with
   `noindex`. On the page's scale this is `In use`, not `Live`, exactly as Somnus and Atlas are.
-- What it is: the family's shared Today view (tasks, calendar, meals, shopping list), an economy
+- What it is: the family's shared Today view (tasks, calendar, meals, shopping list; **corrected
+  13.11.2026: meals and the shopping list are not built**, see section E), an economy
   each family sets for itself (HomeCoin or euro, weekly allowance, loan, rewards, savings goal) and
   an optional game layer. Adults sign in with an email code; children use nickname profiles on
   devices an adult has paired. Installable web app. Changes appear on the other devices at once.
@@ -84,7 +85,7 @@ Checked 11.11.2026 from the hometeam repository (`docs/BUILD_INFO.json`, `prod_s
 | 3.40 | Year | `2026 →` | decided 11.11.2026 |
 | 3.41 | Name and status | `HomeTeam` · `in use · my own family` | decided 11.11.2026 |
 | 3.42 | One-line description | `The application my family runs the week on.` | decided 11.11.2026 |
-| 3.43 | Body | `A shared Today view for tasks, the calendar, meals and the shopping list, and an economy each family sets for itself: HomeCoin or euros, a weekly allowance, a loan, rewards, a savings goal. Adults sign in with a code sent to their address; children use nickname profiles on devices an adult has paired. A change appears on the other devices at once.` | decided 11.11.2026 |
+| 3.43 | Body | `A shared Today view for the day's tasks and the family calendar, and an economy each family sets for itself: HomeCoin or euros, a weekly allowance, a loan, rewards, a savings goal. Adults sign in with a code sent to their address; children use nickname profiles on devices an adult has paired. A change appears on the other devices at once.` | decided 11.11.2026; amended 13.11.2026 (Z.1): meals and the shopping list are not built, so they left the text |
 | 3.44 | Three facts | `Installable, works on every device` · `Children sign in without an address` · `The family's data stays in the EU` | decided 11.11.2026 |
 | 3.45 | Link | none. The application is behind a list of allowed addresses, and `hometeam.fi` is a landing image | decided 11.11.2026 |
 | 3.46 | Image | A **drawn instrument** in the §03 style (the Today view with its coins), as with ReviewGlass and Somnus. No real family data, nothing to keep up to date, and the rule allows it where the product has no public surface | decided 11.11.2026 |
@@ -381,11 +382,80 @@ the ADR files), the GitHub API and Atlas `reviewglass.STATUS` v38 (12.11.2026):
 
 ## E. `/hometeam/` (PR F)
 
-- **Status line:** `In use · my own family · 2026 →`.
-- **Lead medium:** open, the same question as item 3.46.
-- **Body:** from the facts under A3, plus what the page can say about why it exists: it was built
-  for one family and it runs that family's week.
-- **Evidence:** none public. The page says so rather than linking a door the reader cannot open.
+Skeleton as SEED v4.1.0 section 2.1, the frame of `/reviewglass/`. The items are numbered `HT.n` (not `H.n`,
+which would read as round H of `/silent-context/`). The rounds for this page are Y onwards, then
+AA, AB and so on.
+
+**Checked on 13.11.2026**, in this session and not from memory, from the hometeam repository's
+`origin/main` `1c98b23` (last changed 10.10.2026): `docs/BUILD_INFO.json` (`prod_state`, verified
+10.10.2026), `docs/product.md`, `docs/v1-reference.md`, `docs/BACKLOG.md`, `docs/architecture.md`,
+`mockups/README.md`, and the code (`apps/web/src/routes.tsx`, `moduleOptions.ts`, `i18n.ts`,
+`apps/api/src/family/index.ts`); the hosts `app.hometeam.fi` and `hometeam.fi` answer 200.
+
+- **In production** at `app.hometeam.fi` since 29.9.2026, the current build deployed 10.10.2026 by
+  Petri's decision. Only allowed addresses can sign in (`ALLOWED_EMAILS`). Private repository.
+- **Built and in production:** sign-in with an email code, the family's guided set-up, a second
+  adult by invitation or QR code, a child's phone paired by QR code (nickname, avatar, colour, no
+  PIN); tasks with a weekly rhythm and flexible turns, a child's own task, the child's Today as large
+  cards (a tap and a confirmation, two taps); Wallet with HomeCoins that carry a euro value or plain
+  euros (chosen at set-up), withdrawal to euros, a loan paid back from half of the earnings, rewards,
+  a weekly allowance, a savings goal, extra work; the adult's "waiting for you"; changes on the other
+  devices at once; Web Push notifications; 13 themes and two shells (Kliini and Comic); the calendar
+  with week numbers, repeats, reminders and a child's entry waiting for an adult's approval
+  (6.10.2026); the electricity price card (6.10.2026); the amusement park with the wheel, once a day
+  (6.10.2026); the weekly scoreboard with the adults' work (8.10.2026); the treasure island
+  (8.10.2026); the bridge: a parent's message to the children from ready-made blocks, mood and the
+  family's mood map (8.10.2026).
+- **Not built:** meals and the shopping list. `/ruoka` is a "coming soon" placeholder in the router,
+  the shopping list has a module switch but no page, and both are in the backlog under "later"
+  (KOORD-2, KOORD-3). **The front page's drawer (3.43, live since 12.11.2026) named both**: the A3
+  check of 11.11. read the product description, which is the plan, and not what is built.
+  Corrected the same day in its own pull request (Z.1; LESSONS 13.11.2026).
+- **Why it exists** (`product.md`, `v1-reference.md`): an earlier version, V1, ran the family's
+  tasks, wallet and calendar until 24.9.2026, when it was taken down because it was open without
+  sign-in. What V1 taught: the children lost interest in collecting coins after about two months, so
+  V2 rests on what keeps its value (real money, a shared goal, content that changes, being useful
+  beyond points); small lists and icons and a muddled structure made V1 heavy to use, so V2 caps a
+  routine entry at two taps and every interface change starts as a mockup. The first nine mockups
+  went to the family as clickable prototypes on their own phones (27.9.2026), and every member
+  answered, the children included; later mockups were decided by Petri.
+- **Data:** the directory database and each family's room are in the EU jurisdiction.
+
+### HT.1 to HT.7, the head and the title block
+
+| # | Where | Proposal | State |
+|---|---|---|---|
+| HT.1 | `<title>` and `og:title` | `HomeTeam: the application my family runs the week on · Petri Korhonen` | draft |
+| HT.2 | `description` and `og:description` | `A family application I built for my own family: the day's tasks and the calendar in one Today view, and children's money that works like money, with a weekly allowance, a loan and a savings goal. In use since September 2026.` | draft |
+| HT.3 | `og:image` and its alt | an image of its own in the build of the other pages (the subject mark and the h1 on the dawn sky); alt the h1 | draft |
+| HT.4 | Subject mark (mono) | `HomeTeam · my own family` | draft |
+| HT.5 | h1 | `The application my family runs the week on. My children voted on how it looks.` | decided 13.11.2026 (Z.2) |
+| HT.6 | Lede | `HomeTeam keeps my family's week in one place. The children see what needs doing today and what it earns them, the adults see the whole week, and the children's money works like money: a weekly allowance, a loan to pay back, a goal to save for. I built it for my own family, and the family tried the first designs on their own phones and voted on them.` | decided 13.11.2026 (Z.3) |
+| HT.7 | Status line | `In use · my own family · 2026 →`, as the drawer | decided 11.11.2026 (B.1) |
+
+### HT.8, the lead medium
+
+| # | Where | Proposal | State |
+|---|---|---|---|
+| HT.8 | The lead medium | (Y.1) the child's Today and the adult's Today side by side, cut from mockup 011 (Comic). Mono caption: `Design mockups, not captures: a child's Today and a parent's, in Finnish as the application is. A capture would show my family's own week.` Alt, child: `A phone screen in a comic style: a greeting, a progress bar and six task cards on coloured notes, each with its coin value.` Alt, adult: `A phone screen in the same style: the children's progress as three cards and the day's tasks with their check marks.` | decided 13.11.2026 (Z.4) |
+
+### HT.9 to HT.12, the body
+
+| # | Heading | Proposal | State |
+|---|---|---|---|
+| HT.9 | `What it does` | `Today is the first screen. A child sees the day's tasks as large cards: a tap and a confirmation mark one done, and its coins go straight to the child's wallet. A parent sees how far each child has got and what is waiting for an adult. The calendar holds the family's week with week numbers, and an entry a child adds waits for a parent's approval.` ¶ `Each family sets its own economy: coins with a euro value or plain euros, a weekly allowance, a loan paid back from earnings, rewards to save for and a savings goal. On top sits a game layer the family can switch on: a weekly scoreboard where the adults' housework counts too, a treasure island that rises from the sand as tasks get done, and a wheel to spin once a day.` | draft |
+| HT.10 | `Why it exists` | `HomeTeam replaced an earlier version my family used. Two lessons from it shaped this one. The children lost interest in collecting points after about two months, so this version rests on things that keep their value: real money, a shared goal and content that changes. And small lists and icons made the old one heavy to use, so here a routine task takes two taps, and every screen starts as a mockup.` ¶ `The first designs went to the family as clickable prototypes on their own phones, and everyone voted, the children included.` | draft |
+| HT.11 | `Where it stands` | `In use by my family since 29 September 2026. Only the addresses I have allowed can sign in, so there is no public way in, and the code is in a private repository. The family's data is kept in the EU. The application is in Finnish.` | draft |
+| HT.12 | The row of three (Y.1), a mono caption under each | Wallet (005): `Wallet: the balance in coins and euros, a savings goal, every coin in and out.` Scoreboard (019): `The week's scoreboard: the whole family on one podium, the adults included.` Treasure island (020): `The treasure island: a chest rises from the sand as the tasks get done.` Alts describe each screen | draft |
+
+### HT.13 to HT.16, evidence, structured data, credits and the front page
+
+| # | Where | Proposal | State |
+|---|---|---|---|
+| HT.13 | Evidence block | No link. One line in the block's place: `No public link: the application admits only my family's addresses, and its code is private.` | draft |
+| HT.14 | JSON-LD | a `WebPage` with `isPartOf` the WebSite, and nothing else: HomeTeam gets no `SoftwareApplication` (C.3), as no reader can open it | draft |
+| HT.15 | The front page | the drawer gains a link `How my family uses it →` to `/hometeam/`, in the words of `How the glass works →`; its drawing becomes screen 1 (Y.4) with the caption `hometeam · a child's today, a design mockup`; its body (3.43) already corrected on 13.11.2026 in its own pull request (Z.1) | draft |
+| HT.16 | Credits | one mono line under the row of three: `Typefaces in the mockups: Bangers, Gochi Hand, Patrick Hand (SIL Open Font License). 3D images: Microsoft Fluent Emoji (MIT).` | draft |
 
 ---
 
@@ -778,3 +848,52 @@ ReviewGlass it has to be built some other way than a screen capture, because the
 one: the glass, its halo and the finder exclude themselves from capture (`WDA_EXCLUDEFROMCAPTURE`, so
 the glass never captures itself), and only the dock and its drawer are visible to it (ReviewGlass
 adr.rg.025). RG.8's drawing stays until that mockup exists; how it is made is decided with Petri.
+
+### Round Y, `/hometeam/`: the mockups as its images (13.11.2026)
+
+Petri opened the `/hometeam/` thread on 13.11.2026: the hometeam repository holds many mockups, so they
+illustrate the page. Read in the session from the hometeam repository (`origin/main` `1c98b23`, last
+changed 10.10.2026, so the facts under A3, checked 11.11., still hold): `mockups/README.md` and its
+table of 21 mockups, each a self-contained page with the options A, B, C and the one Petri chose. Ten
+were rendered at 1440 px and nine candidate screens cut from the chosen options into a contact sheet
+(kept outside the repository, because some screens carry real names): 1 the child's Today (Comic,
+011), 2 the adult's Today (Comic, 011), 3 Wallet (005), 4 the weekly scoreboard (019), 5 the treasure
+island (020), 6 mood and the family map (021), 7 the amusement park (012), 8 the electricity card
+(013), 9 the living HomeCoin (018).
+
+Found before the round: the screens are in Finnish and the site is in English; screens 1, 2 and 8
+carry `Hei, Petri!`, the family's surname and three children's first names, while the others use
+nicknames (Kettu, Pöllö, Panda, Äiti, Isä); a mockup is the plan the application was built from, not
+a capture of production (mood moved behind the settings on 8.10.2026, hometeam PR #35, after
+mockup 021 was drawn).
+
+| # | Question | Decision |
+|---|---|---|
+| Y.1 | Which screens, in what form | **The pair and a row of three**: the lead is the child's and the adult's Today side by side (1, 2); after the body, a row of Wallet, the weekly scoreboard and the treasure island (3, 4, 5). Stills cut from the chosen options at 2x, WebP with a PNG fallback |
+| Y.2 | The language of the screens | **Finnish as they are, an English caption under each**, and one line on the page saying the application is in Finnish. Nothing staged |
+| Y.3 | Names in the screens | **`Hei, Petri!` may stay**, as the name is already on the page. The family's surname and every child's name become the mockups' own nicknames in the copy that is captured (screen 1 `HEI, KETTU!`, screen 2 the children's tiles and `Vuorossa` line in nicknames, the surname line gone or a nickname). No screen or source file with a surname or a child's name enters this repository, which is public |
+| Y.4 | The front page's drawer (3.46, B.3) | **The mockup replaces the drawing**: the drawer shows screen 1 in PR F, together with the page. adr.sws.020 records the rule's change |
+
+**For the build:** the captures are taken from a copy of the mockup files outside this repository,
+with the names replaced (Y.3) and the chosen option set, at 2x; `source-assets/` gets the name-free
+captures only. **For the copy round (Z):** the captions' words (Y.2), the line saying the application
+is in Finnish, and how the page says that these are the design mockups the application was built
+from rather than captures of production; the fonts (OFL) and the 3D images (Microsoft Fluent Emoji,
+MIT) in the screens, and whether the page credits them.
+
+### Round Z, `/hometeam/`: the front page's error, the h1, the lede and the lead caption (13.11.2026)
+
+Before the round, the facts of section E were read from the hometeam repository and its code. The
+drawer's body (3.43, live since 12.11.2026) names meals and the shopping list, which are not built:
+`/ruoka` is a "coming soon" placeholder and the shopping list has a module switch but no page
+(KOORD-2 and KOORD-3 under "later").
+
+| # | Question | Decision |
+|---|---|---|
+| Z.1 | The drawer's body (3.43) | **Corrected at once, in its own pull request**: `A shared Today view for the day's tasks and the family calendar, and an economy each family sets for itself: HomeCoin or euros, a weekly allowance, a loan, rewards, a savings goal. Adults sign in with a code sent to their address; children use nickname profiles on devices an adult has paired. A change appears on the other devices at once.` The rest of the drawer waits for PR F |
+| Z.2 | The h1 (HT.5) | **As proposed**: `The application my family runs the week on. My children voted on how it looks.` |
+| Z.3 | The lede (HT.6) | **As proposed** |
+| Z.4 | The lead caption (HT.8) | **As proposed**: `Design mockups, not captures: a child's Today and a parent's, in Finnish as the application is. A capture would show my family's own week.`, in the shape of `/reviewglass/`'s `A drawing, not a capture` |
+| Z.5 | The drawing in the drawer (asked while checking the preview of Z.1) | **Corrected in the same pull request**: its footer `TASKS · CALENDAR · MEALS · SHOPPING · HOMECOIN` becomes `TASKS · CALENDAR · WALLET · HOMECOIN`, and the tasks `Tacos for dinner` and `Milk, bread, apples` become `Take out the rubbish` and `Make the bed`. The drawing gives way to the mockup in PR F (Y.4) |
+
+Open for the next rounds (AA onwards): HT.1 to HT.4, HT.9 to HT.16.
