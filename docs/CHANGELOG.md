@@ -3,6 +3,35 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 9, jatko 2 (13.11.2026): `/reviewglass/`-sivun tekstit päätetty (kierrokset S–W, ei sivumuutosta)
+
+**Tehty yhdessä Petrin kanssa** viidellä laatikkokierroksella (S–W, 18 kysymystä), kohdat RG.1–RG.15
+`copy-v4-pages.md`:n osassa D. Sivua ei rakennettu. Kierros R jätettiin väliin, koska R.n ovat
+`/rooms/`-sivun kohtia, ja kohdat ovat RG.n eivätkä G.n, joka sekoittuisi silent-contextin kierrokseen G.
+
+**Päätetty.** Isot linjat ensin (S): sivu tehdään nyt, koska **Petrin mukaan nimi ReviewGlass on ja pysyy**,
+ja ReviewGlassin repon merkintä nimen avoimuudesta (adr.rg.008 *proposed*, NAME-CLEARANCE, README:n
+"gated on the name") oli vanha; AvoQ:ta ei mainita (K.4). Petrin pyynnöstä päätös kirjattiin samana
+päivänä myös ReviewGlassiin ja Atlakseen: adr.rg.008 hyväksytty mallissa (Atlas #673, `a757696`,
+molemmat workerit deployattu) ja ReviewGlassin README, CLAUDE.md, BUILD_INFO ja NAME-CLEARANCE
+korjattu (`2654ab4`); spec seuraa versiossa 0.5. Claude Code nimetään ja README:n
+riippumattomuuslause sanotaan. Päämedia on §03:n piirros suurennettuna. **Etusivun laatikon fakta
+`Nothing leaves the machine` oli epätosi**, kun Explainin etäversio on päällä, ja se korjataan sivun
+mukana muotoon `Screen pixels never leave the machine` (RG.15). Otsikko on "A glass for reading what the
+AI agent writes, while it is writing." Runko: What it does, What it keeps, and what it does not, Where it
+stands. Todisteena repo, etusivulle laatikkoon linkki `How the glass works →`, rakenteinen data
+WebPage ja SoftwareSourceCode (myös etusivulle).
+
+**Korjattu kesken kierroksen:** merkitsin statusrivin (RG.7) päätetyksi kierroksella S, vaikka sitä ei
+ollut kysytty; palautin sen luonnokseksi ja kysyin kierroksella U ennen kuin mitään rakennettiin.
+
+**Tarkistettu tässä sessiossa:** ReviewGlassin repo `origin/main` (`45609db`): README, BUILD_INFO
+(sessio 10, 12.11.), CHANGELOG (172 testiä), ADR:t 001–036 (otsikot ja 006, 007, 024 päätösosat),
+NAME-CLEARANCE; GitHubin API (julkinen, Apache-2.0, ei julkaisuja eikä tageja, kielet); Atlas
+`reviewglass.STATUS` v38; etusivun piirroksen koodi (mitä aria-label kuvaa). **Ristiriita kirjattu:**
+repon README sanoo repon julkiseksi 17.9.2026, tämän sivuston LESSONS 18.9. illalla; sivu ei tarvitse
+päivää. `node scripts/check-site.mjs` vihreä. SEED v4.1.0:n 2.2, 4 ja 8 päivitetty. BUILD_INFO 5.4.2.
+
 ## Sessio 9, jatko (13.11.2026): `/rooms/`-sivu ja sen mediat (kierrokset P ja Q, PR D)
 
 **Tehty yhdessä Petrin kanssa** kahdella laatikkokierroksella (P, neljä kysymystä, vertailukuvana

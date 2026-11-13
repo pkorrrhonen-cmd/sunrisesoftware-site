@@ -110,7 +110,7 @@ A sub-page carries no hero statistics, no generic adjectives, and no product ver
 | Page | Subject | Lead medium | Evidence it links to |
 |---|---|---|---|
 | `/rooms/` | The Atlas decision rooms, told with the names the field uses; **copy decided 13.11.2026** (rounds K to O, R.1 to R.15), media round P, **built 13.11.2026 (PR D)**, round Q | `media/rooms-en.mp4` (16:9) copied from `sf3d-ai-lab/media/publish/rooms/`, with its 9:16 cut where the layout is narrow, and the lab's `rooms-en.vtt` as its captions | the sf3d.fi articles `the-room-that-disagreed` and `decision-rooms-in-a-minute` (13.11.2026, K.3: `blind-to-anything-taken-away` is a Somnus article and had come into this list by its title; `why-i-built-atlas` waits for Atlas's own page) |
-| `/reviewglass/` | What the glass does during an AI-assisted coding session | the ReviewGlass canvas instrument from §03, enlarged; a capture when one exists | `github.com/Sunrisesoftware-app/reviewglass` (Apache-2.0) |
+| `/reviewglass/` | What the glass does during an AI-assisted coding session; **copy decided 13.11.2026** (rounds S to W, RG.1 to RG.15) | the ReviewGlass canvas instrument from §03, enlarged; a capture when one exists | `github.com/Sunrisesoftware-app/reviewglass` (Apache-2.0) |
 | `/silent-context/` | Silent context and the Since AI 2026 result; **built 13.11.2026 (PR C)** | `media/silent-context-916.mp4`, the vertical cut re-encoded to 720x1280 | `github.com/pkorrrhonen-cmd/silent-context`, tag `submission`; the hosted demo `silent-context.pkorrrhonen.workers.dev` (decided 12.11.2026) |
 | `/hometeam/` | The family application in production | the real capture, read from the hometeam repository first | `app.hometeam.fi` |
 
@@ -266,7 +266,7 @@ The front page's copy is decided item by item in **`docs/design/copy-v3.md`**, w
 | §05 Approach | `How the work gets done.`, three rules, the creed, method | copy-v3 5.1 to 5.11 |
 | §06 and footer | `Let's talk.`, body, email, link list, footer | copy-v3 6.1 to 6.8 |
 | `/rooms/` | mark, h1, lede, status, video caption, body sections, evidence list, the Atlas plate's button | copy-v4-pages R.1 to R.15 |
-| `/reviewglass/` | the same shape | copy-v4-pages G.1 to G.n |
+| `/reviewglass/` | the same shape, and the drawer's link and fact | copy-v4-pages RG.1 to RG.15 |
 | `/silent-context/` | the same shape | copy-v4-pages SC.1 to SC.14 |
 | `/hometeam/` | the same shape | copy-v4-pages H.1 to H.n |
 | Shipped with the site | OG title and description per page | copy-v4-pages 7.1 to 7.n |
@@ -380,7 +380,7 @@ The order is the order of the decisions taken on 11.11.2026, and nothing that to
 
 1. **Done 11.11.2026, PR A, no page change:** `404.html`, `favicon.ico` and the four PNG icons from `scripts/icons.py`, `site.webmanifest`, the `_headers` rules for them, `sitemap.xml` `lastmod`, the repaired version guard with its self-test, and the two new checks in `check-site.mjs`.
 2. **Read before any copy is written:** the `hometeam` repository's README and BUILD_INFO for the drawer and its page, the live SpectralForge beta gate (A7), and the profile README against the page (A10, the session routine).
-3. **`docs/design/copy-v4-pages.md`**: every new text as a numbered item, decided with Petri through decision boxes, four a round. The front page's items were decided 11.11.2026 (rounds A to C); `/silent-context/` was decided 12.11.2026 (rounds E to H, items SC.1 to SC.14); `/rooms/` 13.11.2026 (rounds K to O, items R.1 to R.15).
+3. **`docs/design/copy-v4-pages.md`**: every new text as a numbered item, decided with Petri through decision boxes, four a round. The front page's items were decided 11.11.2026 (rounds A to C); `/silent-context/` was decided 12.11.2026 (rounds E to H, items SC.1 to SC.14); `/rooms/` 13.11.2026 (rounds K to O, items R.1 to R.15); `/reviewglass/` 13.11.2026 (rounds S to W, items RG.1 to RG.15).
 4. **The media**: done 13.11.2026 for `/silent-context/` (the video, its poster, the share image). Done 13.11.2026 for `/rooms/` (round P: the two cuts and their captions copied, two posters, the share image). Still to do: take the HomeTeam capture; generate an OG image per sub-page.
 5. **Built 12.11.2026, PR B, the page**: §04 Recent with the two entries, the HomeTeam drawer, the nav's Recent link, the icon links and `max-image-preview` in `<head>`, `og:image:alt`, and the structured data of adr.sws.019. Checked on the preview URL at desktop and phone width before merging.
 6. **PR C and after, one sub-page at a time**: `/silent-context/` built 13.11.2026 (PR C, with the front page's entry 1 pill), `/rooms/` built 13.11.2026 (PR D, with the Atlas plate's button), then `/reviewglass/`, `/hometeam/`, each with its sitemap entry and its own `check-site` pass.
