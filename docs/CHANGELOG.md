@@ -17,6 +17,16 @@ Workers API -häiriö alkoi 15:31Z (tilasivu: korjaus asennettu 15:42Z). Kello 1
 healthy upstream". Live jäi edelliseen revisioon ehjänä: etusivu ei linkittänyt uuteen sivuun, eikä
 sitemap nimennyt sitä. Tämä kirjaus mainiin käynnistää uuden tuotantobuildin samalle sisällölle.
 
+**Deploy:** kirjauscommitin `975dda7` build (`3ae502fd`) jäi ensin jonoon jumiutuneen buildin taakse ja vei
+sivun tuotantoon 16:30Z; `d3236b51` ei valmistunut koskaan. Livestä todennettu 16:30Z alkaen: `/reviewglass/`
+200 ja tavu tavulta sama kuin main, kanoninen osoite, `og:image`, `data-revised="2026-11-13"`, JSON-LD
+WebPage ja SoftwareSourceCode; `images/og-reviewglass.jpg` `image/jpeg` ja sama; sitemap neljällä
+osoitteella ja sama; `/rooms/` ja `/silent-context/` samat; tuntematon osoite 404. Etusivulla linkki
+`How the glass works →`, fakta `Screen pixels never leave the machine` (vanha poissa) ja `#reviewglass`
+rakenteisessa datassa; etusivu eroaa mainista vain Cloudflaren sähköpostisuojauksen kahdessa
+mailto-linkissä ja sen skriptissä, jotka ovat jo `BUILD_INFO.next`:ssä. Lasin liikettä ei nähty
+selaimessa, koska selainpaneeli oli piilossa; se jää Petrin silmälle. Atlaksen `sw-sivusto.STATUS` v21.
+
 **Sivu.** `reviewglass/index.html` rakennettu kohdista RG.1–RG.14 sanasta sanaan `/rooms/`-sivun
 kehyksellä. Rakennusskripti luki tekstit `copy-v4-pages.md`:n osasta D ja pysähtyi, jos jokin rivi ei
 ollut päätetty. Päämediana on etusivun §03-piirros 16:9-kehyksessä sarakkeen levyisenä, piirrettynä
