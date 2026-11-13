@@ -3,6 +3,56 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 8 (13.11.2026): `/silent-context/`, sivuston ensimmäinen alasivu, ja sen mediat (PR C)
+
+**Tehty yhdessä Petrin kanssa** kahdella laatikkokierroksella (I ja J, `copy-v4-pages.md`).
+
+**Mediat (kierros I).** Since AI -pystyvideo koodattiin uudelleen ffmpegillä: `media/silent-context-916.mp4`,
+720x1280, H.264 High 3.1, CRF 25, BT.709, AAC 128 kb/s, faststart, 5,55 MB (lähde 1080x1920, 15,7 MB).
+Videon pieni mono-teksti tarkistettiin luettavaksi tässä koossa. Posteri on avausruutu 1,5 sekunnin
+kohdalta (oma kuva Turun salista videon otsikon alla), ei loppukortti eikä karttakohtaus. Jakokuva
+`images/og-silent-context.jpg` (1200x630) on aiheleima ja otsikko aamutaivaalla `og-cover.jpg`:n
+rakenteella, nyt sivuston omilla fonteilla (etusivun kuva tehtiin 18.9. Bahnschrift-sijaisfontilla);
+lähde `docs/mockups/og-silent-context.html`. Pystyvideolle 9:16-kehys kaikilla leveyksillä, ja etusivun
+merkintä 1 saa vain pillerin, ei pikkukuvaa.
+
+**Sivu.** `silent-context/index.html` rakennettu kohdista SC.1–SC.14 sanasta sanaan: kehys etusivulta
+(paletti, taivas, navi, paljastukset, lukuvalo, ranta), otsikkolohko, video posterineen, neljä runko-osiota,
+todisteet (koodi ja demo) ja rakenteinen data (WebPage, SoftwareSourceCode, VideoObject). Todisteiden
+osoitteista jätettiin pois nuolet, joita päätetyssä tekstissä SC.13 ei ole. Etusivulle merkinnän 1 pilleri
+`Read the whole thing ↗` ja sama `SoftwareSourceCode`-entiteetti. Alaviitteet, sitemap (nyt kaksi
+osoitetta) ja `BUILD_INFO.updated` 2026-11-13. BUILD_INFO 5.3.0.
+
+**Päätetty rakentaessa (kierros J), kaikki kuten rakennettu:** rannalla vain vesi, takaisin-pilleri ja
+alaviite (ei yhteystietolohkoa); sarake vasemmassa reunassa sanamerkin linjassa, ja puhelimella alle
+420 px navissa pelkkä aurinkomerkki, koska sanamerkki ja takaisin-linkki eivät mahdu samalle riville;
+statusrivin pallo aurinko, koska rivi on tulos eikä tuoteasteikon sana; VideoObjectin nimi videon oma
+otsikko "What I built at Since AI" ja `uploadDate` 2026-11-13.
+
+**SEED v4.1.0:** luku 3.6 kapeni viidessä kohdassa (pystyvideon kehys, §04:n posteri vain 16:9-videolle,
+tuloksen aurinkopallo, alasivun navi puhelimella, alasivun ranta), 5.2 ja 5.8 päivitetty. v4.0.0
+arkistoon. CLAUDE.md ja README osoittavat uuteen versioon; README:n tilaosio oli jäänyt 11.11. tilaan
+("V6 is specified and not built") ja korjattiin.
+
+**`check-site.mjs` tarkistaa nyt jokaisen sivun, jonka sitemap nimeää:** paikalliset tiedostot sivun
+omasta hakemistosta tai juuresta, head, kanoninen osoite sivun omaan osoitteeseen, JSON-LD jäsentyy,
+ajatusviivat, versionumerot, kielletyt merkkijonot, alaviitteen päivä sivun omaa `lastmod`ia vasten.
+Gate kaatuu, jos levyllä on alasivu jota sitemap ei nimeä, jos etusivu ei linkitä alasivua tai jos
+alasivulta puuttuu takaisin-painike. Kokeiltu rikottuun kopioon: viisi istutettua vikaa, viisi
+kiinni. `--links` kysyy GETillä, kun palvelin kieltää HEADin (demo vastaa HEADiin 405).
+
+**Tarkistettu tässä sessiossa:** `pkorrrhonen-cmd/silent-context` GitHubin API:sta (julkinen, MIT,
+Python, tagi `submission` osoittaa `f36d5b1`:hen, README:n testiluvut 160, 13/13, 1/16 ja toistot
+0, 0, 0, 1, 1), demo (GET 200, `/health` ok), lähdevideo ja koodattu video ffprobella, video
+toistuu selaimessa 720x1280, `node scripts/check-site.mjs --links` (11 ulkoista linkkiä 200).
+Profiili-README (`github.com/pkorrrhonen-cmd`) tarkistettu sivua vasten: ennallaan 24.9. jälkeen, eikä
+mainitse Silent contextia eikä Since AI:ta, joten ero F6 on nyt README:n puolella (`copy-v4-pages.md` osa F).
+Paikallisesti 1440 px ja 375 px: ei vaakavieritystä (scrollWidth 375), ei konsolivirheitä, fontit
+latautuvat, JSON-LD kolme entiteettiä alasivulla.
+
+**Ei vielä:** PR C:n preview ja merge; jos merge siirtyy toiselle päivälle, `uploadDate`, alaviitteet,
+sitemap ja `BUILD_INFO.updated` siirretään sille päivälle.
+
 ## Sessio 7 (12.11.2026): PR B, ensimmäinen V6-muutos etusivulle
 
 **Tehty yhdessä Petrin kanssa** tekstien pohjalta, jotka päätettiin 11.11. (`docs/design/copy-v4-pages.md`):

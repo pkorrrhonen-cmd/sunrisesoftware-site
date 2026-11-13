@@ -125,6 +125,16 @@
       "author": { "@id": "https://sunrisesoftware.app/#petri" }
     },
     {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://sunrisesoftware.app/#silent-context",
+      "name": "Silent context",
+      "description": "An agent that knows where its advice came from.",
+      "codeRepository": "https://github.com/pkorrrhonen-cmd/silent-context",
+      "license": "https://opensource.org/license/mit",
+      "programmingLanguage": "Python",
+      "author": { "@id": "https://sunrisesoftware.app/#petri" }
+    },
+    {
       "@type": "Person",
       "@id": "https://sunrisesoftware.app/#petri",
       "name": "Petri Korhonen",
@@ -341,6 +351,8 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
 .entry .when{font:12px var(--mono);letter-spacing:.06em;color:var(--text-meta);padding-top:9px}
 .entry h3{font-size:clamp(22px,2.4vw,30px);line-height:1.12;margin:0 0 10px}
 .entry p{max-width:62ch;color:var(--text-2);font-weight:300;font-size:15.5px}
+.entry .pill{display:inline-block;margin-top:16px;text-decoration:none;background:var(--paper);color:var(--text);font:500 12px var(--sans);padding:8px 13px;border-radius:999px;box-shadow:0 12px 26px -14px rgba(0,0,0,.45),0 0 0 1px var(--rule);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.entry .pill:hover{transform:translateY(-2px);box-shadow:0 16px 30px -14px rgba(0,0,0,.5),0 0 0 1px var(--rule-strong)}
 @media(max-width:900px){.entry{grid-template-columns:1fr;gap:6px}.entry .when{padding-top:0}}
 
 #peek .cap{position:absolute;left:12px;bottom:10px;font:500 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-2);background:rgba(255,253,249,.86);padding:4px 8px;border-radius:3px}
@@ -710,6 +722,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
         <div class="what">
           <h3>Third of fifteen at Since AI 2026</h3>
           <p>Elisa's challenge in Turku, built alone over three days with AI tools. Silent context reads a maintenance conversation and binds every claim to the words it came from, with two clocks on each one, so you can ask what was known at any moment. The code is public.</p>
+          <a class="pill" href="/silent-context/">Read the whole thing ↗</a>
         </div>
       </li>
       <li class="entry" data-reveal>
@@ -816,7 +829,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
         <a href="https://github.com/pkorrrhonen-cmd" rel="me">GitHub<small>github.com/pkorrrhonen-cmd ↗</small></a>
       </div>
     </div>
-    <div class="foot"><span>Sunrise Software Oy · Tampere, Finland</span><span>Est. 2024</span><span data-revised="2026-11-12">Revised 12 Nov 2026</span></div>
+    <div class="foot"><span>Sunrise Software Oy · Tampere, Finland</span><span>Est. 2024</span><span data-revised="2026-11-13">Revised 13 Nov 2026</span></div>
   </div>
 </section>
 

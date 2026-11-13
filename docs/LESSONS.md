@@ -2,6 +2,21 @@
 
 Opitut virheet ja estosäännöt, jotta niitä ei toisteta. Uusin ensin.
 
+## 13.11.2026: päätön selain ei kaappaa puhelinleveyttä
+
+**Mitä tapahtui:** `docs/mockups/shoot.py` ajettiin `/silent-context/`-sivulle leveydellä 390. Kuvassa
+leipäteksti ja navin takaisin-linkki leikkautuivat oikeasta reunasta, eli sivulla näytti olevan
+vaakavieritys. Selainpaneelissa laitteen emuloinnilla 375 px:n leveydellä sivu oli kunnossa:
+`scrollWidth` 375, mikään elementti ei ylittänyt reunaa. Päätön Edge piirsi sivun leveämpään ikkunaan
+kuin pyydettiin ja rajasi kuvan 390 pikseliin, joten kuva näytti vian, jota ei ollut. Toisin päin sama
+työkalu voi peittää oikean vian, ja sillä on otettu kaikki aiemmat `*-phone.png`-kuvat.
+
+**Estosääntö:**
+- Puhelinleveys tarkistetaan selainpaneelissa laitteen emuloinnilla (375 px) ja mittaamalla
+  `document.documentElement.scrollWidth`, ei `shoot.py`:n kapealla kuvalla.
+- `shoot.py` kelpaa työpöytäleveyden koko sivun kuviin; puhelinkuvat kootaan paneelin
+  kuvakaappauksista.
+
 ## 12.11.2026: Atlaksen kuvaus repon sisällöstä ei ole repon tarkistus
 
 **Mitä tapahtui:** 11.11. kirjoitin `copy-v4-pages.md`:n `/silent-context/`-runkoon todisteeksi
