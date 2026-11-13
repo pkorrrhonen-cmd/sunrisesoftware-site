@@ -3,6 +3,55 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 9 (13.11.2026): `/rooms/`-sivun tekstit päätetty (kierrokset K–O, ei sivumuutosta)
+
+**Tehty yhdessä Petrin kanssa** viidellä laatikkokierroksella (K–O, 19 kysymystä), kohdat R.1–R.15
+`copy-v4-pages.md`:n osassa C. Sivua ei rakennettu: se tehdään yhdessä, kun mediat ovat valmiit.
+
+**Päätetty.** Otsikko on "Before I settle how my software is built, I ask a panel of AI models for a
+second opinion." Ensimmäinen luonnos ("Before AI builds something hard to undo, ...") hylättiin (K.1):
+sivu ei saa näyttää siltä, että rakentaminen on tekoälyn, vaikka koodin kirjoittaakin malli, koska työ
+tehdään rakenteen varassa, ja tekstin on oltava helppotajuinen. Petrin suunta oli paneeli, jossa kaksi
+eri malliperheen agenttia ja kaksi tuomarimallia antavat toisen mielipiteen; "settle" eikä "decide",
+koska huone tarkistaa jo tehdyn valinnan sokkona ja erimielisyydessä päätän uudelleen. Ingressi kertoo
+paneelin ensin ja sanoo lopuksi, että Atlaksessa paneelia kutsutaan huoneeksi. Statusrivi
+`In use · 2026 →` kuten etusivun Atlas-laatassa. Runko: How a room is built (alan nimet selkeän lauseen
+perässä, Clef sanottuna koekäytössä olevaksi), The room in the video (huone R-G, työpenkki nimeämättä),
+The challenger (paholaisen asianajaja ja dialektinen inkvisitio lähteineen ja Nemethin varoitus), What
+the record shows, and what it cannot (luvut, ensimmäisen ennakkorekisteröidyn testin raja, tiukempi
+testi, tuomarin lempeys; luvut luetaan uudelleen rakennuspäivänä). Video näytetään sellaisenaan, ääni
+sanotaan generoiduksi ilman työkalun nimeä, ja tekstitys on labran `rooms-en.vtt` sellaisenaan.
+Todisteina kaksi huoneartikkelia. Etusivulle Atlas-laattaan nappi `How the decision rooms work →`.
+Rakenteinen data WebPage ja VideoObject, `uploadDate` kuten J.4.
+
+**Päätetty samalla, sivun ulkopuolelta (K.3):** Atlas ja Somnus tarvitsevat kumpikin oman alasivun.
+Etusivulla ne ovat tuotteina, mutta piirretyt instrumentit ja kertomukset eivät tee niitä
+ymmärrettäviksi; niiden tekstit ja tuotteet arvioidaan erikseen, kun sen aika on (`BUILD_INFO.next`).
+Siksi `/rooms/` ei linkitä `why-i-built-atlas`-artikkelia.
+
+**Löydetty tarkistaessa:**
+1. **SEEDin 2.2 todistelista oli väärä.** `blind-to-anything-taken-away` (27.8.2026) on Somnuksen
+   äänidetektorista, ei huoneista; se tuli listaan 11.11. otsikkonsa takia. Korjattu SEED v4.1.0:n lukuihin 2.2 ja 4
+   tässä PR:ssä, ja LESSONSiin estosääntö.
+2. **Videoiden polku oli kansion vajaa.** Renderit ovat `sf3d-ai-lab/media/publish/rooms/`-kansiossa, ja
+   labran git ohittaa `media/`-kansion, joten ne ovat paikallisia renderöintejä (myös
+   `sf3d-media.pages.dev/rooms/`, 200). SEED 5.2 ja 8 sekä `BUILD_INFO.next` korjattu tässä PR:ssä.
+3. **"Noin joka viides" on vanhentunut.** 24.10. huone oli eri mieltä 30:ssä 147:stä; 13.11. 90:ssä
+   335:stä, noin joka neljännessä. Ensimmäinen ennakkoon lukittu testi (H1) ei enää odota: se luki 20
+   toteumaansa, eikä yksikään kumoutunut kummassakaan ryhmässä, joten se ei erottanut varmaa huonetta
+   epävarmasta. Tiukempi H1 v4 (lukittu 27.10.) oli 0/20.
+
+**Tarkistettu tässä sessiossa:** neljä artikkelia labran `origin/main`ista ja livestä (kaikki 200);
+Atlas `ATLAS-HUONEET-KAR-ARV-20261031` v1 kokonaan (sanasto, 28 lähdettä; sanaa Delphi ei ole);
+`atlas_decision_calibration` (limit 500) 13.11. noin klo 11.15; Atlaksen päätökset adr.atlas.043
+(huoneen rakenne 22.9.), 072 (protokolla päälle 15.10.) ja 116 (haastaja 30.10.); `atlas.STATUS` v283;
+huone R-G:n faktat artikkelista, labran `video/rooms/sources.md`:stä ja työpenkin reposta (ensimmäinen
+gate-commit `c392dfb` 18.10. lukitsi julkaisuehdokkaan ja sääntötiedoston tiivisteen); molemmat videot
+ffprobella (`rooms-en.mp4` 1920x1080, 118,08 s, 6 448 529 tavua; `rooms-en-916.mp4` 1080x1920,
+5 855 181 tavua; ei tekstitystä kuvassa) ja kuvakoosteena; `rooms-en.vtt` (27 riviä). Profiili-README
+ennallaan 24.9. jälkeen eikä mainitse huoneita; sivua ei muutettu, joten uutta eroa ei synny.
+`node scripts/check-site.mjs` vihreä. BUILD_INFO 5.3.1.
+
 ## Sessio 8 (13.11.2026): `/silent-context/`, sivuston ensimmäinen alasivu, ja sen mediat (PR C)
 
 **Tehty yhdessä Petrin kanssa** kahdella laatikkokierroksella (I ja J, `copy-v4-pages.md`).

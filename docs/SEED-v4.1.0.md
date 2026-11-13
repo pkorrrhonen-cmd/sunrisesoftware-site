@@ -109,7 +109,7 @@ A sub-page carries no hero statistics, no generic adjectives, and no product ver
 
 | Page | Subject | Lead medium | Evidence it links to |
 |---|---|---|---|
-| `/rooms/` | The Atlas decision rooms, told with the names the field uses | `media/rooms-en.mp4` (16:9) copied from `sf3d-ai-lab/media/publish/`, with its 9:16 cut where the layout is narrow | the sf3d.fi articles `decision-rooms-in-a-minute`, `the-room-that-disagreed`, `blind-to-anything-taken-away`, `why-i-built-atlas` |
+| `/rooms/` | The Atlas decision rooms, told with the names the field uses; **copy decided 13.11.2026** (rounds K to O, R.1 to R.15) | `media/rooms-en.mp4` (16:9) copied from `sf3d-ai-lab/media/publish/rooms/`, with its 9:16 cut where the layout is narrow, and the lab's `rooms-en.vtt` as its captions | the sf3d.fi articles `the-room-that-disagreed` and `decision-rooms-in-a-minute` (13.11.2026, K.3: `blind-to-anything-taken-away` is a Somnus article and had come into this list by its title; `why-i-built-atlas` waits for Atlas's own page) |
 | `/reviewglass/` | What the glass does during an AI-assisted coding session | the ReviewGlass canvas instrument from §03, enlarged; a capture when one exists | `github.com/Sunrisesoftware-app/reviewglass` (Apache-2.0) |
 | `/silent-context/` | Silent context and the Since AI 2026 result; **built 13.11.2026 (PR C)** | `media/silent-context-916.mp4`, the vertical cut re-encoded to 720x1280 | `github.com/pkorrrhonen-cmd/silent-context`, tag `submission`; the hosted demo `silent-context.pkorrrhonen.workers.dev` (decided 12.11.2026) |
 | `/hometeam/` | The family application in production | the real capture, read from the hometeam repository first | `app.hometeam.fi` |
@@ -265,9 +265,9 @@ The front page's copy is decided item by item in **`docs/design/copy-v3.md`**, w
 | SF3D | claim, lead, button, chamber label, title, two paragraphs, records, readouts, captions | copy-v3 4.1 to 4.11 |
 | §05 Approach | `How the work gets done.`, three rules, the creed, method | copy-v3 5.1 to 5.11 |
 | §06 and footer | `Let's talk.`, body, email, link list, footer | copy-v3 6.1 to 6.8 |
-| `/rooms/` | mark, h1, lede, status, video caption, body sections, evidence list | copy-v4-pages R.1 to R.n |
+| `/rooms/` | mark, h1, lede, status, video caption, body sections, evidence list, the Atlas plate's button | copy-v4-pages R.1 to R.15 |
 | `/reviewglass/` | the same shape | copy-v4-pages G.1 to G.n |
-| `/silent-context/` | the same shape | copy-v4-pages S.1 to S.n |
+| `/silent-context/` | the same shape | copy-v4-pages SC.1 to SC.14 |
 | `/hometeam/` | the same shape | copy-v4-pages H.1 to H.n |
 | Shipped with the site | OG title and description per page | copy-v4-pages 7.1 to 7.n |
 
@@ -288,7 +288,7 @@ Static files with inline CSS and JS, `images/`, `media/`, Google Fonts, Cloudfla
 | Portrait cutout | `images/Petri.jpg` (16.8.2026), cut out 18.9.2026 | `images/petri-cutout.webp` + `.png`, two sizes (880 and 440 px) |
 | MasterForge EQ clip | the MasterForge captures | `media/masterforge-eq.mp4` (3.4 MB) + poster |
 | Luviamo video | `luviamo.app/media/luviamo-esittely-v2.mp4`, copied 19.9.2026 | `media/luviamo-intro.mp4` (5.1 MB) + poster; both clips `preload="none"` |
-| Rooms video | `sf3d-ai-lab/media/publish/rooms-en.mp4` (6.2 MB) and `rooms-en-916.mp4` (5.6 MB) | `media/rooms-en.mp4`, `media/rooms-en-916.mp4` + posters |
+| Rooms video | `sf3d-ai-lab/media/publish/rooms/rooms-en.mp4` (1920x1080, 118 s, 6.4 MB) and `rooms/rooms-en-916.mp4` (1080x1920, 5.9 MB), local renders the lab's git ignores; captions `sf3d-ai-lab/site/public/video/rooms-en.vtt` | `media/rooms-en.mp4`, `media/rooms-en-916.mp4`, `media/rooms-en.vtt` + posters |
 | Silent context video | `sinceai2026/silent-context-third-place-9x16-captions.mp4` (1080x1920, 77.8 s, 15.7 MB) | `media/silent-context-916.mp4` (720x1280, H.264 CRF 25, AAC 128 kb/s, faststart, 5.55 MB, made 13.11.2026) + `media/silent-context-916-poster.jpg`, the frame at 1.5 s (I.1) |
 | Drawer captures | `docs/mockups/shots/` | `images/shot-*.webp` with JPG fallbacks |
 | HomeTeam | a drawn instrument, the Today view with its coins (decided 11.11.2026: the application is behind a list of allowed addresses and a capture would carry the family's own data) | the `hometeam` canvas sketch in `index.html` |
@@ -379,8 +379,8 @@ The order is the order of the decisions taken on 11.11.2026, and nothing that to
 
 1. **Done 11.11.2026, PR A, no page change:** `404.html`, `favicon.ico` and the four PNG icons from `scripts/icons.py`, `site.webmanifest`, the `_headers` rules for them, `sitemap.xml` `lastmod`, the repaired version guard with its self-test, and the two new checks in `check-site.mjs`.
 2. **Read before any copy is written:** the `hometeam` repository's README and BUILD_INFO for the drawer and its page, the live SpectralForge beta gate (A7), and the profile README against the page (A10, the session routine).
-3. **`docs/design/copy-v4-pages.md`**: every new text as a numbered item, decided with Petri through decision boxes, four a round. The front page's items were decided 11.11.2026 (rounds A to C); `/silent-context/` was decided 12.11.2026 (rounds E to H, items SC.1 to SC.14).
-4. **The media**: done 13.11.2026 for `/silent-context/` (the video, its poster, the share image). Still to do: copy `rooms-en.mp4` and its 9:16 cut from the lab repository and cut their posters; take the HomeTeam capture; generate an OG image per sub-page.
+3. **`docs/design/copy-v4-pages.md`**: every new text as a numbered item, decided with Petri through decision boxes, four a round. The front page's items were decided 11.11.2026 (rounds A to C); `/silent-context/` was decided 12.11.2026 (rounds E to H, items SC.1 to SC.14); `/rooms/` 13.11.2026 (rounds K to O, items R.1 to R.15).
+4. **The media**: done 13.11.2026 for `/silent-context/` (the video, its poster, the share image). Still to do: copy `rooms-en.mp4`, its 9:16 cut and `rooms-en.vtt` from the lab and cut their posters; take the HomeTeam capture; generate an OG image per sub-page.
 5. **Built 12.11.2026, PR B, the page**: §04 Recent with the two entries, the HomeTeam drawer, the nav's Recent link, the icon links and `max-image-preview` in `<head>`, `og:image:alt`, and the structured data of adr.sws.019. Checked on the preview URL at desktop and phone width before merging.
 6. **PR C and after, one sub-page at a time**: `/silent-context/` built 13.11.2026 (PR C, with the front page's entry 1 pill), then `/rooms/`, `/reviewglass/`, `/hometeam/`, each with its sitemap entry and its own `check-site` pass.
 7. **Still open from before:** Cloudflare Web Analytics token, Lighthouse and the HTML validator on the live site, adr.sws.014 (one source for the facts the page shares with the profile README), the Atlas model proposals for adr.sws.003 to 019, the static-bearer removal, and the employer's names in the profile README.

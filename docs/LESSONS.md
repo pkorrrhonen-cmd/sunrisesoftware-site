@@ -2,6 +2,22 @@
 
 Opitut virheet ja estosäännöt, jotta niitä ei toisteta. Uusin ensin.
 
+## 13.11.2026: todistelistaan valittiin artikkeli otsikon perusteella
+
+**Mitä tapahtui:** 11.11. SEED v4.0.0:n luku 2.2 ja `copy-v4-pages.md`:n osa C listasivat `/rooms/`-sivun
+todisteiksi neljä sf3d.fi-artikkelia, joista yksi oli `blind-to-anything-taken-away`. Se on Somnuksen
+äänidetektorista (27.8.2026, tagi `somnus`) eikä kerro huoneista mitään; otsikon "blind" sopi sokkona
+äänestäviin huoneisiin. Samalla rivillä videoiden polku `media/publish/rooms-en.mp4` oli kansion vajaa,
+ja labran git ohittaa koko `media/`-kansion. Kumpikin löytyi 13.11., kun artikkelit luettiin ja polku
+katsottiin levyltä ennen tekstikierrosta. Sivulle olisi tullut todistelinkki, joka ei todista mitään.
+
+**Estosääntö:**
+- Linkki tai lähde kirjoitetaan listaan vasta, kun sen sisältö on luettu samassa sessiossa; otsikko,
+  tiedostonimi tai haun osuma ei riitä. Sama koskee Atlaksen ja tiedostolistauksen kuvauksia
+  (LESSONS 12.11.2026).
+- Tiedostopolku toisesta reposta tarkistetaan levyltä ja sen gitin seurannasta: kun tiedosto ei ole
+  repon puussa, rivi sanoo sen ja kertoo, mistä tiedosto oikeasti saadaan.
+
 ## 13.11.2026: päätön selain ei kaappaa puhelinleveyttä
 
 **Mitä tapahtui:** `docs/mockups/shoot.py` ajettiin `/silent-context/`-sivulle leveydellä 390. Kuvassa

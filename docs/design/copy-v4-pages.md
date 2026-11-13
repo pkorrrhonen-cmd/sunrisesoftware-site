@@ -179,24 +179,112 @@ and the page's `<url>` in `sitemap.xml`.
 
 ## C. `/rooms/` (PR D)
 
-- **Status line:** `In use · 2026 →`, because the rooms run daily in Atlas.
-- **Lead medium:** `media/rooms-en.mp4` copied from `sf3d-ai-lab/media/publish/rooms-en.mp4`
-  (6.2 MB, 16:9), with `rooms-en-916.mp4` (5.6 MB) for narrow layouts.
-- **The names, from Atlas `ATLAS-HUONEET-KAR-ARV-20261031` v1 (31.10.2026, 28 sources):**
-  multi-agent debate and model heterogeneity for the setting; blind sealed first votes, revealed
-  together, then rounds; devil's advocate and dialectical inquiry for the challenger's seat
-  (Schweiger, Sandberg & Ragan 1986; Schwenk 1990; Nemeth, Brown & Rogers 2001); LLM-as-a-judge and
-  judge calibration, with the known leniency said plainly; pre-registration; maximin for the room's
-  value; sycophancy and conformity for the failure the setting is built against.
-- **The word Delphi does not appear** until a source for it is recorded in SEED v4.0.0 section 2.3
-  (decided 11.11.2026), although sealed first votes revealed together and iterated rounds are that
-  method's shape.
-- **The honest part:** a room disagreed with the owner on about one decision in five, and the
-  measurement of whether those disagreements were right is pre-registered and still waiting for
-  outcomes. The page says that it waits rather than claiming a result.
-- **Evidence:** the sf3d.fi articles `decision-rooms-in-a-minute`, `the-room-that-disagreed`,
-  `blind-to-anything-taken-away` and `why-i-built-atlas`. The long text and the transcript stay
-  there; this page does not repeat them.
+Skeleton as SEED v4.1.0 section 2.1. The items are numbered `R.n`; the decision rounds for this page
+are K onwards, after `/silent-context/`'s E to J.
+
+**Checked on 13.11.2026**, in this session and not from memory:
+
+- **The four articles**, read from the lab repository's `origin/main` (`site/content/12` to `15`) and
+  each answering 200 at `sf3d.fi/blog/<slug>`:
+  - `the-room-that-disagreed`, *The Room That Disagreed With Me*, 24.10.2026: the article of the
+    page's video. Room R-G (`huo_52e72a47d72a441e`), 17.10.2026: the owner chose which secret scanner
+    the coding workbench's security gate uses, and from its final release; the room had the scanner's
+    releases page fetched, found that release did not exist yet (only a release candidate), and chose
+    the same scanner on a condition (pin the release candidate and its rule file's hash together, the
+    gate fails closed on anything it cannot read, move to the final release only after an acceptance
+    test and a Windows measurement), at maximin `0.15` under the bar `0.6` declared in its
+    pre-registration three hours before; `2 min 10 s`; the owner took the condition 41 minutes after
+    the close (row 98); the gate's first commit the next day pinned the release candidate and the
+    rule file's hash and fails closed (checked from the workbench repository's `origin/main`,
+    commit `c392dfb`, 18.10.2026). Seats Claude and GPT, judge Jev from TypeSafe scoring arguments
+    and not votes, Clef a second judge on trial and not counted.
+  - `decision-rooms-in-a-minute`, 25.10.2026: the one-minute explainer, told with another room
+    (R-F, 16.10.2026: plan A at `0.50` before the room, `0.03` in it, the room's condition at `0.80`;
+    the maximin rule, Wald 1950).
+  - `why-i-built-atlas`, 29.10.2026: Atlas as the shared record AI sessions write in and read from;
+    the rooms behind its counts.
+  - `blind-to-anything-taken-away`, 27.8.2026, tag `somnus`: **not about the rooms.** It is the
+    Somnus audio detector that misses faults which take something away. It came into the list on
+    11.11.2026 by its title; see K.3.
+- **The vocabulary**, Atlas `ATLAS-HUONEET-KAR-ARV-20261031` v1 (31.10.2026, 28 sources), read in
+  full: multi-agent debate, where published comparisons find debate often no better than asking one
+  model several times and mixed model families doing better (Smit et al. 2024; Zhang et al. 2025);
+  sycophancy and conformity as the failure; sealed first votes as Atlas's control against
+  conformity; devil's advocate and dialectical inquiry better than plain consensus (Schweiger,
+  Sandberg & Ragan 1986), and an assigned devil's advocate bolstering the view it attacks while a
+  genuine minority did better (Nemeth, Brown & Rogers 2001); judges lenient and using a narrowed
+  scale (Thakur et al. 2024; Mukherjee et al. 2026); maximin as an aggregator unlike the mean. **The
+  word Delphi is not in it**, so the page does not use it (SEED section 2.3).
+- **How a room is built**, from Atlas's decisions: the room with sealed first votes, pseudonymous
+  seats, maximin and a separate judges' table (`adr.atlas.043`, 22.9.2026); the first measured
+  confirmation room and the protocol switched on, so every recorded decision that is hard to reverse
+  goes to a room, and a room that deviates sends the decision back to the owner with its reasons
+  (`adr.atlas.072`, 15.10.2026); the challenger, a third seat that never votes, writes up to three
+  challenges against the leading option each round, the judges read whether each bears, every seat
+  answers a bearing one before its final vote, and it is the same model family as the Claude seat and
+  shares its blind spots (`adr.atlas.116`, 30.10.2026; a room takes one when its queue row asks).
+- **The counts**, `atlas_decision_calibration` (limit 500) read 13.11.2026 about 11.15 local: over all
+  closed queue rows, rooms returned a choice on `335` decisions, confirmed `245` and deviated on
+  `90` (about one in four; on 24.10.2026 it was `30` of `147`, about one in five). The first
+  pre-registered check (H1, `ATLAS-HUONE-KALIBRAATIO-HYPOTEESI` v2) has read its 20 world outcomes:
+  15 inside its confidence range and 5 outside, none overturned in either group, so its prediction
+  did not hold and it could not separate them. The stricter H1 v4, locked 27.10.2026, counts only
+  30-day outcomes recorded after the lock and had `0` of `20`; Atlas's status of 13.11. expects its
+  first phase about 22.11.2026. The judges over 69 rooms with a challenger and 309 challenges: Jev
+  read `272` as bearing, Clef `238`, their readings correlate at `0.28`. **These numbers are read
+  again on the day the page is built**, and the page carries that day's date.
+- **The videos**, ffprobe 13.11.2026. **The path in SEED section 5.2 and `BUILD_INFO.next` was
+  short a folder** (both corrected 13.11.2026): the renders are `sf3d-ai-lab/media/publish/rooms/rooms-en.mp4` and
+  `.../rooms/rooms-en-916.mp4`, and `media/` is ignored by the lab's git (`.gitignore` line 26), so
+  they are local renders, also served at `sf3d-media.pages.dev/rooms/` (200, `video/mp4`).
+  - `rooms-en.mp4`: 1920x1080, H.264 High 4.0, 30 fps, AAC 48 kHz stereo, 118.08 s (1:58),
+    6 448 529 bytes.
+  - `rooms-en-916.mp4`: 1080x1920, the same codecs and length, 5 855 181 bytes, the scenes laid out
+    again for the vertical frame, not a crop.
+  - No captions in the picture. The lab ships `site/public/video/rooms-en.vtt` (27 cues, the
+    narration word for word, numbers spelled as spoken: "zero point one five").
+  - Recorded 24.10.2026: room R-G replayed from its own record at four times speed, the real room in
+    Atlas Connect (held in Finnish), narration in Petri's own voice generated with HeyGen from the
+    script. The workbench's name **AvoQ** is on screen and in the narration; AvoQ is not on the site
+    (`BUILD_INFO.next`, review-2026-11 A4); see K.4. The picture's counts (147 and 30, the first check
+    at 9 of 20) are dated 24.10.2026 in the picture.
+- **Not written on the page:** model version names (the families only, adr.sws.015's reason), the
+  scanner's version numbers (the version guard would also catch them), token counts and costs.
+
+### R.1 to R.7, the head and the title block
+
+| # | Where | Proposal | State |
+|---|---|---|---|
+| R.1 | `<title>` and `og:title` | `Atlas decision rooms: a second opinion from AI models · Petri Korhonen` | decided 13.11.2026 (M.4) |
+| R.2 | `description` and `og:description` | `Before I settle how my software is built, two AI agents from two model families argue the decision blind, two judging models score them, and I decide.` | decided 13.11.2026 (M.4) |
+| R.3 | `og:image` and its alt | an image of its own, the subject mark and the h1 on the dawn sky in `og-cover.jpg`'s build (as I.2), made in the media step; alt `Atlas decision rooms: before I settle how my software is built, I ask a panel of AI models for a second opinion.` | decided 13.11.2026 (N.2) |
+| R.4 | Subject mark (mono) | `Atlas · decision rooms` | decided 13.11.2026 (N.1) |
+| R.5 | h1 | `Before I settle how my software is built, I ask a panel of AI models for a second opinion.` | decided 13.11.2026 (L.1) |
+| R.6 | Lede | `When I have to decide how a feature or a part of my software is built, and the choice would be hard to undo, I ask my judging panel. Two AI agents from two different model families get the facts and the options, but never my choice. Each seals its first vote before it reads the other's, they argue in rounds, and two judging models score the arguments. If the panel disagrees with me, the decision comes back with its reasons, and I decide again. In Atlas, the shared record of everything I build, a panel is called a room.` | decided 13.11.2026 (L.2) |
+| R.7 | Status line | `In use · 2026 →`, the sea dot of infrastructure, the same line as the Atlas plate in §02 | decided 13.11.2026 (K.2) |
+
+### R.8, the lead medium
+
+| # | Where | Proposal | State |
+|---|---|---|---|
+| R.8 | Video block | `media/rooms-en.mp4` (16:9) with a poster, `media/rooms-en-916.mp4` in the 9:16 frame on a phone, captions `media/rooms-en.vtt` from the lab as `<track kind="captions" srclang="en" label="English">`. Mono caption: `One room in two minutes: R-G of 17 Oct 2026, replayed from its own record at four times speed, with the real room in Atlas Connect. Recorded 24 Oct 2026; the narration is my voice, generated from my script.` `aria-label`: `A video: a decision about which secret scanner a security gate should use, the blind room it went to, two AI agents voting and arguing in two rounds, the room's answer on a condition, the code that followed it, and the decisions the rooms had checked by 24 Oct 2026.` | decided 13.11.2026 (M.3, the video as it is and the caption; O.1, the `aria-label`; O.3, the lab's `.vtt` as it is) |
+
+### R.9 to R.12, the body
+
+| # | Heading | Proposal | State |
+|---|---|---|---|
+| R.9 | `How a room is built` | `A room is a multi-agent debate with rules against the way such debates go wrong. Language models in a panel tend to agree with each other instead of checking each other, which the field calls sycophancy and conformity, and published comparisons find that a debate often does no better than asking one model several times, with mixed model families doing better. So the two seats come from two families, Claude and GPT, and each seals its first vote before it can read the other's; the votes are revealed together. Then come two rounds of arguments, in which a seat can have a web page fetched and kept as evidence. Between the rounds two judging models score the arguments, not the votes: Jev, a fast judging model from TypeSafe, whose score counts, and Clef, on trial, whose readings are kept but not counted.` ¶ `The room does not average its seats. It reads each option at the seat that supports it least and picks the option whose weakest support is highest. That is the maximin rule (Wald, 1950): one enthusiastic seat cannot carry an option the other barely accepts, and a low value is the room saying it is unsure.` | decided 13.11.2026 (L.3) |
+| R.10 | `The room in the video` | `On 17 Oct 2026 I decided which secret scanner the security gate of my coding workbench should use, and from which release. The room had the scanner's releases page fetched and found that the release I had chosen did not exist yet, only a release candidate. It chose the same scanner on a condition: pin the release candidate and its rule file together, and let the gate refuse anything it cannot read. Its value was only 0.15, far under the bar of 0.6 written down before the room ran, so I read it as a warning rather than as the room knowing better. I took the condition 41 minutes after the room closed, and the gate's first code, the next day, was pinned exactly as the room asked.` | decided 13.11.2026 (L.4; the workbench unnamed, K.4) |
+| R.11 | `The challenger` | `Since 30 Oct 2026 a room can take a third agent that never votes. Each round this challenger writes up to three objections to the option in the lead, the judges read whether each one carries weight, and both agents have to answer every one that does before their final vote. It is the devil's advocate, close to dialectical inquiry, two devices that group-decision research found better than plain consensus (Schweiger, Sandberg and Ragan, 1986). The same research carries a warning I keep in view: an assigned devil's advocate can harden the view it attacks, and a genuine minority did better (Nemeth, Brown and Rogers, 2001). My challenger also comes from the same family as one of the agents and shares its blind spots, so whether it helps is measured over the rooms, not assumed.` | decided 13.11.2026 (M.1) |
+| R.12 | `What the record shows, and what it cannot` | `Every room leaves a record, and every decision it checks is counted. By 13 Nov 2026 the rooms had checked 335 of my decisions and disagreed with me on 90, about one in four. Who was right shows only when the world answers, so each outcome is recorded as it arrives. The first test I pre-registered has read its twenty outcomes: none of those decisions was overturned, so it could not tell a confident room from an unsure one. A stricter test, locked on 27 Oct 2026, counts only outcomes thirty days old, and on 13 Nov 2026 it had none. The judges need the same scrutiny: Jev found weight in 272 of 309 objections, the leniency known from work on LLM-as-a-judge, so that reading separates little. Until the outcomes come in, a room is a second opinion I can show, not one I can prove right.` (the numbers and their date read again on the build day) | decided 13.11.2026 (M.2) |
+
+### R.13 to R.15, evidence, structured data and the front page
+
+| # | Where | Proposal | State |
+|---|---|---|---|
+| R.13 | Evidence block | Two links, each the name over the address with one line under it. `The Room That Disagreed With Me` / `sf3d.fi/blog/the-room-that-disagreed` / `The room in the video, its arithmetic and its record, 24 Oct 2026`. `Decision Rooms in a Minute` / `sf3d.fi/blog/decision-rooms-in-a-minute` / `Another room in one minute, 25 Oct 2026`. Not `why-i-built-atlas` (Atlas gets a page of its own later) and not `blind-to-anything-taken-away` (Somnus, not the rooms). Atlas itself is not linked: it is access-protected | decided 13.11.2026 (K.3, the two articles; N.3, the lines) |
+| R.14 | JSON-LD | a `WebPage` with `isPartOf` the WebSite and `author` the Person; a `VideoObject` for the page's own video (`name` `The Room That Disagreed With Me`, the title it was published under on sf3d.fi; `description` the decided `aria-label`; `thumbnailUrl` the poster; `contentUrl`; `uploadDate` the day the file comes to this site, as J.4; `duration` `PT1M58S`). No `SoftwareApplication`: Atlas has none on the front page (round C.3) | decided 13.11.2026 (O.2) |
+| R.15 | The front page's link to this page | the plates' dark button `How the decision rooms work →` (the arrow in its `arr` span, as `Lab notes · sf3d.fi →` on Somnus) on the Atlas plate in §02, before the quiet `Access-protected · shown to partners`, which stays; the plate's own text does not change. check-site fails a sub-page the front page does not link | decided 13.11.2026 (N.4) |
 
 ## D. `/reviewglass/` (PR E)
 
@@ -386,3 +474,61 @@ and on the local server. Four choices made while building, none of them in SC.1 
   fails when a sub-page on disk is missing from the sitemap or not linked from the front page, and
   wants a sub-page's back button. Tried against a broken copy: it caught all five planted faults.
   `--links` asks with GET when a host refuses HEAD (the demo answers 405 to HEAD, 200 to GET).
+
+### Round K, `/rooms/`: the frame (13.11.2026)
+
+| # | Question | Decision |
+|---|---|---|
+| K.1 | The h1 (R.5) | **Edit.** Not `Before AI builds something hard to undo, ...`: the page must not read as if the building were done by AI, even where AI writes the code, because the work is done to a structure. The text has to be very easy to grasp. Petri's direction, in his words: before I decide how a feature or a part of the software is to be built, I ask for second opinions from my judging panel, where two agents from different families and two judging models give their opinion. Three versions in round L |
+| K.2 | The status line (R.7) | **`In use · 2026 →`**, as the skeleton and the Atlas plate on the front page |
+| K.3 | The evidence (R.13) | **The two room articles only**: `the-room-that-disagreed` and `decision-rooms-in-a-minute`. `blind-to-anything-taken-away` is the Somnus audio detector and came into the list on 11.11.2026 by its title; SEED section 2.2 corrected the same day (LESSONS 13.11.2026). `why-i-built-atlas` stays off this page because **Atlas needs a sub-page of its own, and so does Somnus**: on the front page both are listed as products, but their drawn instruments and their stories do not make anyone understand them. Their texts and the products themselves are assessed as a separate piece of work when its time comes (`BUILD_INFO.next`) |
+| K.4 | The workbench's name (R.10) | **Not named in the page's text**: `my coding workbench`. The video plays as it is, with AvoQ on screen and in the narration, as with G.1; the name comes to the site only when AvoQ's place on it is decided |
+
+### Round L, `/rooms/`: the h1, the lede and the first two sections (13.11.2026)
+
+| # | Question | Decision |
+|---|---|---|
+| L.1 | The h1 (R.5), three versions in K.1's direction | **`Before I settle how my software is built, I ask a panel of AI models for a second opinion.`** "Settle" rather than "decide", because the room checks a choice I have already made, blind, and I decide again when it disagrees. Not "every hard decision ..." and not the whole panel in the h1 |
+| L.2 | The lede (R.6) | **The panel first**, as proposed: when I ask, who sits on the panel, what they do, what happens when they disagree, and last why the page speaks of rooms |
+| L.3 | How a room is built (R.9) | **Two paragraphs with the field's names**, each after a plain sentence: sycophancy and conformity, two model families, sealed first votes, the two judges with Clef said to be on trial and not counted, and the maximin rule (Wald, 1950) |
+| L.4 | The room in the video (R.10) | **The whole story**, with the workbench unnamed. The bar is "written down before the room ran" instead of the word pre-registration |
+
+R.1 to R.3 were drafted around the first h1 and are redrafted from L.1 before they are asked.
+
+### Round M, `/rooms/`: the challenger, the record, the video and the head (13.11.2026)
+
+| # | Question | Decision |
+|---|---|---|
+| M.1 | The challenger (R.11) | **Its own section, with the names and the warning**: what the challenger does, the devil's advocate and dialectical inquiry (Schweiger, Sandberg and Ragan, 1986), Nemeth, Brown and Rogers (2001) on the assigned devil's advocate, and the challenger's own blind spot |
+| M.2 | What the record shows (R.12) | **The numbers and their limits**: the counts, the first pre-registered test and why it could not separate, the stricter test, and the judge's leniency in one number. The numbers and the date are read again from Atlas on the day the page is built |
+| M.3 | The video's caption (R.8) | **The voice said, the tool not named**: `One room in two minutes: R-G of 17 Oct 2026, replayed from its own record at four times speed, with the real room in Atlas Connect. Recorded 24 Oct 2026; the narration is my voice, generated from my script.` The video plays as it is, although it opens with "AI builds faster than a person can check what it decided", the framing K.1 kept out of the h1 |
+| M.4 | `<title>` and `description` (R.1, R.2) | **The name and what it is**: `Atlas decision rooms: a second opinion from AI models · Petri Korhonen`, and the description in one sentence from the h1 |
+
+### Round N, `/rooms/`: the mark, the share image, the evidence lines and the front page (13.11.2026)
+
+| # | Question | Decision |
+|---|---|---|
+| N.1 | The subject mark (R.4) | **`Atlas · decision rooms`**, the system and the thing, as the title and the address |
+| N.2 | The share image (R.3) | **As I.2**: the wordmark, the subject mark, the h1 on the dawn sky and `sunrisesoftware.app/rooms/` at the foot, made in the media step; alt `Atlas decision rooms: before I settle how my software is built, I ask a panel of AI models for a second opinion.`, which is what the image says. Not a frame of the video |
+| N.3 | The lines under the evidence links (R.13) | **What the reader finds there, with the date it was published**: `The room in the video, its arithmetic and its record, 24 Oct 2026` and `Another room in one minute, 25 Oct 2026` |
+| N.4 | The front page's link (R.15) | **The plates' dark button on the Atlas plate**: `How the decision rooms work →` before the quiet `Access-protected · shown to partners`; the plate's text does not change, and §04 gets no entry |
+
+### Round O, `/rooms/`: the video's label, the structured data and the captions (13.11.2026)
+
+| # | Question | Decision |
+|---|---|---|
+| O.1 | The video's `aria-label` (R.8) | **Scene by scene, in the panel's words**: `A video: a decision about which secret scanner a security gate should use, the blind room it went to, two AI agents voting and arguing in two rounds, the room's answer on a condition, the code that followed it, and the decisions the rooms had checked by 24 Oct 2026.` |
+| O.2 | The structured data (R.14) | **As J.4**: `WebPage` and `VideoObject`, the video's `uploadDate` the day the file comes to this site (schema.org's meaning), not 24.10.2026 when it was first published on sf3d.fi |
+| O.3 | The captions track (R.8) | **The lab's `rooms-en.vtt` as it is**, copied beside the video: one source, the same file sf3d.fi serves, so the copy does not drift. Its numbers are spelled as the narration speaks them |
+
+**`/rooms/` is now fully decided** (R.1 to R.15), and ready to build as PR D together with Petri once
+its media exist. What the build needs, none of it made in this session:
+
+- **The media:** `media/rooms-en.mp4` and `media/rooms-en-916.mp4` from
+  `sf3d-ai-lab/media/publish/rooms/` (re-encoded or as they are, to be decided in the media round, as
+  round I did), a poster for each, `media/rooms-en.vtt` from the lab's `site/public/video/rooms-en.vtt`,
+  and the share image `images/og-rooms.jpg` from `docs/mockups/og-rooms.html` (N.2).
+- **The numbers in R.12** read again from `atlas_decision_calibration` on the build day, and the
+  date with them.
+- **Lands with this page:** the Atlas plate's button (R.15) and the page's `<url>` in `sitemap.xml`.
+  SEED sections 2.2 (the evidence list of K.3) and 5.2 (the renders' path) were corrected the same day.
