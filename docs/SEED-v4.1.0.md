@@ -5,7 +5,7 @@
 **Owner:** Petri Korhonen / Sunrise Software Oy
 **Created:** 2026-11-11 (v4.0.0); v4.1.0 on 2026-11-13, when the first sub-page was built
 **Supersedes:** v4.0.0 (11.11.2026, in `docs/archive/`) and v3.0.0 (18.9.2026), which stays in `docs/` until V6 is live and is archived in the session that deploys it
-**Status:** The spec for the revision. The front page carries the V6 changes of PR B (12.11.2026); `/silent-context/` is live since 13.11.2026 (PR #9); `/rooms/` is live since 13.11.2026 (PR #11); `/reviewglass/` is live since 13.11.2026 (PR #13); `/hometeam/` is built in PR F (13.11.2026). Nothing here is built until it is built together with Petri (CLAUDE.md).
+**Status:** The spec for the revision. The front page carries the V6 changes of PR B (12.11.2026); `/silent-context/` is live since 13.11.2026 (PR #9); `/rooms/` is live since 13.11.2026 (PR #11); `/reviewglass/` is live since 13.11.2026 (PR #13); `/hometeam/` is live since 13.11.2026 (PR #16). Nothing here is built until it is built together with Petri (CLAUDE.md).
 
 ---
 

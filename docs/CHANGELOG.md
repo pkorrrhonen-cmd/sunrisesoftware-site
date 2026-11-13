@@ -32,6 +32,14 @@ elementissä ei ylitä reunaa, kuvapari 160 px:n levyisinä rinnakkain, rivi all
 tiedostoa). Yhdessäkään commitoitavassa tekstitiedostossa ei ole sukunimeä eikä lasten nimiä, ja kuvat
 katsottiin näkymä kerrallaan. BUILD_INFO 5.8.0.
 
+**Deploy:** PR #16 squash-mergattu Petrin sanasta 13.11.2026 18:15Z (`b8be8f2`) CI:n ollessa vihreä.
+Cloudflaren tuotantobuild (`943681b8`) valmistui 18:16:12Z, ja `/hometeam/` vastasi 200 kello 18.16Z.
+Livestä todennettu: `/hometeam/`, `/silent-context/`, `/rooms/`, `/reviewglass/` ja sitemap (viisi osoitetta)
+tavu tavulta samat kuin main; seitsemän uutta kuvaa (viisi näkymää, laatikon kuva, jakokuva) samat;
+etusivulla linkki `How my family uses it →` ja `data-revised="2026-11-13"`, ja se eroaa mainista vain
+Cloudflaren sähköpostisuojauksen kahdessa mailto-linkissä ja sen skriptissä; tuntematon osoite 404.
+Atlaksen `sw-sivusto.STATUS` v27.
+
 ## Sessio 10, jatko (13.11.2026): `/hometeam/`-sivun tekstit päätetty (kierrokset AA–AC, ei sivumuutosta)
 
 **Tehty yhdessä Petrin kanssa** kolmella laatikkokierroksella (AA–AC, 12 kysymystä). Kaikki
