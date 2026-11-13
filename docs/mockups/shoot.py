@@ -61,6 +61,9 @@ def main(argv: list[str]) -> None:
     width = int(argv[3]) if len(argv) > 3 else 1440
     height = int(argv[4]) if len(argv) > 4 else 900
     query = argv[5] if len(argv) > 5 else ""
+    if width < 500:
+        raise SystemExit("headless Edge lays a page out wider than a phone and crops it; take phone "
+                         "widths in the browser pane with device emulation (LESSONS 13.11.2026)")
     if kind == "url":
         target = src
     else:

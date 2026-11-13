@@ -33,6 +33,11 @@ työkalu voi peittää oikean vian, ja sillä on otettu kaikki aiemmat `*-phone.
 - `shoot.py` kelpaa työpöytäleveyden koko sivun kuviin; puhelinkuvat kootaan paneelin
   kuvakaappauksista.
 
+**Toistui samana päivänä** (`/reviewglass/`, kierros X): vertailukuvan puhelinsarake otettiin taas
+`shoot.py`:llä 375 px:n leveydellä, ja teksti leikkautui oikeasta reunasta. Se huomattiin ennen kuin kuva
+näytettiin, mutta sääntö tekstinä ei estänyt toistoa. Siksi `shoot.py` kieltäytyy nyt alle 500 px:n
+leveydestä ja kertoo syyn: sääntö, jonka työkalu voi pitää, kirjoitetaan työkaluun.
+
 ## 12.11.2026: Atlaksen kuvaus repon sisällöstä ei ole repon tarkistus
 
 **Mitä tapahtui:** 11.11. kirjoitin `copy-v4-pages.md`:n `/silent-context/`-runkoon todisteeksi

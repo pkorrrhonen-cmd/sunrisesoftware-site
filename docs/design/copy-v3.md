@@ -142,8 +142,8 @@ Each row has: year, name, status tag, one-line description, drawer paragraph, fa
 | **ReviewGlass** | | | |
 | 3.22 | Row | `2026 → · ReviewGlass · pre-alpha · daily use · Windows desktop companion for AI-assisted coding sessions.` | OK |
 | 3.23 | Drawer | `A magnifier over any part of the screen, a panel of every running coding session with its quota and burn rate, and the agent's edits as a live diff. Built for my own daily use. Open source, Apache-2.0.` (repo public since 18.9.2026, feedback item 1) | OK (edit 19.9.) |
-| 3.24 | Facts | `Magnifier · sessions · live diff` / `Nothing leaves the machine` / `Open source, Apache-2.0` | OK (edit 19.9.) |
-| 3.24b | Link (added 19.9.) | `github.com/Sunrisesoftware-app/reviewglass ↗` | OK |
+| 3.24 | Facts | `Magnifier · sessions · live diff` / `Nothing leaves the machine` / `Open source, Apache-2.0` | OK (edit 19.9.); the second fact is `Screen pixels never leave the machine` since 13.11.2026 (copy-v4-pages RG.15) |
+| 3.24b | Link (added 19.9.) | `github.com/Sunrisesoftware-app/reviewglass ↗` | OK; `How the glass works →` to `/reviewglass/` stands before it since 13.11.2026 (copy-v4-pages RG.14, X.2) |
 | **Salpa Defence** | | | |
 | 3.25 | Row | `2026 → · Salpa Defence · venture · Local AI appliance for environments cloud services cannot legally reach.` | OK |
 | 3.26 | Drawer | `Finnish defence subcontractors first. The vendor never touches the customer's classified material. Sales demo in production since August 2026; product core under way.` | OK |
