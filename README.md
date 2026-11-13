@@ -14,7 +14,7 @@ with its own pages (adr.sws.018). The spec is `docs/SEED-v4.1.0.md`, every new t
 
 - **The front page** carries the V6 changes since 12.11.2026 (PR #7): section 04 Recent, the
   HomeTeam drawer, the icon links and the structured data that names the products.
-- **`/silent-context/`**, the first sub-page, was built on 13.11.2026 (PR C): the Since AI 2026
+- **`/silent-context/`**, the first sub-page, is live since 13.11.2026 (PR #9): the Since AI 2026
   result with its vertical video, poster and share image.
 - `/rooms/`, `/reviewglass/` and `/hometeam/` are specified and not built.
 

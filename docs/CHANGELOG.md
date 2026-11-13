@@ -50,8 +50,17 @@ mainitse Silent contextia eikä Since AI:ta, joten ero F6 on nyt README:n puolel
 Paikallisesti 1440 px ja 375 px: ei vaakavieritystä (scrollWidth 375), ei konsolivirheitä, fontit
 latautuvat, JSON-LD kolme entiteettiä alasivulla.
 
-**Ei vielä:** PR C:n preview ja merge; jos merge siirtyy toiselle päivälle, `uploadDate`, alaviitteet,
-sitemap ja `BUILD_INFO.updated` siirretään sille päivälle.
+**Deploy:** PR #9 squash-mergattu 13.11.2026 09:06Z (`0baab20`) Petrin sanasta CI:n ollessa vihreä
+(Site checks ja Cloudflare Pages). Ennen mergea preview `30102275.sunrisesoftware-site.pages.dev`
+tarkistettu: sen `/silent-context/`, etusivu ja video ovat tavu tavulta samat kuin paikallisesti
+tarkistetut tiedostot. Preview-osoite vastaa videon osapyyntöön koko tiedostolla (200), samoin kuin
+nykyiselle MasterForge-klipille, joten se on `pages.dev`:n ominaisuus. Livestä todennettu 09:06:48Z
+alkaen: `/silent-context/` 200 ja tavu tavulta sama kuin tarkistettu tiedosto, kanoninen osoite, `og:image`
+ja `data-revised="2026-11-13"`, JSON-LD kolme entiteettiä (WebPage, SoftwareSourceCode, VideoObject);
+video 206 osapyyntöön (`content-range bytes 0-1023/5550573`, `video/mp4`, immutable) ja tavu tavulta sama;
+posteri ja jakokuva 200 `image/jpeg`; etusivun pilleri vie `/silent-context/`-sivulle ja sen graafissa on
+10 entiteettiä SoftwareSourceCode mukaan lukien; sitemap kahdella osoitteella ja `lastmod` 2026-11-13;
+tuntematon osoite `/nonexistent-xyz/` 404. Päivä ei siirtynyt, joten `uploadDate` 2026-11-13 pitää.
 
 ## Sessio 7 (12.11.2026): PR B, ensimmäinen V6-muutos etusivulle
 

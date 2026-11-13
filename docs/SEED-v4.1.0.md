@@ -5,7 +5,7 @@
 **Owner:** Petri Korhonen / Sunrise Software Oy
 **Created:** 2026-11-11 (v4.0.0); v4.1.0 on 2026-11-13, when the first sub-page was built
 **Supersedes:** v4.0.0 (11.11.2026, in `docs/archive/`) and v3.0.0 (18.9.2026), which stays in `docs/` until V6 is live and is archived in the session that deploys it
-**Status:** The spec for the revision. The front page carries the V6 changes of PR B (12.11.2026); `/silent-context/` is built (PR C, 13.11.2026); the other sub-pages are not. Nothing here is built until it is built together with Petri (CLAUDE.md).
+**Status:** The spec for the revision. The front page carries the V6 changes of PR B (12.11.2026); `/silent-context/` is live since 13.11.2026 (PR #9); the other sub-pages are not. Nothing here is built until it is built together with Petri (CLAUDE.md).
 
 ---
 
@@ -369,7 +369,7 @@ Day work:   digital health software to clinical and regulatory standards
 | Site files | 2026-11-11 | `404.html`, the icon files and the manifest, the sitemap's date, the version guard repaired (adr.sws.017) | **PR A, no page change** |
 | V6 spec | 2026-11-11 | the site gains pages (adr.sws.018), §04 Recent, HomeTeam's drawer, the structured data names the products (adr.sws.019) | spec written |
 | V6 front page | 2026-11-12 | PR B: §04 Recent with two entries, Approach and Correspondence renumbered, the nav's Recent, HomeTeam's drawer with its drawn instrument, the icon links, `max-image-preview`, `og:image:alt`, the structured data | PR B, live 12.11.2026 (PR #7) |
-| **V6 /silent-context/** | 2026-11-13 | PR C: the first sub-page, its video, poster and share image; the front page's entry 1 pill and `SoftwareSourceCode`; CI over every page | **PR C, built together with Petri** |
+| **V6 /silent-context/** | 2026-11-13 | PR C: the first sub-page, its video, poster and share image; the front page's entry 1 pill and `SoftwareSourceCode`; CI over every page | **PR C, live 13.11.2026 (PR #9)** |
 
 ---
 
