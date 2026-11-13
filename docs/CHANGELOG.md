@@ -10,6 +10,13 @@ kysyttiin yhdellä laatikkokierroksella (X, kolme kysymystä, kuvana
 `docs/mockups/reviewglass/round-X-page.jpg`), ja kaikki kolme hyväksyttiin rakennettuina. Työ on haarassa
 `claude/reviewglass-page`.
 
+**Deploy, ensimmäinen yritys:** PR #13 squash-mergattu 13.11.2026 15:28Z Petrin sanasta (`1ad52ba`) CI:n ollessa
+vihreä. Cloudflaren tuotantobuild käynnistyi 15:28:55Z mutta jäi tilaan "Building", koska Cloudflaren
+Workers API -häiriö alkoi 15:31Z (tilasivu: korjaus asennettu 15:42Z). Kello 16.09Z deploymentin oma osoite
+`d3236b51.sunrisesoftware-site.pages.dev` antoi 404:n kaikille poluille, ja Pagesin API vastasi 503 "no
+healthy upstream". Live jäi edelliseen revisioon ehjänä: etusivu ei linkittänyt uuteen sivuun, eikä
+sitemap nimennyt sitä. Tämä kirjaus mainiin käynnistää uuden tuotantobuildin samalle sisällölle.
+
 **Sivu.** `reviewglass/index.html` rakennettu kohdista RG.1–RG.14 sanasta sanaan `/rooms/`-sivun
 kehyksellä. Rakennusskripti luki tekstit `copy-v4-pages.md`:n osasta D ja pysähtyi, jos jokin rivi ei
 ollut päätetty. Päämediana on etusivun §03-piirros 16:9-kehyksessä sarakkeen levyisenä, piirrettynä
