@@ -7,46 +7,49 @@ Working practices are in `CLAUDE.md`; the design and content spec is the SEED in
 
 ## Status
 
-Page **V5** (the sunrise generation, SEED v3.0.0) has been live since 18.9.2026; its last
-revision is 20.9.2026 (PR #4, no product version numbers). Design system, content index and
-assets for what is live: `docs/SEED-v3.0.0.md`, with every text in `docs/design/copy-v3.md` and
-every image in `docs/design/apps-v3.md`.
+The site is moving from V5 (one page, SEED v3.0.0, live since 18.9.2026) to **V6**, a front page
+with its own pages (adr.sws.018). The spec is `docs/SEED-v4.1.0.md`, every new text is in
+`docs/design/copy-v4-pages.md`, and the status round that led to it is
+`docs/design/review-2026-11.md`.
 
-**V6 is specified and not built.** On 11.11.2026 the site stopped being one page (adr.sws.018):
-the front page keeps short pieces and a dated section 04 Recent, and each subject worth
-presenting gets its own address (`/rooms/`, `/reviewglass/`, `/silent-context/`, `/hometeam/`).
-The spec is `docs/SEED-v4.0.0.md` and the status round that led to it is
-`docs/design/review-2026-11.md`. Machine-readable state and the open items:
-`docs/BUILD_INFO.json`.
+- **The front page** carries the V6 changes since 12.11.2026 (PR #7): section 04 Recent, the
+  HomeTeam drawer, the icon links and the structured data that names the products.
+- **`/silent-context/`**, the first sub-page, was built on 13.11.2026 (PR C): the Since AI 2026
+  result with its vertical video, poster and share image.
+- `/rooms/`, `/reviewglass/` and `/hometeam/` are specified and not built.
+
+Machine-readable state and the open items: `docs/BUILD_INFO.json`.
 
 ## Layout
 
 ```
 index.html              the front page (inline CSS + JS: the sky, reveals, plates, drawers, the chamber, the lightbox)
+silent-context/         a sub-page: index.html with the front page's frame copied in (SEED 2.1); paths start from /
 404.html                served for every unknown address (adr.sws.017)
 favicon.ico             16, 32 and 48 px, and icon-192.png, icon-512.png, icon-maskable-512.png,
                         apple-touch-icon.png, site.webmanifest: the files a crawler, a browser and
                         a phone ask for by name, all drawn by scripts/icons.py
-images/                 page images, WebP first with JPG or PNG fallback; og-cover.jpg
+images/                 page images, WebP first with JPG or PNG fallback; og-cover.jpg and og-<page>.jpg
 media/                  the clips and their posters
 scc/                    the SCC2 install icons (adr.sws.016), not part of this site's navigation
 source-assets/          original product screenshots, the sources of images/
-scripts/check-site.mjs  the check CI runs (no dependencies)
+scripts/check-site.mjs  the check CI runs over every page the sitemap names (no dependencies)
 scripts/icons.py        draws the icon files from the sun mark; run by hand, output committed (needs Pillow)
 .github/workflows/      CI: node scripts/check-site.mjs on pull requests and main
 CLAUDE.md               working practices for Claude Code sessions
 docs/
-  SEED-v4.0.0.md        the spec of V6: the site's pages, design system, content index, assets, technical
+  SEED-v4.1.0.md        the spec of V6: the site's pages, design system, content index, assets, technical
   SEED-v3.0.0.md        the spec of V5, which is what production serves; archived when V6 goes live
   design/               copy-v3.md (every text, decided), apps-v3.md (every image, decided), look brief,
                         review-2026-11.md (the status round and its decisions),
                         decision-method.md (how lists are decided: four boxes a round, and why it works)
-  mockups/              the mockup rounds (look, flow, type) with captures; flow-4.html is the reference
+  mockups/              the mockup rounds (look, flow, type) with captures; flow-4.html is the reference;
+                        og-<page>.html are the share images' sources, silent-context/ the sheets of rounds I and J
   CHANGELOG.md          what each session changed and why (newest first, Finnish)
   BUILD_INFO.json       state, sources checked, next items (the only open-items list)
   LESSONS.md            mistakes and the rule each one produced (Finnish)
   decisions/            one file per decision, Atlas record shape, ids adr.sws.NNN
-  archive/              superseded concepts and SEEDs (v2.0.0, the v2.1.0 draft, concept-v3)
+  archive/              superseded concepts and SEEDs (v2.0.0, the v2.1.0 draft, v4.0.0, concept-v3)
   SESSION-CLOSE-*.md    thread close-outs: result, rounds, decisions, lessons, open items (Finnish)
 ```
 

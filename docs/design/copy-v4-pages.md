@@ -232,6 +232,10 @@ them is a page change; they are listed here so the next README session has them.
 | F5 | The README's family map says 21 systems, measured 24.9.2026. Atlas listed 25 on 11.11.2026 | the README: regenerate with `pnpm portfolio` |
 | F6 | Neither surface mentions Since AI 2026 or the AMD hackathon | both, until PR B lands and the README is regenerated |
 
+Re-checked on 13.11.2026 for PR C: the README is unchanged since 24.9.2026 (last push) and still names neither
+Silent context nor Since AI 2026, while the page has had section 04 since 12.11. and now has `/silent-context/`.
+F6 is therefore the README's side alone. No page change; it waits for the next README session.
+
 ---
 
 ## Decisions
@@ -335,3 +339,50 @@ minutes after the takeaway was written. The decision in A.4 stands; only its poi
 
 **`/silent-context/` is now fully decided** (SC.1 to SC.14), and ready to build as PR C once its
 media exist: the video re-encoded to 720x1280 at 4 to 6 MB with a poster, and the share image.
+
+### Round I, `/silent-context/`: the media and the video's place (13.11.2026)
+
+Shown with `docs/mockups/silent-context/round-I-media.jpg` (the three poster frames and the share
+image draft side by side).
+
+| # | Question | Decision |
+|---|---|---|
+| I.1 | The video's poster (SC.8) | **B, the opening frame at 1.5 s**: my photo of the hall in Turku under the video's own title `What I built at Since AI`. It reads as a video and invites the press. Its burnt-in caption is mid-sentence, as the video's captions always are. Not A (the end card repeats the title block and looks empty in a 420 px frame), not C (small text) |
+| I.2 | The share image (SC.3) | **As drafted**: the wordmark, the subject mark in its own mono, the h1 with its second clause `where its advice came from.` in `--sun-deep`, and the address `sunrisesoftware.app/silent-context/` at the foot, on the dawn sky, exactly the build of `og-cover.jpg`. Rendered with the site's own fonts (Familjen Grotesk, JetBrains Mono); the front page's image was made with Bahnschrift as a stand-in on 18.9.2026. Source `docs/mockups/og-silent-context.html` |
+| I.3 | The video block's layout | **9:16 at every width**: the vertical frame at most 420 px wide, centred in the 820 px column under the title block, the mono caption under it. A 16:9 frame would shrink a vertical video to a strip between black bars. SEED v4.0.0 section 3.6 already gives a phone this frame; on this page the desktop gets it too, because there is no 16:9 cut |
+| I.4 | The front page's entry 1 | **The pill only**, as item 4.7 decided. SEED section 3.6 is narrowed: an entry shows a 16:9 poster only when its video is 16:9; a vertical video gets no thumbnail on the front page, and section 04 stays a column of text rows |
+
+### Round J, `/silent-context/`: the page as built (13.11.2026)
+
+Shown with `docs/mockups/silent-context/round-J-page.jpg` (the built page at 1440 px and at 375 px)
+and on the local server. Four choices made while building, none of them in SC.1 to SC.14:
+
+| # | Question | Decision |
+|---|---|---|
+| J.1 | The shore of a sub-page | **As built**: the water, the pill `← Back to the front page` and the footer line, nothing else. The page ends in its evidence and the way back; the contact is one click away on the front page's shore, and the same text is not written twice |
+| J.2 | The layout | **As built**: the 820 px column on the left edge of `.wrap`, on the line of the wordmark and the front page's headings, the video centred in the column. Under 420 px the nav shows only the sun mark, because the wordmark and `← Back to the front page` do not fit on one row; the mark still goes home and rises as the page scrolls |
+| J.3 | The status line's dot | **The sun** (`--sun` with a `--sun-soft` ring). The line is a result, not a word from the product scale (E.2), so it does not wear the green dot of a live product |
+| J.4 | The video's structured data | **As built**: `name` `What I built at Since AI`, the video's own title card; `description` the decided `aria-label`; `uploadDate` `2026-11-13`, the day the file comes to this site (to be moved if the merge moves) |
+
+### How PR C was built (13.11.2026)
+
+- The media: `media/silent-context-916.mp4` re-encoded from
+  `sinceai2026/silent-context-third-place-9x16-captions.mp4` with ffmpeg (720x1280, H.264 High 3.1,
+  CRF 25, BT.709, AAC 128 kb/s, faststart): 5.55 MB for 77.8 s. Small mono labels in the picture
+  checked readable at this size. The poster `media/silent-context-916-poster.jpg` is the source frame at
+  1.5 s scaled to 720x1280 (I.1). The share image `images/og-silent-context.jpg` is
+  `docs/mockups/og-silent-context.html` rendered by `docs/mockups/shoot.py` at 1200x630 (I.2).
+- The page `silent-context/index.html` copies the front page's frame (palette, sky, nav, reveals,
+  the reading light, the shore) and only what it uses. Paths to images and media start from the root
+  (`/media/...`), so the page needs a server to preview; `file://` does not show its media.
+- Every text on the page is SC.1 to SC.14 verbatim. The evidence addresses carry no `↗`, because SC.13
+  has none.
+- The front page gains the pill on entry 1 (item 4.7, a static pill in the §02 pill's look) and the
+  `SoftwareSourceCode` entity, the same `@id` as on the sub-page. Its footer and the sitemap move to
+  13.11.2026, and the sitemap names the new page.
+- `scripts/check-site.mjs` now checks every page the sitemap names (local files from the page's own
+  directory or from the root, the head, a canonical to the page's own address, JSON-LD that parses,
+  em dashes, version numbers, forbidden strings, the footer date against the page's own `lastmod`),
+  fails when a sub-page on disk is missing from the sitemap or not linked from the front page, and
+  wants a sub-page's back button. Tried against a broken copy: it caught all five planted faults.
+  `--links` asks with GET when a host refuses HEAD (the demo answers 405 to HEAD, 200 to GET).

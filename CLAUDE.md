@@ -2,7 +2,7 @@
 
 The company site at https://sunrisesoftware.app/ (repo `pkorrrhonen-cmd/sunrisesoftware-site`).
 Static pages, no build step. Read `README.md` for layout and deploy, and the current
-`docs/SEED-v4.0.0.md` for the design system and the site's architecture, with
+`docs/SEED-v4.1.0.md` for the design system and the site's architecture, with
 `docs/design/copy-v3.md` (every text on the front page) and `docs/design/apps-v3.md` (every
 image), before editing copy or layout. `docs/SEED-v3.0.0.md` describes what production serves
 until V6 is live.
