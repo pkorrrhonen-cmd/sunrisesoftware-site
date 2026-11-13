@@ -164,7 +164,7 @@
       "Atlas board card Virustutka · v0.24 (now autumn season)"
     ]
   },
-  "atlas_status": "sw-sivusto.STATUS v19, 2026-11-13T12:27Z, over the OAuth connector (art_58a7ae0040ff4b92)",
+  "atlas_status": "sw-sivusto.STATUS v20, 2026-11-13T15:16Z, through the static bearer ATLAS_MCP_TOKEN (art_c997c09881094a05): PR #12 merged, /reviewglass/ built in PR #13 and not yet live",
   "updated_note": "The page revision: index.html (the ReviewGlass drawer's link and fact, the code entity) and the new reviewglass/index.html changed in session 9 on 13.11.2026, so the footers, this field and the sitemap lastmod values stay 2026-11-13.",
   "sources_checked_2026_11_11": {
     "method": "Atlas statuses for all 25 systems (atlas_get_status), atlas_get_workspace sw-sivusto, HTTP requests against the live site and the product sites, the local repositories, node scripts/check-site.mjs --links",
