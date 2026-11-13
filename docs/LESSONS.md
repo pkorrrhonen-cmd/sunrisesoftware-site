@@ -2,6 +2,23 @@
 
 Opitut virheet ja estosäännöt, jotta niitä ei toisteta. Uusin ensin.
 
+## 13.11.2026: tuotteen ominaisuudet luettiin suunnitelmasta, ei rakennetusta
+
+**Mitä tapahtui:** 11.11. HomeTeam-laatikon leipäteksti (copy-v4-pages 3.43) kirjoitettiin HomeTeamin
+README:n ja tuotekuvauksen sanoista: "yhteinen Tänään-näkymä (tehtävät, kalenteri, ateriat,
+kauppalista)". Kuvaus on tuotteen suunnitelma. Ateriat ja kauppalista eivät ole rakennettuja:
+HomeTeamin reitittimessä `/ruoka` on "tulossa"-paikkamerkki, kauppalistalla on moduulikytkin mutta ei
+sivua, ja molemmat ovat backlogissa kohdassa "Myöhemmin" (KOORD-2, KOORD-3). Teksti oli livenä
+12.11.–13.11. Virhe löytyi 13.11., kun `/hometeam/`-sivun faktat luettiin koodista ennen tekstikierrosta.
+Korjattiin samana päivänä omalla PR:llä (kierros Z.1).
+
+**Estosääntö:**
+- Kun sivu sanoo tuotteen tekevän jotain, väite tarkistetaan siitä, mikä on rakennettu: reitit tai
+  näkymät koodissa, BUILD_INFOn tuotantotila tai backlogin valmiiksi merkityt rivit. README:n esittely,
+  tuotekuvaus tai lupaus ei riitä, koska ne kertovat suunnitelman.
+- Faktalista kirjoitetaan tekstitiedostoon kahtena listana, "rakennettu ja tuotannossa" ja "ei
+  rakennettu", kuten copy-v4-pages osassa E, niin että jokaiselle väitteelle on nimetty lähde.
+
 ## 13.11.2026: todistelistaan valittiin artikkeli otsikon perusteella
 
 **Mitä tapahtui:** 11.11. SEED v4.0.0:n luku 2.2 ja `copy-v4-pages.md`:n osa C listasivat `/rooms/`-sivun

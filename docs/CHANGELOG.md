@@ -3,7 +3,7 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
-## Sessio 10 (13.11.2026): `/hometeam/`-ketju alkoi, kuvitus päätetty (kierros Y, ei sivumuutosta)
+## Sessio 10 (13.11.2026): `/hometeam/`-ketju alkoi, kuvitus ja ensimmäiset tekstit päätetty (kierrokset Y–Z), etusivun HomeTeam-laatikon virhe korjattu
 
 **Alkutarkistus palvelukatkojen päivänä:** session 9 työ meni perille. Avoimia PR:iä ei ole; `main` on
 `e5bc2d2` ja CI vihreä jokaisessa session 9 commitissa. Cloudflare Pages raportoi onnistuneen buildin
@@ -32,8 +32,29 @@ ja kolmen lapsen etunimet), ja tämä repo on julkinen. Päätökset (`copy-v4-p
 piirrettyjen instrumenttien sääntö ei enää nimeä HomeTeamia, ja siihen kirjattiin Petrin linja muille
 tuotteille. SEED v4.1.0 (luvut 2.2, 7 ja 8), apps-v3 (HomeTeamin rivi ja B.6b) ja päätösindeksi päivitetty.
 **Seuraavaksi** tekstikierros Z: kuvatekstit, suomen kieli -rivi, miten sivu sanoo näkymien olevan
-suunnitelmia eikä tuotannon kaappauksia, ja fonttien (OFL) ja Fluent Emoji -kuvien (MIT) maininta. Sivuihin
-ei koskettu, joten alatunnisteen päivä ja sitemap pysyvät. BUILD_INFO 5.6.0.
+suunnitelmia eikä tuotannon kaappauksia, ja fonttien (OFL) ja Fluent Emoji -kuvien (MIT) maininta. BUILD_INFO 5.6.0.
+
+**Kierros Z ja virhe livesivulla.** Ennen tekstikierrosta `/hometeam/`-sivun faktat luettiin HomeTeamin
+koodista eikä vain kuvauksista (`routes.tsx`, `moduleOptions.ts`, `i18n.ts`, `apps/api/src/family/index.ts`,
+BACKLOG, `product.md`, `v1-reference.md`; `app.hometeam.fi` ja `hometeam.fi` 200). Löytyi virhe:
+etusivun HomeTeam-laatikko (3.43, livenä 12.11. alkaen) lupaa ateriat ja kauppalistan, joita ei ole
+rakennettu (`/ruoka` on paikkamerkki, kauppalistalla ei ole sivua, KOORD-2 ja -3 kohdassa "Myöhemmin").
+11.11. tarkistus luki README:n kuvauksen, joka on suunnitelma; LESSONS 13.11.2026. `/hometeam/`-sivun
+tekstiehdotukset HT.1–HT.16 kirjoitettiin osaan E (`HT.n`, koska `H.n` ovat `/silent-context/`-sivun
+kierroksen H päätöksiä), ja faktat kahtena listana: rakennettu ja tuotannossa, ei rakennettu.
+Kierros Z (neljä kysymystä, kaikki suositukset hyväksytty):
+
+- **Z.1** laatikon leipäteksti korjataan heti omalla PR:llä: `A shared Today view for the day's tasks and
+  the family calendar, and an economy ...` (muu teksti ennallaan). Etusivun muu osa odottaa PR F:ää.
+- **Z.2** h1 `The application my family runs the week on. My children voted on how it looks.`
+- **Z.3** ingressi ehdotuksen mukaan (HT.6).
+- **Z.4** pääkuvan kuvateksti `Design mockups, not captures: a child's Today and a parent's, in Finnish
+  as the application is. A capture would show my family's own week.`
+
+**Sivumuutos:** `index.html`:n HomeTeam-laatikon leipäteksti (Z.1). Alatunnisteen päivä on jo 2026-11-13,
+joten se ja sitemap pysyvät. Profiilin README (push 24.9.2026) mainitsee HomeTeamin vain perhekartassa
+eikä lupaa aterioita, joten F2 pysyy ennallaan. BUILD_INFO 5.6.1. **Seuraavaksi** kierrokset AA alkaen:
+HT.1–HT.4 ja HT.9–HT.16.
 
 ## Sessio 9, päätös (13.11.2026): ketju paketoitu, seuraavaksi `/hometeam/`
 

@@ -268,7 +268,7 @@ The front page's copy is decided item by item in **`docs/design/copy-v3.md`**, w
 | `/rooms/` | mark, h1, lede, status, video caption, body sections, evidence list, the Atlas plate's button | copy-v4-pages R.1 to R.15 |
 | `/reviewglass/` | the same shape, and the drawer's link and fact | copy-v4-pages RG.1 to RG.15, X.1 to X.3 |
 | `/silent-context/` | the same shape | copy-v4-pages SC.1 to SC.14 |
-| `/hometeam/` | the same shape | copy-v4-pages H.1 to H.n |
+| `/hometeam/` | the same shape | copy-v4-pages HT.1 to HT.16 (rounds Y onwards) |
 | Shipped with the site | OG title and description per page | copy-v4-pages 7.1 to 7.n |
 
 Rules for copy, on every page of the site: English, first person singular, no em dashes, no relative time, every status dated and no product version numbers (adr.sws.015), one status scale (Live, In use, Closed beta, Pre-alpha, Venture), no hero statistics, no generic adjectives, the company name only in the footer and the structured data, no employer's product names (adr.sws.006), no technology names in spec strips. A claim about another project is checked from that project's repository or its live service in the same session, never from memory.
