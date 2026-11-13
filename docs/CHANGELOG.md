@@ -40,6 +40,18 @@ tiheä 820 px:n kehyksessä) eikä loppukorttia (tyhjä 16:9:ssä ja näyttää 
 lause `--sun-deep`-värissä, lähde `docs/mockups/og-rooms.html`. Tekstitys `media/rooms-en.vtt` on labran
 tiedosto sellaisenaan ja päällä oletuksena (P.4), koska videossa ei ole tekstiä kuvassa.
 
+**Deploy:** PR #11 squash-mergattu 13.11.2026 12:26Z (`3192d6b`) Petrin sanasta CI:n ollessa vihreä
+(Site checks ja Cloudflare Pages). Ennen mergea preview `claude-rooms-pr-d.sunrisesoftware-site.pages.dev`
+tarkistettu: sivut, sitemap, posterit, jakokuva ja `.vtt` tavu tavulta samat kuin paikallisesti
+tarkistetut, `.vtt` `text/vtt`:nä, pystyleikkaus toistuu tekstityksen kanssa puhelinleveydellä, ei
+konsolivirheitä, tuntematon osoite 404. Livestä todennettu 12:27Z alkaen: `/rooms/` 200 ja tavu tavulta
+sama kuin main, kanoninen osoite, `og:image`, `data-revised="2026-11-13"`, JSON-LD WebPage ja VideoObject;
+molemmat videot 206 osapyyntöön (`content-range bytes 0-1023/6448529` ja `/5855181`, `video/mp4`,
+immutable) ja tavu tavulta samat; `.vtt` `text/vtt`; posterit ja jakokuva `image/jpeg` ja samat; etusivun
+Atlas-laatassa nappi `/rooms/`-sivulle; sitemap kolmella osoitteella; `/nonexistent-xyz/` 404. Kelaus
+kokeiltu livessä selaimessa: 54,8 sekunnin kohdalla näkyy oikea tekstitysrivi. Päivä ei siirtynyt, joten
+`uploadDate` 2026-11-13 pitää. Atlaksen `sw-sivusto.STATUS` v19.
+
 **Medioista tarkistettu:** molemmat videot SHA-256:lla samoiksi kuin labran tiedostot ja `sf3d-media.pages.dev`:n
 julkaisemat; atomijärjestys (faststart) tiedostosta; posterit ja jakokuva silmällä tehdyistä tiedostoista;
 `.vtt` 27 riviä, UTF-8 ilman BOMia, LF. `node scripts/check-site.mjs` vihreä. SEED v4.1.0:n 5.2 ja 8
