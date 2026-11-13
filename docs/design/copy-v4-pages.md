@@ -288,12 +288,96 @@ are K onwards, after `/silent-context/`'s E to J.
 
 ## D. `/reviewglass/` (PR E)
 
-- **Status line:** `Pre-alpha · daily use · 2026 →`, as in the drawer today.
-- **Lead medium:** the §03 canvas instrument enlarged, until a capture exists.
-- **Body:** the magnifier over any part of the screen, the panel of every running coding session
-  with its quota and burn rate, the agent's edits as a live diff, and that the glass now knows
-  which window is in front (`adr.rg.033`, 8.10.2026). Nothing leaves the machine.
-- **Evidence:** `github.com/Sunrisesoftware-app/reviewglass`, Apache-2.0.
+Skeleton as SEED v4.1.0 section 2.1. The items are numbered `RG.n` (not `G.n`, which would read as
+round G of `/silent-context/`). The rounds for this page are S onwards; R is skipped, because `R.n`
+are the items of `/rooms/`.
+
+**Checked on 13.11.2026**, in this session and not from memory, from the repository's `origin/main`
+(`README.md`, `docs/BUILD_INFO.json` session 10 of 12.11.2026, `docs/CHANGELOG.md`, `docs/NAME-CLEARANCE.md`,
+the ADR files), the GitHub API and Atlas `reviewglass.STATUS` v38 (12.11.2026):
+
+- **What it is**, in the README's words: a Windows 11 desktop companion for Claude Code sessions. The
+  glass is an always-on-top magnifier, 150 to 400 %, pixels only and no OCR (adr.rg.006), with Follow
+  (a halo marks the cursor), click-lock to a Code pane (read from the app's UI Automation tree; the
+  arrow keys step to the next pane), Lock here (the glass keeps its place across restarts), Lens (the
+  glass rides on the cursor) and Still (the picture stops). The dock is a small always-on-top strip
+  with the quota gauge and the glass's switches; its drawer holds Sessions (every running session,
+  Desktop tab or terminal), Quota (the account-wide 5-hour and 7-day quota with the burn rate and a
+  Windows notification before a set threshold; account quota and per-session share are never blended,
+  adr.rg.007) and Diff (the agent's edits as a live `git diff` per file, grouped by session, the whole
+  file around a hunk, the latest edit's lines highlighted). The diff window shows the locked pane's
+  session's diff beside the glass (glued to a side of it since adr.rg.034, 11.11.2026). Explain, off by
+  default, explains one selected diff hunk with a local model or a remote API and the user's own key.
+- **The privacy posture**, from the README: screen pixels are read, scaled and shown, never kept or
+  sent; session data comes only from files Claude Code already writes on the machine, opened
+  read-only; the hook records which file an edit touched, never its content; only session state is
+  read from a transcript, never the conversation; it never writes into a session, a repository or a
+  transcript; no network listener, no localhost port, no IPC socket; no analytics and no accounts.
+  **The front page's fact `Nothing leaves the machine` is true only while Explain's remote backend is
+  off**: that backend is the one path out, triggered per hunk, with the exact payload shown before
+  the first send and only the hunk and its immediate context sent.
+- **Where it stands:** pre-alpha, in daily use by its author, no installer or release, no tags on
+  GitHub. Phases built: the magnifier, the session panel, threshold alerts, the live diff with a
+  whole-file view, the glass locked to a pane, Explain; started: the glass in other applications
+  (P9, read for structure only, adr.rg.032). 36 decisions (adr.rg.001 to 036), 172 tests (CHANGELOG,
+  12.11.2026). The latest three decisions (adr.rg.034 to 036, 11. and 12.11.2026) are "not yet seen by
+  the owner".
+- **GitHub:** `Sunrisesoftware-app/reviewglass` public, Apache-2.0, language Rust, created 11.9.2026,
+  last pushed 2026-11-12T14:05Z, no releases and no tags. When it went public is recorded twice and
+  differently: the repository's own README and CHANGELOG say 17.9.2026 (the owner's decision in the
+  Atlas thread that day), this site's LESSONS of 19.9.2026 says the evening of 18.9.2026. The page
+  needs no date for it.
+- **Two open questions that bear on the page** (the repository's `BUILD_INFO.next`):
+  - **The name** (adr.rg.008, still *proposed*; `docs/NAME-CLEARANCE.md` of 4.10.2026): trademark
+    registers clear, but two unrelated e-commerce review services trade as ReviewGlass and hold the
+    `.com` and the `.app`. Keep it, rename before the public release, or a professional search
+    first is the owner's call. The release (installer, bundle id) waits for it; the source does not.
+  - **AvoQ** (the owner, 11.11.2026): ReviewGlass may merge partly into AvoQ, which has already taken
+    its Diff view as its own copy; the boundary is to be decided before more is built.
+- **The README's independence line:** "ReviewGlass is an independent project. It is not made,
+  endorsed or supported by Anthropic." It names Claude Code because it reads only the files Claude
+  Code writes.
+- **What the front page says today** (copy-v3 3.22 to 3.24b): row `2026 → · ReviewGlass · pre-alpha ·
+  daily use · Windows desktop companion for AI-assisted coding sessions.`; body `A magnifier over any
+  part of the screen, a panel of every running coding session with its quota and burn rate, and the
+  agent's edits as a live diff. Built for my own daily use. Open source, Apache-2.0.`; facts `Magnifier
+  · sessions · live diff` / `Nothing leaves the machine` / `Open source, Apache-2.0`; the repository
+  link. Its image is a drawn instrument (apps-v3 B.5: a real capture would need every line blurred).
+
+### RG.1 to RG.7, the head and the title block
+
+| # | Where | Proposal | State |
+|---|---|---|---|
+| RG.1 | `<title>` and `og:title` | `ReviewGlass: a reading glass for AI coding sessions · Petri Korhonen` | decided 13.11.2026 (U.3) |
+| RG.2 | `description` and `og:description` | `A Windows companion I built for my own Claude Code sessions: a glass that magnifies the pane I read, every session and the quota in one place, and the agent's edits as a live diff. Open source.` | decided 13.11.2026 (U.3) |
+| RG.3 | `og:image` and its alt | an image of its own in I.2's build (the subject mark and the h1 on the dawn sky), made in the media step; alt `ReviewGlass: a glass for reading what the AI agent writes, while it is writing.` | decided 13.11.2026 (V.2) |
+| RG.4 | Subject mark (mono) | `ReviewGlass · open source` | decided 13.11.2026 (U.4) |
+| RG.5 | h1 | `A glass for reading what the AI agent writes, while it is writing.` | decided 13.11.2026 (T.1) |
+| RG.6 | Lede | `When an AI agent writes code for me in Claude Code, its output runs in a narrow pane in small text that keeps moving, often in several sessions side by side. ReviewGlass sits on top of them on Windows: a glass that magnifies the pane I am reading, a small dock with every running session and how much of the account's quota is left, and each change the agent makes as a live diff. I built it for my own daily use, and the code is open.` | decided 13.11.2026 (T.2) |
+| RG.7 | Status line | `Pre-alpha · daily use · 2026 →`, the sea dot, as the drawer | decided 13.11.2026 (U.1) |
+
+### RG.8, the lead medium
+
+| # | Where | Proposal | State |
+|---|---|---|---|
+| RG.8 | The lead medium | (S.3: the drawing) the §03 drawn instrument (apps-v3 B.5: blurred text columns, the reading frame, the glass) enlarged in a 16:9 frame, until a capture exists. Mono caption: `A drawing, not a capture: a real picture of the glass would show my code and my conversation.` `aria-label`: `A drawing of ReviewGlass: two columns of blurred text, a reading frame over the left one, and the glass moving along it at 220 percent.` | decided 13.11.2026 (S.3, the drawing; V.1, its caption and label) |
+
+### RG.9 to RG.11, the body
+
+| # | Heading | Proposal | State |
+|---|---|---|---|
+| RG.9 | `What it does` | `The glass is a magnifier that stays on top of everything, at 150 to 400 percent. It shows pixels and reads no text. It can follow the pointer, ride on it as a lens, or lock to one coding pane with a single click, and a button keeps it where I put it; a still keeps an instruction on screen while I work elsewhere.` ¶ `The dock is a small strip with the quota gauge and the glass's switches. Its drawer holds every running session in one table, the account's quota with its burn rate and a warning before a limit I set, and the agent's edits as a live diff, grouped by session, with the latest edit's lines marked. The locked pane's diff can also sit in its own window, glued to the side of the glass.` | decided 13.11.2026 (T.3) |
+| RG.10 | `What it keeps, and what it does not` | `The pixels on the screen are read, scaled and shown, never kept or sent. Everything else comes from files the coding tool already writes on this machine, opened read-only: which file an edit touched, never the edit itself, and the state of a session, never the conversation. ReviewGlass never writes into a session or a repository, opens no network port and has no analytics or accounts. The one way out is an explanation of a single change, off by default: with a model on the same machine nothing leaves it, and with a remote one only the change I picked is sent, and the first time I see exactly what will go.` | decided 13.11.2026 (T.4) |
+| RG.11 | `Where it stands` | `Pre-alpha: I use it every day, and there is no installer or release. The code is open under the Apache-2.0 licence, with every design decision and a changelog of what was measured. It works with Claude Code only, and it is my own project: Anthropic does not make, endorse or support it.` | decided 13.11.2026 (U.2) |
+
+### RG.12 to RG.14, evidence, structured data and the front page
+
+| # | Where | Proposal | State |
+|---|---|---|---|
+| RG.12 | Evidence block | One link, the name over the address with one line under it: `The code` / `github.com/Sunrisesoftware-app/reviewglass` / `Apache-2.0; the README says what it reads and what it never keeps` | decided 13.11.2026 (V.3) |
+| RG.13 | JSON-LD | a `WebPage` with `isPartOf` the WebSite and `about` the code; a `SoftwareSourceCode` `#reviewglass` (`name` ReviewGlass, `description` the h1, `codeRepository`, `license` `https://www.apache.org/licenses/LICENSE-2.0`, `programmingLanguage` Rust and Svelte, `author` the Person), which the front page's graph also gains, as with Silent context | decided 13.11.2026 (W.1) |
+| RG.14 | The front page's link to this page | in the ReviewGlass drawer, before the repository link, a link `How the glass works →` to `/reviewglass/`, in the words of the Atlas plate's button; the drawer's text does not change | decided 13.11.2026 (V.4) |
+| RG.15 | The front page's drawer fact (copy-v3 3.24) | `Nothing leaves the machine` becomes `Screen pixels never leave the machine`, which holds without an exception; lands with this page | decided 13.11.2026 (S.4) |
 
 ## E. `/hometeam/` (PR F)
 
@@ -588,3 +672,59 @@ Atlas plate) and on the local server. Two choices made while building, none of t
   9:16 cut and its poster chosen, the nav showing only the sun mark; on the front page at 375 px the
   two Atlas buttons stack. Seeking was not tried locally, because Python's server does not answer
   range requests; it is checked on the preview.
+
+### Round S, `/reviewglass/`: the big lines (13.11.2026)
+
+| # | Question | Decision |
+|---|---|---|
+| S.1 | Build the page now, with the name and the AvoQ boundary open in the repository's records? | **Now, today's state.** Petri: the name ReviewGlass is kept and stays; the record that it is unresolved (adr.rg.008 *proposed*, `docs/NAME-CLEARANCE.md`, the repository's `BUILD_INFO.next`) is old. So the page does not say that a release waits for the name, and AvoQ is not named (K.4) |
+| S.2 | Name Claude Code on the page? | **Named, with the independence said**: the lede says `in Claude Code`, and RG.11 ends `It works with Claude Code only, and it is my own project: Anthropic does not make, endorse or support it.`, as the README does |
+| S.3 | The lead medium (RG.8) | **The drawing enlarged**, as CLAUDE.md and apps-v3 B.5 have it: a real capture would show code and a conversation, and a staged one would need keeping up |
+| S.4 | The front page's fact `Nothing leaves the machine` (copy-v3 3.24) | **`Screen pixels never leave the machine`**, which holds without an exception; the old line was untrue while Explain's remote backend is on. Lands with this page (RG.15) |
+
+### Round T, `/reviewglass/`: the h1, the lede and the first two sections (13.11.2026)
+
+| # | Question | Decision |
+|---|---|---|
+| T.1 | The h1 (RG.5) | **`A glass for reading what the AI agent writes, while it is writing.`**, what it is in one picture, as proposed. Not the first-person variant, not the problem first |
+| T.2 | The lede (RG.6) | **The problem, the three things it does, who it is for**, with Claude Code named (S.2) |
+| T.3 | What it does (RG.9) | **Two paragraphs**: the glass and its ways; the dock and its drawer, the diff window last |
+| T.4 | What it keeps, and what it does not (RG.10) | **The whole principle**: pixels, files, no writes, no network, and the one way out said plainly |
+
+### Round U, `/reviewglass/`: the status line, where it stands, the head and the mark (13.11.2026)
+
+| # | Question | Decision |
+|---|---|---|
+| U.1 | The status line (RG.7) | **`Pre-alpha · daily use · 2026 →`**, as the drawer, with the sea dot |
+| U.2 | Where it stands (RG.11) | **Three sentences**: the state, the open code and what the repository carries, and the independence from Anthropic |
+| U.3 | `<title>` and `description` (RG.1, RG.2) | **The kind in the title, the tool in the description**: `ReviewGlass: a reading glass for AI coding sessions · Petri Korhonen`, so the title does not read as Anthropic's product, and the description names Claude Code |
+| U.4 | The subject mark (RG.4) | **`ReviewGlass · open source`**, the name and what sets it apart from the site's other products |
+
+### Round V, `/reviewglass/`: the drawing's words, the share image, the evidence and the front page (13.11.2026)
+
+| # | Question | Decision |
+|---|---|---|
+| V.1 | The lead medium's caption and label (RG.8) | **The drawing said to be one, and why**: caption `A drawing, not a capture: a real picture of the glass would show my code and my conversation.`; `aria-label` `A drawing of ReviewGlass: two columns of blurred text, a reading frame over the left one, and the glass moving along it at 220 percent.`, which is what the canvas draws |
+| V.2 | The share image (RG.3) | **As the rooms' (N.2)**: I.2's build with the subject mark and the h1; alt `ReviewGlass: a glass for reading what the AI agent writes, while it is writing.`, what the image says. Made in the media step |
+| V.3 | The evidence line (RG.12) | **The licence and the README**: `The code` / `github.com/Sunrisesoftware-app/reviewglass` / `Apache-2.0; the README says what it reads and what it never keeps`, so the reader knows where RG.10's promises can be checked |
+| V.4 | The front page's link (RG.14) | **`How the glass works →`** in the drawer, before the repository link, in the words of the Atlas plate's button; the drawer's text does not change |
+
+### Round W, `/reviewglass/`: the structured data (13.11.2026)
+
+| # | Question | Decision |
+|---|---|---|
+| W.1 | The structured data (RG.13) | **`WebPage` and `SoftwareSourceCode`**, as for Silent context: the code entity `#reviewglass` with the h1 as its description, the Apache-2.0 licence and the languages Rust and Svelte (GitHub's measure on 13.11.2026: Rust 581 kB, Svelte 168 kB, TypeScript 10 kB), also in the front page's graph. Still no `SoftwareApplication` (C.3: there is no installer) |
+
+**`/reviewglass/` is now fully decided** (RG.1 to RG.15), in five rounds (S to W, 18 questions), and
+ready to build as PR E together with Petri. What the build needs, none of it made in this session:
+
+- **The media:** only the share image `images/og-reviewglass.jpg` from `docs/mockups/og-reviewglass.html`
+  (V.2). The lead medium is the §03 drawing, enlarged by the page's own copy of its canvas code (S.3).
+- **Lands with this page:** the drawer's link `How the glass works →` (RG.14), the drawer's fact
+  `Screen pixels never leave the machine` (RG.15, replacing copy-v3 3.24's second fact), the
+  `SoftwareSourceCode` entity in the front page's graph (RG.13), and the page's `<url>` in `sitemap.xml`.
+- **Read again on the build day:** the repository's README and `BUILD_INFO.json`, so that RG.9 to RG.11
+  still hold (the glass's ways and the privacy posture move with the product).
+- **Outside this site:** the ReviewGlass repository still records the name as unresolved (adr.rg.008
+  *proposed*, `docs/NAME-CLEARANCE.md`, its README's "gated on the name", its `BUILD_INFO.next`).
+  Petri's word of 13.11.2026 (S.1) that the name is kept belongs there too.

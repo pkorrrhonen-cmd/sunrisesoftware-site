@@ -1,6 +1,6 @@
 {
   "name": "sw-sivusto",
-  "version": "5.4.1",
+  "version": "5.4.2",
   "page": {
     "design_version": "V6 in progress (SEED v4.1.0): the front page with the V6 changes, /silent-context/ and /rooms/ live (13.11.2026); /reviewglass/ and /hometeam/ are not built",
     "built": "2026-09-18",
@@ -10,7 +10,7 @@
   "seed": "4.1.0 (13.11.2026: section 3.6 narrowed while building /silent-context/, rounds I and J; sections 2.2, 4, 5.2 and 8 corrected for /rooms/ the same day, session 9); 4.0.0 archived in docs/archive/; 3.0.0 stays in docs/ until V6 is live; 2.0.0 and the 2.1.0 draft archived",
   "session": 9,
   "updated": "2026-11-13",
-  "state": "Session 9 (13.11.2026): /rooms/ live (PR #11, 3192d6b, 12:26Z), built together with Petri: the copy decided in rounds K to O (PR #10), the media in round P, the page in round Q; verified on the live site, see deploy. Petri also decided that Atlas and Somnus each need a page of their own later. Session 8 (13.11.) shipped /silent-context/ (PR #9).",
+  "state": "Session 9 (13.11.2026), later: the copy of /reviewglass/ decided with Petri in rounds S to W (18 questions, RG.1 to RG.15 in docs/design/copy-v4-pages.md), docs only. The h1 is 'A glass for reading what the AI agent writes, while it is writing.'; Claude Code is named with the README's independence line; the lead medium is the §03 drawing; the front page's drawer fact becomes 'Screen pixels never leave the machine'. Petri: the name ReviewGlass is kept, and the repository's record that it is open is old. Earlier the same day /rooms/ went live (PR #11, 3192d6b).",
   "sources_checked_2026_09_17": {
     "masterforge": "BUILD_INFO 4.44.0, 16.9.2026 (Starter v2 general master); masterforge.app: Free, Starter 4.99, Pro 9.99, one-off 14.99",
     "quaesitor": "repo main 2.13.27 (17.8.2026), SEED v2.14.0; quaesitor.app live",
@@ -31,7 +31,8 @@
     "github": "pkorrrhonen-cmd: 0 public repos, no name or bio on 17.9.2026; Sunrisesoftware-app: 15 private repos"
   },
   "next": [
-    "Next: the copy rounds for /reviewglass/ and /hometeam/, one page per pull request",
+    "Next: build /reviewglass/ together with Petri as PR E (copy decided 13.11.2026, RG.1 to RG.15): the share image og-reviewglass.jpg, the page, the drawer's link and fact, the SoftwareSourceCode entity on the front page; read the repository's README and BUILD_INFO again on the build day. Then the copy round for /hometeam/",
+    "Done 13.11.2026: the copy of /reviewglass/ decided in rounds S to W (18 questions), docs-only PR",
     "Done 13.11.2026: PR D live (PR #11, squash 3192d6b); verified on the live site, see deploy",
     "Done 13.11.2026: the /rooms/ page built (PR D, round Q), with the front page's Atlas plate button and the sitemap entry",
     "Done 13.11.2026: the media of /rooms/ decided in round P and made (videos copied as they are, posters at 23 s, captions on by default, og-rooms.jpg)",
@@ -193,6 +194,7 @@
     "rooms_counts": "atlas_decision_calibration limit 500, 13.11.2026 about 09:15Z: all closed queue rows, 335 decisions with a room's choice, 245 confirmed, 90 deviated; H1 (v2 hypothesis) read its 20 outcomes, 15 inside and 5 outside its range, none overturned, prediction did not hold; H1 v4 (locked 2026-10-27T07:38Z) 0 of 20; H2 3 of 10; challenges 309 in 69 rooms, Jev bearing 272, Clef 238, correlation 0.28",
     "rooms_video": "ffprobe: sf3d-ai-lab/media/publish/rooms/rooms-en.mp4 1920x1080 H.264 High 4.0 30 fps, AAC 48 kHz stereo, 118.08 s, 6 448 529 bytes; rooms-en-916.mp4 1080x1920, same codecs and length, 5 855 181 bytes; no captions in the picture; the lab's site/public/video/rooms-en.vtt 27 cues; media/ is ignored by the lab's git; sf3d-media.pages.dev/rooms/ serves both (200 video/mp4)",
     "profile_readme": "pkorrrhonen-cmd pushed 2026-09-24T10:30Z, unchanged; it does not mention the rooms. No page change this session, so no new difference",
-    "rooms_build_day": "atlas_decision_calibration limit 500 read again about 10:30Z on 13.11.2026: 335 decisions, 245 confirmed, 90 deviated; H1 20 outcomes, none overturned; H1 v4 0 of 20; challenges 309 in 69 rooms, Jev bearing 272. Unchanged from the morning, so R.12 stands verbatim"
+    "rooms_build_day": "atlas_decision_calibration limit 500 read again about 10:30Z on 13.11.2026: 335 decisions, 245 confirmed, 90 deviated; H1 20 outcomes, none overturned; H1 v4 0 of 20; challenges 309 in 69 rooms, Jev bearing 272. Unchanged from the morning, so R.12 stands verbatim",
+    "reviewglass": "github.com/Sunrisesoftware-app/reviewglass: public, Apache-2.0, created 2026-09-11, pushed 2026-11-12T14:05Z, no releases or tags, languages Rust 581 138 / Svelte 167 759 / TypeScript 10 343 bytes. Repository origin/main 45609db: README (Windows 11 companion for Claude Code sessions; the glass 150-400 %, Follow, click-lock, Lock here, Lens, Still; the dock and its drawer with Sessions, Quota, Diff; the diff window; Explain off by default; the privacy posture), BUILD_INFO session 10 (12.11.2026), CHANGELOG (172 tests), adr.rg.001 to 036, NAME-CLEARANCE (4.10.2026). Atlas reviewglass.STATUS v38 (12.11.2026). When the repository went public: its README says 17.9.2026, this site's LESSONS of 19.9.2026 the evening of 18.9.2026; the page needs no date"
   }
 }
