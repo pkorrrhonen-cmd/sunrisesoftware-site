@@ -6,6 +6,7 @@ decisions then go to `docs/decisions/` and the accepted look to the SEED.
 
 | Round | Files | Question | Brief |
 |---|---|---|---|
+| MasterForge build, round AJ (14.11.2026) | `masterforge/round-AJ-page.jpg`, `masterforge/site-chain-draft2-sheet.jpg` | the §02 plate as built at 1440 and 375 px and its poster; draft 2's frames | `docs/design/copy-v4-pages.md` round AJ |
 | MasterForge video, round AH (14.11.2026) | `masterforge/round-AH-storyboards.jpg` | the live EQ plate against three 16:10 storyboards (the chain, the instrument, Starter) built from frames of MasterForge's own ad renders (variants A and D, August 2026); the words are placeholders | `docs/design/copy-v4-pages.md` round AH |
 | ReviewGlass build, round AG (14.11.2026) | `reviewglass/round-AG-page.jpg` (the built `/reviewglass/` at 1440 and 375 px, the open §03 drawer), `reviewglass/round-AG-aim.jpg` (where the glass aims) | PR G as built; the glass aimed two lines higher so the self-test's version strings stay out of the magnified picture | `docs/design/copy-v4-pages.md` round AG |
 | ReviewGlass method, round AE (14.11.2026) | `reviewglass-mockup.py` (setup and run in its docstring; works outside the repository), `reviewglass/tauri-mock.js`, `reviewglass/round-AE-method.jpg` | the live drawing against koe A: ReviewGlass's own pages (glass, diffwin, dock, halo) from its public `main` run in Edge with a staged Tauri core, over a staged screen re-enacting this site's version-guard fix with the real diff of commit `2aef4d2` | `docs/design/copy-v4-pages.md` round AE, adr.sws.021 |

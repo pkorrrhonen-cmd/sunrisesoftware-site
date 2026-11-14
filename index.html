@@ -290,8 +290,8 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
 .btn.quiet:hover{transform:none;box-shadow:none}
 .btns{display:flex;flex-wrap:wrap;gap:10px}
 
-/* clip plates: a real capture on loop over the sketch */
-.frame.clip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;background:#0F171F}
+/* a video plate on a dark product (MasterForge's chain video, rounds AH and AI) */
+.frame.video.dark{background:#0B0E12}
 .frame.video.sound .cap::after{content:' · sound on';color:var(--sun-deep)}
 .pill.quiet-pill{background:rgba(255,253,249,.85);color:var(--text-2);font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
 /* Salpa: the brand mark, and ACCESS DENIED on hover */
@@ -578,7 +578,12 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
     <div class="plates">
       <div class="group" data-reveal>Commercial products</div>
       <article class="plate">
-        <figure class="frame clip" data-live="masterforge"><canvas></canvas><video muted loop playsinline preload="none" poster="media/masterforge-eq-poster.jpg" src="media/masterforge-eq.mp4" aria-label="MasterForge Pro Master: the parametric EQ moving over a live spectrum"></video><span class="cap">Pro Master · EQ, live</span><a class="pill" href="https://masterforge.app" aria-label="Visit masterforge.app">Visit ↗</a></figure>
+        <figure class="frame video dark">
+          <video muted loop playsinline preload="none" poster="media/masterforge-chain-poster.jpg" src="media/masterforge-chain.mp4" aria-label="MasterForge in 17 seconds: a track measured, repaired by SpectralForge, finished by Pro Master, and the raw and mastered spectra compared. Click to play with sound."></video>
+          <span class="cap">Auto-Master · measure, repair, master</span>
+          <span class="play">▶</span>
+          <a class="pill" href="https://masterforge.app" aria-label="Visit masterforge.app">Visit ↗</a>
+        </figure>
         <div>
           <span class="status" data-reveal><i></i>Live · paying customers · 2024 →</span>
           <h3 data-reveal>MasterForge</h3>
@@ -964,29 +969,6 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
     if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; }
     return { ctx: cv.getContext('2d'), w, h, dpr };
   }
-  /* MasterForge: meters and an EQ curve that breathe */
-  sketches.masterforge = (cv, t) => {
-    const { ctx, w, h } = fit(cv);
-    ctx.fillStyle = '#0F171F'; ctx.fillRect(0, 0, w, h);
-    const bars = 46, gap = w / bars;
-    for (let i = 0; i < bars; i++) {
-      const v = 0.25 + 0.55 * Math.abs(Math.sin(t * 0.0011 + i * 0.37)) * (0.6 + 0.4 * Math.sin(i * 0.21 + t * 0.0004));
-      const bh = v * h * 0.55;
-      const g = ctx.createLinearGradient(0, h * 0.9 - bh, 0, h * 0.9);
-      g.addColorStop(0, SUN); g.addColorStop(1, 'rgba(232,165,78,.15)');
-      ctx.fillStyle = g; ctx.fillRect(i * gap + gap * 0.18, h * 0.9 - bh, gap * 0.64, bh);
-    }
-    ctx.strokeStyle = 'rgba(223,243,255,.85)'; ctx.lineWidth = Math.max(1.5, w / 500); ctx.beginPath();
-    for (let x = 0; x <= w; x += 4) {
-      const f = x / w;
-      const y = h * 0.34 - Math.sin(f * 6.5 + t * 0.0006) * h * 0.05 * Math.sin(f * 3.1) - Math.exp(-Math.pow((f - 0.72), 2) * 40) * h * 0.09 * (0.7 + 0.3 * Math.sin(t * 0.0015));
-      x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-    }
-    ctx.stroke();
-    const lufs = (-14.5 + Math.sin(t * 0.0008) * 0.6).toFixed(1);
-    ctx.fillStyle = 'rgba(223,243,255,.6)'; ctx.font = `${Math.round(h * 0.045)}px JetBrains Mono, monospace`;
-    ctx.fillText(`LUFS ${lufs}   TP −1.0   L/R 0.97`, w * 0.04, h * 0.12);
-  };
   /* Quaesitor: three streams converging into one assembler line */
   sketches.quaesitor = (cv, t) => {
     const { ctx, w, h } = fit(cv);
@@ -1106,7 +1088,6 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
     ctx.fillStyle = INK; ctx.font = `${Math.round(h * 0.045)}px JetBrains Mono, monospace`; ctx.fillText('CTL · ATL · TSB · A SEASON', w * 0.06, h * 0.95);
   };
   /* Internal tools: seven tiles lighting in turn */
-  sketches.spectralforge = (cv, t) => sketches.masterforge(cv, t + 900);
   sketches.tools = (cv, t) => {
     const { ctx, w, h } = fit(cv);
     ctx.fillStyle = '#F6F0E6'; ctx.fillRect(0, 0, w, h);
@@ -1114,20 +1095,6 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
     names.forEach((n, i) => { const on = Math.floor(t * 0.0008) % 7 === i; ctx.fillStyle = on ? SUN : 'rgba(32,48,60,.08)'; ctx.fillRect(w * (0.06 + i * 0.13), h * 0.3, w * 0.11, h * 0.4); ctx.fillStyle = on ? PAPER : INK; ctx.font = `${Math.round(h * 0.04)}px JetBrains Mono, monospace`; ctx.fillText(n, w * (0.07 + i * 0.13), h * 0.52); });
   };
 
-  /* clip plates: fade the capture in when it can play; play only in view */
-  document.querySelectorAll('.frame.clip').forEach(f => {
-    const v = f.querySelector('video'); if (!v) return;
-    v.addEventListener('playing', () => f.classList.add('ready'), { once: true });
-    if (MOVE) {
-      const inView = () => { const r = f.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; };
-      const io2 = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) v.play().catch(() => {}); else v.pause(); }), { threshold: 0.4 });
-      io2.observe(f);
-      /* Phones may refuse play() outside a gesture: retry on the first touch, pointer or scroll, and when the tab returns */
-      const retry = () => { if (v.paused && inView()) v.play().catch(() => {}); };
-      ['touchstart', 'pointerdown', 'scroll'].forEach(ev => addEventListener(ev, retry, { passive: true, once: true }));
-      document.addEventListener('visibilitychange', () => { if (!document.hidden) retry(); });
-    }
-  });
 
   /* Somnus: the rack panel (apps-v3 A.4) */
   const SOMNUS_TASKS = [
@@ -1224,16 +1191,22 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
   requestAnimationFrame(loop);
   if (MOVE) setInterval(() => { if (performance.now() - lastRaf > 250) drawLive(performance.now() - t0, false); }, 200);
 
-  /* Luviamo video: plays when in view, muted; click toggles */
-  const lf = document.getElementById('luviamoFrame');
-  if (lf) {
-    const v = lf.querySelector('video');
+
+  /* Video plates (MasterForge, Luviamo): play muted while in view; a click plays from the start with sound, a second click mutes */
+  document.querySelectorAll('.frame.video').forEach(fr => {
+    const v = fr.querySelector('video'); if (!v) return;
     if (MOVE) {
-      const vio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { v.play().then(() => lf.classList.add('playing')).catch(() => {}); } else { v.pause(); lf.classList.remove('playing'); } }), { threshold: 0.5 });
-      vio.observe(lf);
+      const inView = () => { const r = fr.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; };
+      const play = () => v.play().then(() => fr.classList.add('playing')).catch(() => {});
+      const vio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) play(); else { v.pause(); fr.classList.remove('playing'); } }), { threshold: 0.5 });
+      vio.observe(fr);
+      /* Phones may refuse play() outside a gesture: retry on the first touch, pointer or scroll, and when the tab returns */
+      const retry = () => { if (v.paused && inView()) play(); };
+      ['touchstart', 'pointerdown', 'scroll'].forEach(ev => addEventListener(ev, retry, { passive: true, once: true }));
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) retry(); });
     }
-    lf.addEventListener('click', e => { if (e.target.closest('.pill')) return; if (v.muted) { v.muted = false; v.currentTime = 0; v.play(); lf.classList.add('playing'); lf.classList.add('sound'); } else { v.muted = true; lf.classList.remove('sound'); } });
-  }
+    fr.addEventListener('click', e => { if (e.target.closest('.pill')) return; if (v.muted) { v.muted = false; v.currentTime = 0; v.play(); fr.classList.add('playing'); fr.classList.add('sound'); } else { v.muted = true; fr.classList.remove('sound'); } });
+  });
 
   /* ---------- drawers: parked preview beside the plus, the plus grows as the pointer nears ---------- */
   const peek = document.getElementById('peek'), peekImg = peek.querySelector('img'), peekCv = peek.querySelector('canvas'), peekCap = peek.querySelector('.cap');

@@ -1121,3 +1121,34 @@ Difference.", "5 free masters."), MasterForge `origin/main` `d7d27f2`. Shown wit
 frame's `Visit ↗` pill sits over the video's lockup on hover; the poster; whether the old EQ clip and its
 poster leave `media/` (and `docs/mockups/media/`).
 
+### Round AJ, the MasterForge video: the plate as built (14.11.2026)
+
+Shown with `docs/mockups/masterforge/round-AJ-page.jpg` (the plate at 1440 px and at 375 px with device
+emulation, and the poster) and the page's own video. Petri said "Aloitetaan AJ".
+
+| # | Question | Decision |
+|---|---|---|
+| AJ.1 | The track's rights for this site | **Petri has them**: "Endless darkness" is his own generation, already used in MasterForge's ads; the sound is published behind the click |
+| AJ.2 | The plate as built | **As built**: the dark 16:10 frame, the ▶ in the middle, the caption AI.2, muted while in view, a click plays from the start with sound and a second mutes, the poster the raw-against-mastered scene. Two fixes made while building: the video keeps 64 px from its sides, because the page scales plate media by 1.06 for its parallax and the first cut lost the end of its top-right eyebrow; and the video's own eyebrow `AI MUSIC MASTERING` is gone in the landscape layout, because at phone width it ran into the frame's caption, which does not scale with the video. Luviamo's click-to-sound became every video plate's, with the clip's retry on the first touch for phones |
+| AJ.3 | The `Visit ↗` pill over the video's lockup on hover | **Kept**: it shows only on hover, the lockup is there otherwise and large on the close card, and every plate has it in the same place |
+| AJ.4 | The old EQ clip | **Removed from `media/`**: `masterforge-eq.mp4` and its poster; `docs/mockups/media/masterforge-eq.mp4` stays for the Flow 4 mockup, and the capture stays in MasterForge's repository |
+
+### How PR H was built (14.11.2026)
+
+- **The video.** MasterForge's compositor with its landscape layout, `variant_site.py`, draft 4: 1280x800,
+  30 fps, 16.67 s; every gate of `verify_ad.py` green, the cuts on the beat (136 bpm, 0.0 ms), the sound proven
+  raw (0.995) then repaired (0.997) then mastered (0.999) by correlation, -15.05 LUFS and -1.35 dBTP. Encoded
+  for the page with CRF 22 and AAC 128k: `media/masterforge-chain.mp4` (2.30 MB, E.4's 4 MB limit) and the
+  poster `media/masterforge-chain-poster.jpg` at 12.4 s.
+- **The plate.** `<figure class="frame clip" data-live="masterforge">` with its canvas became
+  `<figure class="frame video dark">` with the video, the caption AI.2, the ▶ and the `Visit ↗` pill;
+  `aria-label` AI.3. `.frame.video.dark` gives it the video's dark background; the `.frame.clip` style and
+  script went, and so did `sketches.masterforge` and `sketches.spectralforge`, its alias, which nothing drew.
+- **One script for both video plates.** The Luviamo block found its frame by id; it now runs over every
+  `.frame.video`: play muted at half in view, pause out of view, retry on the first touch, pointer or scroll and
+  when the tab returns (the clip's phone fix, which Luviamo did not have), a click plays from the start with
+  sound and adds ` · sound on`, a second click mutes.
+- **Checked locally:** headless Edge at 1440 px and at 375 px with device emulation: both video plates play
+  muted in view, a click on either turns the sound on, `scrollWidth` 375 on the phone, no page errors; the
+  front page's script parses. `check-site` green over five pages.
+

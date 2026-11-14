@@ -3,6 +3,32 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 11, jatko 3 (14.11.2026): MasterForge-video etusivulle (kierros AJ, PR H)
+
+**Tehty yhdessä Petrin kanssa** Petrin sanasta "Aloitetaan AJ". Haara `claude/masterforge-video-page`
+suunnitelmahaaran päältä, ja koko ketju (AH, AI, AJ) kootaan PR #20:een.
+
+**Sivu.** §02:n MasterForge-kuvaaja: `frame clip` ja sen canvas vaihtuivat `frame video dark` -kehykseen,
+jossa on ketjuvideo, kuvateksti `Auto-Master · measure, repair, master`, ▶, Visit-pilleri ja `aria-label` AI.3.
+Luviamon id:hen sidottu äänikoodi yleistettiin kaikkiin videokehyksiin, ja siihen otettiin klipin
+puhelinkorjaus (toiston uusinta ensimmäisestä kosketuksesta). `.frame.clip`-tyyli ja -skripti sekä
+`sketches.masterforge` ja sen alias `sketches.spectralforge` poistettiin, koska mikään ei enää piirtänyt niitä.
+Media: `media/masterforge-chain.mp4` (2,30 Mt) ja postikuva; vanha EQ-klippi ja sen postikuva poistettiin
+(AJ.4).
+
+**Kaksi korjausta rakentaessa.** Sivun parallaksi skaalaa kuvaajan median 1,06-kertaiseksi, joten
+reunoilta leikkautuu noin 3 %, ja ensimmäisessä versiossa videon oikean yläkulman tekstin loppu katosi.
+Vaaka-asettelun sisältö pidetään nyt 64 px:n päässä sivuista (luonnos 4). Puhelimella kehyksen oma
+kuvateksti, joka ei skaalaudu videon mukana, osui videon `AI MUSIC MASTERING` -tekstiin, joten se poistettiin
+vaaka-asettelusta. Luonnos 4: kaikki portit läpi, ääni raaka 0,995 → korjattu 0,997 → masteroitu 0,999.
+
+**Kierros AJ** (neljä kysymystä, kaikki suositukset hyväksytty): AJ.1 raidan oikeus on Petrillä; AJ.2 kuvaaja
+rakennettuna; AJ.3 Visit-pilleri pysyy; AJ.4 vanha klippi pois `media/`:sta.
+
+**Tarkistettu paikallisesti:** headless Edge 1440 px ja 375 px laite-emuloinnilla: molemmat videokehykset
+soivat mykkinä näkyvissä, klikkaus kytkee äänen, puhelimella `scrollWidth` 375, ei sivuvirheitä; etusivun
+skripti jäsentyy. `check-site` vihreä viidellä sivulla. BUILD_INFO 5.12.0.
+
 ## Sessio 11, jatko 2 (14.11.2026): MasterForge-video suunniteltu (kierros AH, ei sivumuutosta)
 
 **Petrin linja:** etusivun MasterForge-kuvaaja on ruma, koska siinä on vain EQ-näkymä eikä siitä selviä mistä
