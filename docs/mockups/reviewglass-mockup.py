@@ -52,6 +52,9 @@ TAB = 26
 DIFF = (500, GLASS[1] - TAB)
 ZOOM = 2.0
 FIX = "2aef4d2"       # this repo's commit whose first hunk is the edit on screen
+POINT = "-const versionHit"  # the pointer sits on the edit's line that contains this text: the
+                             # broken line, so the glass shows it, the fix's comments and the new
+                             # pattern, and none of the self-test's version strings (round AG.4)
 
 VITE_CONFIG = """// Written by docs/mockups/reviewglass-mockup.py (sunrisesoftware-site): the app's own
 // config on another port, with the linked node_modules allowed. Not committed anywhere.
@@ -229,11 +232,13 @@ def main():
         pg.goto((WORK / "screen.html").as_uri())
         pg.wait_for_timeout(300)
         pg.screenshot(path=str(WORK / "screen.png"))
-        # The pointer: on the fix's second comment line, so the glass reads the story.
-        box = pg.evaluate("""() => {
-          const s = [...document.querySelectorAll('.left .add')].find(e => e.textContent.includes('became "d"'));
+        # The pointer: on the line of the edit that contains POINT (RG_POINT overrides), so the
+        # glass reads the story.
+        point = os.environ.get("RG_POINT", POINT)
+        box = pg.evaluate("""(point) => {
+          const s = [...document.querySelectorAll('.left pre span')].find(e => e.textContent.includes(point));
           const r = s.getBoundingClientRect(); return {x: r.x, y: r.y, h: r.height};
-        }""")
+        }""", point)
         pg.close()
         # The picture starts at the pane's text: half the picture's source width past x 30.
         cursor = (int(30 + (GLASS[0] - 6) / ZOOM / 2), int(box["y"] + box["h"] / 2))

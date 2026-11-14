@@ -3,6 +3,33 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 11, jatko (14.11.2026): ReviewGlassin mockup sivuille (kierros AG, PR G)
+
+**Tehty yhdessä Petrin kanssa** Petrin sanasta "Rakennetaan nyt", kun PR #17 oli mergattu (`f2193b4`, CI ja
+Cloudflare vihreät, livesivut ennallaan). Haara `claude/reviewglass-mockup-page` mainista.
+
+**Kuva.** `docs/mockups/reviewglass-mockup.py` ReviewGlassin `origin/main` `2654ab4`:n kopiota vasten (ei
+muuttunut kierroksen AE jälkeen). 2x-lähde `source-assets/ReviewGlass mockup 2x.png`, sivun kuva
+`images/reviewglass-mockup.webp` (1640x922, 171 kt) ja JPG-varakuva (207 kt). WebP:n teksti katsottiin 1:1.
+
+**Sivut.** `/reviewglass/`: piirroksen canvas vaihtui kuvaksi (alt AF.2, kuvateksti AF.1), ja piirroksen
+skripti (43 riviä) poistettiin. Etusivun §03 ReviewGlass-laatikko: `data-peek` uusi kuva, `data-cap` AF.3, iso
+kuva canvasin tilalle, ja molemmat `sketches.reviewglass`-piirrokset poistettiin (varhainen suurennuslasi oli
+jo jälkimmäisen yliajama). `index.html` ja `reviewglass/index.html` muuttuivat, joten niiden alatunnisteet ja
+sitemapin `lastmod` ovat 2026-11-14, samoin `BUILD_INFO.updated`.
+
+**Kierros AG** (neljä kysymystä, kaikki suositukset hyväksytty; `round-AG-page.jpg`, `round-AG-aim.jpg`):
+AG.1 sivu rakennettuna, AG.2 puhelimella sama kuva, AG.3 laatikko rakennettuna, AG.4 lasi tähtää kaksi riviä
+ylemmäs. Kokeen tähtäyksellä lasissa näkyivät isolla itsetestin merkkijonot (`'Luviamo v0.385'`, `'Atlas v0.9'`,
+`'MasterForge 4.44'`). Ne ovat koodia, mutta adr.sws.015 pitää tuoteversiot poissa sivulta, joten osoitin
+siirrettiin rikkinäiselle riville. Nyt lasissa näkyvät rikkinäinen kuvio, korjauksen kommentit ja uusi kuvio,
+ja testijonot jäävät paneelin ja diff-ikkunan pieneen tekstiin. Tämä on skriptin oletus (`POINT`).
+
+**Tarkistettu paikallisesti:** 1440 px: kuva 820x461, kuvateksti AF.1, sivulla ei canvasia; laatikko aukeaa
+kuvan kanssa, hover-esikatselu näyttää kuvan ja kuvatekstin AF.3; ei konsolivirheitä. 375 px laite-emuloinnilla
+`scrollWidth` 375 molemmilla sivuilla, mikään `main`-elementissä ei ylitä reunaa. `check-site` vihreä viidellä
+sivulla (39 paikallista tiedostoa). BUILD_INFO 5.10.0.
+
 ## Sessio 11 (14.11.2026): ReviewGlassin mockupin tapa ja tekstit päätetty (kierrokset AE ja AF, ei sivumuutosta)
 
 **Alkutarkistus:** session 10 työ on perillä. Avoimia PR:iä ei ole, `main` on `5bb069a` ja CI vihreä.

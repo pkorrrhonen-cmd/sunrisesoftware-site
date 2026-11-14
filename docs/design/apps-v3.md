@@ -23,7 +23,7 @@ sketches remain only on the §02 plates for Somnus and Atlas, which have no publ
 | Atlas | viewer and Connect are access-protected; no cleared screenshot | drawn schematic only |
 | SpectralForge | UI screenshot (V4.5 featured cover) | `images/product-spectralforge.webp` |
 | Virustutka, Ultra Gravel, TilastoSilta, SF3D AI Lab | live-site front-page captures (17.9.2026) | `docs/mockups/shots/` |
-| ReviewGlass | nothing public (pre-alpha desktop app); the glass, its halo and the finder exclude themselves from any capture (ReviewGlass adr.rg.025). Its source is public (Apache-2.0) | sketch until the build of round AE; then its own windows drawn by its own code over a staged screen (adr.sws.021, `docs/mockups/reviewglass-mockup.py`) |
+| ReviewGlass | nothing public (pre-alpha desktop app); the glass, its halo and the finder exclude themselves from any capture (ReviewGlass adr.rg.025). Its source is public (Apache-2.0) | its own windows drawn by its own code over a staged screen since PR G, 14.11.2026 (adr.sws.021, `docs/mockups/reviewglass-mockup.py`): `images/reviewglass-mockup.webp` on `/reviewglass/` and in the drawer |
 | Salpa Defence | demo behind Cloudflare Access; nothing public | sketch |
 | HomeTeam | production behind a list of allowed addresses; a capture would carry the family's own data. 21 design mockups in `hometeam/mockups/` (private repository), some with real names | mockup screens since PR F, 13.11.2026 (adr.sws.020): `images/shot-hometeam.webp` in the drawer, five screens on `/hometeam/` |
 | SF3D archive | ten photographs (in git) | `images/sf3d-*` |
