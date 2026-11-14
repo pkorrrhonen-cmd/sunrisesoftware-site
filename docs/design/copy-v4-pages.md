@@ -361,7 +361,7 @@ the ADR files), the GitHub API and Atlas `reviewglass.STATUS` v38 (12.11.2026):
 
 | # | Where | Proposal | State |
 |---|---|---|---|
-| RG.8 | The lead medium | (S.3: the drawing) the §03 drawn instrument (apps-v3 B.5: blurred text columns, the reading frame, the glass) enlarged in a 16:9 frame, until a capture exists. Mono caption: `A drawing, not a capture: a real picture of the glass would show my code and my conversation.` `aria-label`: `A drawing of ReviewGlass: two columns of blurred text, a reading frame over the left one, and the glass moving along it at 220 percent.` | decided 13.11.2026 (S.3, the drawing; V.1, its caption and label) |
+| RG.8 | The lead medium | (S.3: the drawing) the §03 drawn instrument (apps-v3 B.5: blurred text columns, the reading frame, the glass) enlarged in a 16:9 frame, until a capture exists. Mono caption: `A drawing, not a capture: a real picture of the glass would show my code and my conversation.` `aria-label`: `A drawing of ReviewGlass: two columns of blurred text, a reading frame over the left one, and the glass moving along it at 220 percent.` | decided 13.11.2026 (S.3, the drawing; V.1, its caption and label); **the medium superseded 14.11.2026** (round AE, adr.sws.021): ReviewGlass's own windows over a staged screen. Decided again 14.11.2026 in round AF: caption `ReviewGlass's own windows over a staged session, not a capture: the glass hides itself from every capture, so that it never magnifies itself.`; the image's `alt` `ReviewGlass over two coding sessions: at the top the glass shows the newest edit at 200 percent, the diff window on its left marks the edit's nine new lines in yellow, an orange ring marks the pointer, and the dock in the corner shows the quota at 38 percent.` (AF.1, AF.2) |
 
 ### RG.9 to RG.11, the body
 
@@ -848,6 +848,8 @@ ReviewGlass it has to be built some other way than a screen capture, because the
 one: the glass, its halo and the finder exclude themselves from capture (`WDA_EXCLUDEFROMCAPTURE`, so
 the glass never captures itself), and only the dock and its drawer are visible to it (ReviewGlass
 adr.rg.025). RG.8's drawing stays until that mockup exists; how it is made is decided with Petri.
+Decided 14.11.2026 in round AE (adr.sws.021): ReviewGlass's own windows, drawn by its own code with a
+staged core, over a staged screen.
 
 ### Round Y, `/hometeam/`: the mockups as its images (13.11.2026)
 
@@ -973,3 +975,63 @@ image and the share image); 375 px checked in the browser pane. Four choices mad
   and image. `check-site` green over five pages and 37 local files. No surname or child's name in any
   committed text, and the images were looked at screen by screen.
 
+
+### Round AE, ReviewGlass: how its mockup is made (14.11.2026)
+
+Petri chose the thread on 14.11.2026, from the line of 13.11.: real mockups in place of the drawings, one
+product at a time, ReviewGlass first. Read in the session from the ReviewGlass repository (`origin/main`
+`2654ab4`, 13.11.2026): the README, `docs/BUILD_INFO.json`, `src-tauri/src/glass.rs` (the glass, the halo
+and the finder call `SetWindowDisplayAffinity(WDA_EXCLUDEFROMCAPTURE)`; without it the glass would show
+itself inside itself) and the SvelteKit pages `glass`, `diffwin`, `dock` and `halo`. The glass page asks
+the core for frames (`glass_frame`: a 16-byte header, then the source pixels at 1:1) and zooms them on
+its own canvas; every other answer also comes through Tauri's `invoke`.
+
+**The trial (koe A).** A copy of ReviewGlass's `main` outside this repository, its dependencies linked
+from the ReviewGlass checkout, served by its own Vite on another port. Each page opened in Edge with
+`docs/mockups/reviewglass/tauri-mock.js` in place of the Tauri core: the glass's frames cut from a staged
+screen around a staged pointer, at 200 %; the diff window fed the first hunk of this repository's commit
+`2aef4d2` (the version guard's fix, 11.11.2026); the dock a quota of 38 %. The staged screen is two
+session panes whose text is written for the picture and re-enacts that fix. Laid out as Windows would
+(the glass at the top, the diff window on its left edge, the halo on the pointer, the dock in its corner)
+and shown against the live drawing in `docs/mockups/reviewglass/round-AE-method.jpg`. Found on the way:
+in the dark Windows theme ReviewGlass draws the latest edit's rows with light text on its yellow mark,
+measured `#ececec` on `#fff1a8`, unreadable; the light theme is correct.
+
+| # | Question | Decision |
+|---|---|---|
+| AE.1 | How the mockup is made | **ReviewGlass's own interface with staged data**: its own pages run in a browser, every answer of the core staged, the glass's picture cut from the staged screen at the real zoom. A script in `docs/mockups/` makes it again when the interface changes (`reviewglass-mockup.py`) |
+| AE.2 | What the glass reads | **A staged re-enactment**: two neutral session panes, text written for the picture, telling this site's session 6 (the version guard that never fired) with the real diff of its fix, commit `2aef4d2`. No real conversation, no private code, no imitation of the Claude app's look |
+| AE.3 | Where it goes | **Both places**: `/reviewglass/`'s lead medium (RG.8) and the front page's §03 ReviewGlass drawer, as HomeTeam's Y.4. The caption `A drawing, not a capture: ...` changes and is decided in the copy round (AF) |
+| AE.4 | The theme | **Light now, the bug apart**: the windows in Windows's light theme, as in the trial. The dark-theme bug is ReviewGlass's own fix, in its own repository |
+
+**Decision:** adr.sws.021 (accepted). CLAUDE.md's rule on drawn instruments names Somnus and Atlas only;
+apps-v3 B.5 superseded.
+
+**For the copy round (AF):** RG.8's caption and the image's alt text (the page says the picture is
+ReviewGlass's own windows over a staged session, not a capture); the drawer's hover caption
+(`reviewglass · the glass over a text pane` today) and its image's alt text; the code comment of the
+lead medium. **For the build (PR G):** the composition and crop for the 820 px column and for the
+drawer's 16:9, whether the halo and the dock stay in the picture, WebP with a JPG fallback and a 2x
+source in `source-assets/`, the drawing's script removed from both pages.
+
+### Round AF, ReviewGlass: the mockup's words and its crop (14.11.2026)
+
+Shown with the trial image of round AE (`docs/mockups/reviewglass/round-AE-method.jpg`). Every claim in
+the alt text was checked against the picture: the glass at the top at 200 %, the diff window on its left
+with the edit's nine new lines marked (its own line `new: the first edit ReviewGlass saw of this file (9
+lines)`), the halo on the pointer, the dock's quota at 38 %. The values are the staged core's, and the
+caption says the session is staged.
+
+| # | Question | Decision |
+|---|---|---|
+| AF.1 | RG.8's caption (mono, under the image) | **Proposal A**: `ReviewGlass's own windows over a staged session, not a capture: the glass hides itself from every capture, so that it never magnifies itself.` (the shape of `/hometeam/`'s `Design mockups, not captures: ...`) |
+| AF.2 | The image's `alt`, the same image on `/reviewglass/` and in the §03 drawer | **Descriptive**: `ReviewGlass over two coding sessions: at the top the glass shows the newest edit at 200 percent, the diff window on its left marks the edit's nine new lines in yellow, an orange ring marks the pointer, and the dock in the corner shows the quota at 38 percent.` |
+| AF.3 | The §03 drawer's hover caption (`data-cap`, was `reviewglass · the glass over a text pane`) | **Proposal A**: `reviewglass · its own windows over a staged session` |
+| AF.4 | The crop | **The whole screen**, as in the trial: the glass, the diff window, the halo and the dock, 16:9, the same image in both places. The panes' own text is small in the 820 px column; the glass is what makes it readable |
+
+**For the build (PR G):** the image from `docs/mockups/reviewglass-mockup.py` at 1640x922 for the page and
+the drawer, WebP with a JPG fallback, the 2x source (3200x1800) in `source-assets/`; `alt` AF.2 on both;
+the caption AF.1 under the page's image; `data-cap` AF.3; the drawing's canvas and its script removed
+from `reviewglass/index.html` and the front page's `sketches.reviewglass`; the code comment of the lead
+medium says what the image is. The image is made from ReviewGlass's `main` at build time and the build
+notes name that commit.
