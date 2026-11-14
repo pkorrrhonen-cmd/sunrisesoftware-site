@@ -3,6 +3,28 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 11, jatko 2 (14.11.2026): MasterForge-video suunniteltu (kierros AH, ei sivumuutosta)
+
+**Petrin linja:** etusivun MasterForge-kuvaaja on ruma, koska siinä on vain EQ-näkymä eikä siitä selviä mistä
+sovelluksesta on kyse; sen pitää näyttää visuaalisemmin mitä MasterForge tekee, lyhyenä videona. Suunnitellaan
+ensin.
+
+**Luettu:** nykyinen kuvaaja (apps-v3 A.1: 1720x444 EQ-kaappaus, 12,5 s, 3,4 Mt); MasterForgen repo
+(`origin/main` `d7d27f2`): `docs/product.md` ja paikallinen, gitin ulkopuolinen mainosvideotyö
+`data/video creation/`: kompositori (`src_video/`, vain 1080x1920) ja neljä 28,7 s:n pystyvarianttia tuotteen
+omista kaappauksista, biittileikkaukset ja korrelaatiolla varmennettu raaka → masteroitu -ääni. Starterista on
+vain markkinointikortti, ei kaappausta. Kuvakäsikirjoitukset 16:10-kehykseen renderöintien omista ruuduista:
+`docs/mockups/masterforge/round-AH-storyboards.jpg`.
+
+**Kierros AH** (neljä kysymystä, kaikki suositukset hyväksytty): AH.1 tarina on ketju (mittaa, korjaa, masteroi,
+raaka vs. masteroitu, logo); AH.2 oma 16:10-vaakaleikkaus noin 15–18 s, otsikot MasterForgen typografialla,
+alle 4 Mt; AH.3 mykkä silmukka ja oikea ääni napista kuten Luviamon kehyksessä; AH.4 tehdään MasterForgen omalla
+videoputkella, johon lisätään vaaka-asettelu, ja tulos kopioidaan `media/`-kansioon. apps-v3 A.1 merkitty
+korvattavaksi. **Ennen rakentamista:** vaaka-asettelu kompositoriin, ketjun kolmivaiheinen ääni, raidan
+julkaisuoikeus tälle sivulle varmistettava. **Tekstikierros AI:** videon otsikot, kehyksen kuvateksti,
+`aria-label`, ääninapin sanat ja se, sopiiko kuvaajan leipäteksti (ilmaistaso mittaa ensin) Auto-Masterin
+ketjuun. Sivuja ei muutettu. BUILD_INFO 5.11.0.
+
 ## Sessio 11, jatko (14.11.2026): ReviewGlassin mockup sivuille (kierros AG, PR G)
 
 **Tehty yhdessä Petrin kanssa** Petrin sanasta "Rakennetaan nyt", kun PR #17 oli mergattu (`f2193b4`, CI ja

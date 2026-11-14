@@ -1069,3 +1069,36 @@ with device emulation, and the open §03 drawer at 1440 px) and `docs/mockups/re
   caption AF.3; no console errors. At 375 px with device emulation `scrollWidth` 375 on both pages and nothing
   in `main` past the edge, the image 335 px wide. `check-site` green over five pages and 39 local files.
 
+### Round AH, the front page: a MasterForge video in place of the EQ strip (14.11.2026)
+
+Petri on 14.11.2026: the MasterForge plate in §02 is ugly, because it shows only the EQ view and says
+nothing of which application it is; it should show more visually what MasterForge does, as a short video.
+Planned first, as the next thread.
+
+Read in the session: the plate (apps-v3 A.1: `media/masterforge-eq.mp4`, a 1720x444 capture of the Pro
+Master EQ panel, 12.5 s, 3.4 MB, caption `Pro Master · EQ, live`); the MasterForge repository
+(`origin/main` `d7d27f2`, 11.11.2026): `docs/product.md` (the promise "measure first, then correct";
+Starter in the browser, Pro Master, Auto-Master on the server with SpectralForge's repair and a plan) and
+the local, untracked ad-video work in `data/video creation/` (`AD-VIDEO-PLAN-2026-08.md`,
+`MASTERFORGE-VIDEO-SEED-v1.0.md`): a compositor (`src_video/`, 1080x1920 only) and four 28.7 s vertical
+variants built from the product's own panel captures and renders, cuts on the beat and a raw-to-mastered
+sound whose provenance is checked by correlation (variant A "It's the mastering", B "Stop guessing, start
+seeing", C "Built for AI music", D the chain: measure, repair, master). Starter has a marketing card
+(`images/features/starter-v2.png`) but no capture of the application. Shown as landscape storyboards from
+the renders' own frames in `docs/mockups/masterforge/round-AH-storyboards.jpg`; their words are
+placeholders.
+
+| # | Question | Decision |
+|---|---|---|
+| AH.1 | The story | **1, the chain**: track in, master out: it measures first, repairs, masters (Pro Master's EQ), raw against mastered, the mark. Every picture exists (variants A and D) |
+| AH.2 | The form in the 16:10 frame | **A landscape cut of its own**: made for the plate, a loop of about 15 to 18 s, one short title per scene in MasterForge's own type, MasterForge's dark plate, the mark at the end; under 4 MB (E.4), the poster the raw-against-mastered frame |
+| AH.3 | Sound | **Sound on a click**: the video runs muted while in view, and a click plays the real raw-to-mastered sound, as the Luviamo frame does (click-to-sound) |
+| AH.4 | Where it is made | **MasterForge's own video pipeline**: a landscape layout added to its compositor (`data/video creation/src_video/`, local and not in git), rendered and checked there (beat cuts, the sound's provenance), the result copied to this site's `media/` |
+
+**Before the build:** the landscape layout in the compositor; the chain's three-stage sound (raw, repaired,
+mastered) as in variant D; the track's rights for publishing on this site (the ads use Petri's own
+generations "Endless darkness" and "Open all night"; to be confirmed). **For the copy round (AI):** the
+titles in the video, the plate's caption (`Pro Master · EQ, live` today), the video's `aria-label`, the
+sound button's words, and whether the plate's body (the free tier rebuilt to measure first) still matches a
+video whose chain is Auto-Master's.
+
