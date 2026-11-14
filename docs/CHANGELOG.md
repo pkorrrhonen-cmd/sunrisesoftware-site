@@ -29,6 +29,17 @@ rakennettuna; AJ.3 Visit-pilleri pysyy; AJ.4 vanha klippi pois `media/`:sta.
 soivat mykkinä näkyvissä, klikkaus kytkee äänen, puhelimella `scrollWidth` 375, ei sivuvirheitä; etusivun
 skripti jäsentyy. `check-site` vihreä viidellä sivulla. BUILD_INFO 5.12.0.
 
+**Esikatselu ja deploy:** PR #20:n esikatselu (`9dcdc177`) oli tavu tavulta sama kuin haara ja katsottiin
+1440 ja 375 px:n leveydellä (video soi mykkänä, klikkaus kytkee äänen). PR #20 squash-mergattu Petrin sanasta
+14.11.2026 11:17Z (`c08eee2`) CI:n ollessa vihreä. Cloudflaren tuotantobuild (`4f2b35cb`) valmistui 11:17:48Z,
+ja uusi video vastasi livessä 11:17:51Z. Livestä todennettu: alasivut, sitemap, `media/masterforge-chain.mp4`,
+sen postikuva ja Luviamon video tavu tavulta samat kuin main; etusivulla uusi video eikä vanhaa
+clip-kehystä tai piirrosta, ja se eroaa mainista vain Cloudflaren sähköpostisuojauksen osalta; tuntematon
+osoite 404. **Huomio:** poistettu `media/masterforge-eq.mp4` vastaa yhä 200 Cloudflaren reunavälimuistista
+(`_headers` antaa medialle `immutable` ja vuoden `max-age`, välimuistin kopio noin 26 h vanha); deploy itse
+vastaa 404, eikä sivu viittaa siihen. Tyhjennys on dashboard-toimi, ei välttämätön. Atlaksen
+`sw-sivusto.STATUS` v34. BUILD_INFO 5.12.1.
+
 ## Sessio 11, jatko 2 (14.11.2026): MasterForge-video suunniteltu (kierros AH, ei sivumuutosta)
 
 **Petrin linja:** etusivun MasterForge-kuvaaja on ruma, koska siinä on vain EQ-näkymä eikä siitä selviä mistä
