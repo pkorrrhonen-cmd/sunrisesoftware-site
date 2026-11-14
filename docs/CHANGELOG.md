@@ -3,6 +3,22 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 11, päätös (14.11.2026): sulkutoimet
+
+**Session 11 kokonaisuus** (kaikki yhdessä Petrin kanssa, kaikki suositukset hyväksytty): ReviewGlassin
+mockup (kierrokset AE, AF, AG; adr.sws.021; PR #17, #18, #19) ja MasterForge-video (kierrokset AH, AI, AJ;
+PR #20, #21). Molemmat livenä ja todennettu livestä. MasterForgen kompositoriin (`masterforge/data/video
+creation/src_video/`, paikallinen) lisättiin vaaka-asettelu, ja se on kirjattu sen `AD-VIDEO-PLAN-2026-08.md`
+§15:een.
+
+**Sulkutoimet:** LESSONS-merkinnät kolmesta opista (kuvan teksti ohittaa sivun vahdit; kuvaajan video
+katsotaan sivulla; poistettu tiedosto vastaa yhä 200). Profiilin README (push 24.9.2026) luettu sivua vasten:
+tämä sessio ei muuttanut tuotteiden tiloja eikä vuosia, eikä uusia eroja syntynyt (ReviewGlassin "and later a
+live diff" on jo listalla). Deploy-kirjaukset tehtiin PR:inä, koska suora push mainiin estettiin.
+BUILD_INFO 5.12.2; Atlaksen `sw-sivusto.STATUS` päivitetty. **Avoinna:** Petri valitsee seuraavaksi Somnuksen
+tai Atlaksen; ReviewGlassin tumman teeman diff-vika odottaa Petrin sanaa omasta sessiosta; adr.sws.020 ja 021
+lisätty Atlaksen mallin avoimiin ehdotuksiin.
+
 ## Sessio 11, jatko 3 (14.11.2026): MasterForge-video etusivulle (kierros AJ, PR H)
 
 **Tehty yhdessä Petrin kanssa** Petrin sanasta "Aloitetaan AJ". Haara `claude/masterforge-video-page`

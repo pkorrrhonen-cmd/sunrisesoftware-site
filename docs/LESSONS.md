@@ -2,6 +2,51 @@
 
 Opitut virheet ja estosäännöt, jotta niitä ei toisteta. Uusin ensin.
 
+## 14.11.2026: kuvan teksti ohittaa sivun vahdit
+
+**Mitä tapahtui:** ReviewGlassin mockupin koekuvassa (kierros AE) lasi suurensi oikean diffin rivejä, ja
+alimmilla riveillä luki isolla itsetestin merkkijonot `'Luviamo v0.385'`, `'Atlas v0.9'` ja
+`'MasterForge 4.44'`. adr.sws.015 pitää tuoteversiot poissa sivulta, mutta `check-site` lukee vain HTML:n,
+joten kuva olisi mennyt CI:stä läpi vihreänä. Kuva hyväksyttiin kierroksella AE tähtäys mukaan lukien, ja
+asia huomattiin vasta rakennuskierroksella AG, kun valmis kuva katsottiin rivi riviltä. Lasi suunnattiin
+kaksi riviä ylemmäs (AG.4) ennen kuin mitään julkaistiin.
+
+**Estosääntö:**
+- Kuvan tai videon jokainen luettava teksti luetaan samoja sääntöjä vasten kuin sivun teksti
+  (tuoteversiot, työnantajan nimet, tilat ilman päivämäärää) ennen kuin kuva viedään kierrokselle.
+  CI ei näe kuvan sisään.
+- Kun kuva näyttää koodia, tähtäys valitaan niin, että isoksi suurennettu osa ei kanna kiellettyä
+  merkkijonoa, vaikka se olisi pelkkää testidataa.
+
+## 14.11.2026: kuvaajan video katsotaan sivulla, ei tiedostona
+
+**Mitä tapahtui:** MasterForgen ketjuvideo (kierros AJ) oli tiedostona kunnossa, ja kaikki kompositorin
+portit olivat vihreät. Sivulla siitä löytyi kaksi vikaa. Etusivun parallaksi skaalaa kuvaajan median
+1,06-kertaiseksi, joten reunoilta leikkautuu noin 3 %, ja videon oikean yläkulman tekstin loppu katosi.
+Puhelimella kehyksen oma mono-kuvateksti, joka ei skaalaudu videon mukana, osui päällekkäin videon oman
+yläkulman tekstin kanssa. Kumpaakaan ei näe renderöidystä tiedostosta eikä ruutuarkista. Molemmat
+korjattiin videon asettelusta (64 px:n turva-alue, ei yläkulman tekstiä) ennen kuin kuvaaja vietiin kierrokselle.
+
+**Estosääntö:**
+- Kuvaajaan tehty video tai kuva katsotaan omassa kehyksessään sivulla 1440 ja 375 px:n leveydellä ennen
+  kierrosta, ei pelkkänä tiedostona.
+- Kuvaajan mediassa luettava sisältö pidetään vähintään 5 %:n päässä reunoista (1280 px:n kehyksessä 64 px),
+  koska parallaksi leikkaa reunoja.
+- Videoon ei laiteta tekstiä kohtaan, jonka päälle kehys asettaa oman kuvatekstinsä tai pillerinsä.
+
+## 14.11.2026: poistettu tiedosto vastaa yhä 200
+
+**Mitä tapahtui:** PR #20 poisti `media/masterforge-eq.mp4`:n, mutta livesivu vastasi sen osoitteeseen
+yhä 200 ja koko vanhalla videolla. Syy on `_headers`: `/media/*` saa `immutable`-välimuistin ja vuoden
+`max-age`:n, joten Cloudflaren reuna palvelee välimuistiin jäänyttä kopiota (Age noin 26 h). Deployn oma
+osoite vastasi 404. Livedomainin tarkistus olisi väittänyt poiston epäonnistuneen, ja päinvastoin
+sama välimuisti voisi tarjota vanhaa sisältöä uudella nimellä julkaistun tiedoston paikalla.
+
+**Estosääntö:**
+- Poisto todennetaan deployn omasta osoitteesta (`<id>.sunrisesoftware-site.pages.dev`), ei livedomainista.
+- `media/`- tai `images/`-tiedoston sisältöä ei koskaan vaihdeta samalla nimellä: muuttunut media saa aina
+  uuden nimen, koska `immutable` pitää vanhan reunalla jopa vuoden.
+
 ## 13.11.2026: tuotteen ominaisuudet luettiin suunnitelmasta, ei rakennetusta
 
 **Mitä tapahtui:** 11.11. HomeTeam-laatikon leipäteksti (copy-v4-pages 3.43) kirjoitettiin HomeTeamin
