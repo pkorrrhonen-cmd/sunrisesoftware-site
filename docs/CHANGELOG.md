@@ -30,6 +30,14 @@ kuvan kanssa, hover-esikatselu näyttää kuvan ja kuvatekstin AF.3; ei konsoliv
 `scrollWidth` 375 molemmilla sivuilla, mikään `main`-elementissä ei ylitä reunaa. `check-site` vihreä viidellä
 sivulla (39 paikallista tiedostoa). BUILD_INFO 5.10.0.
 
+**Esikatselu ja deploy:** PR #18:n esikatselu (`c2394a68`) oli tavu tavulta sama kuin haara ja katsottiin 1440 ja
+375 px:n leveydellä. PR #18 squash-mergattu Petrin sanasta 14.11.2026 05:57Z (`0f656c5`) CI:n ollessa vihreä.
+Cloudflaren tuotantobuild (`3b892b1e`) valmistui 05:57:33Z, ja `/reviewglass/` tarjosi revision 2026-11-14
+05:57:40Z. Livestä todennettu: `/reviewglass/`, `/hometeam/`, `/rooms/`, `/silent-context/`, sitemap ja
+molemmat kuvatiedostot tavu tavulta samat kuin main; etusivulla `data-revised="2026-11-14"` ja uusi kuva eikä
+`sketches.reviewglass`-piirrosta, ja se eroaa mainista vain Cloudflaren sähköpostisuojauksen kahdessa
+mailto-linkissä ja sen skriptissä; tuntematon osoite 404. Atlaksen `sw-sivusto.STATUS` v30. BUILD_INFO 5.10.1.
+
 ## Sessio 11 (14.11.2026): ReviewGlassin mockupin tapa ja tekstit päätetty (kierrokset AE ja AF, ei sivumuutosta)
 
 **Alkutarkistus:** session 10 työ on perillä. Avoimia PR:iä ei ole, `main` on `5bb069a` ja CI vihreä.
