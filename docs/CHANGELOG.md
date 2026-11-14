@@ -25,6 +25,21 @@ julkaisuoikeus tälle sivulle varmistettava. **Tekstikierros AI:** videon otsiko
 `aria-label`, ääninapin sanat ja se, sopiiko kuvaajan leipäteksti (ilmaistaso mittaa ensin) Auto-Masterin
 ketjuun. Sivuja ei muutettu. BUILD_INFO 5.11.0.
 
+**Koeleikkaus samana päivänä** Petrin sanasta "Aloitetaan". MasterForgen kompositoriin
+(`masterforge/data/video creation/src_video/`, paikallinen, ei gitissä) lisättiin vaaka-asettelu
+`MF_LAYOUT=landscape` (1280x800, paneeli vasemmalla, otsikko oikealla) ja variantti `variant_site.py`:
+mittaus, korjaus ja Pro Masterin EQ suurennuslaseineen, raaka vs. masteroitu ja sulkukortti. Ilman
+ympäristömuuttujaa kaikki 9:16-arvot ovat entiset; muutettu koodi laski variantien A ja D aikajanat
+samoiksi kuin niiden tallennetut renderit, eikä niitä renderöity uudelleen. Vaakarenderöinti ylikirjoitti
+ensin yhteisen `plate.png`:n, joten tausta tallentuu nyt asettelun mukaan ja 9:16-tausta palautettiin
+samasta siemenestä. `verify_ad.py` tehtiin asettelutietoiseksi; kolmivaiheisen äänen keskijakso alkaa
+nyt ensimmäisen vaihdon jälkeen, koska kiinteä 6 s:n katse taaksepäin olisi lyhyessä ketjussa mitannut
+raakaa. **Luonnos 2:** 16,67 s, kaikki portit läpi, leikkaukset biitillä 0,0 ms, ääni raaka 0,995 →
+korjattu 0,997 → masteroitu 0,999, −15,05 LUFS ja −1,35 dBTP; sivustoversio CRF 22 = 2,25 Mt. Ruutuarkki
+`docs/mockups/masterforge/site-chain-draft2-sheet.jpg`; video katsottavaksi samassa kansiossa, ei
+commitoitu. Otsikot ovat paikkatekstejä tekstikierrokseen AI asti. Kirjattu myös MasterForgen
+`AD-VIDEO-PLAN-2026-08.md` §15:een.
+
 ## Sessio 11, jatko (14.11.2026): ReviewGlassin mockup sivuille (kierros AG, PR G)
 
 **Tehty yhdessä Petrin kanssa** Petrin sanasta "Rakennetaan nyt", kun PR #17 oli mergattu (`f2193b4`, CI ja
