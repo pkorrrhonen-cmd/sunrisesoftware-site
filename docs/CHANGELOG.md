@@ -3,6 +3,47 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 11 (14.11.2026): ReviewGlassin mockupin tapa päätetty (kierros AE, ei sivumuutosta)
+
+**Alkutarkistus:** session 10 työ on perillä. Avoimia PR:iä ei ole, `main` on `5bb069a` ja CI vihreä.
+Livestä: `/silent-context/`, `/rooms/`, `/reviewglass/`, `/hometeam/` ja sitemap tavu tavulta samat kuin main,
+`data-revised="2026-11-13"`; `check-site` vihreä viidellä sivulla. Atlaksen `sw-sivusto.STATUS` v27 löytyi.
+
+**Petri valitsi ketjun:** ReviewGlassin mockup (13.11. linja: oikeat mockupit piirrosten tilalle tuote kerrallaan).
+Luettu ReviewGlassin reposta (`origin/main` `2654ab4`): README, BUILD_INFO, `glass.rs` (lasi, halo ja etsin
+kutsuvat `WDA_EXCLUDEFROMCAPTURE`, joten kaappaus ei näe niitä, ja ilman sitä lasi näyttäisi itsensä sisällään)
+ja SvelteKit-sivut `glass`, `diffwin`, `dock` ja `halo`. Lasi-sivu pyytää ytimeltä kuvan (`glass_frame`:
+16 tavun otsake ja lähdepikselit 1:1) ja zoomaa sen omalla canvasillaan; kaikki muukin kulkee Taurin `invoke`n kautta.
+
+**Koe A.** ReviewGlassin mainin kopio repon ulkopuolella, riippuvuudet linkitettyinä ReviewGlassin checkoutista,
+oma Vite toisessa portissa. Jokainen sivu avattiin Edgessä niin, että `docs/mockups/reviewglass/tauri-mock.js`
+korvaa Taurin ytimen: lasin kuvat leikataan lavastetusta näytöstä lavastetun osoittimen ympäriltä 200 %:lla,
+diff-ikkuna saa tämän repon commitin `2aef4d2` ensimmäisen hunkin (versiovahdin korjaus 11.11.2026), telakka
+38 %:n kiintiön. Lavastettu näyttö on kaksi sessiopaneelia, joiden teksti on kirjoitettu kuvaa varten ja esittää
+korjauksen uudelleen. Ikkunat aseteltiin kuten Windows ne asettelee, ja kuvaa verrattiin livepiirrokseen
+(`docs/mockups/reviewglass/round-AE-method.jpg`). Kaksi korjausta kokeen aikana: lasin palkki rivittyi 960 px:n
+leveydellä (lasi 1060 px:iin), ja lasi suunnattiin korjauksen kommenttiriveihin, jotta suurennos kertoo tarinan.
+
+**Löytyi ReviewGlassista:** tummassa Windows-teemassa Diff-näkymän tuoreimman muokkauksen rivit piirtyvät
+vaalealla tekstillä keltaiselle merkille, mitattu `#ececec` pohjalla `#fff1a8`, eli lukukelvottomasti. Vaalea
+teema on oikein. Korjaus kuuluu ReviewGlassin repoon (BUILD_INFO.next).
+
+**Kierros AE yhdessä Petrin kanssa** (neljä kysymystä, kaikki suositukset hyväksytty, `copy-v4-pages.md`):
+
+- **AE.1** tapa: ReviewGlassin oma käyttöliittymä lavastetulla datalla; skripti `docs/mockups/reviewglass-mockup.py`
+  tekee kuvan uudelleen, kun käyttöliittymä muuttuu.
+- **AE.2** lasin lukema näyttö: lavastettu uudelleenesitys session 6 versiovahdista oikealla diffillä; ei oikeaa
+  keskustelua, ei yksityistä koodia, ei Claude-sovelluksen ulkoasun jäljittelyä.
+- **AE.3** paikka: sekä `/reviewglass/`-sivun pääkuva (RG.8) että etusivun §03 ReviewGlass-laatikko.
+- **AE.4** teema: vaalea nyt, tumman teeman vika ReviewGlassin omana työnä.
+
+**Päätös:** adr.sws.021 (hyväksytty). CLAUDE.md:n piirrettyjen instrumenttien sääntö nimeää enää Somnuksen ja
+Atlaksen; apps-v3 B.5 korvattu; RG.8:n väline korvattu (kuvateksti ja nimilappu päätetään kierroksella AF).
+SEED v4.1.0 (luvut 2.2, 3.5, 5.2, 7 ja 8; iteraatiolokiin lisättiin myös puuttunut `/hometeam/`-rivi),
+mockups-README ja päätösindeksi päivitetty. Skripti ajettiin repon versiona kopiota vasten ja se tuotti saman
+kuvan kuin koe. Sivuja ei muutettu, joten alatunnisteen päivä, `BUILD_INFO.updated` ja sitemap pysyvät
+13.11.2026:ssa. BUILD_INFO 5.9.0. **Seuraavaksi** tekstikierros AF ja sitten PR G yhdessä Petrin kanssa.
+
 ## Sessio 10, jatko 2 (13.11.2026): `/hometeam/`-sivu (kierros AD, PR F)
 
 **Tehty yhdessä Petrin kanssa** Petrin sanasta "Rakennetaan nyt". Rakennusaikaiset valinnat kysyttiin
