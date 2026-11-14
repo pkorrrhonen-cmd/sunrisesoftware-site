@@ -40,6 +40,15 @@ korjattu 0,997 → masteroitu 0,999, −15,05 LUFS ja −1,35 dBTP; sivustoversi
 commitoitu. Otsikot ovat paikkatekstejä tekstikierrokseen AI asti. Kirjattu myös MasterForgen
 `AD-VIDEO-PLAN-2026-08.md` §15:een.
 
+**Tekstikierros AI** (neljä kysymystä, kaikki suositukset hyväksytty), väitteet luettu ensin MasterForgen
+ajosivun vaiheteksteistä ja etusivulta: AI.1 videon otsikot tuotteen omin sanoin ja sulku `Hear the difference.`
+/ `Free to try at masterforge.app`; AI.2 kehyksen kuvateksti `Auto-Master · measure, repair, master`; AI.3 ääni
+kuten Luviamon kehyksessä (▶, klikkaus soittaa alusta äänen kanssa, ` · sound on`) ja `aria-label`
+`MasterForge in 17 seconds: a track measured, repaired by SpectralForge, finished by Pro Master, and the raw and mastered spectra compared. Click to play with sound.`; AI.4 kuvaajan leipäteksti pysyy. Luonnos 3 renderöitiin päätetyllä sulkukortilla: kaikki portit läpi, 16,67 s, sivustoversio
+2,35 Mt (katselukopio `docs/mockups/masterforge/site-chain-draft3.mp4`, ei commitoitu).
+**Seuraavaksi rakennuskierros AJ:** raidan julkaisuoikeus, Visit-pillerin paikka, postikuva ja vanhan
+EQ-klipin poisto.
+
 ## Sessio 11, jatko (14.11.2026): ReviewGlassin mockup sivuille (kierros AG, PR G)
 
 **Tehty yhdessä Petrin kanssa** Petrin sanasta "Rakennetaan nyt", kun PR #17 oli mergattu (`f2193b4`, CI ja

@@ -1102,3 +1102,22 @@ titles in the video, the plate's caption (`Pro Master · EQ, live` today), the v
 sound button's words, and whether the plate's body (the free tier rebuilt to measure first) still matches a
 video whose chain is Auto-Master's.
 
+### Round AI, the MasterForge video: its words (14.11.2026)
+
+Before the round the draft's words were checked against the product: the run page's stage titles and
+lines (`prepare/order/index.html`, `PROC_TEXTS`: "Measuring your track", "Repairing artifacts" with
+SpectralForge, "Rendering your master" with the Pro Master engine) and MasterForge's homepage ("Hear the
+Difference.", "5 free masters."), MasterForge `origin/main` `d7d27f2`. Shown with draft 2
+(`docs/mockups/masterforge/site-chain-draft2-sheet.jpg`).
+
+| # | Question | Decision |
+|---|---|---|
+| AI.1 | The titles in the video and the close | **The product's own words**: `It measures first` / `SpectralForge repairs it` / `Pro Master finishes it` / `What came back` with `Gold added. Cyan removed.` / the close `Hear the difference.` with `Free to try at masterforge.app`. The close asks the viewer to listen, and the sound is behind a click |
+| AI.2 | The frame's mono caption (A.9, was `Pro Master · EQ, live`) | `Auto-Master · measure, repair, master` (the service's own name since MasterForge 4.46.0, and the chain's three stages) |
+| AI.3 | Sound and its label | **As the Luviamo frame**: the round ▶ in the middle, a click plays from the start with sound, the caption gains ` · sound on`; `aria-label` `MasterForge in 17 seconds: a track measured, repaired by SpectralForge, finished by Pro Master, and the raw and mastered spectra compared. Click to play with sound.` |
+| AI.4 | The plate's body | **Unchanged**: still true, and its "measure the track first" is the video's first title; the video shows the server's chain, the body the free tier, and both measure first |
+
+**For the build (round AJ):** draft 3 with the close AI.1; the track's rights for this site (Petri); the
+frame's `Visit ↗` pill sits over the video's lockup on hover; the poster; whether the old EQ clip and its
+poster leave `media/` (and `docs/mockups/media/`).
+
