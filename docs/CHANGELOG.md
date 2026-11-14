@@ -3,7 +3,7 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
-## Sessio 11 (14.11.2026): ReviewGlassin mockupin tapa päätetty (kierros AE, ei sivumuutosta)
+## Sessio 11 (14.11.2026): ReviewGlassin mockupin tapa ja tekstit päätetty (kierrokset AE ja AF, ei sivumuutosta)
 
 **Alkutarkistus:** session 10 työ on perillä. Avoimia PR:iä ei ole, `main` on `5bb069a` ja CI vihreä.
 Livestä: `/silent-context/`, `/rooms/`, `/reviewglass/`, `/hometeam/` ja sitemap tavu tavulta samat kuin main,
@@ -42,7 +42,13 @@ Atlaksen; apps-v3 B.5 korvattu; RG.8:n väline korvattu (kuvateksti ja nimilappu
 SEED v4.1.0 (luvut 2.2, 3.5, 5.2, 7 ja 8; iteraatiolokiin lisättiin myös puuttunut `/hometeam/`-rivi),
 mockups-README ja päätösindeksi päivitetty. Skripti ajettiin repon versiona kopiota vasten ja se tuotti saman
 kuvan kuin koe. Sivuja ei muutettu, joten alatunnisteen päivä, `BUILD_INFO.updated` ja sitemap pysyvät
-13.11.2026:ssa. BUILD_INFO 5.9.0. **Seuraavaksi** tekstikierros AF ja sitten PR G yhdessä Petrin kanssa.
+13.11.2026:ssa. BUILD_INFO 5.9.0.
+
+**Kierros AF samana aamuna** (neljä kysymystä, kaikki suositukset hyväksytty): RG.8:n kuvateksti
+`ReviewGlass's own windows over a staged session, not a capture: the glass hides itself from every capture, so that it never magnifies itself.`, kuvan alt-teksti (sama kuva sivulla ja laatikossa) `ReviewGlass over two coding sessions: at the top the glass shows the newest edit at 200 percent, the diff window on its left marks the edit's nine new lines in yellow, an orange ring marks the pointer, and the dock in the corner shows the quota at 38 percent.`,
+laatikon hover-kuvateksti `reviewglass · its own windows over a staged session` ja rajaus: koko näyttö kuten kokeessa. Alt-tekstin jokainen väite
+tarkistettiin kuvasta. **Seuraavaksi PR G** yhdessä Petrin kanssa: kuva skriptillä ReviewGlassin mainista,
+`/reviewglass/`-sivun pääkuva ja §03-laatikon kuva, piirroksen koodi pois kummastakin.
 
 ## Sessio 10, jatko 2 (13.11.2026): `/hometeam/`-sivu (kierros AD, PR F)
 
