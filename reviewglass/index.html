@@ -131,10 +131,11 @@ h1{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.4vw,48px);l
 .lede{margin-top:20px;max-width:58ch;font-size:17px;font-weight:300;color:var(--text-2)}
 .status{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-2)}
 .status i{width:7px;height:7px;border-radius:50%;background:var(--sea);box-shadow:0 0 0 3px rgba(78,152,124,.18)}
-/* the lead medium: the front page's drawing of the glass, enlarged in a 16:9 frame (the SEED, section 3.6; apps-v3 B.5) */
+/* the lead medium: ReviewGlass's own windows over a staged session, in a 16:9 frame (adr.sws.021; made by
+   docs/mockups/reviewglass-mockup.py from ReviewGlass main 2654ab4; the background is the staged screen's) */
 .vblock{margin-top:clamp(40px,6vw,64px)}
-.vframe{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#F4F1EA;box-shadow:0 44px 80px -44px rgba(32,48,60,.5),0 0 0 1px var(--rule)}
-.vframe canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.vframe{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#1F1E1C;box-shadow:0 44px 80px -44px rgba(32,48,60,.5),0 0 0 1px var(--rule)}
+.vframe img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .vblock figcaption{margin-top:14px;font:12px/1.6 var(--mono);color:var(--text-meta);max-width:62ch}
 /* the body: short sections, a heading and one or two paragraphs each */
 .body{margin-top:clamp(48px,7vw,84px)}
@@ -222,9 +223,9 @@ h1{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.4vw,48px);l
 
       <figure class="vblock" data-reveal style="transition-delay:.5s">
         <div class="vframe">
-          <canvas id="glass" role="img" aria-label="A drawing of ReviewGlass: two columns of blurred text, a reading frame over the left one, and the glass moving along it at 220 percent."></canvas>
+          <img src="/images/reviewglass-mockup.webp" width="1640" height="922" alt="ReviewGlass over two coding sessions: at the top the glass shows the newest edit at 200 percent, the diff window on its left marks the edit's nine new lines in yellow, an orange ring marks the pointer, and the dock in the corner shows the quota at 38 percent.">
         </div>
-        <figcaption>A drawing, not a capture: a real picture of the glass would show my code and my conversation.</figcaption>
+        <figcaption>ReviewGlass's own windows over a staged session, not a capture: the glass hides itself from every capture, so that it never magnifies itself.</figcaption>
       </figure>
 
       <div class="body">
@@ -259,7 +260,7 @@ h1{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.4vw,48px);l
   <div class="sunpath"></div><div class="glint g1"></div><div class="glint g2"></div><div class="glint g3"></div>
   <div class="wrap">
     <a class="back-pill" href="/"><span class="arr">←</span> Back to the front page</a>
-    <div class="foot"><span>Sunrise Software Oy · Tampere, Finland</span><span>Est. 2024</span><span data-revised="2026-11-13">Revised 13 Nov 2026</span></div>
+    <div class="foot"><span>Sunrise Software Oy · Tampere, Finland</span><span>Est. 2024</span><span data-revised="2026-11-14">Revised 14 Nov 2026</span></div>
   </div>
 </footer>
 
@@ -297,49 +298,6 @@ h1{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.4vw,48px);l
     requestAnimationFrame(firstScreen);
     addEventListener('load', firstScreen);
     document.addEventListener('visibilitychange', () => { if (!document.hidden) firstScreen(); });
-  }
-
-  /* ---------- the lead medium: the front page's drawing of the glass (its sketches.reviewglass), copied and enlarged ---------- */
-  const SUN_D = '#C57A2C', INK = '#20303C';
-  function fit(cv) {
-    const r = cv.getBoundingClientRect(); const dpr = Math.min(devicePixelRatio || 1, 2);
-    const w = Math.max(2, Math.round(r.width * dpr)), h = Math.max(2, Math.round(r.height * dpr));
-    if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; }
-    return { ctx: cv.getContext('2d'), w, h, dpr };
-  }
-  /* an interface mockup with blurred text, the glass and the reading frame (apps-v3 B.5) */
-  function drawGlass(cv, t) {
-    const { ctx, w, h } = fit(cv);
-    ctx.fillStyle = '#F4F1EA'; ctx.fillRect(0, 0, w, h);
-    /* two text columns of blurred lines */
-    const cols = [[w * 0.06, w * 0.42], [w * 0.52, w * 0.42]];
-    cols.forEach(([x, cw]) => { for (let i = 0; i < 18; i++) { const lw = cw * (0.55 + 0.45 * Math.abs(Math.sin(i * 1.7 + x))); ctx.fillStyle = 'rgba(32,48,60,.14)'; ctx.fillRect(x, h * 0.08 + i * h * 0.048, lw, h * 0.02); } });
-    /* the reading frame over the left column */
-    ctx.strokeStyle = 'rgba(197,122,44,.55)'; ctx.setLineDash([6, 5]); ctx.lineWidth = 1.5; ctx.strokeRect(w * 0.05, h * 0.06, w * 0.44, h * 0.88); ctx.setLineDash([]);
-    /* the glass: a rectangle that follows a reading path, magnified content inside */
-    const gx = w * (0.27 + Math.sin(t * 0.0004) * 0.14), gy = h * (0.5 + Math.sin(t * 0.0007) * 0.3), gw = w * 0.3, gh = h * 0.22;
-    ctx.save(); ctx.beginPath(); ctx.roundRect(gx - gw / 2, gy - gh / 2, gw, gh, 6); ctx.clip();
-    ctx.fillStyle = '#FFFDF9'; ctx.fillRect(0, 0, w, h);
-    for (let i = 0; i < 18; i++) { const y = h * 0.08 + i * h * 0.048; const zy = gy + (y - gy) * 2.2; const lw = cols[0][1] * (0.55 + 0.45 * Math.abs(Math.sin(i * 1.7 + cols[0][0]))); ctx.fillStyle = 'rgba(32,48,60,.5)'; ctx.fillRect(gx + (cols[0][0] - gx) * 2.2, zy, lw * 2.2, h * 0.044); }
-    ctx.restore();
-    ctx.strokeStyle = SUN_D; ctx.lineWidth = Math.max(2.5, w / 300); ctx.beginPath(); ctx.roundRect(gx - gw / 2, gy - gh / 2, gw, gh, 6); ctx.stroke();
-    ctx.fillStyle = INK; ctx.font = `${Math.round(h * 0.036)}px JetBrains Mono, monospace`; ctx.fillText('GLASS 220 %', gx - gw / 2 + 10, gy - gh / 2 - 8);
-    ctx.fillStyle = '#8B96A0'; ctx.font = `${Math.round(h * 0.03)}px JetBrains Mono, monospace`; ctx.fillText('THE READING FRAME · SESSIONS 4 · QUOTA 5H 61 %', w * 0.06, h * 0.985);
-  }
-  const glass = document.getElementById('glass');
-  if (glass) {
-    const draw = t => { try { drawGlass(glass, t); } catch (e) { console.error('reviewglass', e); } };
-    draw(2600);                         /* a first frame at once, the front page's still (static captures, hidden tabs) */
-    if (MOVE) {
-      let seen = true;
-      new IntersectionObserver(es => { seen = es[0].isIntersecting; }).observe(glass);
-      const t0 = performance.now() - 2600;
-      const loop = now => { if (seen) draw(now - t0); requestAnimationFrame(loop); };
-      requestAnimationFrame(loop);
-    } else {
-      addEventListener('resize', () => draw(2600));
-      if (document.fonts) document.fonts.ready.then(() => draw(2600));
-    }
   }
 
   /* ---------- scroll: progress, nav, the reading light ---------- */

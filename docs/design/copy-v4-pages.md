@@ -1035,3 +1035,37 @@ the caption AF.1 under the page's image; `data-cap` AF.3; the drawing's canvas a
 from `reviewglass/index.html` and the front page's `sketches.reviewglass`; the code comment of the lead
 medium says what the image is. The image is made from ReviewGlass's `main` at build time and the build
 notes name that commit.
+
+### Round AG, ReviewGlass: the mockup as built (14.11.2026)
+
+Shown with `docs/mockups/reviewglass/round-AG-page.jpg` (the built `/reviewglass/` at 1440 px and at 375 px
+with device emulation, and the open §03 drawer at 1440 px) and `docs/mockups/reviewglass/round-AG-aim.jpg`
+(where the glass aims). Petri said "Rakennetaan nyt" after PR #17 was merged.
+
+| # | Question | Decision |
+|---|---|---|
+| AG.1 | `/reviewglass/` as built | **As built**: the mockup in the 16:9 frame across the 820 px column, loaded at once (it is partly in the first screen), the caption AF.1 under it, the frame's background the staged screen's `#1F1E1C` while it loads; the drawing's canvas and its script removed |
+| AG.2 | The phone | **The same image**: 335 px wide at 375 px, the glass's text small; the caption and the alt say what it shows, as the drawing did (X.1), and AF.4's one image stays one image |
+| AG.3 | The §03 drawer as built | **As built**: the same image as the drawer's big image (lazy) and its hover preview, `data-cap` AF.3, `alt` AF.2; both `sketches.reviewglass` drawings removed from the front page |
+| AG.4 | Where the glass aims | **Two lines higher**: the pointer on the broken line, so the glass shows it, the fix's three comment lines and the new pattern. The trial's aim put the self-test's strings (`'Luviamo v0.385'`, `'Atlas v0.9'`, `'MasterForge 4.44'`) in large type in the glass; they are code, but adr.sws.015 keeps product versions off the page, so they stay only in the panes' and the diff window's small text. The alt text stays true |
+
+### How PR G was built (14.11.2026)
+
+- **The image.** `docs/mockups/reviewglass-mockup.py` against a copy of ReviewGlass's `origin/main` `2654ab4`
+  (unchanged since round AE), its own Vite on 127.0.0.1:5179; the pointer on the broken line (AG.4, now the
+  script's default). The 2x render (3200x1800) is `source-assets/ReviewGlass mockup 2x.png` (800 KB);
+  `images/reviewglass-mockup.webp` (1640x922, quality 88, 171 KB) and its JPG fallback (207 KB). The WebP's
+  text was looked at 1:1 before it was used.
+- **`/reviewglass/`.** The `<canvas id="glass">` became `<img src="/images/reviewglass-mockup.webp" width="1640"
+  height="922" alt="...">` (AF.2) with the caption AF.1; `.vframe img` fills the frame; the drawing's 43 lines of
+  script (its `fit`, `drawGlass` and loop) are gone, and the page has no canvas.
+- **The front page.** The ReviewGlass drawer: `data-live="reviewglass"` became `data-peek` the new image,
+  `data-cap` AF.3, the big image in place of the canvas with `alt` AF.2 and `loading="lazy"`; both
+  `sketches.reviewglass` (the early magnifier, already overridden, and the interface mockup of B.5) removed.
+- **The revision.** `index.html` and `reviewglass/index.html` changed, so their footers and sitemap `lastmod`
+  values are 2026-11-14 and `BUILD_INFO.updated` with them; the other three sub-pages keep 2026-11-13.
+- **Checked locally:** at 1440 px the image loads at 820x461 under the lede and the caption reads AF.1, no
+  canvas on the page; the drawer opens with the image at 820 px, the hover preview shows the image and the
+  caption AF.3; no console errors. At 375 px with device emulation `scrollWidth` 375 on both pages and nothing
+  in `main` past the edge, the image 335 px wide. `check-site` green over five pages and 39 local files.
+
