@@ -224,7 +224,7 @@ Google Fonts: Familjen+Grotesk:wght@400;500;600, Public+Sans:wght@300;400;500;60
 
 | Plate | Media | Fallback |
 |---|---|---|
-| MasterForge | `media/masterforge-eq.mp4` (the Pro Master EQ capture, 12.5 s, 3.4 MB, muted, loop, poster from the clip) | the meters-and-EQ canvas sketch |
+| MasterForge | `media/masterforge-chain.mp4` since 14.11.2026 (rounds AH to AJ): the chain in 16:10 from MasterForge's own compositor, 16.7 s, 2.3 MB, muted while in view, a click plays it from the start with sound (as Luviamo's), poster the raw-against-mastered scene; before that the Pro Master EQ capture | none: the poster is the fallback |
 | Luviamo | the intro video from luviamo.app with its poster; muted autoplay in view; click restarts with sound | the poster |
 | Somnus | the rack panel canvas: two GPU load meters, a six-row live job list (AUDIO SEPARATION, RESEARCH FUNNEL, ATLAS COMPUTE, SALPA PROCESSOR, LOCAL INFERENCE, RESEARCH ENGINE), `LOCAL AI SERVER · ALWAYS ON · COST ≈ 0 €` | the same, static frame |
 | Atlas | the workspace board canvas: Projects, Waiting on, Decided columns with cards sliding in, the partner's phone, the library shelf | the same, static frame |
@@ -286,7 +286,7 @@ Static files with inline CSS and JS, `images/`, `media/`, Google Fonts, Cloudfla
 | Asset | Source | Page file |
 |---|---|---|
 | Portrait cutout | `images/Petri.jpg` (16.8.2026), cut out 18.9.2026 | `images/petri-cutout.webp` + `.png`, two sizes (880 and 440 px) |
-| MasterForge EQ clip | the MasterForge captures | `media/masterforge-eq.mp4` (3.4 MB) + poster |
+| MasterForge chain video | MasterForge's compositor, `MF_LAYOUT=landscape python render_ad.py variant_site` in `masterforge/data/video creation/src_video/` (local), encoded CRF 22 + AAC 128k | `media/masterforge-chain.mp4` (2.3 MB) + `media/masterforge-chain-poster.jpg`; the EQ clip removed 14.11.2026 (AJ.4) |
 | Luviamo video | `luviamo.app/media/luviamo-esittely-v2.mp4`, copied 19.9.2026 | `media/luviamo-intro.mp4` (5.1 MB) + poster; both clips `preload="none"` |
 | Rooms video | `sf3d-ai-lab/media/publish/rooms/rooms-en.mp4` (1920x1080, 118 s, 6.4 MB) and `rooms/rooms-en-916.mp4` (1080x1920, 5.9 MB), local renders the lab's git ignores; captions `sf3d-ai-lab/site/public/video/rooms-en.vtt` | `media/rooms-en.mp4`, `media/rooms-en-916.mp4` (copied as they are, P.1), `media/rooms-en.vtt` (on by default, P.4) + `media/rooms-en-poster.jpg` and `media/rooms-en-916-poster.jpg`, the `BLIND` card at 23 s (P.2); made 13.11.2026 |
 | Silent context video | `sinceai2026/silent-context-third-place-9x16-captions.mp4` (1080x1920, 77.8 s, 15.7 MB) | `media/silent-context-916.mp4` (720x1280, H.264 CRF 25, AAC 128 kb/s, faststart, 5.55 MB, made 13.11.2026) + `media/silent-context-916-poster.jpg`, the frame at 1.5 s (I.1) |
@@ -374,6 +374,7 @@ Day work:   digital health software to clinical and regulatory standards
 | **V6 /rooms/** | 2026-11-13 | PR D: the decision rooms page, its two cuts with captions on by default, posters and share image; the Atlas plate's button in §02 | **PR D, live 13.11.2026 (PR #11)** |
 | **V6 /reviewglass/** | 2026-11-13 | PR E: the ReviewGlass page with the §03 drawing enlarged and its share image; in §03 the drawer's link to the page and its corrected fact, and the code entity in the front page's graph | **PR E, live 13.11.2026 (PR #13)** |
 | **V6 /hometeam/** | 2026-11-13 | PR F: the family application's page with five screens cut from its design mockups (names swapped outside the repository, adr.sws.020) and its share image; the HomeTeam drawer's screen and link in §03 | **PR F, live 13.11.2026 (PR #16)** |
+| MasterForge video | 2026-11-14 | rounds AH to AJ: the §02 plate's EQ strip replaced by the chain in 16:10 (measures, repairs, masters, raw against mastered), sound on a click; the video plates share one script | built in PR H |
 | ReviewGlass mockup | 2026-11-14 | round AE: ReviewGlass's own windows drawn by its own code with a staged core, over a staged screen, replacing the drawing on `/reviewglass/` and in §03 (adr.sws.021) | decided (AE, AF), built in PR G (round AG) |
 
 ---

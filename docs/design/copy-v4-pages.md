@@ -1069,3 +1069,86 @@ with device emulation, and the open §03 drawer at 1440 px) and `docs/mockups/re
   caption AF.3; no console errors. At 375 px with device emulation `scrollWidth` 375 on both pages and nothing
   in `main` past the edge, the image 335 px wide. `check-site` green over five pages and 39 local files.
 
+### Round AH, the front page: a MasterForge video in place of the EQ strip (14.11.2026)
+
+Petri on 14.11.2026: the MasterForge plate in §02 is ugly, because it shows only the EQ view and says
+nothing of which application it is; it should show more visually what MasterForge does, as a short video.
+Planned first, as the next thread.
+
+Read in the session: the plate (apps-v3 A.1: `media/masterforge-eq.mp4`, a 1720x444 capture of the Pro
+Master EQ panel, 12.5 s, 3.4 MB, caption `Pro Master · EQ, live`); the MasterForge repository
+(`origin/main` `d7d27f2`, 11.11.2026): `docs/product.md` (the promise "measure first, then correct";
+Starter in the browser, Pro Master, Auto-Master on the server with SpectralForge's repair and a plan) and
+the local, untracked ad-video work in `data/video creation/` (`AD-VIDEO-PLAN-2026-08.md`,
+`MASTERFORGE-VIDEO-SEED-v1.0.md`): a compositor (`src_video/`, 1080x1920 only) and four 28.7 s vertical
+variants built from the product's own panel captures and renders, cuts on the beat and a raw-to-mastered
+sound whose provenance is checked by correlation (variant A "It's the mastering", B "Stop guessing, start
+seeing", C "Built for AI music", D the chain: measure, repair, master). Starter has a marketing card
+(`images/features/starter-v2.png`) but no capture of the application. Shown as landscape storyboards from
+the renders' own frames in `docs/mockups/masterforge/round-AH-storyboards.jpg`; their words are
+placeholders.
+
+| # | Question | Decision |
+|---|---|---|
+| AH.1 | The story | **1, the chain**: track in, master out: it measures first, repairs, masters (Pro Master's EQ), raw against mastered, the mark. Every picture exists (variants A and D) |
+| AH.2 | The form in the 16:10 frame | **A landscape cut of its own**: made for the plate, a loop of about 15 to 18 s, one short title per scene in MasterForge's own type, MasterForge's dark plate, the mark at the end; under 4 MB (E.4), the poster the raw-against-mastered frame |
+| AH.3 | Sound | **Sound on a click**: the video runs muted while in view, and a click plays the real raw-to-mastered sound, as the Luviamo frame does (click-to-sound) |
+| AH.4 | Where it is made | **MasterForge's own video pipeline**: a landscape layout added to its compositor (`data/video creation/src_video/`, local and not in git), rendered and checked there (beat cuts, the sound's provenance), the result copied to this site's `media/` |
+
+**Before the build:** the landscape layout in the compositor; the chain's three-stage sound (raw, repaired,
+mastered) as in variant D; the track's rights for publishing on this site (the ads use Petri's own
+generations "Endless darkness" and "Open all night"; to be confirmed). **For the copy round (AI):** the
+titles in the video, the plate's caption (`Pro Master · EQ, live` today), the video's `aria-label`, the
+sound button's words, and whether the plate's body (the free tier rebuilt to measure first) still matches a
+video whose chain is Auto-Master's.
+
+### Round AI, the MasterForge video: its words (14.11.2026)
+
+Before the round the draft's words were checked against the product: the run page's stage titles and
+lines (`prepare/order/index.html`, `PROC_TEXTS`: "Measuring your track", "Repairing artifacts" with
+SpectralForge, "Rendering your master" with the Pro Master engine) and MasterForge's homepage ("Hear the
+Difference.", "5 free masters."), MasterForge `origin/main` `d7d27f2`. Shown with draft 2
+(`docs/mockups/masterforge/site-chain-draft2-sheet.jpg`).
+
+| # | Question | Decision |
+|---|---|---|
+| AI.1 | The titles in the video and the close | **The product's own words**: `It measures first` / `SpectralForge repairs it` / `Pro Master finishes it` / `What came back` with `Gold added. Cyan removed.` / the close `Hear the difference.` with `Free to try at masterforge.app`. The close asks the viewer to listen, and the sound is behind a click |
+| AI.2 | The frame's mono caption (A.9, was `Pro Master · EQ, live`) | `Auto-Master · measure, repair, master` (the service's own name since MasterForge 4.46.0, and the chain's three stages) |
+| AI.3 | Sound and its label | **As the Luviamo frame**: the round ▶ in the middle, a click plays from the start with sound, the caption gains ` · sound on`; `aria-label` `MasterForge in 17 seconds: a track measured, repaired by SpectralForge, finished by Pro Master, and the raw and mastered spectra compared. Click to play with sound.` |
+| AI.4 | The plate's body | **Unchanged**: still true, and its "measure the track first" is the video's first title; the video shows the server's chain, the body the free tier, and both measure first |
+
+**For the build (round AJ):** draft 3 with the close AI.1; the track's rights for this site (Petri); the
+frame's `Visit ↗` pill sits over the video's lockup on hover; the poster; whether the old EQ clip and its
+poster leave `media/` (and `docs/mockups/media/`).
+
+### Round AJ, the MasterForge video: the plate as built (14.11.2026)
+
+Shown with `docs/mockups/masterforge/round-AJ-page.jpg` (the plate at 1440 px and at 375 px with device
+emulation, and the poster) and the page's own video. Petri said "Aloitetaan AJ".
+
+| # | Question | Decision |
+|---|---|---|
+| AJ.1 | The track's rights for this site | **Petri has them**: "Endless darkness" is his own generation, already used in MasterForge's ads; the sound is published behind the click |
+| AJ.2 | The plate as built | **As built**: the dark 16:10 frame, the ▶ in the middle, the caption AI.2, muted while in view, a click plays from the start with sound and a second mutes, the poster the raw-against-mastered scene. Two fixes made while building: the video keeps 64 px from its sides, because the page scales plate media by 1.06 for its parallax and the first cut lost the end of its top-right eyebrow; and the video's own eyebrow `AI MUSIC MASTERING` is gone in the landscape layout, because at phone width it ran into the frame's caption, which does not scale with the video. Luviamo's click-to-sound became every video plate's, with the clip's retry on the first touch for phones |
+| AJ.3 | The `Visit ↗` pill over the video's lockup on hover | **Kept**: it shows only on hover, the lockup is there otherwise and large on the close card, and every plate has it in the same place |
+| AJ.4 | The old EQ clip | **Removed from `media/`**: `masterforge-eq.mp4` and its poster; `docs/mockups/media/masterforge-eq.mp4` stays for the Flow 4 mockup, and the capture stays in MasterForge's repository |
+
+### How PR H was built (14.11.2026)
+
+- **The video.** MasterForge's compositor with its landscape layout, `variant_site.py`, draft 4: 1280x800,
+  30 fps, 16.67 s; every gate of `verify_ad.py` green, the cuts on the beat (136 bpm, 0.0 ms), the sound proven
+  raw (0.995) then repaired (0.997) then mastered (0.999) by correlation, -15.05 LUFS and -1.35 dBTP. Encoded
+  for the page with CRF 22 and AAC 128k: `media/masterforge-chain.mp4` (2.30 MB, E.4's 4 MB limit) and the
+  poster `media/masterforge-chain-poster.jpg` at 12.4 s.
+- **The plate.** `<figure class="frame clip" data-live="masterforge">` with its canvas became
+  `<figure class="frame video dark">` with the video, the caption AI.2, the ▶ and the `Visit ↗` pill;
+  `aria-label` AI.3. `.frame.video.dark` gives it the video's dark background; the `.frame.clip` style and
+  script went, and so did `sketches.masterforge` and `sketches.spectralforge`, its alias, which nothing drew.
+- **One script for both video plates.** The Luviamo block found its frame by id; it now runs over every
+  `.frame.video`: play muted at half in view, pause out of view, retry on the first touch, pointer or scroll and
+  when the tab returns (the clip's phone fix, which Luviamo did not have), a click plays from the start with
+  sound and adds ` · sound on`, a second click mutes.
+- **Checked locally:** headless Edge at 1440 px and at 375 px with device emulation: both video plates play
+  muted in view, a click on either turns the sound on, `scrollWidth` 375 on the phone, no page errors; the
+  front page's script parses. `check-site` green over five pages.
+
