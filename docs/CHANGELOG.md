@@ -3,7 +3,7 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
-## Sessio 12 (15.11.2026): Atlas- ja Somnus-videot suunniteltu (kierros AK, ei sivumuutosta)
+## Sessio 12 (15.11.2026): Atlas- ja Somnus-videot suunniteltu, Atlas-laatta videoksi (kierrokset AK–AN, PR I)
 
 **Alkutarkistus:** sessio 11 oli kokonaan laskeutunut: `origin/main` `a943a9f`, haara ei edellä eikä
 jäljessä. `BUILD_INFO.next`:n kärki oli Petrin valinta Somnuksen ja Atlaksen välillä.
@@ -43,8 +43,7 @@ ennen kuvakäsikirjoitusta siitä, mikä oikeasti ajossa on (LESSONS 13.11.), ja
 kirjoitetaan tekstikierroksella muotoon, jonka sivun säännöt sallivat (ei "coming soon"). Atlaksen
 sivustoleikkauksen tekstikierrokselle AL: ruudun lähderivit (A1:ssä `Connect's guide v8` luetaan
 adr.sws.015:tä vasten), oikean alakulman rivi kuvaajan pillerin alla, poltetut tekstitykset mykässä
-silmukassa, postikuva, kuvateksti ja `aria-label`. Sivuja ei muutettu, joten `updated` ja alatunniste
-pysyvät 2026-11-14. BUILD_INFO 5.13.0.
+silmukassa, postikuva, kuvateksti ja `aria-label`. Kierroksen AK kirjaus ei muuttanut sivuja; Atlas-laatta muutti etusivun myöhemmin samana päivänä (alla). BUILD_INFO 5.13.0.
 
 **Petrin vastaukset avoimeen listaan (15.11.2026):** reunavälimuistin tyhjennys Coden kautta jos mahdollista;
 ReviewGlassin tumman teeman vika kirjataan ReviewGlass-repon backlogiin omasta ketjusta; Atlaksen mallin
@@ -72,6 +71,18 @@ sanoo "nearly all ... held", vaikka luku on 62/72. Puhelimella laatan kuvateksti
 "ATLAS"-otsakkeen. **AM** (kaikki suositukset): Petri äänittää lohkon 7 uudelleen ("most of those ...
 held"), huonerivi samoista riveistä (180 · 59), taulun otsake pois sivustoversiosta (tehty, kohtaukset 2–6
 otettu uudelleen), sivun tiedosto 1280x800 CRF 22, postikuva 29,5 s. Odottaa Petrin lohkoa 7.
+
+**Atlas-laatta rakennettu (kierros AN, PR I, 15.11.2026).** Petrin uusi lohko 7 (oma ääni, 9,04 s) liitettiin
+29.10. raitaan vanhan lohkon tilalle äänenvoimakkuus täsmättynä (−0,14 dB) ja kohdistettiin uudelleen (fit cost
+0,22). Kohtaus 7 otettiin uudelleen hetkellä 5,5, ja final on 63,8 s. Sivun tiedosto `media/atlas-explainer.mp4`
+(1280x800, CRF 22, 2,12 Mt) ja postikuva 29,5 s:n kohdalta. Laatta: video, kuvateksti `Why I built Atlas · 1 min`,
+`aria-label` AL.4, ▶, `Access-protected`-pilleri; piirros, sen skripti ja vanhan kaavion käyttämättömät
+`.atlas`-tyylit poistettiin. Tarkistettu paikallisesti 1440 ja 375 px:n leveydellä: soi mykkänä näkyvissä,
+klikkaus soittaa alusta äänen kanssa, toinen mykistää, ei vaakavieritystä eikä konsolivirheitä. **AN** (kaikki
+suositukset): laatta rakennettuna, leipäteksti pysyy, labran PR nyt
+([Sunrisesoftware-app/sf3d-ai-lab#50](https://github.com/Sunrisesoftware-app/sf3d-ai-lab/pull/50)), sivuston PR nyt ja
+esikatselu ennen mergea. LESSONSiin kysymyksen arvioidusta luvusta (AL.1). Profiili-README: sivu muutti Atlaksen
+esitystapaa, ei tilaa eikä vuosia, joten uutta eroa ei synny. BUILD_INFO 5.14.0, `updated` ja alatunniste 2026-11-15.
 
 **Tarkistettu tässä sessiossa:** tämän repon CHANGELOG, BUILD_INFO ja LESSONS; labran `origin/main`
 `6b86ab0` (sarjasuunnitelma, BUILD_INFO, CHANGELOG, A1:n kuvakäsikirjoitus), A1:n finaali ffprobella

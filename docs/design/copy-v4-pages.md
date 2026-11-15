@@ -1276,3 +1276,32 @@ and 3), so on a phone the caption covers it.
 checkout); then the splice, `align.py`, scene 7 taken again on the new moments, the final, the 1280x800 file and its
 poster, the plate built on this branch's page with AL.4's caption and label (the build round reads the plate's
 body against the video), the lab's records and its pull request for the variant and the band options.
+
+### Round AN, the Atlas site cut: the plate as built (15.11.2026)
+
+Built after Petri's block 07 arrived (his own voice, 9.04 s): spliced into his track of 29.10.2026 in place of the old
+block 07 (46.72 to 55.12 s) with -0.14 dB to match its -24.92 LUFS, aligned again (every block found, fit cost 0.22),
+scene 7 taken again at `at=5.5` (his pause after "the advice" falls 0.24 s later) and the final made: 63.8 s. The page's
+file `media/atlas-explainer.mp4` (1280x800, CRF 22, AAC 128k, faststart, 2.12 MB) and its poster
+`media/atlas-explainer-poster.jpg` (29.5 s). Every readable text in the final read against the page's rules (LESSONS
+14.11.2026): no version number, no employer's name, every count dated `read 15.11.2026`. Shown with
+`docs/mockups/atlas/round-AN-plate-1440.jpg`, `round-AN-plate-375.jpg` and `round-AN-final-sheet.jpg`.
+
+| # | Question | Decision |
+|---|---|---|
+| AN.1 | The plate as built | **As built**: the dark 16:10 frame, the video muted while in view with its captions in the band, the ▶ in the middle, a click plays from the start with sound and adds ` · sound on`, a second mutes; caption `Why I built Atlas · 1 min`, the poster at 29.5 s, the `Access-protected` pill kept; the drawing, its script and the unused `.atlas` styles removed |
+| AN.2 | The plate's body against the video | **Unchanged**: the text and the video tell the same thing from two sides (what waits on whom, decisions, partners, the phone); the video shows the mechanism, the text the reach (the library, ideas validated) |
+| AN.3 | The lab's part | **The lab's pull request now**: Sunrisesoftware-app/sf3d-ai-lab PR #50 (the variant, the optional eyebrow and board label, the band's colour and one-line captions, the site cut's files and records); A1 itself unchanged; merged by Petri |
+| AN.4 | Publishing | **A pull request now**, the Cloudflare preview looked at at 1440 and 375 px before the merge, merged on Petri's word |
+
+### How PR I was built (15.11.2026)
+
+- **The plate.** `<figure class="frame" data-live="atlas">` with its canvas became `<figure class="frame video dark">`
+  with the video, the caption AL.4, the ▶ and the `Access-protected` pill; `aria-label` AL.4. The click-to-sound
+  script of PR H serves it unchanged. `sketches.atlas` and `ATLAS_COLS` went, and so did the `.atlas` styles of the
+  first schematic (unused since the board replaced it on 20.9.2026) with their `flow` and `breathe` keyframes; `pulse`
+  stays for the cryo button.
+- **Checked locally:** Edge at 1440 px and at 375 px with device emulation: the video plays muted in view (1280x800,
+  63.8 s), a click plays it from the start with sound and adds ` · sound on`, a second click mutes; `scrollWidth` 375
+  on the phone; the caption ends above the scenes' content at both widths; no console errors. `check-site` green over
+  five pages, 41 local files.
