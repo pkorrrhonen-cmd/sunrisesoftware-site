@@ -197,6 +197,16 @@ instrumenteista päivitettiin vastaamaan sitä (adr.sws.022). Tarkistettu paikal
 `check-site` on vihreä faktatarkistuksineen. Main (sivuketjun PR #26) yhdistettiin haaraan ristiriidat ratkaisten.
 Magnificin MCP-liitin ei näkynyt tässä sessiossa; ääniohjeet on kirjattu muistiin. BUILD_INFO 5.16.0.
 
+**Esikatselu ja deploy (PR J):** PR #27:n esikatselu (`f95b0282`) oli tavu tavulta sama kuin haara yhtä riviä
+lukuun ottamatta: Cloudflaren Web Analyticsin beaconin, jonka Pages lisää itse. Se katsottiin headless-Edgellä 1440 ja
+375 px:n leveydellä. Mainiin tuli välissä sivuketjun PR:t #26 ja #28, ja BUILD_INFOn ristiriidat ratkaistiin kahdesti.
+PR #27 squash-mergattiin Petrin sanasta ("Merge") 15.11.2026 klo 17:58:53Z (`ef4d661`), kun Site checks ja Cloudflare
+Pages olivat vihreät. Tuotantobuild oli `e2e66412`, ja livesivu tarjosi Somnus-videon klo 17:59:36Z. Livestä ja
+deployn omasta osoitteesta todennettu: Somnus- ja Atlas-video, postikuva ja sitemap tavu tavulta samat kuin main.
+Etusivu ja neljä alasivua eroavat mainista vain beacon-rivin osalta, eli Web Analytics on päällä, ja sähköpostisuojauksen
+muunnos ei enää näy livessä. Video vastaa osapyyntöön 206 ja tuntematon osoite 404. Atlaksen `sw-sivusto.STATUS` v39.
+BUILD_INFO 5.16.1.
+
 **Tarkistettu tässä sessiossa:** tämän repon CHANGELOG, BUILD_INFO ja LESSONS; labran `origin/main`
 `6b86ab0` (sarjasuunnitelma, BUILD_INFO, CHANGELOG, A1:n kuvakäsikirjoitus), A1:n finaali ffprobella
 (1920x1080, 63,59 s, 3 179 382 tavua), sen SRT (16 riviä) ja ruutuarkki; Somnuksen `origin/main` `19d8bb5`
