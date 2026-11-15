@@ -55,6 +55,24 @@ otetaan käyttöön (Code tai Petri käsin); Lighthouse ja HTML-validaattori aje
 mukaan. Asiat niputettiin neljään sivuketjuun (Cloudflare ja livesivu; ReviewGlassin backlog; Atlaksen yhteys
 ja peili; profiili-README ja faktalähde), ja tämä ketju jatkaa Atlaksen koeleikkausta labrassa.
 
+**Atlaksen koeleikkaukset ja kierrokset AL ja AM (15.11.2026).** Labran worktree `claude/a1-site-cut`
+(`origin/main` `6b86ab0`). Koeleikkaus 1 ilman labran koodimuutoksia: A1:n kahdeksan kohtausta nauhoitettiin
+uudelleen Petrin äänen hetkillä ilman labran otsaketta, ja final tehtiin 1920x1080-kuvasta ja 120 px:n
+tekstitysnauhasta (1920x1200 eli 16:10, 63,6 s). Se katsottiin laatassa sivun kopiossa scratchpadissa (repon
+sivua ei muutettu) 1440 ja 375 px:n leveydellä. **AL** (kaikki suositukset): nauha kuvan värissä, tekstitys
+isompana yhdellä rivillä, sf3d.fi nimettynä "this siten" tilalle, ohjeen versio pois lähderiviltä, laatan
+kuvateksti `Why I built Atlas · 1 min`. Kysymyksessä AL.1 oli virhe: siinä luki "noin 48 px", vaikka
+koeleikkauksen tekstitys oli jo noin 46 px. Päätöksen tarkoitus toteutettiin 64 px:nä ja kerrottiin Petrille.
+Koeleikkaus 2: labraan datavariantti `?variant=site` (omat `.site.json`-tiedostot, joten A1:n julkaistut
+tiedostot pysyvät), valinnainen otsake ja `final.py`:hin nauhan väri ja yksirivinen tekstitys; luvut
+luettiin 15.11. (25 · 358 · 288; 484/449; 72/62; 180 huonetta, 121 vahvisti). Kaksi ottoa jumittui koneella
+ja otettiin uudelleen. **Löydetty:** A1:n kohtaus 7 yhdistää 500 rivin huoneet ja H1:n poikkeamat kaikista
+huoneista. Ne osuivat 29.10. lähes yhteen, mutta tänään sama koodi näyttäisi 180 / 98. Lisäksi Petrin ääni
+sanoo "nearly all ... held", vaikka luku on 62/72. Puhelimella laatan kuvateksti peitti taulun
+"ATLAS"-otsakkeen. **AM** (kaikki suositukset): Petri äänittää lohkon 7 uudelleen ("most of those ...
+held"), huonerivi samoista riveistä (180 · 59), taulun otsake pois sivustoversiosta (tehty, kohtaukset 2–6
+otettu uudelleen), sivun tiedosto 1280x800 CRF 22, postikuva 29,5 s. Odottaa Petrin lohkoa 7.
+
 **Tarkistettu tässä sessiossa:** tämän repon CHANGELOG, BUILD_INFO ja LESSONS; labran `origin/main`
 `6b86ab0` (sarjasuunnitelma, BUILD_INFO, CHANGELOG, A1:n kuvakäsikirjoitus), A1:n finaali ffprobella
 (1920x1080, 63,59 s, 3 179 382 tavua), sen SRT (16 riviä) ja ruutuarkki; Somnuksen `origin/main` `19d8bb5`
