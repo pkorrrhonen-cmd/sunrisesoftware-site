@@ -12,9 +12,9 @@ decision). A decision is never deleted: a wrong one is superseded and the file s
 |---|---|---|
 | [adr.sws.001](adr.sws.001.md) | Static HTML with no build step | accepted |
 | [adr.sws.002](adr.sws.002.md) | Editorial numbered-section architecture over the SaaS landing pattern | accepted |
-| [adr.sws.003](adr.sws.003.md) | The SF3D history is a footnote, and the heritage lives at sf3d.fi | accepted |
-| [adr.sws.004](adr.sws.004.md) | Every status on the page carries a date; no relative-time copy | accepted |
-| [adr.sws.005](adr.sws.005.md) | Atlas is selected work, and its cover is a drawn schematic | accepted |
+| [adr.sws.003](adr.sws.003.md) | The SF3D history is a claim, a lead and a cryo chamber behind a button | accepted |
+| [adr.sws.004](adr.sws.004.md) | Every status on the page carries a date; no relative-time copy | accepted, amended by 015 |
+| [adr.sws.005](adr.sws.005.md) | Atlas is on the page as an instrument, and its plate is drawn | accepted, amended by 022 |
 | [adr.sws.006](adr.sws.006.md) | The employer's applications are withheld until permission | accepted |
 | [adr.sws.007](adr.sws.007.md) | The public GitHub profile is linked from the page | accepted |
 | [adr.sws.008](adr.sws.008.md) | The React migration leaves the roadmap | proposed |

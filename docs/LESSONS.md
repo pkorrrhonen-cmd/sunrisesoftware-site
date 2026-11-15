@@ -2,6 +2,36 @@
 
 Opitut virheet ja estosäännöt, jotta niitä ei toisteta. Uusin ensin.
 
+## 15.11.2026: korjaus odotti kaksi kuukautta kohdetta, jota ei enää ollut
+
+**Mitä tapahtui:** 19.9.2026 session alun 401 jäljitettiin, ja korjaukseksi A ehdotettiin `atlas`-merkinnän
+poistoa 24 repon `.mcp.json`:sta, käyttäjäympäristön `ATLAS_MCP_TOKEN`:n poistoa ja settingsin
+`enabledMcpjsonServers`-rivin poistoa. Merkinnät tyhjennettiin jo seuraavana päivänä (tiedostojen aikaleima
+20.9.2026 16.47), mutta korjaus kulki `next`-listassa, muistissa ja STATUSissa sellaisenaan 15.11. asti.
+Kirjaimellisesti ajettuna ympäristömuuttujan poisto olisi katkaissut Atlaksen oman `atlas-code`-oven,
+joka tehtiin 23.9. samalle muuttujalle, ja settingsin rivin poisto Atlaksen paikallisen palvelimen
+automaattisen käynnistyksen. Inventaario ennen poistoa löysi tämän.
+
+**Estosääntö:**
+- Ennen kuin ajat aiemman session ehdottaman korjauksen, inventoi nykytila uudelleen ja näytä se.
+  Kohde on voinut kadota, ja sama asetus on voinut saada uuden käyttäjän.
+- Odottavan korjauksen rivi kertoo, mitä tarkistetaan ennen ajoa (tässä: onko merkintä vielä
+  olemassa, ja käyttääkö jokin muu samaa muuttujaa).
+
+## 15.11.2026: indeksi päivitettiin, tiedostot eivät
+
+**Mitä tapahtui:** Sessio 2 (18.9.2026) kirjoitti päätösindeksiin `decisions/README.md` adr.sws.003, 004
+ja 005 hyväksytyiksi ja antoi 003:lle uuden otsikon. Tiedostot jäivät tiloihin open ja proposed vanhoine
+päätösteksteineen. Ristiriita oli repossa kaksi kuukautta, ja CLAUDE.md sovelsi 004:ää sääntönä, vaikka sen
+tiedosto sanoi proposed. Se löytyi vasta, kun tiedostot luettiin Atlakseen vientiä varten; sellaisenaan
+viety peili olisi kantanut vanhentuneen tilan.
+
+**Estosääntö:**
+- Päätöksen tila muutetaan sen omaan tiedostoon ja indeksiin samassa commitissa. Indeksi on viite,
+  tiedosto on päätös.
+- Kun päätös ratkeaa toisen päätöksen kautta (tässä Flow 4, adr.sws.013), ratkenneen päätöksen tiedosto
+  täydennetään samassa sessiossa.
+
 ## 15.11.2026: päätösnumero varattiin katsomatta muita haaroja
 
 **Mitä tapahtui:** Cloudflare-sivuketju varasi päätökselleen numeron adr.sws.022 sivuketjujen jaettuun

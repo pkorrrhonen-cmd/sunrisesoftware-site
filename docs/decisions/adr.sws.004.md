@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Status | proposed (Petri decides in the page-revision planning) |
+| Status | accepted (Petri, 18.9.2026, with SEED v3.0.0); amended by adr.sws.015 |
 | Date | 2026-09-17 |
 | Proposed by | Claude Code, session 1, from Petri's instruction to bring the site to the present |
 | Links | sws.site, sws.deployment |
@@ -15,10 +15,10 @@ Quaesitor's version as 2.12.11 when production was 2.13.27, and priced MasterFor
 that no longer existed. Copy that refers to "now" without a date is wrong the day after it
 was true, and nothing on the page or in the repo made the staleness visible.
 
-## Decision (proposed)
+## Decision
 
-Every status on the page carries a version or a date, or both ("Live · v4.44 · September
-2026"). The footer carries the revision date in a `data-revised` attribute, and CI fails when
+Every status on the page carries a date ("Live · September 2026"). This decision first allowed
+a version beside the date; adr.sws.015 (20.9.2026) removed the version. The footer carries the revision date in a `data-revised` attribute, and CI fails when
 it differs from `BUILD_INFO.updated`. The words "coming soon", "within the month" and
 "recently" are forbidden strings in `scripts/check-site.mjs`.
 
