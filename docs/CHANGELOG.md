@@ -3,6 +3,23 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 12, päätös (15.11.2026): sulkutoimet
+
+**Session 12 kokonaisuus** (päätökset Petrin kanssa päätöslaatikoilla): Atlas- ja Somnus-laatat ovat nyt sf3d.fi-labran
+selitysvideoita (kierrokset AK–AR, adr.sws.022). Atlas-laatta on PR #24 ja Somnus-laatta PR #27, molemmat livenä ja
+todennettu livestä, ja jokainen §02:n laatta on nyt video. Avoin lista jaettiin neljään sivuketjuun, ja kaikki on
+mergetty: Atlaksen yhteys ja peili (PR #23), profiili-README ja faktalähde (PR #26, #28, adr.sws.014), Cloudflare ja
+livesivu (PR #30, adr.sws.023: sähköpostipiilotus pois, Web Analytics päällä) sekä ReviewGlassin diff-vika
+ReviewGlassin listalle (ReviewGlass PR #40). Labran osuus on PR:issä Sunrisesoftware-app/sf3d-ai-lab #50 (A1:n
+sivustoleikkaus) ja #51 (B1), ja ne odottavat Petrin mergeä.
+
+**Sulkutoimet:** tässä repossa ei ole avoimia PR:iä eikä ristiriitoja, ja main on `53846ff`. LESSONS-merkintä tältä
+päivältä on jo kirjattu (kysymyksen arvioitu luku, AL.1); sivuketjut kirjasivat omansa. Profiili-README luettiin
+sivua vasten profiilisivuketjussa, ja sen Somnus-rivi korjattiin samoilla faktoilla kuin Somnus-video. BUILD_INFO
+5.16.3; Atlaksen `sw-sivusto.STATUS` v43. **Seuraavan session alussa:** Atlaksen katselin (30 sws-ehdotusta), sitten
+labran PR:t #50 ja #51, B1:n labramuistiinpano, DOC-9, sivun vuosiluvut 2026 → sekä Lighthousen ja validaattorin
+löydökset, yhdessä Petrin kanssa.
+
 ## Sessio 12, sivuketju (15.11.2026): Atlaksen yhteys ja peili
 
 **Tehty Petrin kanssa** sivuketjussa, jonka session 12 pääketju avasi avoimen listan kahdelle
