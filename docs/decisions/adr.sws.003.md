@@ -1,12 +1,13 @@
-# adr.sws.003: The SF3D history gets a new role and visibility on the page
+# adr.sws.003: The SF3D history is a claim, a lead and a cryo chamber behind a button
 
 | | |
 |---|---|
-| Status | open (designed together from mockups; nothing is removed before the shape is chosen) |
-| Date | 2026-09-17 |
+| Status | accepted (Petri, 18.9.2026, through adr.sws.013: Flow 4 is the page) |
+| Date | 2026-09-17 (opened), 2026-09-18 (decided) |
 | Instruction by | Petri Korhonen |
 | Links | sws.site |
 | Touches | the SF3D archive section (§04) of SEED v2.0.0 |
+| Settled by | adr.sws.013 (Flow 4), SEED v3.0.0 section 3.4 |
 
 ## Context
 
@@ -22,14 +23,14 @@ unused photographs; that reading is withdrawn.
 
 ## Decision
 
-Open. The SF3D history stays on the page with a smaller footprint and a later position than
-in V4.5, and the years read 2006 to 2016. The shape is chosen from two or three mockups
-(SEED v2.1.0 section 4.4 lists the alternatives: a footnote, a compact strip with a few images,
-a shortened section after Approach). No image leaves `images/` before the choice; the photos
-that the chosen shape does not use are decided then. Ember stays with SF3D wherever it lands.
+Decided in Flow 4 (SEED v3.0.0, section 3.4): after section 03 the history is a claim, a lead
+and a button that opens a cryo chamber with the photographs, the records and the readouts. The
+years read 2006 to 2016 and the photographs stay in `images/`. Ember appears only in the
+section mark before the chamber; the chamber uses the cryo palette. The heritage's present
+home, SF3D AI Lab at sf3d.fi, is one of the section 03 drawers.
 
 ## Consequences
 
 The page's hierarchy changes in favour of the present work, and the history keeps its place
-as part of the story. The decision file is completed with the chosen shape, the date and the
-mockup it came from.
+as part of the story. The file was completed on 15.11.2026 from SEED v3.0.0 and adr.sws.013;
+the open text of 17.9.2026 is in the git history.
