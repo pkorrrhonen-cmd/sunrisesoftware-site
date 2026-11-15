@@ -84,6 +84,15 @@ suositukset): laatta rakennettuna, leipäteksti pysyy, labran PR nyt
 esikatselu ennen mergea. LESSONSiin kysymyksen arvioidusta luvusta (AL.1). Profiili-README: sivu muutti Atlaksen
 esitystapaa, ei tilaa eikä vuosia, joten uutta eroa ei synny. BUILD_INFO 5.14.0, `updated` ja alatunniste 2026-11-15.
 
+**Esikatselu ja deploy (PR I):** PR #24:n esikatselu (`9140d3aa`) oli tavu tavulta sama kuin haara, ja se
+katsottiin headless-Edgellä 1440 px:n ja 375 px:n leveydellä laite-emuloinnilla (video soi, `scrollWidth` 375, ei
+sivuvirheitä). PR #24 squash-mergattiin Petrin sanasta ("Merge kun vihreä") 15.11.2026 klo 12:23:09Z (`99245a2`), kun
+Site checks ja Cloudflare Pages olivat vihreät. Tuotantobuild `66c2014a`, ja livesivu tarjosi uuden videon klo
+12:23:34Z. Livestä ja deployn omasta osoitteesta todennettu: `media/atlas-explainer.mp4` ja sen postikuva,
+sitemap ja neljä alasivua tavu tavulta samat kuin main. Deployn etusivu on sama kuin main, ja livesivu eroaa siitä
+vain Cloudflaren sähköpostisuojauksen osalta (`data-revised` 2026-11-15, Atlas-video mukana, ei Atlas-canvasta).
+Video vastaa osapyyntöön 206 ja tuntematon osoite 404. Atlaksen `sw-sivusto.STATUS` v38. BUILD_INFO 5.14.1.
+
 **Tarkistettu tässä sessiossa:** tämän repon CHANGELOG, BUILD_INFO ja LESSONS; labran `origin/main`
 `6b86ab0` (sarjasuunnitelma, BUILD_INFO, CHANGELOG, A1:n kuvakäsikirjoitus), A1:n finaali ffprobella
 (1920x1080, 63,59 s, 3 179 382 tavua), sen SRT (16 riviä) ja ruutuarkki; Somnuksen `origin/main` `19d8bb5`
