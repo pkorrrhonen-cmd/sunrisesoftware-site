@@ -1346,3 +1346,20 @@ scene 3, the checks in 4, the language factory in the middle (5), the research i
 
 **Next:** the build in the lab: the kit's new `machine` part, the scenes, the takes, the guide cut for Petri's picture
 lock, then his voice, the finals, the site cut and the plate (with AO.3's corrections of the plate's text).
+
+### Round AQ, the Somnus video: the guide cut and the picture lock (15.11.2026)
+
+Built in the lab on the explainer kit (branch `claude/b1-somnus-explainer`, `e6055c9`; it merges the open lab PR #50 for
+the band options): the kit's new `machine`, `dayStrip` and `job` parts, the eight scenes, eight takes (150 to 511 frames
+each, none frozen), a guide track in Windows' voice (76.4 s, fit cost 0.31) and both guide cuts, 69.4 s: the lab note's
+16:9 and the site's 1920x1200 with its caption band. The frames read: every word inside the frame, the plate's corners
+empty, no number outside the data file, no cost or address. Shown with
+`docs/mockups/somnus/round-AQ-guide-site-sheet.jpg` and the site cut itself. With Petri's voice A1 ran 0.85 of its guide
+cut, so B1 is expected near 59 s.
+
+| # | Question | Decision |
+|---|---|---|
+| AQ.1 | Scene 3's cards (the guide cut put a queued job on the 7900 XT, which runs only Laya since 13.11) | **Laya on the 7900 XT**: it shows its standing work, the R9700 takes the queued job and is then leased by hand, `held by: me`, as on 15.11.2026 |
+| AQ.2 | Fixes before the voice | **All three**: scene 7's stems off the dimmed card labels, scene 8's boxes at full size, scene 3 less dense (the lease only after the queued job has settled) |
+| AQ.3 | Two deviations from the storyboard | **Accepted**: the checks' ticks are blue (the lab's palette has no added colours), and the three scanned products are unnamed shield tiles without a pass or fail mark (two legs of the scan failed on their approved baseline on 15.11) |
+| AQ.4 | The picture lock | **Locked with the fixes**; Petri makes his voice from the eight blocks of `narration.md` v0 in ElevenLabs, saved as `media/somnus-explainer/audio/narration.mp3` in the lab's main checkout |

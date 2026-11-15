@@ -109,6 +109,15 @@ kuvakäsikirjoitus ja kertojateksti v0, 8 kohtausta ja 176 sanaa. **AP** (kaikki
 rakennettavaksi, ei vertauskuvaa, kohtaus 3 näyttää jonon ja varauksen, ja molemmat kehykset tehdään yhdessä. Sivuja
 ei muutettu. BUILD_INFO 5.15.0.
 
+**Somnus-videon ohjeleikkaus ja kuvalukko (kierros AQ, 15.11.2026).** Rakennettu labrassa kitillä (haara
+`claude/b1-somnus-explainer`, `e6055c9`): kittiin uudet osat `machine`, `dayStrip` ja `job`, kahdeksan kohtausta ja
+kahdeksan ottoa (150–511 ruutua, ei jumittuneita). Ohjeraita on Windowsin äänellä (76,4 s, fit cost 0,31), ja
+ohjeleikkaukset tehtiin molempiin kehyksiin (69,4 s). Ruudut luettiin: ei lukuja datatiedoston ulkopuolelta, ei kuluja
+eikä osoitteita, ja laatan kulmat ovat tyhjät. Petrin äänellä A1 lyheni 0,85-kertaiseksi, joten B1:n arvio on noin
+59 s. **AQ** (kaikki suositukset): kohtauksessa 3 Laya 7900 XT:llä ja R9700 ottaa jonon työn ja varauksen, kolme
+pientä korjausta, poikkeamat (siniset rastit, nimettömät tuoteruudut) hyväksytty, kuva lukittu korjauksin. Seuraavaksi
+Petrin ääni ElevenLabsilla kahdeksasta lohkosta. Sivuja ei muutettu.
+
 **Tarkistettu tässä sessiossa:** tämän repon CHANGELOG, BUILD_INFO ja LESSONS; labran `origin/main`
 `6b86ab0` (sarjasuunnitelma, BUILD_INFO, CHANGELOG, A1:n kuvakäsikirjoitus), A1:n finaali ffprobella
 (1920x1080, 63,59 s, 3 179 382 tavua), sen SRT (16 riviä) ja ruutuarkki; Somnuksen `origin/main` `19d8bb5`
