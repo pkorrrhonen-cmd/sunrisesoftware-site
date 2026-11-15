@@ -71,7 +71,7 @@ ei tuotetta; squash siirtyneen mainin päälle peruu toisen session commitin (hu
 generaattori, joka laskee pidätetyn järjestelmän nimeämättä, ja perhekartan paluu. Quaesitorin syy poistua
 sivulta ("no longer developed", 18.9.) ei enää vastaa sen repoa; kirjattu, ei muutosta.
 
-## Sessio 12 (15.11.2026): Atlas- ja Somnus-videot suunniteltu, Atlas-laatta videoksi (kierrokset AK–AN, PR I)
+## Sessio 12 (15.11.2026): Atlas- ja Somnus-laatat videoiksi (kierrokset AK–AR, PR I ja PR J)
 
 **Alkutarkistus:** sessio 11 oli kokonaan laskeutunut: `origin/main` `a943a9f`, haara ei edellä eikä
 jäljessä. `BUILD_INFO.next`:n kärki oli Petrin valinta Somnuksen ja Atlaksen välillä.
@@ -160,6 +160,42 @@ Site checks ja Cloudflare Pages olivat vihreät. Tuotantobuild `66c2014a`, ja li
 sitemap ja neljä alasivua tavu tavulta samat kuin main. Deployn etusivu on sama kuin main, ja livesivu eroaa siitä
 vain Cloudflaren sähköpostisuojauksen osalta (`data-revised` 2026-11-15, Atlas-video mukana, ei Atlas-canvasta).
 Video vastaa osapyyntöön 206 ja tuntematon osoite 404. Atlaksen `sw-sivusto.STATUS` v38. BUILD_INFO 5.14.1.
+
+**Somnus-video suunniteltu (kierrokset AO ja AP, 15.11.2026).** Petrin sanasta "Aloitetaan Somnus". Faktat
+luettiin Atlaksesta (`somnus.KUVAUS` v16, konetila ja korttijono 15.11.) ja kahdella lukevalla selvityksellä: Somnuksen
+repo (`19d8bb5`) ja muut repot, jotka kutsuvat konetta. Petrin neljästä esimerkistä tarkistukset ovat ajossa (Atlaksen
+CI ja tietoturvaskannaus Somnuksen runnerilla, viimeksi 15.11.; AvoQ lainaa R9700:aa käsin), mutta vain Atlakselle.
+Ääni on mennyttä aikaa: syyskuun 2026 stemmierottelu ja analyysi päätyivät MasterForgen palvelinketjun vaiheeksi, joka
+ajetaan toisella palvelimella, ja musiikin generointi pysäytettiin 8.10. Kielitehdas on ajossa tänään, ja luotainraita
+on ajossa. **Löydetty:** etusivun Somnus-laatan "always on" (kolmesti) ei pidä, koska kone ajaa klo 8–22 ja on yöt
+kiinni 31.10. alkaen. Sama koskee sf3d.fi:n About-sivun "around the clock" -kohtaa, josta kirjattiin labran BACKLOGiin
+DOC-9. Toinen kone on suunniteltu (kaksi RX 6900 XT:tä), mutta se ei ole vielä tullut. "Kolmesta palvelimesta" ei ole
+dokumenttia. Profiili-README-sivuketjulle kerrottiin samat faktat ennen sen pushia. **AO** (kaikki suositukset):
+ydinlause työkoneena ja instrumenttina, ääni menneessä muodossa, työpäivä klo 8–22, toinen kone suunniteltuna ilman
+"kolmea". Labraan haara `claude/b1-somnus-explainer`, jossa `video/somnus-explainer/`: lähteet S1–S14,
+kuvakäsikirjoitus ja kertojateksti v0, 8 kohtausta ja 176 sanaa. **AP** (kaikki suositukset): v0 hyväksytty
+rakennettavaksi, ei vertauskuvaa, kohtaus 3 näyttää jonon ja varauksen, ja molemmat kehykset tehdään yhdessä. Sivuja
+ei muutettu. BUILD_INFO 5.15.0.
+
+**Somnus-videon ohjeleikkaus ja kuvalukko (kierros AQ, 15.11.2026).** Rakennettu labrassa kitillä (haara
+`claude/b1-somnus-explainer`, `e6055c9`): kittiin uudet osat `machine`, `dayStrip` ja `job`, kahdeksan kohtausta ja
+kahdeksan ottoa (150–511 ruutua, ei jumittuneita). Ohjeraita on Windowsin äänellä (76,4 s, fit cost 0,31), ja
+ohjeleikkaukset tehtiin molempiin kehyksiin (69,4 s). Ruudut luettiin: ei lukuja datatiedoston ulkopuolelta, ei kuluja
+eikä osoitteita, ja laatan kulmat ovat tyhjät. Petrin äänellä A1 lyheni 0,85-kertaiseksi, joten B1:n arvio on noin
+59 s. **AQ** (kaikki suositukset): kohtauksessa 3 Laya 7900 XT:llä ja R9700 ottaa jonon työn ja varauksen, kolme
+pientä korjausta, poikkeamat (siniset rastit, nimettömät tuoteruudut) hyväksytty, kuva lukittu korjauksin. Seuraavaksi
+Petrin ääni ElevenLabsilla kahdeksasta lohkosta. Sivuja ei muutettu.
+
+**Somnus-laatta videoksi (kierros AR, PR J, 15.11.2026).** Petrin ääni (oma ääni Magnificin ja ElevenLabsin V3:n
+kautta, 67,8 s) kohdistettiin -35 dB:llä (fit cost 0,18), otot nauhoitettiin uudelleen hänen hetkilleen, ja molemmat
+finaalit tehtiin: 67,1 s, josta puhetta 56,3 s. **AR** (pituus Petrin valinnalla, muut suositusten mukaan): 67 s
+hyväksyttiin A1:n poikkeuksen tapaan, postikuvaksi kohtauksen 2 kolme kaistaa, kuvateksti `What Somnus does · 1 min`
+ja uusi `aria-label`, ja laatan tag, leipäteksti ja spec ilman "always on" -ilmausta ja suppiloa. Sivu:
+`media/somnus-explainer.mp4` (1280x800, 2,34 Mt) ja postikuva, laatta video-kehyksenä, molemmat `sketches.somnus`
+-piirrokset ja `SOMNUS_TASKS` poistettu. Nyt jokainen §02:n laatta on video, ja CLAUDE.md:n sääntö piirretyistä
+instrumenteista päivitettiin vastaamaan sitä (adr.sws.022). Tarkistettu paikallisesti 1440 ja 375 px:n leveydellä, ja
+`check-site` on vihreä faktatarkistuksineen. Main (sivuketjun PR #26) yhdistettiin haaraan ristiriidat ratkaisten.
+Magnificin MCP-liitin ei näkynyt tässä sessiossa; ääniohjeet on kirjattu muistiin. BUILD_INFO 5.16.0.
 
 **Tarkistettu tässä sessiossa:** tämän repon CHANGELOG, BUILD_INFO ja LESSONS; labran `origin/main`
 `6b86ab0` (sarjasuunnitelma, BUILD_INFO, CHANGELOG, A1:n kuvakäsikirjoitus), A1:n finaali ffprobella

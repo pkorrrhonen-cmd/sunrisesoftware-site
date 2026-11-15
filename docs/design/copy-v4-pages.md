@@ -1305,3 +1305,89 @@ file `media/atlas-explainer.mp4` (1280x800, CRF 22, AAC 128k, faststart, 2.12 MB
   63.8 s), a click plays it from the start with sound and adds ` · sound on`, a second click mutes; `scrollWidth` 375
   on the phone; the caption ends above the scenes' content at both widths; no console errors. `check-site` green over
   five pages, 41 local files.
+
+### Round AO, the Somnus video: what it tells (15.11.2026)
+
+Petri said "Aloitetaan Somnus". Read before the round: Somnus's `somnus.KUVAUS` v16 (9.11.2026), its live machine state
+and card queue (`atlas_get_konetila`, `atlas_korttijono_lue`, 15.11.2026), its repository (`origin/main` `19d8bb5`,
+14.11.2026: BUILD_INFO, TOPOLOGIA, architecture, roadmap, BACKLOG, CHANGELOG) and every sibling repository that calls it
+(GitHub Actions runs, AvoQ's evidence, MasterForge's and SpectralForge's records). The fact list with its sources is the
+lab's `video/somnus-explainer/sources.md` (branch `claude/b1-somnus-explainer`). Against Petri's four examples of AK.3:
+the checks run (Atlas's CI and its security scan of three products on Somnus's runner, last 15.11.2026; AvoQ borrows the
+R9700 for its checks by hand, last 13.11), but only for Atlas, not the family's repositories; the audio work is past
+(stem separation and analysis for the Suno V6 study in September 2026 became a step of MasterForge's server chain,
+which runs on another server; music generation parked 8.10); the language factory runs today and trains a small model,
+nothing published; the research on local models runs (the probe track). Not "always on": the box works 08 to 22 and is
+off at night since 31.10.2026. The second machine (two RX 6900 XT) is planned and has not arrived; "three servers" has
+no document.
+
+| # | Question | Decision |
+|---|---|---|
+| AO.1 | The core sentence | **The working machine and the instrument**: `Somnus is the computer in the next room that does the heavy work for my projects: it runs their checks, writes Finnish training material, and is the instrument I test small AI models with.` |
+| AO.2 | The audio | **In the past tense**, one sentence, dated on screen (September 2026): `Its audio research became part of how MasterForge prepares a track.` |
+| AO.3 | The hours | **The working day 08 to 22** shown, the night dark; no "always on". The plate's three "always on" (caption, tag, body) are corrected in B1's build round, and the lab gets a row for its About page's "running around the clock" |
+| AO.4 | The second machine | **Planned**: `A second machine is planned beside it, with two more graphics cards.`, on screen `Planned · November 2026`; "three" left out until it is decided |
+
+**Next:** the lab's storyboard and narration v0 (`video/somnus-explainer/`) for Petri's sign-off in round AP.
+
+### Round AP, the Somnus video: the storyboard (15.11.2026)
+
+Shown with the lab's `video/somnus-explainer/storyboard.md` and `narration.md` v0 (branch `claude/b1-somnus-explainer`,
+`a35abd9`): eight scenes, 59 s, 176 words, the core sentence AO.1 in scenes 1 and 2, the queue and the working day in
+scene 3, the checks in 4, the language factory in the middle (5), the research instrument in 6, the audio as the past in
+7 (AO.2), the second machine as a plan in 8 (AO.4).
+
+| # | Question | Decision |
+|---|---|---|
+| AP.1 | The storyboard and narration v0 | **Signed off, build it** ("Hyväksyn, rakenna"), the narration as written |
+| AP.2 | A metaphor | **None**: the machine is shown as it is, and the core sentence carries it |
+| AP.3 | What scene 3 animates | **The queue and a lease**: jobs wait in the queue, and a card can also be leased by hand; one card each; source line `The card queue and its leases · read 15.11.2026` |
+| AP.4 | The order of the frames | **Both together**: the same takes and voice make the lab note's 16:9 and the site's 16:10 cut with its caption band on the same day |
+
+**Next:** the build in the lab: the kit's new `machine` part, the scenes, the takes, the guide cut for Petri's picture
+lock, then his voice, the finals, the site cut and the plate (with AO.3's corrections of the plate's text).
+
+### Round AQ, the Somnus video: the guide cut and the picture lock (15.11.2026)
+
+Built in the lab on the explainer kit (branch `claude/b1-somnus-explainer`, `e6055c9`; it merges the open lab PR #50 for
+the band options): the kit's new `machine`, `dayStrip` and `job` parts, the eight scenes, eight takes (150 to 511 frames
+each, none frozen), a guide track in Windows' voice (76.4 s, fit cost 0.31) and both guide cuts, 69.4 s: the lab note's
+16:9 and the site's 1920x1200 with its caption band. The frames read: every word inside the frame, the plate's corners
+empty, no number outside the data file, no cost or address. Shown with
+`docs/mockups/somnus/round-AQ-guide-site-sheet.jpg` and the site cut itself. With Petri's voice A1 ran 0.85 of its guide
+cut, so B1 is expected near 59 s.
+
+| # | Question | Decision |
+|---|---|---|
+| AQ.1 | Scene 3's cards (the guide cut put a queued job on the 7900 XT, which runs only Laya since 13.11) | **Laya on the 7900 XT**: it shows its standing work, the R9700 takes the queued job and is then leased by hand, `held by: me`, as on 15.11.2026 |
+| AQ.2 | Fixes before the voice | **All three**: scene 7's stems off the dimmed card labels, scene 8's boxes at full size, scene 3 less dense (the lease only after the queued job has settled) |
+| AQ.3 | Two deviations from the storyboard | **Accepted**: the checks' ticks are blue (the lab's palette has no added colours), and the three scanned products are unnamed shield tiles without a pass or fail mark (two legs of the scan failed on their approved baseline on 15.11) |
+| AQ.4 | The picture lock | **Locked with the fixes**; Petri makes his voice from the eight blocks of `narration.md` v0 in ElevenLabs, saved as `media/somnus-explainer/audio/narration.mp3` in the lab's main checkout |
+
+### Round AR, the Somnus video: the voice, the length and the plate's words (15.11.2026)
+
+Petri's track (his own voice through Magnific and ElevenLabs V3, the eight blocks as written; 67.76 s) aligned at
+-35 dB (fit cost 0.18, 3.52 words a speech second; at the default -40 dB seven blocks started on a click and 0.2 to
+0.5 s of silence), the takes recorded again on his moments, both finals made: 67.1 s, 56.3 s of it speech, the picture
+outlasting the speech by 5.2 s in all (most in scene 3, the night falling, and scene 8, the end card). Shown with the
+site final itself and `docs/mockups/somnus/round-AR-final-site-sheet.jpg`.
+
+| # | Question | Decision |
+|---|---|---|
+| AR.1 | The length (the rule is at most 60 s) | **67 s accepted**, the picture and the voice as they are, as A1's exception (the lab's D-51) |
+| AR.2 | The poster | **Scene 2, the three lanes**: the machine with its two cards and `checks`, `training material`, `tests of small models` (18.5 s) |
+| AR.3 | The plate's caption and label | Caption `What Somnus does · 1 min`; `aria-label` `Somnus in about a minute: the computer in the next room that does the heavy work for my projects. It runs their checks, writes Finnish training material, and is the instrument I test small AI models with. Click to play with sound.` |
+| AR.4 | The plate's text (AO.3) | Tag `The local AI server in the next room: the heavy work of my projects, and an instrument for small models.`; body `Somnus runs on a machine at home: two AMD graphics cards and local models, at work from eight in the morning to ten at night. It runs the checks of my workspace and the security scans of my products, writes Finnish training material in its language factory, and is the instrument I test small models with. In September 2026 its audio research became part of how MasterForge prepares a track.`; the spec `Three-tier funnel · local first` becomes `Checks · training material · research`, the other two stay |
+
+### How PR J was built (15.11.2026)
+
+- **The file.** The site final (1920x1200, the caption band in the picture's colour) encoded 1280x800, CRF 22, AAC
+  128k, faststart: `media/somnus-explainer.mp4` (2.34 MB), poster `media/somnus-explainer-poster.jpg` at 18.5 s.
+- **The plate.** `<figure class="frame" data-live="somnus">` with its canvas became `<figure class="frame video dark">`
+  with the video, the caption AR.3, the ▶ and the `Visit ↗` pill to sf3d.fi; the tag, body and spec AR.4; the status
+  line unchanged (it matches `docs/facts.json`). Both `sketches.somnus` (the formulae box and the rack panel) and
+  `SOMNUS_TASKS` went. Every plate in §02 is now a video; no drawn instrument is left on the front page's plates.
+- **Checked locally:** headless Edge at 1440 px and at 375 px with device emulation: the video plays muted in view,
+  `scrollWidth` 375 on the phone, no page errors; at phone width the plate's caption ends just above the box's own
+  `SOMNUS` label (`docs/mockups/somnus/round-AR-plate-1440.jpg`, `round-AR-plate-375.jpg`). `check-site` green over five
+  pages with the facts check.
