@@ -53,8 +53,11 @@ The rules below hold once their decision is accepted; a `proposed` decision in
   appears only in the footer, the meta row and the structured data.
 - Facts on the page come from the product repos (`BUILD_INFO.json`, `README.md`, the live
   site), checked in the session, never from memory. The CHANGELOG entry says what was checked.
-  The profile README (`github.com/pkorrrhonen-cmd`) is checked against the page in the same
-  session: same products, same states, same years (LESSONS 19.9.2026; adr.sws.014 proposed).
+  The facts the page shares with the profile README (`github.com/pkorrrhonen-cmd`) live in
+  `docs/facts.json` (adr.sws.014): a product's state, year and address are checked from its repo
+  into that file, `check-site` checks the page against it, and `scripts/readme-facts.mjs` writes the
+  README's product table from it. A year is the product's commercial use or release (Petri
+  15.11.2026), not the company's or the repository's.
 - Images: WebP first with a JPG or PNG fallback under `images/`; source screenshots under
   `source-assets/`. Every image gets `loading="lazy"` (except above the fold) and an alt text
   that describes the screen, not the product.
@@ -82,7 +85,8 @@ The rules below hold once their decision is accepted; a `proposed` decision in
 2. Work on a branch, one PR, squash merge. Cloudflare Pages gives every branch a preview URL:
    look at it, at desktop and at phone width, before merging.
 3. Verify: `node scripts/check-site.mjs` (CI runs the same script). `--links` also checks the
-   external links, which CI does not do.
+   external links, which CI does not do. `--readme <profile checkout>/README.md` also checks the
+   profile README's product table against `docs/facts.json`, which CI cannot do.
 4. End: a CHANGELOG entry; `BUILD_INFO.json` (`version`, `updated`, `state`, `next`); the
    footer date; `LESSONS.md` if a mistake taught something; a decision file if a decision was
    made; the SEED if the spec changed. The session is not over before this list is done.

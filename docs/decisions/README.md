@@ -23,7 +23,7 @@ decision). A decision is never deleted: a wrong one is superseded and the file s
 | [adr.sws.011](adr.sws.011.md) | Flow 1 is the direction of the page | accepted |
 | [adr.sws.012](adr.sws.012.md) | The typefaces are Familjen Grotesk and Public Sans | accepted |
 | [adr.sws.013](adr.sws.013.md) | Flow 4 is the page; SEED v3.0.0 records it | accepted |
-| [adr.sws.014](adr.sws.014.md) | One source for the facts the page shares with the profile README | proposed |
+| [adr.sws.014](adr.sws.014.md) | One source for the facts the page shares with the profile README | accepted 15.11.2026 |
 | [adr.sws.015](adr.sws.015.md) | No product version numbers on the page; a status carries a date | accepted |
 | [adr.sws.016](adr.sws.016.md) | The site serves the SCC2 app icons under /scc/ | accepted |
 | [adr.sws.017](adr.sws.017.md) | The site answers for itself, with a 404 page and real icon files | accepted |

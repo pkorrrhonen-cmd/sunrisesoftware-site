@@ -34,6 +34,9 @@ media/                  the clips and their posters
 scc/                    the SCC2 install icons (adr.sws.016), not part of this site's navigation
 source-assets/          original product screenshots, the sources of images/
 scripts/check-site.mjs  the check CI runs over every page the sitemap names (no dependencies)
+scripts/facts.mjs       reads docs/facts.json, checks the page's statuses against it, renders the
+                        profile README's product table; its self-test runs in every check (adr.sws.014)
+scripts/readme-facts.mjs  writes the profile README's product table from docs/facts.json
 scripts/icons.py        draws the icon files from the sun mark; run by hand, output committed (needs Pillow)
 .github/workflows/      CI: node scripts/check-site.mjs on pull requests and main
 CLAUDE.md               working practices for Claude Code sessions
@@ -42,7 +45,9 @@ docs/
   SEED-v3.0.0.md        the spec of V5, which is what production serves; archived when V6 goes live
   design/               copy-v3.md (every text, decided), apps-v3.md (every image, decided), look brief,
                         review-2026-11.md (the status round and its decisions),
-                        decision-method.md (how lists are decided: four boxes a round, and why it works)
+                        decision-method.md (how lists are decided: four boxes a round, and why it works),
+                        profile-readme.md (the profile README read against the page, rounds GH-A to GH-E)
+  facts.json            the facts the page shares with the profile README (adr.sws.014)
   mockups/              the mockup rounds (look, flow, type) with captures; flow-4.html is the reference;
                         og-<page>.html are the share images' sources, silent-context/ the sheets of rounds I and J
   CHANGELOG.md          what each session changed and why (newest first, Finnish)
@@ -70,6 +75,17 @@ Run the checks CI runs (add `--links` to also HEAD-check every external link; CI
 
 ```
 node scripts/check-site.mjs
+```
+
+The profile README's product table is written from `docs/facts.json`; give the path to a checkout
+of `pkorrrhonen-cmd/pkorrrhonen-cmd`. The first command rewrites the table, the second checks it:
+
+```
+node scripts/readme-facts.mjs ../github-profile/README.md
+```
+
+```
+node scripts/check-site.mjs --readme ../github-profile/README.md
 ```
 
 ## Deploy
