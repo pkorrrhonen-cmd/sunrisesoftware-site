@@ -32,3 +32,4 @@ decision). A decision is never deleted: a wrong one is superseded and the file s
 | [adr.sws.020](adr.sws.020.md) | HomeTeam's plates show its design mockups | accepted |
 | [adr.sws.021](adr.sws.021.md) | ReviewGlass is shown by its own windows over a staged screen | accepted |
 | [adr.sws.022](adr.sws.022.md) | Atlas and Somnus are shown by the sf3d.fi lab's explainer videos | accepted |
+| [adr.sws.023](adr.sws.023.md) | Cloudflare adds only the analytics beacon to the served page | accepted |
