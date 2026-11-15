@@ -3,6 +3,64 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 12, sivuketju (15.11.2026): profiili-README ja faktalähde
+
+**Tehtävä:** Petrin päätökset 15.11.: profiili-README siivotaan tekstit yhdessä läpikäyden ("siivotaan tämä,
+katsotaan tekstit yhdessä läpi ennen muokkausta"), ja adr.sws.014 tehdään ("kyllä, tee tämä"). Sivuketju
+omassa worktreessaan haarassa `claude/profile-facts-dacbab`; sivua ei muokattu.
+
+**Luettu ja tarkistettu:** profiili-README (`pkorrrhonen-cmd/pkorrrhonen-cmd`, origin/main `9d00a67`, push
+24.9.2026) rivi riviltä etusivua ja neljää alasivua vasten. Jokainen tila tuotteen omasta reposta (`git fetch`,
+origin/main) tai livesivulta: MasterForgen hintalohko (Free, Starter, Pro ja kertakrediitit, eli kolme tasoa),
+SpectralForgen palvelema bundle (suljettu beta), Quaesitorin BUILD_INFO (tuotannossa 1.10.2026 alkaen),
+Virustutkan README (THL ja ECDC), Salpa-demon BUILD_INFO, kalastuksen viimeisin commit 1.9.2026, VitalTrackin
+BUILD_INFO (toisen version suunnitelma, ei koodia; ensimmäinen versio vastaa yhä), Somnuksen README ja
+`TOPOLOGIA.md` (tarkistettu boksilla 14.11.), kymmenen livesivua 200. Atlaksen `portfolio`-generaattori luettu:
+se nimeää jokaisen pois jätetyn järjestelmän tarkoituksella. Kaikki lähteet `BUILD_INFO.sources_checked_2026_11_15_profile`.
+
+**Päätetty Petrin kanssa** päätöslaatikoilla, kierrokset GH-A–GH-G (`docs/design/profile-readme.md`, GH.1–GH.22),
+useimmat suositusten mukaan:
+- **Isot linjat (GH-A):** faktat `docs/facts.json`:iin tähän repoon (JSON, ei jäsennintä); generaattori
+  kirjoittaa READMEn koko tuotetaulukon merkkien väliin; `check-site` tarkistaa sivun CI:ssä ja READMEn
+  sessiorutiinissa (`--readme`); perhekartta pois READMEsta, kunnes Atlas osaa jättää järjestelmän pois nimeämättä.
+- **Mitä README kantaa (GH-B):** Day work ilman työnantajan sovelluksia; Quaesitor, kal.app ja VitalTrack pois,
+  jotta README kertoo samat tuotteet kuin sivu; Recent-osio (Since AI 2026 ja AMD-hackathon); "A decade" eikä
+  "Two decades".
+- **Taulukko ja rivit (GH-C, GH-D):** kolme taulukkoa sivun ryhmin, State-sarake sivun sanoin; MasterForge kolme
+  tasoa; tilasanat pois kuvauksista; ReviewGlassin live diff rakennettuna; Salpa sivun päivätyllä tilalla;
+  HomeTeam, Somnus ja Atlas omille riveilleen. **Petrin korjaus omin sanoin:** "Kaupalliset toiminnot tai
+  julkaisut on 2026 puolella joten käytetään sitä vuosilukuna. Kaikki tuotteet on siis 2026 puolelta." Sivun
+  vanhat vuodet (MasterForge ja TilastoSilta 2024, SpectralForge 2025) jäävät odottaviksi (GH.21).
+- **Somnus ja Atlas (GH-E–GH-G):** Somnuksen rivi kolmannella kierroksella sen mukaan, mikä oikeasti ajetaan:
+  kielitehdas, pienten mallien tutkimusalusta, CI ja turvaskannaukset osalle repoista, ja syyskuun äänitutkimus
+  menneenä (Smart Preparation ajetaan SpectralForgen palvelimella). GH-E liioitteli huoneiden lokaaleja malleja,
+  GH-F (AK.3:n sanat) äänityön nykyhetkeä ja CI:n laajuutta; pääsession samana päivänä lukemat faktat tulivat
+  ennen pushia. Infrastructure-lauseesta pois "always-on": ajot klo 8–22. Atlas "a workspace of my own",
+  ei enää "control plane".
+
+**Rakennettu:** `docs/facts.json` (12 tuotetta, kukin lähteineen); `scripts/facts.mjs` (sivun tilarivien luku,
+vertailu, READMEn taulukko ja itsetesti 11 tapauksella); `scripts/readme-facts.mjs` (`--print`, kirjoitus,
+`--check`); `check-site.mjs`: faktatarkistus CI:ssä (ryhmä, tilasanat, vuosi, osoite, lisenssi, alasivun tila,
+järjestys, ei tuotetta ilman faktaa; faktojen sanat sivun sääntöjä vasten) ja `--readme`. adr.sws.014 `accepted`,
+`decisions/README.md`, CLAUDE.md (faktasääntö ja sessiorutiinin kohta 3), README (skriptit, ajo), SEED v4.1.0
+5.8 ja 8.
+
+**Todennettu:** `node scripts/check-site.mjs` vihreä viidellä sivulla, kolme odottavaa eroa näkyvissä;
+`--readme` profiilirepon READMEa vasten vihreä. Itsetesti on commitoitu ja ajetaan joka ajossa. Kertaluontoisesti
+(ei todisteena): oikean sivun kopioilla tarkistus kaatui muutettuun tilaan, vuoteen, poistettuun laatikkoon,
+vanhentuneeseen odottavaan merkintään, alasivun tilaan, linkkiin ja lisenssiin, ja rikotulla vertailulla
+moduulin oma itsetesti kaatui. Rebase `origin/main`iin (PR #24) ennen PR:ää; LESSONS-ristiriita ratkaistu
+pitämällä molemmat merkinnät.
+
+**Profiili-README:** commit `0d1653b` profiilirepon haarassa `readme-facts-2026-11-15`: generoitu taulukko,
+päätetyt tekstit, perhekartan osio ja `family-map.svg` pois. Pushataan mainiin vasta, kun tämä PR on yhdistetty
+(GH.22).
+
+**LESSONS:** kolme merkintää: kaksi pintaa olivat samaa mieltä väärästä vuodesta; ehdotus lainasi toista pintaa,
+ei tuotetta; squash siirtyneen mainin päälle peruu toisen session commitin (huomattiin ennen PR:ää). **Avoinna (`BUILD_INFO.next`):** READMEn push; sivun kolme vuotta yhdessä Petrin kanssa; Atlaksen
+generaattori, joka laskee pidätetyn järjestelmän nimeämättä, ja perhekartan paluu. Quaesitorin syy poistua
+sivulta ("no longer developed", 18.9.) ei enää vastaa sen repoa; kirjattu, ei muutosta.
+
 ## Sessio 12 (15.11.2026): Atlas- ja Somnus-videot suunniteltu, Atlas-laatta videoksi (kierrokset AK–AN, PR I)
 
 **Alkutarkistus:** sessio 11 oli kokonaan laskeutunut: `origin/main` `a943a9f`, haara ei edellä eikä

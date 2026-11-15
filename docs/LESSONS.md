@@ -2,6 +2,51 @@
 
 Opitut virheet ja estosäännöt, jotta niitä ei toisteta. Uusin ensin.
 
+## 15.11.2026: squash siirtyneen mainin päälle peruu toisen session commitin
+
+**Mitä tapahtui:** sivuketju yhdisti työnsä yhdeksi commitiksi komennoilla `git fetch` ja `git reset --soft
+origin/main`. Fetch toi juuri pääsession PR #25:n (deploy-kirjaus), joten `origin/main` oli siirtynyt eteenpäin
+siitä, minkä päälle työ oli rebasettu. Pehmeä reset asetti haaran uuden mainin päälle mutta jätti työpuun
+vanhaksi, ja commit olisi poistanut PR #25:n rivit BUILD_INFOsta ja CHANGELOGista. Haara ehti GitHubiin. Virhe
+löytyi ennen PR:ää, kun `git diff --stat origin/main HEAD` näytti poistoja tiedostoissa, joihin työ vain lisäsi.
+Korjattiin ottamalla oma muutos patchina oikeaa pohjaa vasten ja soveltamalla se uuden mainin päälle.
+
+**Estosääntö:**
+- Squash tehdään vain oman pohjan päälle: `git reset --soft $(git merge-base HEAD origin/main)`, ei koskaan
+  `origin/main`in päälle juuri fetchin jälkeen. Jos main on siirtynyt, ensin rebase, sitten squash.
+- Ennen pushia `git diff --stat origin/main HEAD`: jokainen poisto tiedostossa, jota muut sessiot kirjoittavat
+  (BUILD_INFO, CHANGELOG, LESSONS), selitetään ennen kuin haara lähtee.
+
+## 15.11.2026: ehdotus lainasi toista pintaa, ei tuotetta
+
+**Mitä tapahtui:** profiili-READMEn kierroksella GH-D ehdotin Somnukselle uuden rivin sivun §02-laatan sanoista
+("generates candidates, screens them locally ... hands only the best to the expensive models"). Petri hylkäsi
+sen: kuvaus on vanha sekä ehdotuksessa että laatassa. Somnuksen oma `docs/TOPOLOGIA.md` (tarkistettu boksilla
+14.11.) kertoo, että tutkimussuppilo pysäytettiin 25.10.2026 ja kone ajaa nyt kielimallia, muiden projektien
+korttijonoa, Linux CI:tä ja huoneiden kaistoja. Laatan teksti oli syyskuulta, ja minä käytin sitä lähteenä,
+koska tehtävä oli saada kaksi pintaa samaan.
+
+**Estosääntö:**
+- Sivu ei ole READMEn lähde eikä README sivun. Kun ehdotus lainaa toista pintaa, väite tarkistetaan tuotteen
+  reposta ennen laatikkoa (LESSONS 13.11.2026: rakennettu, ei suunniteltu, eikä myöskään toisen pinnan sana).
+- `check-site` lukee tilat, vuodet ja osoitteet, ei kuvauksia. Kun tuotteen repo kertoo roolin muuttuneen
+  (palvelu pysäytetty, uusi pääkäyttö), sen kuvaus luetaan molemmilta pinnoilta samassa sessiossa.
+
+## 15.11.2026: kaksi pintaa olivat samaa mieltä väärästä vuodesta
+
+**Mitä tapahtui:** 19.9. MasterForgen vuodeksi korjattiin sivulle ja READMEen 2024 yrityksen perustamisvuoden
+mukaan (LESSONS 19.9.2026: "MasterForgen alkuvuosi, 2023 vs yrityksen 2024"). Sivulla oli lisäksi TilastoSillalle
+2024 ja SpectralForgelle 2025. 15.11. Petri korjasi: tuotteiden kaupallinen toiminta ja julkaisut ovat vuoden
+2026 puolella, joten jokaisen tuotteen vuosi on 2026. Sivu kantoi vääriä vuosia kahdeksan viikkoa, ja README
+oli MasterForgesta samaa mieltä. Pintojen vertailu toisiaan vasten ei löydä virhettä, jossa molemmat nojaavat
+samaan väärään lähteeseen.
+
+**Estosääntö:**
+- Vuosi tarkoittaa tuotteen kaupallista käyttöä tai julkaisua (Petri 15.11.2026), ei yrityksen perustamista
+  eikä repon luontia. Se kirjataan `docs/facts.json`:iin, ja sen `checked` kertoo mistä se luettiin.
+- Yhtäpitävyys kahden pinnan välillä ei ole todiste. Faktatiedosto tarkistetaan tuotteen lähteestä, ja vasta
+  sitten `check-site` kertoo, kumpi pinta poikkeaa.
+
 ## 15.11.2026: kysymyksen luku arvioitiin, ei mitattu
 
 **Mitä tapahtui:** Kierroksen AL kysymys AL.1 tarjosi suositukseksi tekstityksen kasvattamista "noin 48 px:iin
@@ -190,7 +235,8 @@ julkiseksi sivun julkaisun jälkeen samana iltana.
 - Sessiorutiinin faktatarkistus kattaa sivun lisäksi profiili-READMEn: samat tuotteet, samat
   tilat, samat vuodet. Ero on korjattava ennen kuin sessio päättyy, kumpaan tahansa suuntaan.
 - Fakta, joka elää kahdella julkisella pinnalla, kuuluu yhteen lähteeseen (adr.sws.014,
-  proposed). Kunnes se on rakennettu, tarkistus tehdään käsin joka sessiossa.
+  proposed). Kunnes se on rakennettu, tarkistus tehdään käsin joka sessiossa. (Rakennettu
+  15.11.2026: `docs/facts.json`, `scripts/readme-facts.mjs` ja `check-site`in faktatarkistus.)
 - Kun toinen repo muuttuu julkiseksi (tai sen tila muuttuu), sivun vastaava rivi tarkistetaan
   samassa sessiossa, ei seuraavassa.
 

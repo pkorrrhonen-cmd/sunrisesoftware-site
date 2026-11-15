@@ -1,9 +1,11 @@
-// Dependency-free checks for the static site. Run: node scripts/check-site.mjs [--links]
+// Dependency-free checks for the static site. Run: node scripts/check-site.mjs [--links] [--readme <path>]
 // CI runs it without --links (no network in the gate); --links HEAD-checks every external URL.
+// --readme <path> also compares the profile README's product table with docs/facts.json (adr.sws.014).
 // Every page the sitemap names is checked: the front page and each sub-page (SEED v4.1.0, 5.8).
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadFacts, validateFacts, checkPages, selfTest, renderReadmeBlock, readmeBlock } from './facts.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://sunrisesoftware.app';
@@ -154,7 +156,46 @@ for (const f of ['404.html', 'favicon.ico', 'icon-192.png', 'icon-512.png', 'ico
   if (!existsSync(resolve(root, f))) fail(`missing site file: ${f}`);
 }
 
-// 9. Optional: external links answer (2xx/3xx). Not run in CI.
+// 9. The facts the page shares with the profile README (adr.sws.014): every product's status on the
+// front page (its group, state, year, address, licence) and on its sub-page against docs/facts.json,
+// and no product on the page without a fact. The check's own self-test runs first (facts.mjs).
+for (const b of selfTest()) fail(b);
+const facts = loadFacts(root);
+for (const e of validateFacts(facts)) fail(e);
+// The facts feed a public README, so the page's own rules hold for their words too.
+const factsText = readFileSync(resolve(root, 'docs/facts.json'), 'utf8');
+for (const s of forbidden) if (factsText.toLowerCase().includes(s.toLowerCase())) fail(`forbidden string in docs/facts.json: "${s}"`);
+const factsVersion = factsText.match(VERSION_RE);
+if (factsVersion) fail(`product version number in docs/facts.json: "${factsVersion[0]}" (adr.sws.015)`);
+if (/—/.test(factsText)) fail('em dash in docs/facts.json (use a comma, a colon, or restructure)');
+const subpages = Object.fromEntries(pages
+  .filter((p) => p.path && p.path !== '/' && existsSync(resolve(root, p.file)))
+  .map((p) => [p.path, readFileSync(resolve(root, p.file), 'utf8')]));
+const factCheck = checkPages(facts, readFileSync(resolve(root, 'index.html'), 'utf8'), subpages);
+for (const f of factCheck.fails) fail(f);
+
+// 9b. Optional: the profile README's generated product table equals what readme-facts.mjs would
+// write, and the README carries none of the forbidden strings. Not run in CI (the README is in
+// another repository); the session routine runs it against the profile checkout.
+const readmeAt = process.argv.indexOf('--readme');
+let readmeChecked = null;
+if (readmeAt > 0) {
+  const path = process.argv[readmeAt + 1];
+  if (!path || !existsSync(path)) fail(`--readme: no README at ${path}`);
+  else {
+    const readme = readFileSync(path, 'utf8');
+    const block = readmeBlock(readme);
+    if (!block) fail(`${path}: no "<!-- facts:start" ... "<!-- facts:end -->" markers`);
+    else if (block.text !== renderReadmeBlock(facts, readme.includes('\r\n') ? '\r\n' : '\n')) {
+      fail(`${path}: the product table differs from docs/facts.json (run node scripts/readme-facts.mjs ${path})`);
+    }
+    for (const s of forbidden) if (readme.toLowerCase().includes(s.toLowerCase())) fail(`forbidden string in ${path}: "${s}"`);
+    if (/—/.test(readme)) fail(`em dash in ${path}`);
+    readmeChecked = path;
+  }
+}
+
+// 10. Optional: external links answer (2xx/3xx). Not run in CI.
 if (process.argv.includes('--links')) {
   const urls = [...new Set(allHtml.flatMap((h) => [...h.matchAll(/href="(https?:\/\/[^"]+)"/g)].map((m) => m[1])))]
     .filter((u) => !u.startsWith('https://fonts.') && !u.startsWith(SITE));
@@ -175,9 +216,14 @@ if (process.argv.includes('--links')) {
   }
 }
 
+// A pending difference is a decided fact the page does not carry yet (docs/facts.json "pending"):
+// shown on every run so it is not forgotten, and a failure once the page is fixed and the record stays.
+for (const n of factCheck.notes) console.log(n);
+
 if (failures.length) {
   console.error(`\n${failures.length} check(s) failed:`);
   for (const f of failures) console.error(`  - ${f}`);
   process.exit(1);
 }
 console.log(`${pages.length} page(s) ok (${pages.map((p) => p.path).join(', ')}): ${localCount} local files, revision ${buildInfo.updated}, version ${buildInfo.version}`);
+console.log(`facts ok: ${facts.groups.reduce((n, g) => n + g.products.length, 0)} products against docs/facts.json (checked ${facts.checked}), ${factCheck.notes.length} pending${readmeChecked ? `; ${readmeChecked} matches` : ''}`);
