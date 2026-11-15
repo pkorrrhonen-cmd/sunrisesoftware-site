@@ -3,7 +3,7 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
-## Sessio 12 (15.11.2026): Atlas- ja Somnus-videot suunniteltu, Atlas-laatta videoksi (kierrokset AK–AN, PR I)
+## Sessio 12 (15.11.2026): Atlas-laatta videoksi ja Somnus-video suunniteltu (kierrokset AK–AP, PR I)
 
 **Alkutarkistus:** sessio 11 oli kokonaan laskeutunut: `origin/main` `a943a9f`, haara ei edellä eikä
 jäljessä. `BUILD_INFO.next`:n kärki oli Petrin valinta Somnuksen ja Atlaksen välillä.
@@ -92,6 +92,22 @@ Site checks ja Cloudflare Pages olivat vihreät. Tuotantobuild `66c2014a`, ja li
 sitemap ja neljä alasivua tavu tavulta samat kuin main. Deployn etusivu on sama kuin main, ja livesivu eroaa siitä
 vain Cloudflaren sähköpostisuojauksen osalta (`data-revised` 2026-11-15, Atlas-video mukana, ei Atlas-canvasta).
 Video vastaa osapyyntöön 206 ja tuntematon osoite 404. Atlaksen `sw-sivusto.STATUS` v38. BUILD_INFO 5.14.1.
+
+**Somnus-video suunniteltu (kierrokset AO ja AP, 15.11.2026).** Petrin sanasta "Aloitetaan Somnus". Faktat
+luettiin Atlaksesta (`somnus.KUVAUS` v16, konetila ja korttijono 15.11.) ja kahdella lukevalla selvityksellä: Somnuksen
+repo (`19d8bb5`) ja muut repot, jotka kutsuvat konetta. Petrin neljästä esimerkistä tarkistukset ovat ajossa (Atlaksen
+CI ja tietoturvaskannaus Somnuksen runnerilla, viimeksi 15.11.; AvoQ lainaa R9700:aa käsin), mutta vain Atlakselle.
+Ääni on mennyttä aikaa: syyskuun 2026 stemmierottelu ja analyysi päätyivät MasterForgen palvelinketjun vaiheeksi, joka
+ajetaan toisella palvelimella, ja musiikin generointi pysäytettiin 8.10. Kielitehdas on ajossa tänään, ja luotainraita
+on ajossa. **Löydetty:** etusivun Somnus-laatan "always on" (kolmesti) ei pidä, koska kone ajaa klo 8–22 ja on yöt
+kiinni 31.10. alkaen. Sama koskee sf3d.fi:n About-sivun "around the clock" -kohtaa, josta kirjattiin labran BACKLOGiin
+DOC-9. Toinen kone on suunniteltu (kaksi RX 6900 XT:tä), mutta se ei ole vielä tullut. "Kolmesta palvelimesta" ei ole
+dokumenttia. Profiili-README-sivuketjulle kerrottiin samat faktat ennen sen pushia. **AO** (kaikki suositukset):
+ydinlause työkoneena ja instrumenttina, ääni menneessä muodossa, työpäivä klo 8–22, toinen kone suunniteltuna ilman
+"kolmea". Labraan haara `claude/b1-somnus-explainer`, jossa `video/somnus-explainer/`: lähteet S1–S14,
+kuvakäsikirjoitus ja kertojateksti v0, 8 kohtausta ja 176 sanaa. **AP** (kaikki suositukset): v0 hyväksytty
+rakennettavaksi, ei vertauskuvaa, kohtaus 3 näyttää jonon ja varauksen, ja molemmat kehykset tehdään yhdessä. Sivuja
+ei muutettu. BUILD_INFO 5.15.0.
 
 **Tarkistettu tässä sessiossa:** tämän repon CHANGELOG, BUILD_INFO ja LESSONS; labran `origin/main`
 `6b86ab0` (sarjasuunnitelma, BUILD_INFO, CHANGELOG, A1:n kuvakäsikirjoitus), A1:n finaali ffprobella

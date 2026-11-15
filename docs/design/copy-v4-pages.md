@@ -1305,3 +1305,44 @@ file `media/atlas-explainer.mp4` (1280x800, CRF 22, AAC 128k, faststart, 2.12 MB
   63.8 s), a click plays it from the start with sound and adds ` · sound on`, a second click mutes; `scrollWidth` 375
   on the phone; the caption ends above the scenes' content at both widths; no console errors. `check-site` green over
   five pages, 41 local files.
+
+### Round AO, the Somnus video: what it tells (15.11.2026)
+
+Petri said "Aloitetaan Somnus". Read before the round: Somnus's `somnus.KUVAUS` v16 (9.11.2026), its live machine state
+and card queue (`atlas_get_konetila`, `atlas_korttijono_lue`, 15.11.2026), its repository (`origin/main` `19d8bb5`,
+14.11.2026: BUILD_INFO, TOPOLOGIA, architecture, roadmap, BACKLOG, CHANGELOG) and every sibling repository that calls it
+(GitHub Actions runs, AvoQ's evidence, MasterForge's and SpectralForge's records). The fact list with its sources is the
+lab's `video/somnus-explainer/sources.md` (branch `claude/b1-somnus-explainer`). Against Petri's four examples of AK.3:
+the checks run (Atlas's CI and its security scan of three products on Somnus's runner, last 15.11.2026; AvoQ borrows the
+R9700 for its checks by hand, last 13.11), but only for Atlas, not the family's repositories; the audio work is past
+(stem separation and analysis for the Suno V6 study in September 2026 became a step of MasterForge's server chain,
+which runs on another server; music generation parked 8.10); the language factory runs today and trains a small model,
+nothing published; the research on local models runs (the probe track). Not "always on": the box works 08 to 22 and is
+off at night since 31.10.2026. The second machine (two RX 6900 XT) is planned and has not arrived; "three servers" has
+no document.
+
+| # | Question | Decision |
+|---|---|---|
+| AO.1 | The core sentence | **The working machine and the instrument**: `Somnus is the computer in the next room that does the heavy work for my projects: it runs their checks, writes Finnish training material, and is the instrument I test small AI models with.` |
+| AO.2 | The audio | **In the past tense**, one sentence, dated on screen (September 2026): `Its audio research became part of how MasterForge prepares a track.` |
+| AO.3 | The hours | **The working day 08 to 22** shown, the night dark; no "always on". The plate's three "always on" (caption, tag, body) are corrected in B1's build round, and the lab gets a row for its About page's "running around the clock" |
+| AO.4 | The second machine | **Planned**: `A second machine is planned beside it, with two more graphics cards.`, on screen `Planned · November 2026`; "three" left out until it is decided |
+
+**Next:** the lab's storyboard and narration v0 (`video/somnus-explainer/`) for Petri's sign-off in round AP.
+
+### Round AP, the Somnus video: the storyboard (15.11.2026)
+
+Shown with the lab's `video/somnus-explainer/storyboard.md` and `narration.md` v0 (branch `claude/b1-somnus-explainer`,
+`a35abd9`): eight scenes, 59 s, 176 words, the core sentence AO.1 in scenes 1 and 2, the queue and the working day in
+scene 3, the checks in 4, the language factory in the middle (5), the research instrument in 6, the audio as the past in
+7 (AO.2), the second machine as a plan in 8 (AO.4).
+
+| # | Question | Decision |
+|---|---|---|
+| AP.1 | The storyboard and narration v0 | **Signed off, build it** ("Hyväksyn, rakenna"), the narration as written |
+| AP.2 | A metaphor | **None**: the machine is shown as it is, and the core sentence carries it |
+| AP.3 | What scene 3 animates | **The queue and a lease**: jobs wait in the queue, and a card can also be leased by hand; one card each; source line `The card queue and its leases · read 15.11.2026` |
+| AP.4 | The order of the frames | **Both together**: the same takes and voice make the lab note's 16:9 and the site's 16:10 cut with its caption band on the same day |
+
+**Next:** the build in the lab: the kit's new `machine` part, the scenes, the takes, the guide cut for Petri's picture
+lock, then his voice, the finals, the site cut and the plate (with AO.3's corrections of the plate's text).
