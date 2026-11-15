@@ -127,6 +127,20 @@ lanes are only on demand and in trial.
 | GH.19 | Somnus row, again | `The home server for the computing, checking and work of every project: CI for the family's repositories, audio development that moves into MasterForge, a language factory that produces training material for a Finnish language model of my own, and a research platform for local models.` (my proposal from AK.3's words, chosen; replaces the GH-E row) |
 | GH.22 | How the README reaches the profile repository | pushed to its `main` after this repository's pull request is merged, so the README's marker never names a facts file that is not on `main` (as recommended) |
 
+### Round GH-G, Somnus against what runs (15.11.2026)
+
+The main session read Somnus's use the same day for the Somnus video (B1) and sent it here before the
+push; the two claims that mattered were read again from the repositories (somnus `TOPOLOGIA.md`: the CI
+runner sees only the approved repositories and runs 08 to 22, as does the work queue; spectralforge-api
+`tools/v19/README.md`: the audio instruments were copied from Somnus on 29.8.2026 and Somnus does not
+develop them further, and Smart Preparation runs on SpectralForge's server). GH-F's row put the audio work
+in the present and the CI over every repository; GH-E's Infrastructure line said "always-on".
+
+| # | Question | Decision |
+|---|---|---|
+| GH.19 | Somnus row, a third time | `The home server for the work that needs a GPU: a language factory that produces Finnish training material, a research platform for small local models, and CI and security scans for part of the family's repositories. The audio research behind MasterForge's Smart Preparation was done on it in September 2026.` (my proposal, chosen; replaces the GH-F row) |
+| GH.15 | `Infrastructure`, the Somnus line, again | `**Somnus**, the home node: two AMD GPUs, a Radeon AI PRO R9700 (32 GB) and a Radeon RX 7900 XT (20 GB), running llama.cpp on ROCm, reached over Tailscale. It runs the work that needs a GPU by day, from 8 to 22, and its power and throughput are measured rather than assumed.` (my proposal, chosen) |
+
 The rows not named above keep their words, and their state moves to the State column: Virustutka,
 Ultra Gravel (its Where becomes the link `ultragravel.app`, GH.16), TilastoSilta and SF3D AI Lab, all
 `Live · 2026 →`.

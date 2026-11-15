@@ -36,8 +36,8 @@
           "detail": "home AMD box",
           "since": 2026,
           "where": { "label": "sf3d.fi", "href": "https://sf3d.fi", "after": " (lab notes)" },
-          "text": "The home server for the computing, checking and work of every project: CI for the family's repositories, audio development that moves into MasterForge, a language factory that produces training material for a Finnish language model of my own, and a research platform for local models.",
-          "checked": "somnus docs/TOPOLOGIA.md origin/main 19d8bb5, checked on the box 14.11.2026: the Linux CI runner, MasterForge in the R9700 queue, the language model's data jobs, the probe experiments; Petri's list AK.3 (15.11.2026)"
+          "text": "The home server for the work that needs a GPU: a language factory that produces Finnish training material, a research platform for small local models, and CI and security scans for part of the family's repositories. The audio research behind MasterForge's Smart Preparation was done on it in September 2026.",
+          "checked": "somnus docs/TOPOLOGIA.md origin/main 19d8bb5 (checked on the box 14.11.2026): the Linux CI runner for the approved repositories, jobs 08 to 22, the language factory's jobs, the probe experiments; spectralforge-api origin/main: the audio instruments copied from Somnus on 29.8.2026, Smart Preparation running on SpectralForge's server; the main session's reading of the same day for the Somnus video (15.11.2026)"
         },
         {
           "name": "Atlas",

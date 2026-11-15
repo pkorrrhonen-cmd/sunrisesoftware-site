@@ -18,7 +18,7 @@ BUILD_INFO (toisen version suunnitelma, ei koodia; ensimmäinen versio vastaa yh
 `TOPOLOGIA.md` (tarkistettu boksilla 14.11.), kymmenen livesivua 200. Atlaksen `portfolio`-generaattori luettu:
 se nimeää jokaisen pois jätetyn järjestelmän tarkoituksella. Kaikki lähteet `BUILD_INFO.sources_checked_2026_11_15_profile`.
 
-**Päätetty Petrin kanssa** päätöslaatikoilla, kierrokset GH-A–GH-F (`docs/design/profile-readme.md`, GH.1–GH.22),
+**Päätetty Petrin kanssa** päätöslaatikoilla, kierrokset GH-A–GH-G (`docs/design/profile-readme.md`, GH.1–GH.22),
 useimmat suositusten mukaan:
 - **Isot linjat (GH-A):** faktat `docs/facts.json`:iin tähän repoon (JSON, ei jäsennintä); generaattori
   kirjoittaa READMEn koko tuotetaulukon merkkien väliin; `check-site` tarkistaa sivun CI:ssä ja READMEn
@@ -31,8 +31,11 @@ useimmat suositusten mukaan:
   HomeTeam, Somnus ja Atlas omille riveilleen. **Petrin korjaus omin sanoin:** "Kaupalliset toiminnot tai
   julkaisut on 2026 puolella joten käytetään sitä vuosilukuna. Kaikki tuotteet on siis 2026 puolelta." Sivun
   vanhat vuodet (MasterForge ja TilastoSilta 2024, SpectralForge 2025) jäävät odottaviksi (GH.21).
-- **Somnus ja Atlas (GH-E, GH-F):** Somnuksen rivi palvelimen nykykäytöstä Petrin listan AK.3 sanoin; GH-E:n
-  versio liioitteli huoneiden lokaaleja malleja, jotka ovat vasta koekäytössä. Atlas "a workspace of my own",
+- **Somnus ja Atlas (GH-E–GH-G):** Somnuksen rivi kolmannella kierroksella sen mukaan, mikä oikeasti ajetaan:
+  kielitehdas, pienten mallien tutkimusalusta, CI ja turvaskannaukset osalle repoista, ja syyskuun äänitutkimus
+  menneenä (Smart Preparation ajetaan SpectralForgen palvelimella). GH-E liioitteli huoneiden lokaaleja malleja,
+  GH-F (AK.3:n sanat) äänityön nykyhetkeä ja CI:n laajuutta; pääsession samana päivänä lukemat faktat tulivat
+  ennen pushia. Infrastructure-lauseesta pois "always-on": ajot klo 8–22. Atlas "a workspace of my own",
   ei enää "control plane".
 
 **Rakennettu:** `docs/facts.json` (12 tuotetta, kukin lähteineen); `scripts/facts.mjs` (sivun tilarivien luku,
@@ -49,7 +52,7 @@ vanhentuneeseen odottavaan merkintään, alasivun tilaan, linkkiin ja lisenssiin
 moduulin oma itsetesti kaatui. Rebase `origin/main`iin (PR #24) ennen PR:ää; LESSONS-ristiriita ratkaistu
 pitämällä molemmat merkinnät.
 
-**Profiili-README:** commit `817b686` profiilirepon haarassa `readme-facts-2026-11-15`: generoitu taulukko,
+**Profiili-README:** commit `0d1653b` profiilirepon haarassa `readme-facts-2026-11-15`: generoitu taulukko,
 päätetyt tekstit, perhekartan osio ja `family-map.svg` pois. Pushataan mainiin vasta, kun tämä PR on yhdistetty
 (GH.22).
 

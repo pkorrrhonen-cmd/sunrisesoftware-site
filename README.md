@@ -46,7 +46,7 @@ docs/
   design/               copy-v3.md (every text, decided), apps-v3.md (every image, decided), look brief,
                         review-2026-11.md (the status round and its decisions),
                         decision-method.md (how lists are decided: four boxes a round, and why it works),
-                        profile-readme.md (the profile README read against the page, rounds GH-A to GH-E)
+                        profile-readme.md (the profile README read against the page, rounds GH-A to GH-G)
   facts.json            the facts the page shares with the profile README (adr.sws.014)
   mockups/              the mockup rounds (look, flow, type) with captures; flow-4.html is the reference;
                         og-<page>.html are the share images' sources, silent-context/ the sheets of rounds I and J
