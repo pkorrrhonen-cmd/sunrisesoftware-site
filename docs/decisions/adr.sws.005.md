@@ -7,6 +7,7 @@
 | Instruction by | Petri Korhonen |
 | Links | sws.site |
 | Settled by | adr.sws.013 (Flow 4), SEED v3.0.0, `docs/design/apps-v3.md` A.6 |
+| Amended by | adr.sws.022 (15.11.2026): the plate shows the sf3d.fi lab's explainer video, live since PR #24 |
 
 ## Context
 
@@ -29,6 +30,8 @@ the model's figures) was not built; no figures are shown.
 
 ## Consequences
 
-The drawing lives in `index.html` (`sketches.atlas`) and is maintained there. A real mockup
-may replace it, with a decision of its own (Petri, 13.11.2026). The file was completed on
-15.11.2026 from SEED v3.0.0 and adr.sws.013; the proposal of 17.9.2026 is in the git history.
+The drawing lived in `index.html` (`sketches.atlas`) until adr.sws.022 gave the plate the lab's
+explainer video on 15.11.2026 (PR #24), which removed the board's drawing and its script. Atlas
+stays in the group "Tools and research instruments" with the Access-protected pill. The file was
+completed on 15.11.2026 from SEED v3.0.0 and adr.sws.013; the proposal of 17.9.2026 is in the git
+history.

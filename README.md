@@ -103,10 +103,11 @@ CI (`.github/workflows/ci.yml`) is a gate on pull requests and `main`; it does n
 
 ## Documents
 
-- Before editing copy or layout, read SEED v3.0.0. Copy lives in `docs/design/copy-v3.md` and
-  images in `docs/design/apps-v3.md`; the SEED indexes them and holds the design system.
-- Every status on the page carries a date once adr.sws.004 is accepted; the footer revision
-  date must equal `BUILD_INFO.updated` (CI checks).
+- Before editing copy or layout, read SEED v4.1.0, which builds on SEED v3.0.0. Copy lives in
+  `docs/design/copy-v3.md` and `docs/design/copy-v4-pages.md`, images in `docs/design/apps-v3.md`;
+  the SEED indexes them and holds the design system.
+- Every status on the page carries a date and never a product version number (adr.sws.004,
+  amended by adr.sws.015); the footer revision date must equal `BUILD_INFO.updated` (CI checks).
 - Atlas holds a mirror of this repo (`model/systems/sw-sivusto.model.json`, `sw-sivusto.STATUS`).
   The repo is the truth, the mirror follows through the proposals channel.
 

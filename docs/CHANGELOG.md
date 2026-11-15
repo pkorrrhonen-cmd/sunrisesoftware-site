@@ -3,6 +3,83 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 12, sivuketju (15.11.2026): Atlaksen yhteys ja peili
+
+**Tehty Petrin kanssa** sivuketjussa, jonka session 12 pääketju avasi avoimen listan kahdelle
+Atlas-asialle (Petri 15.11.2026: korjaus A "Ok, ajetaan tämä", peili "sivuketjulla kuntoon"). Haara
+`claude/atlas-mirror-18911d`. Sivua ei muutettu.
+
+**A. Staattinen bearer.** Inventaario ennen yhtään poistoa: 173 `.mcp.json`-tiedostoa
+`E:\projects\sunrisesoftware\*`:n alla (36 repojen juuressa, loput worktreissa). Korjauksen kohdetta,
+`atlas`-HTTP-merkintää otsakkeella `Bearer ${ATLAS_MCP_TOKEN}`, ei ollut enää yhdessäkään: juuren 28
+tiedostoa ovat `{"mcpServers": {}}`, useimmat tyhjennetty 20.9.2026 klo 16.47, diagnoosia seuraavana
+päivänä. Samaa staattista otsaketta käyttää Atlaksen oma `atlas-code`-ovi (Atlaksen repo, sen worktreet
+ja neljä kloonia, gitin seuraama, Atlaksen sessio 142, 23.9.2026; lisäksi fysiologia-tutkimus ja
+huone-paikka-avoq ja -h2), ja `enabledMcpjsonServers: ["atlas"]` osuu nyt vain Atlaksen repon paikalliseen
+stdio-palvelimeen. `ATLAS_MCP_TOKEN` on käyttäjätasolla, ja worker hyväksyi sen (HTTP 200; ilman
+otsaketta 401 ja OAuth-tarjous). `~/.claude.json`:ssa ei ole mcpServers-merkintöjä. **Kierros (Petri,
+suositus):** A kirjataan tehdyksi 20.9.2026 alkaen, eikä mitään poisteta: `atlas-code`, ympäristömuuttuja
+ja settingsin rivi jäävät, koska Atlaksen oma ovi ja paikallinen palvelin käyttävät niitä, ja token oli
+13.11. varareitti, kun liitin ei toiminut. Petri kuittasi samalla, että Atlas toimii OAuth-liittimellä;
+tämä sivuketju teki kaiken Atlas-työnsä sen kautta. Uudelleenkäynnistystä ei tarvita, koska mikään
+asetus ei muuttunut. Varmuuskopioita ei tarvittu samasta syystä.
+
+**B. Peili.** Luettu Atlaksesta: mallissa `sw-sivusto` vain adr.sws.001 ja 002 sekä moduulit sws.site ja
+sws.deployment, ja kuvaukset kertovat yhä V4.5:n cabinet-dark-sivusta; ehdotuskanavassa (82 riviä) ei
+yhtään sws-ehdotusta. Mainissa päätökset 001–021; 022 on pääsession commitissa `feabd23` (kierros AK,
+videopäätös), ja Cloudflare-sivuketju siirtyi varaamaltaan 022:lta 023:een. **Ristiriita repon sisällä:** indeksi `decisions/README.md` sanoi 003, 004 ja 005 hyväksytyiksi
+18.9.2026, mutta tiedostot sanoivat yhä open ja proposed. **Kierros (Petri, suositus; ensimmäinen
+vastaus "Something else" ilman tekstiä, kysytty uudelleen):** tila ja teksti kuntoon lähteistä (SEED
+v3.0.0, adr.sws.013): 003 "The SF3D history is a claim, a lead and a cryo chamber behind a button", 004
+accepted ja muutettu 015:llä, 005 "Atlas is on the page as an instrument, and its plate is drawn";
+indeksin rivit samoiksi. Ehdotettu teksti korjattiin yhdestä kohdasta ennen kirjoittamista: `images/`:ssä
+on 11 SF3D-kuvaa, ei kymmentä, joten lukumäärä jäi pois. 005:n seurauksiin vaihtui vanhan SVG:n ja
+lukujen päivitysohjeen tilalle piirroksen paikka (`sketches.atlas`) ja oikean mockupin mahdollisuus.
+README:n adr.sws.004-rivi päivitetty.
+
+**Ehdotukset Atlakseen** (kaikki `pending`, author code, yksi kerrallaan, tunnisteet BUILD_INFO:n
+avaimessa `atlas_proposals_2026_11_15`): 19 päätöstä adr.sws.003–021 kunkin tiedoston sisällöstä
+(kappaleet yhdistetty, listat omille riveilleen, otsaketaulukko Record-kappaleeseen, linkit vain tämän
+järjestelmän moduuleihin, muut linkit Record-riville); 008 ja 014 tilassa proposed kuten repossa.
+Viimeisenä pääsession pyynnöstä adr.sws.022 commitista `feabd23`, jonka Source-rivi nimeää tuon commitin,
+kunnes tiedosto on mainissa.
+
+**Ajautuma** (luettu 15.11.2026 mainista `a943a9f`): perustaso `muuttui`, 9 uutta ja 1 poistunut rivi:
+kahdeksan kattamatonta skriptiä (`docs/mockups/` build-look.py, shoot.py, hometeam-capture.py,
+hometeam-images.py, reviewglass-mockup.py, reviewglass/tauri-mock.js; `scripts/` check-site.mjs, icons.py)
+ja docStatus no-doc → no-module-lines (CLAUDE.md syntyi 17.9., perustaso on 17.8.). **Kierros (Petri,
+suositus):** malli kuntoon, sitten perustaso. Ehdotettu: moduulit sws.checks (infra, `scripts`) ja
+sws.mockups (design, `docs/mockups`), sws.siten päivitys V6:een (alasivut ja `404.html` kenttään
+`alsoCovers`, perustelu ja hyväksymisehdot SEED v4.1.0:sta ja sivuilta tarkistettuina) ja järjestelmän
+kuvaus V6:een. Perustason hyväksyntä (`detect-drift sw-sivusto --accept-baseline`,
+`baselines/sw-sivusto/drift.json`) tehdään omassa sessiossa Atlaksen repoon, kun Petri on ylentänyt
+ehdotukset (Petri, suositus).
+
+**Main eteni kesken (illalla 15.11.):** PR:t #24–#30 (Atlas- ja Somnus-videot, adr.sws.022 mainiin, adr.sws.014
+hyväksyttynä ja rakennettuna, PR J:n deploy-kirjaus, Cloudflare-sivuketju ja adr.sws.023) tekivät PR #23:sta
+konfliktisen. Haara rakennettiin uudelleen mainin päälle ja rebasattiin kahdesti, kun main siirtyi kesken
+(lopuksi `9998040`): päätöstiedostojen commit sellaisenaan, ja kirjaukset kirjoitettiin uudelleen mainin
+tiedostoja vasten (LESSONS 15.11.2026: oma muutos uuden pohjan päälle). Poistot tarkistettiin `git diff
+--stat`:lla ennen jokaista pushia: ensimmäinen yritys olisi poistanut PR #29:n deploy-kirjauksen, koska
+toinen worktree oli siirtänyt jaetun `origin/main`-refin checkoutin jälkeen.
+**Peili päivitetty mainin mukaan** viidellä päivitysehdotuksella (kaikki pending; luodut eivät olleet vielä
+ylennettyjä): adr.sws.014 kokonaan mainin tekstistä; adr.sws.005:n seuraukset ja Amended by -rivi (022 korvasi
+piirroksen videolla); adr.sws.022:n Source-rivi mainiin; sws.site (kaikki §02-kuvaajat videoita,
+faktatarkistus); sws.checks (`scripts/facts.mjs` ja `readme-facts.mjs`). **Repossa:** adr.sws.005 sai rivin
+"Amended by adr.sws.022" ja indeksi tilan "accepted, amended by 022"; README:n Documents-kohta ohjaa SEED
+v4.1.0:aan; SEED v4.1.0 §8 kertoo ehdotusten ja bearer-reitin tilan. **adr.sws.023** (Cloudflare-sivuketju,
+PR #30) vietiin Atlakseen mainista heti, kun se oli siellä; livesivulta todennettu samana iltana, että
+sähköpostipiilotus on pois ja Web Analyticsin beacon paikallaan. Kanavassa on nyt 30 sws-ehdotusta.
+
+**Tarkistettu:** `check-site` vihreä viidellä sivulla ja faktat ok; ehdotusten faktat luettu repon
+tiedostoista, sivuilta ja SEED v4.1.0:sta samassa sessiossa (päivitykset mainista `ef4d661`, 023 mainista
+`9998040`). Atlaksen `sw-sivusto.STATUS` päivitetty. BUILD_INFO 5.16.2. Sivua ei muutettu; `updated` ja
+alatunnisteen päiväys ovat mainin. Kaksi LESSONS-merkintää.
+
+**Odottaa Petriä:** 30 ehdotuksen ylennys Atlaksen katselimessa (luonnit ensin, päivitykset niiden
+jälkeen; tunnisteet `BUILD_INFO.atlas_proposals_2026_11_15`); sen jälkeen perustason sessio Atlaksen
+repoon.
+
 ## Sessio 12, sivuketju (15.11.2026): Cloudflare ja livesivu
 
 Petri niputti avoimen listan Cloudflare- ja livesivuasiat omaksi sivuketjukseen. Yhtään sivua ei muutettu.
