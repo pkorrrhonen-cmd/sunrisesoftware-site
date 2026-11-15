@@ -1152,3 +1152,49 @@ emulation, and the poster) and the page's own video. Petri said "Aloitetaan AJ".
   muted in view, a click on either turns the sound on, `scrollWidth` 375 on the phone, no page errors; the
   front page's script parses. `check-site` green over five pages.
 
+
+### Round AK, the front page: Atlas and Somnus as explainer videos (15.11.2026)
+
+Petri on 15.11.2026: the Atlas and Somnus plates in §02 should be videos that tell what the two are and
+what they do, about 60 s in landscape, in the style of the explainers sf3d.fi already has on the decision
+rooms: a "what is Atlas" and a "what is Somnus".
+
+Read in the session: the two plates (apps-v3 A.4, the Somnus rack panel; A.6, the Atlas workspace board;
+both canvas drawings) and their copy; the sf3d.fi lab's repository (`sf3d-ai-lab`, `origin/main`
+`6b86ab0`, 7.11.2026): `docs/VIDEO-SERIES-PLAN.md` v0.2 (29.10.2026, the lab's decisions D-40 to D-46:
+two lines of four explainers of at most 60 s on the explainer kit, line A on Atlas and line B on Somnus, one
+everyday metaphor per video said once, no cost or energy number in a Somnus explainer), A1 "Why I Built
+Atlas" (`video/atlas-explainer/`: storyboard, narration, sources; the finals in the lab's untracked
+`media/publish/atlas-explainer/`: `atlas-explainer-en.mp4` 1920x1080, 63.6 s, 3.18 MB, Petri's own voice,
+live on sf3d.fi since 29.10.2026, and its 9:16 cut), its frames as a contact sheet, and the kit's newest
+change (6b86ab0: any even frame size, and a caption band under the picture). B1 "Why There Is an AI Server
+in My Home" is planned (order 3 in the plan) and not made. Somnus's `BUILD_INFO.json` (`origin/main`
+`19d8bb5`, 14.11.2026) and the Atlas model (`atlas_list_systems`, read 15.11.2026: 25 systems, so A1's
+spoken "twenty-five of them" still holds; 358 modules against the 344 on A1's screen).
+
+Found on the way: A1's frames carry the lab's eyebrow `SF3D AI LAB · HOW THE LAB WORKS` in the top-left
+corner, where the plate's own caption sits; the 16:10 frame with `object-fit: cover` cuts 5 % from each
+side of a 16:9 picture, before the parallax's 3 %; and its counts are read 29.10.2026. The Somnus plate's
+body ("it generates candidates, screens them locally for almost nothing, and hands only the best to the
+expensive models") and its spec `Three-tier funnel · local first` describe a line that is not running:
+Somnus's Tier 0 has been off since 25.10.2026 (TIER-5), and the box now runs the Laya-FI line and its
+probe experiments on its two cards, 08 to 22 through the card queue.
+
+| # | Question | Decision |
+|---|---|---|
+| AK.1 | The Atlas plate | **A site cut of A1**: rendered again from A1's own scenes in the lab's pipeline for the plate: 16:10, a 64 px safe area, without the lab's eyebrow, the counts read again and dated on the day of the render; Petri's voice track as it is. Muted while in view, sound on a click, as the MasterForge and Luviamo plates |
+| AK.2 | How the Somnus video is made | **B1 in the lab**: made in `sf3d-ai-lab` on the explainer kit as the series' part B1, as A1 was: its sources read from Somnus on the day, Petri's core sentence before the storyboard, his voice, a lab note on sf3d.fi, and a 16:10 site cut for the plate. The kit needs one new part, a machine with two cards |
+| AK.3 | What the Somnus video tells | **Other, Petri's words:** Somnus is no longer the original idea. The machine is shown as the server for all the computing, checking and work: for example CI checks, audio development that moves into MasterForge as products, the language factory that produces training material, and a research platform for local models; told as it really is now. A tool for general use and a research instrument. A second machine is coming beside it, and the aim is three separate servers; that gets one sentence ("soon there will be another...") |
+| AK.4 | Order and place | **Atlas first, the plates**: the Atlas site cut first (the voice exists), Somnus after it; both go into the front page's plates in place of the drawings. `/atlas/` and `/somnus/` (K.3) are a thread of their own later, with these videos as their lead media |
+
+**Carried to the next rounds.** AK.3's examples are Petri's direction, and each is checked against what
+runs before the storyboard (LESSONS 13.11.2026): which checks Somnus runs and for which repositories, the
+audio work and what of it reached MasterForge, the Laya-FI factory, the research on local models; a fact
+list in two parts, built and running, and not built. The second machine's sentence is written in the text
+round: the page carries no "coming soon" (CLAUDE.md) and the lab's rulebook shows an idea as an idea, never
+as a promise, so it is proposed there in a dated or plain form. The plate's body and spec are read against
+the video in the same build round, because both have to tell the same story. **For the Atlas cut's text
+round (AL):** the source lines on screen (A1 carries `Drawn after Atlas Connect's guide v8`, read against
+adr.sws.015 like every text in a picture, LESSONS 14.11.2026), the bottom-right card source line under the
+plate's pill, whether the muted loop carries burned captions (the kit's caption band) since the story is in
+the voice, the poster, the caption and the `aria-label`.

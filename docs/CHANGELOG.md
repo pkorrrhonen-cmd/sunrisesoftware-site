@@ -3,6 +3,64 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 12 (15.11.2026): Atlas- ja Somnus-videot suunniteltu (kierros AK, ei sivumuutosta)
+
+**Alkutarkistus:** sessio 11 oli kokonaan laskeutunut: `origin/main` `a943a9f`, haara ei edellä eikä
+jäljessä. `BUILD_INFO.next`:n kärki oli Petrin valinta Somnuksen ja Atlaksen välillä.
+
+**Petrin linja:** etusivun Somnus- ja Atlas-kuvaajat tehdään videoiksi, joista selviää mitä ne ovat ja mitä
+ne tekevät: noin 60 s:n vaakavideot samalla tyylillä kuin sf3d.fi:n huonevideot, "what is Atlas" ja "what is
+Somnus".
+
+**Löydetty labrasta:** `sf3d-ai-lab`issa on 29.10. päätetty selityssarja (`docs/VIDEO-SERIES-PLAN.md` v0.2,
+labran D-40–D-46): Atlas-linja A1–A4 ja Somnus-linja B1–B4, enintään 60 s, yksi arkinen vertauskuva,
+Somnus-videoissa ei kustannus- eikä energialukuja. A1 "Why I Built Atlas" on valmis ja livenä sf3d.fi:ssä
+(63,6 s, 16:9 ja 9:16, Petrin oma ääni) ja kertoo käytännössä mikä Atlas on. B1 "Why There Is an AI Server in
+My Home" on suunniteltu mutta tekemättä. Kitti renderöi 7.11. alkaen minkä tahansa parillisen kuvakoon.
+
+**Löydetty kuvaajista:** A1:n ruuduissa on vasemmassa yläkulmassa labran otsake, juuri kuvaajan oman
+kuvatekstin kohdalla; 16:10-kehys leikkaa 16:9-kuvasta 5 % kummastakin reunasta ennen parallaksia; luvut
+on luettu 29.10. Atlaksen mallissa on yhä 25 järjestelmää, joten A1:n puhuttu "twenty-five" pitää (moduuleja
+358, ruudussa 344). Somnus-kuvaajan leipäteksti ja spec-rivi (`Three-tier funnel · local first`) kertovat
+kolmiportaisesta suppilosta, jonka Tier 0 on ollut pois 25.10. alkaen (Somnuksen BUILD_INFO 14.11.,
+TIER-5); kone ajaa nyt Laya-FI-linjaa ja luotainkokeita kahdella kortilla.
+
+**Kierros AK** (neljä kysymystä): AK.1 Atlas-kuvaajaan A1:n sivustoleikkaus: renderöidään uudelleen omista
+kohtauksistaan 16:10:nä, 64 px:n turva-alue, ei labran otsaketta, luvut luetaan ja päivätään
+renderöintipäivänä, Petrin ääniraita sellaisenaan; AK.2 Somnus-video tehdään labrassa sarjan osana B1
+(lähteet tekopäivänä, ydinlause Petriltä, hänen äänensä, labramuistiinpano ja 16:10-sivustoleikkaus); AK.3
+Petrin omin sanoin: Somnus ei ole enää alkuperäinen idea, vaan kone kuvataan palvelimena kaikkeen laskentaan,
+tarkistamiseen ja työhön (esimerkiksi CI-tarkistukset, MasterForgeen tuotteiksi siirtyvä äänikehitys,
+kielitehdas koulutusmateriaalille, tutkimusalusta lokaaleille malleille), yleishyödyllisenä työkaluna ja
+tutkimusinstrumenttina, ja toisesta tulevasta koneesta (tavoitteena kolme palvelinta) yksi lause; AK.4 Atlas
+ensin, molemmat etusivun kuvaajiin, alasivut `/atlas/` ja `/somnus/` myöhemmin omana ketjunaan. AK.1, AK.2
+ja AK.4 suositusten mukaan.
+
+**Kirjattu:** `copy-v4-pages.md` kierros AK; `adr.sws.022` (muuttaa piirrettyjen instrumenttien sääntöä ja
+adr.sws.005:n kansikuvaa); apps-v3 A.4 ja A.6 merkitty korvattaviksi; SEED v4.1.0:n 3.5 ja 8.4; CLAUDE.md:n
+sääntö piirretyistä instrumenteista viittaa adr.sws.022:een. **Jatkoon:** AK.3:n esimerkit tarkistetaan
+ennen kuvakäsikirjoitusta siitä, mikä oikeasti ajossa on (LESSONS 13.11.), ja toisen koneen lause
+kirjoitetaan tekstikierroksella muotoon, jonka sivun säännöt sallivat (ei "coming soon"). Atlaksen
+sivustoleikkauksen tekstikierrokselle AL: ruudun lähderivit (A1:ssä `Connect's guide v8` luetaan
+adr.sws.015:tä vasten), oikean alakulman rivi kuvaajan pillerin alla, poltetut tekstitykset mykässä
+silmukassa, postikuva, kuvateksti ja `aria-label`. Sivuja ei muutettu, joten `updated` ja alatunniste
+pysyvät 2026-11-14. BUILD_INFO 5.13.0.
+
+**Petrin vastaukset avoimeen listaan (15.11.2026):** reunavälimuistin tyhjennys Coden kautta jos mahdollista;
+ReviewGlassin tumman teeman vika kirjataan ReviewGlass-repon backlogiin omasta ketjusta; Atlaksen mallin
+ehdotukset ja ajautuma kuntoon sivuketjussa; staattisen bearerin poisto ajetaan ("Ok, ajetaan tämä");
+adr.sws.014 tehdään; profiili-README siivotaan, tekstit katsotaan yhdessä ennen muokkausta; Web Analytics
+otetaan käyttöön (Code tai Petri käsin); Lighthouse ja HTML-validaattori ajetaan; AvoQ sivulle myöhemmin, muut
+(SCC2, VitalTrack, Fysiologia tutkimus) erikseen kun aika on; sähköpostisuojauksesta tarkennus ja päätös sen
+mukaan. Asiat niputettiin neljään sivuketjuun (Cloudflare ja livesivu; ReviewGlassin backlog; Atlaksen yhteys
+ja peili; profiili-README ja faktalähde), ja tämä ketju jatkaa Atlaksen koeleikkausta labrassa.
+
+**Tarkistettu tässä sessiossa:** tämän repon CHANGELOG, BUILD_INFO ja LESSONS; labran `origin/main`
+`6b86ab0` (sarjasuunnitelma, BUILD_INFO, CHANGELOG, A1:n kuvakäsikirjoitus), A1:n finaali ffprobella
+(1920x1080, 63,59 s, 3 179 382 tavua), sen SRT (16 riviä) ja ruutuarkki; Somnuksen `origin/main` `19d8bb5`
+(BUILD_INFO 14.11.); Atlaksen malli (`atlas_list_systems` 15.11.). Profiili-README: tämä sessio ei muuttanut
+tuotteiden tiloja eikä vuosia sivulla, joten uutta eroa ei synny.
+
 ## Sessio 11, päätös (14.11.2026): sulkutoimet
 
 **Session 11 kokonaisuus** (kaikki yhdessä Petrin kanssa, kaikki suositukset hyväksytty): ReviewGlassin
