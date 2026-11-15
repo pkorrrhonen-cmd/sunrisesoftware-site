@@ -61,9 +61,9 @@ The rules below hold once their decision is accepted; a `proposed` decision in
 - Images: WebP first with a JPG or PNG fallback under `images/`; source screenshots under
   `source-assets/`. Every image gets `loading="lazy"` (except above the fold) and an alt text
   that describes the screen, not the product.
-- Product plates show the real product (a capture or clip); drawn instruments only where the
-  product has no public surface: Somnus, Atlas (`docs/design/apps-v3.md`), and only until their
-  explainer videos from the sf3d.fi lab replace them, Atlas first (adr.sws.022). HomeTeam shows screens
+- Product plates show the real product (a capture or clip); Somnus and Atlas, which have no public
+  surface, show the sf3d.fi lab's explainer videos (adr.sws.022, both since 15.11.2026), and no drawn
+  instrument is left on the §02 plates (`docs/design/apps-v3.md`). HomeTeam shows screens
   cut from its design mockups, with no child's name or family surname in any file (adr.sws.020).
   ReviewGlass is shown by its own windows, drawn by its own code with a staged core, over a staged
   screen (adr.sws.021, `docs/mockups/reviewglass-mockup.py`). Petri 13.11.2026: real mockups

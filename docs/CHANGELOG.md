@@ -61,7 +61,7 @@ ei tuotetta; squash siirtyneen mainin päälle peruu toisen session commitin (hu
 generaattori, joka laskee pidätetyn järjestelmän nimeämättä, ja perhekartan paluu. Quaesitorin syy poistua
 sivulta ("no longer developed", 18.9.) ei enää vastaa sen repoa; kirjattu, ei muutosta.
 
-## Sessio 12 (15.11.2026): Atlas-laatta videoksi ja Somnus-video suunniteltu (kierrokset AK–AP, PR I)
+## Sessio 12 (15.11.2026): Atlas- ja Somnus-laatat videoiksi (kierrokset AK–AR, PR I ja PR J)
 
 **Alkutarkistus:** sessio 11 oli kokonaan laskeutunut: `origin/main` `a943a9f`, haara ei edellä eikä
 jäljessä. `BUILD_INFO.next`:n kärki oli Petrin valinta Somnuksen ja Atlaksen välillä.
@@ -175,6 +175,17 @@ eikä osoitteita, ja laatan kulmat ovat tyhjät. Petrin äänellä A1 lyheni 0,8
 59 s. **AQ** (kaikki suositukset): kohtauksessa 3 Laya 7900 XT:llä ja R9700 ottaa jonon työn ja varauksen, kolme
 pientä korjausta, poikkeamat (siniset rastit, nimettömät tuoteruudut) hyväksytty, kuva lukittu korjauksin. Seuraavaksi
 Petrin ääni ElevenLabsilla kahdeksasta lohkosta. Sivuja ei muutettu.
+
+**Somnus-laatta videoksi (kierros AR, PR J, 15.11.2026).** Petrin ääni (oma ääni Magnificin ja ElevenLabsin V3:n
+kautta, 67,8 s) kohdistettiin -35 dB:llä (fit cost 0,18), otot nauhoitettiin uudelleen hänen hetkilleen, ja molemmat
+finaalit tehtiin: 67,1 s, josta puhetta 56,3 s. **AR** (pituus Petrin valinnalla, muut suositusten mukaan): 67 s
+hyväksyttiin A1:n poikkeuksen tapaan, postikuvaksi kohtauksen 2 kolme kaistaa, kuvateksti `What Somnus does · 1 min`
+ja uusi `aria-label`, ja laatan tag, leipäteksti ja spec ilman "always on" -ilmausta ja suppiloa. Sivu:
+`media/somnus-explainer.mp4` (1280x800, 2,34 Mt) ja postikuva, laatta video-kehyksenä, molemmat `sketches.somnus`
+-piirrokset ja `SOMNUS_TASKS` poistettu. Nyt jokainen §02:n laatta on video, ja CLAUDE.md:n sääntö piirretyistä
+instrumenteista päivitettiin vastaamaan sitä (adr.sws.022). Tarkistettu paikallisesti 1440 ja 375 px:n leveydellä, ja
+`check-site` on vihreä faktatarkistuksineen. Main (sivuketjun PR #26) yhdistettiin haaraan ristiriidat ratkaisten.
+Magnificin MCP-liitin ei näkynyt tässä sessiossa; ääniohjeet on kirjattu muistiin. BUILD_INFO 5.16.0.
 
 **Tarkistettu tässä sessiossa:** tämän repon CHANGELOG, BUILD_INFO ja LESSONS; labran `origin/main`
 `6b86ab0` (sarjasuunnitelma, BUILD_INFO, CHANGELOG, A1:n kuvakäsikirjoitus), A1:n finaali ffprobella

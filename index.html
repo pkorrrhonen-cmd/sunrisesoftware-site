@@ -598,13 +598,18 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
 
       <div class="group" data-reveal>Tools and research instruments</div>
       <article class="plate">
-        <figure class="frame" data-live="somnus"><canvas></canvas><span class="cap">Somnus · local AI server · always on</span><a class="pill" href="https://sf3d.fi" aria-label="Lab notes at sf3d.fi">Visit ↗</a></figure>
+        <figure class="frame video dark">
+          <video muted loop playsinline preload="none" poster="media/somnus-explainer-poster.jpg" src="media/somnus-explainer.mp4" aria-label="Somnus in about a minute: the computer in the next room that does the heavy work for my projects. It runs their checks, writes Finnish training material, and is the instrument I test small AI models with. Click to play with sound."></video>
+          <span class="cap">What Somnus does · 1 min</span>
+          <span class="play">▶</span>
+          <a class="pill" href="https://sf3d.fi" aria-label="Lab notes at sf3d.fi">Visit ↗</a>
+        </figure>
         <div>
           <span class="status infra" data-reveal><i></i>In use · 2026 → · home AMD box</span>
           <h3 data-reveal>Somnus</h3>
-          <p class="tag" data-reveal>The local AI server. Always on, in the next room, and part of every project.</p>
-          <div class="desc" data-reveal><p>Somnus runs on a machine at home: two AMD GPUs, local models, always on. It is the core of the scientific projects and takes part in all the work: it generates candidates, screens them locally for almost nothing, and hands only the best to the expensive models. What survives is remembered.</p></div>
-          <div class="specs" data-reveal><span>Two AMD GPUs · 52 GB</span><span>Three-tier funnel · local first</span><span>AMD R9700 sample program · white paper in progress</span></div>
+          <p class="tag" data-reveal>The local AI server in the next room: the heavy work of my projects, and an instrument for small models.</p>
+          <div class="desc" data-reveal><p>Somnus runs on a machine at home: two AMD graphics cards and local models, at work from eight in the morning to ten at night. It runs the checks of my workspace and the security scans of my products, writes Finnish training material in its language factory, and is the instrument I test small models with. In September 2026 its audio research became part of how MasterForge prepares a track.</p></div>
+          <div class="specs" data-reveal><span>Two AMD GPUs · 52 GB</span><span>Checks · training material · research</span><span>AMD R9700 sample program · white paper in progress</span></div>
           <a class="btn" href="https://sf3d.fi" data-reveal>Lab notes · sf3d.fi <span class="arr">→</span></a>
         </div>
       </article>
@@ -1021,23 +1026,6 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
     ctx.fillStyle = INK; ctx.font = `${Math.round(h * 0.045)}px JetBrains Mono, monospace`;
     ctx.fillText(`${(Math.min(1, prog) * 42.6).toFixed(1)} km · gravel 68 %`, w * 0.04, h * 0.95);
   };
-  /* Somnus: formulae drifting inside a box */
-  const FORMULAE = ['∂L/∂θ', 'p(x|θ)', 'Σ wᵢxᵢ', 'argmax', 'KL(p‖q)', 'softmax', '∇θ J', 'H(x)', 'ε-greedy', 'λ·‖w‖²', 'Bayes', 'δ = y − ŷ'];
-  sketches.somnus = (cv, t) => {
-    const { ctx, w, h } = fit(cv);
-    ctx.fillStyle = '#0B1520'; ctx.fillRect(0, 0, w, h);
-    ctx.strokeStyle = 'rgba(143,216,255,.35)'; ctx.lineWidth = 2; ctx.strokeRect(w * 0.08, h * 0.12, w * 0.84, h * 0.76);
-    ctx.font = `${Math.round(h * 0.06)}px JetBrains Mono, monospace`;
-    FORMULAE.forEach((f, i) => {
-      const y = ((t * 0.00003 * (0.6 + i % 3 * 0.3) + i * 0.083) % 1), x = 0.12 + (i * 0.37) % 0.7;
-      ctx.globalAlpha = 0.35 + 0.55 * Math.sin(y * Math.PI);
-      ctx.fillStyle = i % 3 === 0 ? SUN : '#8FD8FF';
-      ctx.fillText(f, w * x, h * (0.16 + y * 0.68));
-    });
-    ctx.globalAlpha = 1;
-    ctx.fillStyle = 'rgba(223,243,255,.6)'; ctx.font = `${Math.round(h * 0.04)}px JetBrains Mono, monospace`;
-    ctx.fillText('R9700 32 GB · 7900 XT 20 GB · ALWAYS ON', w * 0.1, h * 0.95);
-  };
   /* Salpa: a sealed box, nothing leaves */
   sketches.salpa = (cv, t) => {
     const { ctx, w, h } = fit(cv);
@@ -1086,42 +1074,6 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
   };
 
 
-  /* Somnus: the rack panel (apps-v3 A.4) */
-  const SOMNUS_TASKS = [
-    ['AUDIO SEPARATION', 'stems for MasterForge and SpectralForge'],
-    ['RESEARCH FUNNEL', 'candidates screened locally'],
-    ['ATLAS COMPUTE', 'validation runs, ideas tested'],
-    ['SALPA PROCESSOR', 'local models for defence'],
-    ['LOCAL INFERENCE', 'every project, day and night'],
-    ['RESEARCH ENGINE', 'what Quaesitor did, now local'],
-  ];
-  sketches.somnus = (cv, t) => {
-    const { ctx, w, h } = fit(cv);
-    ctx.fillStyle = '#0F171F'; ctx.fillRect(0, 0, w, h);
-    ctx.strokeStyle = 'rgba(143,166,184,.22)'; ctx.lineWidth = 1; ctx.strokeRect(w * 0.04, h * 0.1, w * 0.92, h * 0.8);
-    const g1 = 0.55 + 0.35 * Math.abs(Math.sin(t * 0.0012)), g2 = 0.35 + 0.4 * Math.abs(Math.sin(t * 0.0009 + 1.3));
-    [[g1, 'GPU 0', 'R9700 32 GB'], [g2, 'GPU 1', '7900 XT 20 GB']].forEach(([g, l1, l2], i) => {
-      const x = w * 0.08 + i * w * 0.1, top = h * 0.2, bh = h * 0.5;
-      ctx.fillStyle = 'rgba(255,255,255,.06)'; ctx.fillRect(x, top, w * 0.05, bh);
-      const grd = ctx.createLinearGradient(0, top + bh - bh * g, 0, top + bh); grd.addColorStop(0, SUN); grd.addColorStop(1, 'rgba(232,165,78,.2)');
-      ctx.fillStyle = grd; ctx.fillRect(x, top + bh - bh * g, w * 0.05, bh * g);
-      ctx.fillStyle = 'rgba(223,243,255,.6)'; ctx.font = `${Math.round(h * 0.022)}px JetBrains Mono, monospace`; ctx.textAlign = 'center';
-      ctx.fillText(l1, x + w * 0.025, top + bh + h * 0.04); ctx.fillText(l2, x + w * 0.025, top + bh + h * 0.07); ctx.textAlign = 'left';
-    });
-    ctx.fillStyle = '#DFF3FF'; ctx.font = `${Math.round(h * 0.055)}px Familjen Grotesk, sans-serif`; ctx.fillText('Somnus', w * 0.08, h * 0.17);
-    const active = Math.floor(t / 1400) % 6;
-    SOMNUS_TASKS.forEach((tk, i) => {
-      const y = h * 0.2 + i * h * 0.105; const on = i === active; const done = (i + 6 - active) % 6 > 3;
-      ctx.fillStyle = on ? 'rgba(232,165,78,.12)' : 'transparent'; ctx.fillRect(w * 0.32, y - h * 0.03, w * 0.6, h * 0.09);
-      ctx.fillStyle = on ? SUN : (done ? '#4E987C' : 'rgba(223,243,255,.35)'); ctx.beginPath(); ctx.arc(w * 0.345, y + h * 0.015, Math.max(3, w / 260), 0, 7); ctx.fill();
-      ctx.fillStyle = on ? '#DFF3FF' : 'rgba(223,243,255,.75)'; ctx.font = `${Math.round(h * 0.03)}px JetBrains Mono, monospace`; ctx.fillText(tk[0], w * 0.37, y + h * 0.025);
-      ctx.fillStyle = 'rgba(223,243,255,.5)'; ctx.font = `${Math.round(h * 0.026)}px Public Sans, sans-serif`; ctx.fillText(tk[1], w * 0.37, y + h * 0.058);
-      ctx.fillStyle = on ? SUN : (done ? '#4E987C' : 'rgba(223,243,255,.4)'); ctx.font = `${Math.round(h * 0.024)}px JetBrains Mono, monospace`; ctx.textAlign = 'right';
-      ctx.fillText(on ? `RUNNING ${Math.floor((t % 1400) / 14)} %` : (done ? 'DONE' : 'QUEUED'), w * 0.91, y + h * 0.025); ctx.textAlign = 'left';
-    });
-    ctx.fillStyle = 'rgba(223,243,255,.55)'; ctx.font = `${Math.round(h * 0.026)}px JetBrains Mono, monospace`; ctx.fillText('LOCAL AI SERVER · ALWAYS ON · COST ≈ 0 €', w * 0.08, h * 0.95);
-  };
-
   /* run every visible live canvas on one rAF loop */
   const liveCanvases = new Map();
   function registerCanvas(cv, kind) { if (sketches[kind]) liveCanvases.set(cv, kind); }
@@ -1142,7 +1094,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
   if (MOVE) setInterval(() => { if (performance.now() - lastRaf > 250) drawLive(performance.now() - t0, false); }, 200);
 
 
-  /* Video plates (MasterForge, Luviamo): play muted while in view; a click plays from the start with sound, a second click mutes */
+  /* Video plates (MasterForge, Luviamo, Somnus, Atlas): play muted while in view; a click plays from the start with sound, a second click mutes */
   document.querySelectorAll('.frame.video').forEach(fr => {
     const v = fr.querySelector('video'); if (!v) return;
     if (MOVE) {
