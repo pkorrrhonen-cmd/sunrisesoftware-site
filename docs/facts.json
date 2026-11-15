@@ -1,0 +1,131 @@
+{
+  "about": "The facts the page and the profile README (github.com/pkorrrhonen-cmd) share, one place for both (adr.sws.014). scripts/check-site.mjs checks the page against this file in CI; scripts/readme-facts.mjs writes the README's product table from it. The groups and their order are the page's. This repository is public: the employer's applications never appear here (adr.sws.006).",
+  "checked": "2026-11-15",
+  "groups": [
+    {
+      "name": "Commercial products",
+      "place": "plate",
+      "products": [
+        {
+          "name": "MasterForge",
+          "state": "Live",
+          "detail": "paying customers",
+          "since": 2026,
+          "where": { "label": "masterforge.app", "href": "https://masterforge.app" },
+          "text": "AI music mastering built for the artifacts of neural-network audio. Real-time DSP engine, three tiers: Free, Starter and Pro.",
+          "pending": { "page_since": 2024, "waits_for": "docs/design/profile-readme.md GH.9 and GH.21 (15.11.2026): the plate's year becomes 2026, edited together with Petri" },
+          "checked": "masterforge.app 200, its pricing block: Free, Starter, Pro and pay-per-run credits (15.11.2026)"
+        },
+        {
+          "name": "Luviamo",
+          "state": "Live",
+          "since": 2026,
+          "where": { "label": "luviamo.app", "href": "https://luviamo.app" },
+          "text": "Marketing lifecycle platform for Nordic SMBs: one brand voice carried from ideation to publication and measurement, replacing five to eight separate tools.",
+          "checked": "luviamo.app 200; luviamo docs/BUILD_INFO.json origin/main f8ba9fc7 (15.11.2026)"
+        }
+      ]
+    },
+    {
+      "name": "Tools and research instruments",
+      "place": "plate",
+      "products": [
+        {
+          "name": "Somnus",
+          "state": "In use",
+          "detail": "home AMD box",
+          "since": 2026,
+          "where": { "label": "sf3d.fi", "href": "https://sf3d.fi", "after": " (lab notes)" },
+          "text": "The home server for the work that needs a GPU: a language factory that produces Finnish training material, a research platform for small local models, and CI and security scans for part of the family's repositories. The audio research behind MasterForge's Smart Preparation was done on it in September 2026.",
+          "checked": "somnus docs/TOPOLOGIA.md origin/main 19d8bb5 (checked on the box 14.11.2026): the Linux CI runner for the approved repositories, jobs 08 to 22, the language factory's jobs, the probe experiments; spectralforge-api origin/main: the audio instruments copied from Somnus on 29.8.2026, Smart Preparation running on SpectralForge's server; the main session's reading of the same day for the Somnus video (15.11.2026)"
+        },
+        {
+          "name": "Atlas",
+          "state": "In use",
+          "since": 2026,
+          "where": { "before": "Access-protected · ", "label": "how the decision rooms work", "href": "https://sunrisesoftware.app/rooms/" },
+          "subpage": "/rooms/",
+          "text": "The backbone of the work: every project, every partner and every decision in one place, so nothing drifts from what matters.",
+          "checked": "the page's plate and /rooms/ (built 13.11.2026)"
+        }
+      ]
+    },
+    {
+      "name": "Also in production",
+      "place": "drawer",
+      "products": [
+        {
+          "name": "Virustutka",
+          "state": "Live",
+          "since": 2026,
+          "where": { "label": "virustutka.app", "href": "https://virustutka.app" },
+          "text": "Open, login-free respiratory virus situation monitor and early warning for Finland, built on THL and ECDC open data.",
+          "checked": "virustutka.app 200; virustutka README origin/main d3679ba: THL, THL wastewater and ECDC ERVISS ingests (15.11.2026)"
+        },
+        {
+          "name": "Ultra Gravel",
+          "state": "Live",
+          "since": 2026,
+          "where": { "label": "ultragravel.app", "href": "https://ultragravel.app" },
+          "text": "Finland-wide gravel route planner and navigator built on authoritative national geodata (MML topographic database, Digiroad) rather than OpenStreetMap.",
+          "checked": "ultragravel.app 200; ultragravel docs/BUILD_INFO.json origin/main 1811e2d (15.11.2026)"
+        },
+        {
+          "name": "TilastoSilta",
+          "state": "Live",
+          "since": 2026,
+          "where": { "label": "tilastosilta.fi", "href": "https://tilastosilta.fi" },
+          "text": "Finnish statistics, visualized and shareable, across public data sources with semantic search.",
+          "pending": { "page_since": 2024, "waits_for": "docs/design/profile-readme.md GH.9 and GH.21 (15.11.2026): the drawer's year becomes 2026, edited together with Petri" },
+          "checked": "tilastosilta.fi 200 (15.11.2026)"
+        },
+        {
+          "name": "SF3D AI Lab",
+          "state": "Live",
+          "since": 2026,
+          "where": { "label": "sf3d.fi", "href": "https://sf3d.fi" },
+          "text": "Research notes on multi-agent cognition running on AMD RDNA4 hardware: lab notes, negative results included, and a news feed assembled by agents.",
+          "checked": "sf3d.fi 200 (15.11.2026)"
+        },
+        {
+          "name": "ReviewGlass",
+          "state": "Pre-alpha",
+          "detail": "daily use",
+          "since": 2026,
+          "licence": "Apache-2.0",
+          "where": { "label": "github.com/Sunrisesoftware-app/reviewglass", "href": "https://github.com/Sunrisesoftware-app/reviewglass" },
+          "subpage": "/reviewglass/",
+          "text": "Open source (Apache-2.0). A Windows 11 desktop companion for AI-assisted coding sessions: a magnifier glass over the session, a panel of every running session with the account quota, and the agent's edits as a live diff. Tauri v2, Rust core.",
+          "checked": "reviewglass README and docs/BUILD_INFO.json origin/main 2654ab4, LICENSE Apache-2.0 (the site's check of 13.11. and 14.11.2026)"
+        },
+        {
+          "name": "HomeTeam",
+          "state": "In use",
+          "detail": "my own family",
+          "since": 2026,
+          "where": { "label": "sunrisesoftware.app/hometeam", "href": "https://sunrisesoftware.app/hometeam/" },
+          "subpage": "/hometeam/",
+          "text": "The application my family runs the week on: a shared Today view for the day's tasks and the family calendar, and an economy each family sets for itself.",
+          "checked": "app.hometeam.fi 200; in production for my own family since 10.10.2026 (the site's check of 13.11.2026)"
+        },
+        {
+          "name": "Salpa Defence",
+          "state": "Venture",
+          "since": 2026,
+          "where": { "text": "private demo" },
+          "text": "A local AI appliance and software layer for environments cloud services cannot legally reach. Sales demo in production since August 2026; product core under way.",
+          "checked": "salpa-demo docs/BUILD_INFO.json origin/main ce7828a: the demo in production behind Access since August 2026 (15.11.2026)"
+        },
+        {
+          "name": "SpectralForge",
+          "state": "Closed beta",
+          "since": 2026,
+          "where": { "label": "spectral.masterforge.app", "href": "https://spectral.masterforge.app" },
+          "text": "Companion to MasterForge: diagnoses and repairs the spectral deficiencies of AI-generated and codec-damaged audio.",
+          "pending": { "page_since": 2025, "waits_for": "docs/design/profile-readme.md GH.9 and GH.21 (15.11.2026): the drawer's year becomes 2026, edited together with Petri" },
+          "checked": "spectral.masterforge.app 200, its served bundle's gate: 'SpectralForge is in closed beta' (15.11.2026)"
+        }
+      ]
+    }
+  ]
+}
