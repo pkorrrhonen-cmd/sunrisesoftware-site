@@ -3,6 +3,16 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 12, sivuketju, päätös (15.11.2026): PR #26 yhdistetty ja README pushattu
+
+Petrin sanasta "Yhdistä ja pushaa": PR #26 squash-yhdistetty (`bd9e35c`, 17.13.37Z), kun Site checks ja
+Cloudflare Pages olivat vihreät ja main ei ollut siirtynyt; mainin puu sama kuin haaran. Heti perään
+profiili-README `0d1653b` pushattu `pkorrrhonen-cmd/pkorrrhonen-cmd`:n mainiin (fast-forward `9d00a67`:stä,
+17.13.59Z), kuten GH.22 päätti. **Todennettu:** GitHubin palvelema README vastaa `docs/facts.json`:ia
+(`check-site --readme` GitHubista haettua tiedostoa vasten), GitHub piirtää kolme taulukkoa, merkintä ei näy,
+`family-map.svg` vastaa 404, eikä renderöidyssä sivussa ole työnantajan sovelluksia eikä Quaesitoria.
+Livesivut ennallaan (`data-revised` 2026-11-15 etusivulla, alasivuilla omansa). BUILD_INFO 5.15.1.
+
 ## Sessio 12, sivuketju (15.11.2026): profiili-README ja faktalähde
 
 **Tehtävä:** Petrin päätökset 15.11.: profiili-README siivotaan tekstit yhdessä läpikäyden ("siivotaan tämä,
