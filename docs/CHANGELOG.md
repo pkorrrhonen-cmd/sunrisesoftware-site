@@ -3,6 +3,76 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 12, sivuketju (15.11.2026): Cloudflare ja livesivu
+
+Petri niputti avoimen listan Cloudflare- ja livesivuasiat omaksi sivuketjukseen. Yhtään sivua ei muutettu.
+Muutokset tehtiin Cloudflaren dashboardissa (Petri, sivuketjun antamin askelin) ja dokumentteihin.
+
+**Tunnukset:** koneen wrangler-kirjautuminen (OAuth) on voimassa, mutta sen oikeudet ovat vain zone read,
+account read ja pages write (`wrangler whoami`). Välimuistin tyhjennys, Web Analytics ja vyöhykkeen asetukset
+eivät onnistu sillä, joten ne menivät dashboardin kautta. Claude in Chrome ei ollut yhteydessä. Tokenia ei
+pyydetty eikä tulostettu.
+
+**1. Vanha klippi reunalta.** Ennen: `media/masterforge-eq.mp4` ja `media/masterforge-eq-poster.jpg` vastasivat
+livedomainilta `HIT` (Age 49,7 h ja 26 h), Pagesin oma osoite jo 404. Petri tyhjensi molemmat URL:t (Caching >
+Configuration > Custom Purge > URL). Jälkeen: molemmat 404 (`BYPASS`), uusi `masterforge-chain.mp4` 206.
+
+**2. Web Analytics** Pages-projektin kytkimellä (Metrics > Web Analytics > Enable), päätöslaatikossa valittu
+vyöhykkeen automaattisen asennuksen sijaan (adr.sws.023). Kytkin tulee voimaan vasta seuraavassa deployssa:
+17.13Z:n deploy (`bd9e35c`, 36f0df04) oli ilman beaconia, ja beacon tuli 17.55Z:n deployssa (`59c971b`, PR #28,
+2a46682a). **Todennettu** sekä siitä että sitä seuranneesta `ef4d661`:n deploysta (PR #27, e2e66412): viidellä
+livesivulla on ennen `</body>`:ia `<!-- Cloudflare Pages Analytics --><script defer
+src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon=...>`, ja `beacon.min.js` vastaa 200.
+Selaimessa (sisäänrakennettu selain) beacon raportoi osoitteeseen `https://cloudflareinsights.com/cdn-cgi/rum`
+(204), eikä konsolissa ole yhtään viestiä. Beacon on myös production-aliaksessa ja esikatseluissa (f95b0282)
+samalla tokenilla, joten esikatselukäynnit lasketaan omilla hostnimillään. Sivustolla ei ole CSP:tä
+(ei `_headers`:ssa eikä meta-tagina), joten mikään ei estä beaconia. Cloudflaren ohjeen mukaan automaattinen
+injektio raportoisi samaan originiin, mutta Pagesin injektio raportoi cloudflareinsights.comiin: päätöksen
+CSP-huomio korjattiin mittauksen mukaan ennen kirjausta.
+
+**3. Lighthouse 13.6.0 ja Nu HTML -validaattori** livesivulla, headless Edge, yksi ajo kustakin. Ensimmäinen
+ajo tehtiin mainin `a943a9f` aikaan (noin 10.37Z). Koska etusivu muuttui päivän aikana kahdesti (Atlas- ja
+Somnus-videot), ajo uusittiin `ef4d661`:n tuotantodeploysta (e2e66412, beacon mukana, noin 18.01Z).
+Taulukossa on uusinta:
+
+| Sivu | Mobiili perf / a11y | Desktop perf / a11y | BP / SEO |
+|---|---|---|---|
+| / | 82 / 94 | 99 / 94 | 100 / 100 |
+| /silent-context/ | 94 / 94 | 100 / 94 | 100 / 100 |
+| /rooms/ | 86 / 94 | 100 / 94 | 100 / 100 |
+| /reviewglass/ | 93 / 100 | 100 / 95 | 100 / 100 |
+| /hometeam/ | 94 / 95 | 100 / 95 | 100 / 100 |
+
+Ensimmäisessä ajossa mobiilin suorituskyky oli 86, 95, 93, 95 ja 94 ja desktopin 100 kaikilla. Yksittäisen
+ajon mobiili-LCP vaihtelee jopa sekunnin. Nu antoi molemmilla kerroilla saman tuloksen: jokaisella viidellä
+sivulla sama virhe (rivi 24, SVG-faviconin data-URI:ssa 26 välilyöntiä), ja etusivulla lisäksi 8 huomautusta
+(§03:n `article`-laatikot ilman otsikkoa).
+
+Lighthouse: `--text-meta #8B96A0` paperilla on 2,81:1 (vaatimus 4,5:1), etusivulta puuttuu `<main>`, etusivun
+mobiili-CLS on 0,13, ja kuvat ovat isompia kuin näytetään. Mobiilin LCP on 3,0 to 4,1 s. Etusivulla ja
+`/rooms/`:ssa LCP-elementti on heron `p.lede`, jonka `data-reveal`-häivytys pitää noin 1,3 to 1,4 s
+renderöintiviivettä. Google Fontsin CSS estää renderöinnin noin 760 ms. Uusinnasta alkaen beacon näkyy
+jokaisella sivulla: `beacon.min.js` on 10 KiB, ja Lighthouse merkitsee sen "legacy JavaScriptiksi" ja yhden
+päivän välimuistiksi, mutta tiedosto on Cloudflaren eikä sivuston hallinnassa. Lähdekoodista lisäksi: ilman
+JavaScriptiä `[data-reveal]` jää `opacity:0`:aan kaikilla sivuilla. Mitään ei korjattu: kahdeksan ehdotusta
+on `BUILD_INFO.next`issä, tehtäväksi yhdessä Petrin kanssa. Mittaukset ovat `BUILD_INFO.live_checks_2026_11_15`:ssa.
+
+**4. Sähköpostiosoitteiden piilotus** (Email Address Obfuscation) selitettiin Petrille. Se korvasi
+livesivulla molemmat `mailto:`-linkit `/cdn-cgi/l/email-protection`-osoitteilla, näytti §06:ssa
+`[email protected]` ja lisäsi purkuskriptin (1,2 kt). Ilman JavaScriptiä heron linkki vei Cloudflaren
+"Email Protection" -sivulle (404). Esikatseluissa piilotusta ei ollut. Suoja oli käytännössä nolla, koska
+osoite oli silti selkokielisenä rakenteisessa datassa ja heron meta-rivillä (`<wbr>` rikkoo tunnistuksen).
+Päätöslaatikko: **pois koko vyöhykkeeltä** (suositus, adr.sws.023). Petri käänsi sen pois. **Todennettu:**
+viidellä livesivulla ei ole `email-protection`-linkkiä eikä purkuskriptiä, ja etusivulla on kaksi
+`mailto:`-linkkiä kuten repossa.
+
+**Päätös:** adr.sws.023. Numero 022 oli jo pääsession videopäätöksellä (`feabd23`), ja Atlas-sivuketju huomasi
+törmäyksen (LESSONS). **Tarkistettu tässä sessiossa:** livedomain, production-alias ja esikatselu (curl ja
+selain), `_headers`, viiden sivun lähde (rivi 24, `[data-reveal]`, `<main>`), wranglerin oikeudet ja
+Cloudflaren ohjeet (Pages Web Analytics, Web Analytics FAQ, Email Address Obfuscation, Purge by single-file).
+Profiilin README:tä ei tarvinnut lukea uudelleen: tämä sivuketju ei muuttanut tuotteita, tiloja eikä vuosia.
+Versio ja `updated` pysyvät, koska yksikään sivu ei muuttunut.
+
 ## Sessio 12, sivuketju, päätös (15.11.2026): PR #26 yhdistetty ja README pushattu
 
 Petrin sanasta "Yhdistä ja pushaa": PR #26 squash-yhdistetty (`bd9e35c`, 17.13.37Z), kun Site checks ja

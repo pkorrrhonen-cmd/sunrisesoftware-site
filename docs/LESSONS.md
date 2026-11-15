@@ -2,6 +2,34 @@
 
 Opitut virheet ja estosäännöt, jotta niitä ei toisteta. Uusin ensin.
 
+## 15.11.2026: päätösnumero varattiin katsomatta muita haaroja
+
+**Mitä tapahtui:** Cloudflare-sivuketju varasi päätökselleen numeron adr.sws.022 sivuketjujen jaettuun
+muistiinpanoon. Se oli katsonut vain oman haaransa ja mainin `docs/decisions/`-kansion. Pääsessio oli samana
+aamuna commitoinut 022:n omalle haaralleen (`feabd23`, ei vielä mainissa). Atlas-sivuketju huomasi törmäyksen
+ennen kuin kumpikaan päätös oli mainissa, ja Cloudflare-päätös sai numeron 023.
+
+**Estosääntö:**
+- Ennen kuin uusi päätösnumero otetaan, katsotaan kaikki paikalliset ja etähaarat
+  (`git for-each-ref --format='%(refname:short)' refs/heads refs/remotes` ja jokaisesta
+  `git ls-tree --name-only <haara> docs/decisions/`) sekä sivuketjujen jaettu muistiinpanokansio.
+  Numero on suurin löytynyt plus yksi.
+- Varaus kirjataan jaettuun kansioon heti, ennen kuin päätöstiedosto kirjoitetaan.
+
+## 15.11.2026: sivupohja kopioi kaksi vikaa neljään alasivuun
+
+**Mitä tapahtui:** Lighthouse ja HTML-validaattori olivat avoimella listalla syyskuusta lähtien ("after PR B
+lands"), mutta ne ajettiin vasta 15.11. Sillä välin neljä alasivua rakennettiin saman pohjan päälle. Kaikilla
+viidellä sivulla oli sama validaattorivirhe (faviconin data-URI:n välilyönnit, sivulla 18.9. lähtien) ja sama
+kontrastivika (`--text-meta` 2,81:1 paperilla), koska pohjan rivi ja sävy kopioituivat jokaiseen. CI ei mittaa
+kumpaakaan.
+
+**Estosääntö:**
+- Uusi sivu tai uusi sivupohja ajetaan Nu-validaattorin ja Lighthousen saavutettavuuden läpi esikatseluosoitteessa
+  ennen mergeä, ja tulos kirjataan CHANGELOGiin.
+- Uusi tekstisävy mitataan WCAG-kontrastia vasten taustaansa ennen kuin se menee SEEDiin (pienelle tekstille
+  vähintään 4,5:1).
+
 ## 15.11.2026: squash siirtyneen mainin päälle peruu toisen session commitin
 
 **Mitä tapahtui:** sivuketju yhdisti työnsä yhdeksi commitiksi komennoilla `git fetch` ja `git reset --soft
