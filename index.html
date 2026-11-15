@@ -309,21 +309,6 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
 .frame.video.playing .play{opacity:0;transform:translate(-50%,-50%) scale(.8)}
 .frame.video:hover .play{transform:translate(-50%,-50%) scale(1.08)}
 
-/* Atlas plate: stronger contrast than Flow 1 */
-.atlas{font-family:var(--mono);cursor:default;background:linear-gradient(160deg,#FBF6EC,#EFE6D8)}
-.atlas svg{width:100%;height:100%;display:block}
-.atlas .box{fill:rgba(255,253,249,.95);stroke:var(--sun-deep);stroke-width:2.2}
-.atlas .door{fill:rgba(255,253,249,.9);stroke:var(--sea-mid);stroke-width:1.8}
-.atlas .t{fill:var(--text);font-size:22px;letter-spacing:.04em}
-.atlas .s{fill:var(--text-2);font-size:17px;letter-spacing:.02em}
-.atlas .m{fill:var(--sun-deep);font-size:15px;letter-spacing:.12em;font-weight:500}
-.atlas .m2{fill:var(--sea-mid);font-size:15px;letter-spacing:.12em;font-weight:500}
-.atlas .flow{fill:none;stroke:var(--sun-deep);stroke-width:2.4;stroke-dasharray:5 9;animation:flow 2.8s linear infinite}
-.atlas .flow.back{stroke:var(--sea);animation-direction:reverse}
-@keyframes flow{to{stroke-dashoffset:-28}}
-.atlas .core{animation:breathe 7s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
-@keyframes breathe{50%{transform:scale(1.012)}}
-.atlas .pin{fill:var(--sun);animation:pulse 3.2s ease-in-out infinite}
 @keyframes pulse{50%{opacity:.35}}
 
 /* ---------- §03 drawers (Petri 18.9.: bigger preview, parked beside the plus, the plus grows as the pointer nears) ---------- */
@@ -487,8 +472,8 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
 .static .frame,.reduced .frame{opacity:1;transform:none}
 .static .words .w>span,.reduced .words .w>span{transform:none;transition:none}
 .static .item::before,.static .rule::after,.reduced .item::before,.reduced .rule::after{transform:none}
-.static .orb,.static .glint,.static .atlas .flow,.static .atlas .core,.static .atlas .pin,.static .cryo-btn .dot,
-.reduced .orb,.reduced .glint,.reduced .atlas .flow,.reduced .atlas .core,.reduced .atlas .pin,.reduced .cryo-btn .dot{animation:none}
+.static .orb,.static .glint,.static .cryo-btn .dot,
+.reduced .orb,.reduced .glint,.reduced .cryo-btn .dot{animation:none}
 .static .sky-cursor,.reduced .sky-cursor,.static .sky-reading{display:none}
 .static .frame .pill{opacity:1;transform:none}
 .static .hero{min-height:0;padding:150px 0 60px}
@@ -625,7 +610,12 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
       </article>
 
       <article class="plate flip">
-        <figure class="frame" data-live="atlas"><canvas></canvas><span class="cap">Atlas · the workspace</span><span class="pill quiet-pill">Access-protected</span></figure>
+        <figure class="frame video dark">
+          <video muted loop playsinline preload="none" poster="media/atlas-explainer-poster.jpg" src="media/atlas-explainer.mp4" aria-label="Atlas in about a minute: every AI session forgets when it closes, so I built a notebook they all share. A partner and I each have our own AI, and both write to the same place. Click to play with sound."></video>
+          <span class="cap">Why I built Atlas · 1 min</span>
+          <span class="play">▶</span>
+          <span class="pill quiet-pill">Access-protected</span>
+        </figure>
         <div>
           <span class="status infra" data-reveal><i></i>In use · 2026 →</span>
           <h3 data-reveal>Atlas</h3>
@@ -848,7 +838,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
         <a href="https://github.com/pkorrrhonen-cmd" rel="me">GitHub<small>github.com/pkorrrhonen-cmd ↗</small></a>
       </div>
     </div>
-    <div class="foot"><span>Sunrise Software Oy · Tampere, Finland</span><span>Est. 2024</span><span data-revised="2026-11-14">Revised 14 Nov 2026</span></div>
+    <div class="foot"><span>Sunrise Software Oy · Tampere, Finland</span><span>Est. 2024</span><span data-revised="2026-11-15">Revised 15 Nov 2026</span></div>
   </div>
 </section>
 
@@ -1130,46 +1120,6 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
       ctx.fillText(on ? `RUNNING ${Math.floor((t % 1400) / 14)} %` : (done ? 'DONE' : 'QUEUED'), w * 0.91, y + h * 0.025); ctx.textAlign = 'left';
     });
     ctx.fillStyle = 'rgba(223,243,255,.55)'; ctx.font = `${Math.round(h * 0.026)}px JetBrains Mono, monospace`; ctx.fillText('LOCAL AI SERVER · ALWAYS ON · COST ≈ 0 €', w * 0.08, h * 0.95);
-  };
-
-  /* Atlas: the workspace board (apps-v3 A.6) */
-  const ATLAS_COLS = [
-    ['PROJECTS', ['Luviamo · in production', 'MasterForge · free tier rebuilt', 'Salpa Defence · demo live', 'Virustutka · autumn season']],
-    ['WAITING ON', ['partner: two decisions', 'Meta: app review', 'me: meeting date', 'brand: font files']],
-    ['DECIDED', ['pricing tiers · partner', 'launch window · me', 'channel order · together', 'brand voice · partner']],
-  ];
-  sketches.atlas = (cv, t) => {
-    const { ctx, w, h } = fit(cv);
-    ctx.fillStyle = '#F6F0E6'; ctx.fillRect(0, 0, w, h);
-    const colW = w * 0.235, gap = w * 0.02, left = w * 0.05, top = h * 0.16;
-    ATLAS_COLS.forEach((col, c) => {
-      const x = left + c * (colW + gap);
-      ctx.fillStyle = '#8B96A0'; ctx.font = `${Math.round(h * 0.026)}px JetBrains Mono, monospace`; ctx.fillText(col[0], x, top - h * 0.03);
-      ctx.fillStyle = 'rgba(32,48,60,.06)'; ctx.fillRect(x, top, colW, h * 0.66);
-      col[1].forEach((card, i) => {
-        const phase = Math.max(0, Math.min(1, (t - (c * 4 + i) * 260) / 600));
-        const cy = top + h * 0.03 + i * h * 0.155, slide = (1 - phase) * h * 0.04;
-        ctx.globalAlpha = phase;
-        ctx.fillStyle = '#FFFDF9'; ctx.shadowColor = 'rgba(32,48,60,.18)'; ctx.shadowBlur = 10; ctx.shadowOffsetY = 3;
-        ctx.beginPath(); ctx.roundRect(x + w * 0.012, cy + slide, colW - w * 0.024, h * 0.12, 5); ctx.fill(); ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
-        const accent = c === 2 ? '#4E987C' : (c === 1 ? SUN : SEA); ctx.fillStyle = accent; ctx.fillRect(x + w * 0.012, cy + slide, 3, h * 0.12);
-        ctx.fillStyle = INK; ctx.font = `${Math.round(h * 0.03)}px Public Sans, sans-serif`;
-        const [main, sub] = card.split(' · '); ctx.fillText(main, x + w * 0.03, cy + slide + h * 0.05);
-        ctx.fillStyle = '#8B96A0'; ctx.font = `${Math.round(h * 0.024)}px JetBrains Mono, monospace`; ctx.fillText((sub || '').toUpperCase(), x + w * 0.03, cy + slide + h * 0.088);
-        ctx.globalAlpha = 1;
-      });
-    });
-    /* the partner and the phone on the right */
-    const px = w * 0.835, py = h * 0.2;
-    ctx.strokeStyle = 'rgba(32,48,60,.35)'; ctx.lineWidth = Math.max(1.5, w / 700); ctx.beginPath(); ctx.roundRect(px, py, w * 0.11, h * 0.5, 12); ctx.stroke();
-    ctx.fillStyle = 'rgba(32,48,60,.06)'; ctx.fillRect(px + w * 0.01, py + h * 0.05, w * 0.09, h * 0.4);
-    for (let i = 0; i < 5; i++) { const on = Math.floor(t / 900) % 5 === i; ctx.fillStyle = on ? SUN : 'rgba(32,48,60,.15)'; ctx.fillRect(px + w * 0.02, py + h * 0.08 + i * h * 0.07, w * 0.07, h * 0.04); }
-    ctx.fillStyle = '#8B96A0'; ctx.font = `${Math.round(h * 0.024)}px JetBrains Mono, monospace`; ctx.textAlign = 'center'; ctx.fillText('PARTNER', px + w * 0.055, py + h * 0.56); ctx.fillText("ON THE PHONE", px + w * 0.055, py + h * 0.6); ctx.textAlign = 'left';
-    /* the library shelf */
-    ctx.fillStyle = 'rgba(32,48,60,.35)'; ctx.fillRect(left, h * 0.9, w * 0.745, 1.5);
-    for (let i = 0; i < 26; i++) { const bw = w * 0.018 + (i % 3) * w * 0.006; const bx = left + i * w * 0.028; if (bx + bw > left + w * 0.745) break; ctx.fillStyle = i % 4 === 0 ? SUN : (i % 4 === 1 ? SEA : 'rgba(32,48,60,.35)'); ctx.fillRect(bx, h * 0.86 - (i % 5) * 2, bw, h * 0.04 + (i % 5) * 2); }
-    ctx.fillStyle = '#8B96A0'; ctx.font = `${Math.round(h * 0.024)}px JetBrains Mono, monospace`; ctx.fillText('THE LIBRARY · EVERYTHING BUILT, WITH ITS REASONS', left, h * 0.96);
-    ctx.fillText('ATLAS · THE WORKSPACE', left, h * 0.08);
   };
 
   /* run every visible live canvas on one rAF loop */

@@ -1152,3 +1152,156 @@ emulation, and the poster) and the page's own video. Petri said "Aloitetaan AJ".
   muted in view, a click on either turns the sound on, `scrollWidth` 375 on the phone, no page errors; the
   front page's script parses. `check-site` green over five pages.
 
+
+### Round AK, the front page: Atlas and Somnus as explainer videos (15.11.2026)
+
+Petri on 15.11.2026: the Atlas and Somnus plates in §02 should be videos that tell what the two are and
+what they do, about 60 s in landscape, in the style of the explainers sf3d.fi already has on the decision
+rooms: a "what is Atlas" and a "what is Somnus".
+
+Read in the session: the two plates (apps-v3 A.4, the Somnus rack panel; A.6, the Atlas workspace board;
+both canvas drawings) and their copy; the sf3d.fi lab's repository (`sf3d-ai-lab`, `origin/main`
+`6b86ab0`, 7.11.2026): `docs/VIDEO-SERIES-PLAN.md` v0.2 (29.10.2026, the lab's decisions D-40 to D-46:
+two lines of four explainers of at most 60 s on the explainer kit, line A on Atlas and line B on Somnus, one
+everyday metaphor per video said once, no cost or energy number in a Somnus explainer), A1 "Why I Built
+Atlas" (`video/atlas-explainer/`: storyboard, narration, sources; the finals in the lab's untracked
+`media/publish/atlas-explainer/`: `atlas-explainer-en.mp4` 1920x1080, 63.6 s, 3.18 MB, Petri's own voice,
+live on sf3d.fi since 29.10.2026, and its 9:16 cut), its frames as a contact sheet, and the kit's newest
+change (6b86ab0: any even frame size, and a caption band under the picture). B1 "Why There Is an AI Server
+in My Home" is planned (order 3 in the plan) and not made. Somnus's `BUILD_INFO.json` (`origin/main`
+`19d8bb5`, 14.11.2026) and the Atlas model (`atlas_list_systems`, read 15.11.2026: 25 systems, so A1's
+spoken "twenty-five of them" still holds; 358 modules against the 344 on A1's screen).
+
+Found on the way: A1's frames carry the lab's eyebrow `SF3D AI LAB · HOW THE LAB WORKS` in the top-left
+corner, where the plate's own caption sits; the 16:10 frame with `object-fit: cover` cuts 5 % from each
+side of a 16:9 picture, before the parallax's 3 %; and its counts are read 29.10.2026. The Somnus plate's
+body ("it generates candidates, screens them locally for almost nothing, and hands only the best to the
+expensive models") and its spec `Three-tier funnel · local first` describe a line that is not running:
+Somnus's Tier 0 has been off since 25.10.2026 (TIER-5), and the box now runs the Laya-FI line and its
+probe experiments on its two cards, 08 to 22 through the card queue.
+
+| # | Question | Decision |
+|---|---|---|
+| AK.1 | The Atlas plate | **A site cut of A1**: rendered again from A1's own scenes in the lab's pipeline for the plate: 16:10, a 64 px safe area, without the lab's eyebrow, the counts read again and dated on the day of the render; Petri's voice track as it is. Muted while in view, sound on a click, as the MasterForge and Luviamo plates |
+| AK.2 | How the Somnus video is made | **B1 in the lab**: made in `sf3d-ai-lab` on the explainer kit as the series' part B1, as A1 was: its sources read from Somnus on the day, Petri's core sentence before the storyboard, his voice, a lab note on sf3d.fi, and a 16:10 site cut for the plate. The kit needs one new part, a machine with two cards |
+| AK.3 | What the Somnus video tells | **Other, Petri's words:** Somnus is no longer the original idea. The machine is shown as the server for all the computing, checking and work: for example CI checks, audio development that moves into MasterForge as products, the language factory that produces training material, and a research platform for local models; told as it really is now. A tool for general use and a research instrument. A second machine is coming beside it, and the aim is three separate servers; that gets one sentence ("soon there will be another...") |
+| AK.4 | Order and place | **Atlas first, the plates**: the Atlas site cut first (the voice exists), Somnus after it; both go into the front page's plates in place of the drawings. `/atlas/` and `/somnus/` (K.3) are a thread of their own later, with these videos as their lead media |
+
+**Carried to the next rounds.** AK.3's examples are Petri's direction, and each is checked against what
+runs before the storyboard (LESSONS 13.11.2026): which checks Somnus runs and for which repositories, the
+audio work and what of it reached MasterForge, the Laya-FI factory, the research on local models; a fact
+list in two parts, built and running, and not built. The second machine's sentence is written in the text
+round: the page carries no "coming soon" (CLAUDE.md) and the lab's rulebook shows an idea as an idea, never
+as a promise, so it is proposed there in a dated or plain form. The plate's body and spec are read against
+the video in the same build round, because both have to tell the same story. **For the Atlas cut's text
+round (AL):** the source lines on screen (A1 carries `Drawn after Atlas Connect's guide v8`, read against
+adr.sws.015 like every text in a picture, LESSONS 14.11.2026), the bottom-right card source line under the
+plate's pill, whether the muted loop carries burned captions (the kit's caption band) since the story is in
+the voice, the poster, the caption and the `aria-label`.
+
+### Trial 1 of the Atlas site cut (15.11.2026)
+
+Made in the lab's pipeline from a worktree of `sf3d-ai-lab` (`origin/main` `6b86ab0`, branch
+`claude/a1-site-cut`), with no change to the lab's code: A1's eight scenes recorded again at 1920x1080 with the
+`at=` moments of Petri's voice (2.9, 1.6, 1.4, 1.7, 5.7, 3.4, 5.3, 0.8) and the lab's eyebrow hidden by
+`record.py --init-script`; cut with A1's own `cut.json` and finished with `final.json` on Petri's track
+(`narration.wav` of 29.10.2026) with `final.py --band 120 --burn`: 1920x1200 (the 1920x1080 picture and a
+120 px caption band, exactly 16:10), 63.6 s, 3.6 MB with burned captions. The takes' done marks matched the
+originals within 0.1 s. Its counts are still the read of 29.10.2026. Looked at in the plate on a scratch copy
+of the front page (no page in the repository changed) at 1440 px and at 375 px with device emulation:
+`docs/mockups/atlas/round-AL-trial1-sheet.jpg`, `round-AL-plate-1440.jpg`, `round-AL-plate-375.jpg`,
+`round-AL-end-card.jpg`.
+
+Measured in the plate: at 1440 px the frame is 494 px wide, so the frame's caption ends about y 97 in the
+video's coordinates and the scenes' content starts at y 150; at 375 px the frame is 335 px wide and the
+caption reaches y 143, still above the content. The `Access-protected` pill is hidden on a phone until a
+touch, as on every plate. The burned captions are about 7 px tall on a phone, readable but small, and the
+scenes' mono source lines cannot be read there at all. The black band stands apart from the picture's dark
+blue. Read on screen for the round: the graph's node `this site` (the lab's own system, sf3d.fi), the foot
+`the decision card: this site's own decision of 20.10.2026`, scene 7's `that story: Decision Rooms in a
+Minute` (an sf3d.fi video), the source line `Drawn after Atlas Connect's guide v8 · 21.9.2026`, and the end
+card `SF3D AI Lab` / `sf3d.fi`.
+
+### Round AL, the Atlas site cut: its words (15.11.2026)
+
+| # | Question | Decision |
+|---|---|---|
+| AL.1 | Captions in the muted loop | **The band, in the picture's colour**: the captions stay in the band under the picture, the band is the picture's own dark background instead of black, and the captions are larger, one line at a time, so a phone can read them. The question said about 48 px in the 1920 frame; trial 1's two-line captions were already about 46 px, so the decision's aim is met at 64 px (trial 2) |
+| AL.2 | sf3d.fi's references on screen | **Named as sf3d.fi**: the node `sf3d.fi`; the foot `the decision card: sf3d.fi's own decision of 20.10.2026`; scene 7's line `that story: How the decision rooms work` (the words of the plate's own `/rooms/` button); the end card stays `SF3D AI Lab` / `sf3d.fi`, because the video and its long version are the lab's |
+| AL.3 | The version on screen | **Without it**: `Drawn after Atlas Connect's guide · 21.9.2026`; the date names the guide, and no version number is on screen (adr.sws.015, LESSONS 14.11.2026) |
+| AL.4 | The plate's caption and label | Caption `Why I built Atlas · 1 min`; `aria-label` `Atlas in about a minute: every AI session forgets when it closes, so I built a notebook they all share. A partner and I each have our own AI, and both write to the same place. Click to play with sound.` |
+
+**For the build round (AM):** trial 2 with AL.1 to AL.3 and the counts read again on the day of the render
+(AK.1); the poster; the length (63.6 s, as A1); the encoding for the page (E.4's 4 MB); whether the plate's
+body still matches the video; how the site cut's words and the band's colour land in the lab (its own words
+file beside A1's, so A1 itself is unchanged).
+
+### Trial 2 of the Atlas site cut (15.11.2026)
+
+Built on the lab's branch `claude/a1-site-cut` with AL.1 to AL.3 and the counts read again (AK.1). In the lab:
+`?variant=site` makes A1's scenes read `<file>.site.json` in place of each data file, so A1's own files stay as
+published; the kit's eyebrow is optional (`"brand": null`); `final.py` takes `band_color` and
+`band_caption_px` (one line at that height); `final-site.json` is the plan: 1920x1080 and a band of 120 in
+`0x070b14` (the picture's `--bg`, sampled from the picture's foot as 6, 9, 20), captions at 64 px. The site
+files: `scenes.context.site.json` (no eyebrow; `sf3d.fi` for the node; the foot `the decision card: sf3d.fi's
+own decision of 20.10.2026`; `Drawn after Atlas Connect's guide · 21.9.2026`; `that story: How the decision
+rooms work`; read dates 15.11.2026), `model-systems.site.json` (`atlas_list_systems` 15.11.2026: 25 systems,
+358 modules), `model-connections.site.json` (`atlas_get_connections` 15.11.2026: 288, 28 across systems, the
+same ids and 11 pairs as 29.10.2026), `calibration.site.json` (`atlas_decision_calibration`, 500 rows,
+15.11.2026: 484 with a recommendation, 449 followed; 72 checked against the world, 62 held; 180 room
+results, 121 confirmed). Two takes froze on the machine (14 and 4 frames) and were taken again; every take's
+done mark then matched A1's within 0.1 s. Result: 1920x1200, 63.6 s, 3.8 MB with captions
+(`docs/mockups/atlas/round-AM-trial2-sheet.jpg`).
+
+**Found in the read.** A1's scene 7 pairs the rooms among the 500 newest rows (`roomResults.n`) with H1's
+deviations (`h1.poikenneet`). On 29.10.2026 these counted nearly the same rooms (220 and 43); on 15.11.2026
+H1 reads every closed queue row (355 rooms, 257 confirmed, 98 deviated) while the 500 rows hold 180 rooms,
+so the same code would print `180 checked blind by a room · 98 disagreed`. Trial 2 takes both from the same
+rows: `deviated` is 180 less the 121 confirmed, 59. And Petri's voice says that "nearly all of those
+checked against what happened held": true of 29.10.2026 (108 of 111), while the read of 15.11.2026 is 62 of
+72 (86 %). **Found in the plate at 375 px:** the plate's caption reaches y 143 in the video's coordinates,
+and the board's `ATLAS` label sits at y 116 to 143 in scenes 4 to 6 (and touches it at y 136 in scenes 2
+and 3), so on a phone the caption covers it.
+
+### Round AM, the Atlas site cut: the record, the phone and the file (15.11.2026)
+
+| # | Question | Decision |
+|---|---|---|
+| AM.1 | Petri's voice and the read of 15.11.2026 (scene 7 says "nearly all of those checked against what happened held"; 62 of 72 held) | **Block 7 voiced again** with today's counts on screen. Proposal taken: `The notebook counts itself. Of the last five hundred decisions, most followed the advice, and most of those checked against what happened held.` Petri makes the block in his own voice (ElevenLabs); it is spliced into the track of 29.10.2026 in place of the old block 7 and aligned again |
+| AM.2 | The rooms' line in scene 7 | **From the same rows**: `180 checked blind by a room · 59 disagreed`, both counts from the 500 newest rows (180 rooms, 121 confirmed), under the scene's own source line |
+| AM.3 | The plate's caption over the board's label on a phone | **The board's label out of the site cut** (as AJ.2 for MasterForge's eyebrow): the plate's caption and the voice name Atlas. Done the same day: the kit hides an empty board label, `scenes.context.site.json` has `"atlas_label": ""`, scenes 2 to 6 taken again |
+| AM.4 | The file and the poster | **1280x800 at CRF 22** (about 2 MB; the captions 43 px), the poster the frame at 29.5 s as A1's (two people, their AIs, the struck line between them) |
+
+**Next:** Petri's block 7 (save it as `media/atlas-explainer-site/audio/block7.mp3` in the lab's main
+checkout); then the splice, `align.py`, scene 7 taken again on the new moments, the final, the 1280x800 file and its
+poster, the plate built on this branch's page with AL.4's caption and label (the build round reads the plate's
+body against the video), the lab's records and its pull request for the variant and the band options.
+
+### Round AN, the Atlas site cut: the plate as built (15.11.2026)
+
+Built after Petri's block 07 arrived (his own voice, 9.04 s): spliced into his track of 29.10.2026 in place of the old
+block 07 (46.72 to 55.12 s) with -0.14 dB to match its -24.92 LUFS, aligned again (every block found, fit cost 0.22),
+scene 7 taken again at `at=5.5` (his pause after "the advice" falls 0.24 s later) and the final made: 63.8 s. The page's
+file `media/atlas-explainer.mp4` (1280x800, CRF 22, AAC 128k, faststart, 2.12 MB) and its poster
+`media/atlas-explainer-poster.jpg` (29.5 s). Every readable text in the final read against the page's rules (LESSONS
+14.11.2026): no version number, no employer's name, every count dated `read 15.11.2026`. Shown with
+`docs/mockups/atlas/round-AN-plate-1440.jpg`, `round-AN-plate-375.jpg` and `round-AN-final-sheet.jpg`.
+
+| # | Question | Decision |
+|---|---|---|
+| AN.1 | The plate as built | **As built**: the dark 16:10 frame, the video muted while in view with its captions in the band, the ▶ in the middle, a click plays from the start with sound and adds ` · sound on`, a second mutes; caption `Why I built Atlas · 1 min`, the poster at 29.5 s, the `Access-protected` pill kept; the drawing, its script and the unused `.atlas` styles removed |
+| AN.2 | The plate's body against the video | **Unchanged**: the text and the video tell the same thing from two sides (what waits on whom, decisions, partners, the phone); the video shows the mechanism, the text the reach (the library, ideas validated) |
+| AN.3 | The lab's part | **The lab's pull request now**: Sunrisesoftware-app/sf3d-ai-lab PR #50 (the variant, the optional eyebrow and board label, the band's colour and one-line captions, the site cut's files and records); A1 itself unchanged; merged by Petri |
+| AN.4 | Publishing | **A pull request now**, the Cloudflare preview looked at at 1440 and 375 px before the merge, merged on Petri's word |
+
+### How PR I was built (15.11.2026)
+
+- **The plate.** `<figure class="frame" data-live="atlas">` with its canvas became `<figure class="frame video dark">`
+  with the video, the caption AL.4, the ▶ and the `Access-protected` pill; `aria-label` AL.4. The click-to-sound
+  script of PR H serves it unchanged. `sketches.atlas` and `ATLAS_COLS` went, and so did the `.atlas` styles of the
+  first schematic (unused since the board replaced it on 20.9.2026) with their `flow` and `breathe` keyframes; `pulse`
+  stays for the cryo button.
+- **Checked locally:** Edge at 1440 px and at 375 px with device emulation: the video plays muted in view (1280x800,
+  63.8 s), a click plays it from the start with sound and adds ` · sound on`, a second click mutes; `scrollWidth` 375
+  on the phone; the caption ends above the scenes' content at both widths; no console errors. `check-site` green over
+  five pages, 41 local files.

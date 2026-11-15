@@ -2,6 +2,21 @@
 
 Opitut virheet ja estosäännöt, jotta niitä ei toisteta. Uusin ensin.
 
+## 15.11.2026: kysymyksen luku arvioitiin, ei mitattu
+
+**Mitä tapahtui:** Kierroksen AL kysymys AL.1 tarjosi suositukseksi tekstityksen kasvattamista "noin 48 px:iin
+1920-kehyksessä", jotta puhelin lukisi sen. Luku oli arvio. Koeleikkauksen kaksirivinen tekstitys oli jo noin 46 px
+(`final.py`:n nauhatyyli: FontSize 11,1 skriptin 288 yksikössä 1200 px:n korkeudella), joten suositus olisi
+toteutettuna jättänyt tekstityksen ennalleen. Petri hyväksyi suosituksen. Virhe huomattiin vasta toteutusvaiheessa,
+kun tyylikoodi luettiin, ja päätöksen tarkoitus (luettava puhelimella, yksi rivi) toteutettiin 64 px:nä ja kerrottiin
+Petrille.
+
+**Estosääntö:**
+- Kun kysymyksen vaihtoehto nimeää luvun (koko, määrä, kesto), se mitataan näytetystä tiedostosta tai koodista
+  ennen kierrosta, ja kysymys kertoo nykyisen arvon luvun vierellä.
+- Jos päätetty luku ei toteuta päätöksen tarkoitusta, tarkoitus voittaa, ja ero kerrotaan Petrille ja kirjataan
+  päätösriville.
+
 ## 14.11.2026: kuvan teksti ohittaa sivun vahdit
 
 **Mitä tapahtui:** ReviewGlassin mockupin koekuvassa (kierros AE) lasi suurensi oikean diffin rivejä, ja
