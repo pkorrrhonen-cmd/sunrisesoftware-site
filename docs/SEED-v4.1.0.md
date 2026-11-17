@@ -143,7 +143,7 @@ PAPER
 TEXT (the sea, deep)
   --text        #20303C   primary
   --text-2      #50606C   body
-  --text-meta   #8B96A0   labels, years, captions
+  --text-meta   #66717B   labels, years, captions (4.65:1 on --base; #8B96A0 until 17.11.2026, adr.sws.024)
 
 RULES
   --rule        rgba(32,48,60,.10)
@@ -151,7 +151,8 @@ RULES
 
 SUN (one warm accent family)
   --sun         #E8A54E   the mark, live dots on dark, the hover glow, the nav sun
-  --sun-deep    #C57A2C   emphasis in headlines and rules, links, section marks, buttons on paper
+  --sun-deep    #C57A2C   the coloured clause of display text 24 px and over, lines, marks, the plus
+  --sun-ink     #9E5F1E   the sun as text under 24 px: tags, links, section marks, kicker, labels (4.77:1, adr.sws.024)
   --sun-soft    rgba(232,165,78,.16)
 
 SEA (secondary, cool)
@@ -182,8 +183,9 @@ DISPLAY:  Familjen Grotesk 400 (500 for the wordmark), tracking -0.03em, no ital
 BODY:     Public Sans 300 (paragraphs) / 400 / 500 (nav, buttons) / 600; 15 to 17px, lh 1.55
 LABELS:   JetBrains Mono 400/500, 10 to 12px, tracking .12 to .2em, uppercase:
           section marks, group labels, kicker, meta row, status lines, spec strips, facts, years, captions, footer
-EMPHASIS: colour only (--sun-deep); the coloured clause inside a heading or a rule is the emphasis.
-Google Fonts: Familjen+Grotesk:wght@400;500;600, Public+Sans:wght@300;400;500;600, JetBrains+Mono:wght@400;500.
+EMPHASIS: colour only (--sun-deep on display text 24 px and over, --sun-ink under it); the coloured clause inside a heading or a rule is the emphasis.
+Self-hosted (adr.sws.025): fonts/, the variable woff2 files of Google Fonts (Familjen Grotesk 400 to 600 v11, Public Sans 300 to 600 v21,
+JetBrains Mono 400 to 500 v24), latin and latin-ext, @font-face inline in each page, the three latin files preloaded.
 ```
 
 ### 3.3 The sky and the light (motion system)
@@ -192,7 +194,7 @@ Google Fonts: Familjen+Grotesk:wght@400;500;600, Public+Sans:wght@300;400;500;60
 - **The reading light**: a 1500×1100 warm ellipse (blur 44px, opacity `1 - dawn`) that eases toward the heading of the section nearest 42 % of the viewport. The mist parts and the sun lights what is read.
 - **The cursor light** (fine pointers only): an 880 px warm radial that follows the pointer with lag in the hero, and switches off over the portrait column.
 - **The nav sun**: a 22 px SVG; the disc sits below a horizon line and rises with `p` (translateY −11px at the bottom of the page) with a growing glow. On the shore the nav darkens (`.on-sea`).
-- **Reveals**: `[data-reveal]` fades and rises 20 px; headings split into words that rise one by one (40 to 50 ms stagger); §01 items draw their top rule; rules draw their bottom line. The first screen never waits for the observer.
+- **Reveals**: only under `.js` on `<html>` (set in `<head>`; without JavaScript everything shows, round AT.4); `[data-reveal]` fades and rises 20 px; the hero lede does not fade (it is the largest paint, round AU.3); headings split into words that rise one by one (40 to 50 ms stagger); §01 items draw their top rule; rules draw their bottom line. The first screen never waits for the observer.
 - **Parallax**: the portrait moves at 3 % of scroll; each plate's media at ±22 px around the viewport centre, scaled 1.06.
 - **Reduced motion**: everything visible, nothing moves, videos do not autoplay (`.reduced`). Static capture mode (`?static=1`) does the same for screenshots.
 
@@ -279,7 +281,7 @@ Rules for copy, on every page of the site: English, first person singular, no em
 
 ### 5.1 Stack
 
-Static files with inline CSS and JS, `images/`, `media/`, Google Fonts, Cloudflare Pages with Git integration (adr.sws.001; the React migration is off the roadmap, adr.sws.008). The front page is `index.html`; each sub-page is `index.html` in its own directory. No build step and no shared template file: the frame is copied into each page, and `scripts/check-site.mjs` is what keeps the copies honest.
+Static files with inline CSS and JS, `images/`, `media/`, `fonts/` (self-hosted, adr.sws.025), Cloudflare Pages with Git integration (adr.sws.001; the React migration is off the roadmap, adr.sws.008). The front page is `index.html`; each sub-page is `index.html` in its own directory. No build step and no shared template file: the frame is copied into each page, and `scripts/check-site.mjs` is what keeps the copies honest.
 
 ### 5.2 Assets shipped with the site
 

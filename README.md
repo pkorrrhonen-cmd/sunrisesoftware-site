@@ -2,7 +2,7 @@
 
 Source of **https://sunrisesoftware.app/**, the company site of Petri Korhonen / Sunrise
 Software Oy. Self-contained static pages (inline CSS and vanilla JS) plus `images/` and
-`media/`. The only external dependency is Google Fonts. There is no build step (adr.sws.001).
+`media/`, with the typefaces self-hosted under `fonts/` (adr.sws.025). There is no build step (adr.sws.001).
 Working practices are in `CLAUDE.md`; the design and content spec is the SEED in `docs/`.
 
 ## Status

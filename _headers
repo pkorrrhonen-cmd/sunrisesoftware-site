@@ -10,6 +10,11 @@
 /images/*
   Cache-Control: public, max-age=604800
 
+# Self-hosted typefaces (adr.sws.025). Each name carries Google Fonts' version, so a
+# changed font gets a new name and the old one may stay cached for a year.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # The site's own icons and manifest (scripts/icons.py, adr.sws.017). A crawler, a
 # browser and a phone ask for these by name, so they are files at the root.
 /favicon.ico

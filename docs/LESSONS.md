@@ -2,6 +2,19 @@
 
 Opitut virheet ja estosäännöt, jotta niitä ei toisteta. Uusin ensin.
 
+## 17.11.2026: tiedostovartija ei nähnyt srcsetiä
+
+**Mitä tapahtui:** `check-site` tarkisti paikalliset viittaukset vain `src`-, `href`-, `content`- ja
+`poster`-attribuuteista. Etusivun muotokuvan srcset (`petri-cutout-440.webp 440w, petri-cutout.webp 880w`) oli
+vartijan ulkopuolella, ja sen kuvaus oli väärin: tiedosto on 798 px leveä, ei 880. Sama aukko olisi päästänyt
+läpi puuttuvan srcset-kuvan ja puuttuvan fonttitiedoston. Se huomattiin, kun viittausten määrä pysyi 43:ssa, vaikka
+sivuille lisättiin yhdeksän fonttiviittausta ja kymmenen kuvaa.
+
+**Estosääntö:**
+- Kun sivulle tulee uusi tapa viitata tiedostoon (srcset, `url()`, `data-*`, uusi kansio), laajenna vartija samassa
+  muutoksessa ja kokeile, että puuttuva tiedosto kaataa sen.
+- Vartijan lukumäärä on mittari: jos se ei muutu, kun viittauksia lisätään, vartija ei näe niitä.
+
 ## 17.11.2026: video tarkistettiin tiedostona, ei sellaisena kuin sivu sen piirtää
 
 **Mitä tapahtui:** Atlas- ja Somnus-videoiden tekstitys poltettiin kuvan alakaistaan (rivit 752 ja 784 välillä 800:sta), ja

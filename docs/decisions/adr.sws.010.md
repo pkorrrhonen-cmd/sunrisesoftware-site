@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Status | accepted (Petri, 17.9.2026, from look round 1) |
+| Status | accepted (Petri, 17.9.2026, from look round 1); amended by adr.sws.024 (17.11.2026: --text-meta #66717B and the text shade --sun-ink #9E5F1E) |
 | Date | 2026-09-17 |
 | Decided by | Petri Korhonen |
 | Links | sws.site |
