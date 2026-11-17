@@ -3,6 +3,40 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 13, sivuketju (17.11.2026): Atlaksen peili
+
+**Tehty** sivuketjussa, jonka session 13 pääketju avasi viemään session päätökset Atlaksen peiliin. Haara
+`claude/atlas-mirror-s13` mainista `803c82b`. Sivua ei muutettu.
+
+**Luettu Atlaksesta:** malli `sw-sivusto` on yhä ennallaan: päätökset adr.sws.001 ja 002, moduulit `sws.site` ja
+`sws.deployment`, stackissa `google-fonts`. 15.11.2026 lähetetyt 30 ehdotusta ovat kaikki tilassa `approved`
+(Petri 15.11.2026 klo 18:16:23Z to 18:17:29Z), eikä yksikään ole `applied` tai `promoted`: malli ei ole vielä saanut
+niitä, vaan ne odottavat Atlaksen repon soveltamiscommitia. Kaikki 30 mahtuivat `atlas_list_proposals`:n uusimpaan
+100 riviin, ja ne rivit, joiden päälle uudet rakentuvat, luettiin kokonaan `atlas_get_proposal`illa.
+
+**Lähetetty** (author code, yksi kerrallaan, 15.11. erän muodossa; tunnisteet ja soveltamisjärjestys
+`BUILD_INFO.atlas_proposals_2026_11_17`):
+
+- create adr.sws.024 ja adr.sws.025 tiedostoista mainissa `803c82b`; 025 linkittää myös `sws.checks`:iin, koska sen
+  toinen seuraus on check-siten muutos.
+- update adr.sws.010: Record-rivin tila "amended by adr.sws.024", rakennettu 15.11. createn päälle (sama tapa kuin
+  adr.sws.005:n päivityksessä).
+- update `sws.site`: 15.11. päivityksen rajapinta kulutti yhä Google Fontsia; nyt ei mitään, ja hyväksyntään kaksi
+  riviä (WCAG AA -tekstitokenit, fontit `fonts/`:sta).
+- update `sws.checks`: "missing local file" tarkennettu (srcset-, `data-poster`-, `url()`- ja `fonts/`-viittaukset) ja
+  lukijan itsetesti omaksi hyväksyntäriviksi.
+- update järjestelmän stack: `google-fonts` tilalle `self-hosted-fonts`. Tätä ei pyydetty erikseen, mutta se oli
+  suora ristiriita adr.sws.025:n kanssa.
+
+**Tarkistettu mainista `803c82b`:** viidellä sivulla kuusi `@font-face`-sääntöä ja kolme `/fonts/`-preloadia, ei
+yhtään `googleapis`-viittausta millään sivulla (404 käyttää fonttipinoja lataamatta), `--sun-ink` ja #66717B
+kaikilla viidellä sivulla ja `404.html`:ssä, `_headers` antaa `/fonts/*`:lle vuoden immutable-välimuistin,
+check-siten viittauslukija ja sen itsetesti.
+
+**Ei lähetetty:** adr.sws.012 ("self-hosting is decided with the page") ja adr.sws.001 ("no dependency beyond Google
+Fonts") puhuvat yhä Google Fontsista, mutta niiden tiedostoja ei muutettu session 13 aikana, joten peiliin ei keksitty
+muutosta. BUILD_INFO 5.17.1, Atlaksen `sw-sivusto.STATUS` v47.
+
 ## Sessio 13 (17.11.2026): Atlas-videon tekstitys näkyviin
 
 **Alku:** main `3ba2aba`, ei committeja edellä eikä jäljessä, ei avoimia PR:iä. Labran PR #50 on mergetty
