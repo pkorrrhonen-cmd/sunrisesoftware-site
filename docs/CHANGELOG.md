@@ -23,7 +23,12 @@ ja Luviamo pitävät sen. Suositus olisi ollut parallaksi pois kaikilta videolaa
 **PR K:** `index.html`: kaksi `data-captioned`-attribuuttia ja `frames`-lista `.frame:not([data-captioned])`;
 alatunniste ja sitemapin lastmod 2026-11-17. Tarkistettu paikallisesti liike päällä: Atlas ja Somnus ilman muunnosta,
 MasterForge yhä parallaksilla, Atlas 44 s kohdalla teksti kokonaan näkyvissä, 375 px ilman vaakavieritystä ja
-konsolivirheitä. BUILD_INFO 5.16.4. Livetarkistus mergen jälkeen.
+konsolivirheitä. BUILD_INFO 5.16.4.
+
+**Deploy:** PR #32 squash-mergetty Petrin sanalla ("Mergeä se") 13:46:33Z (`b4962f2`), Site checks ja Cloudflare
+Pages vihreinä; livenä 13:47:02Z (build 821713f0). Livesivu eroaa mainista vain Cloudflaren analytiikkaskriptillä,
+`data-revised` ja sitemapin lastmod 2026-11-17. Esikatselu-URL:ia ei katsottu ennen mergeä; muutos tarkistettiin
+paikallisesti.
 
 ## Sessio 12, päätös (15.11.2026): sulkutoimet
 
