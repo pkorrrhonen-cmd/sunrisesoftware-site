@@ -10,7 +10,7 @@ decision). A decision is never deleted: a wrong one is superseded and the file s
 
 | Id | Title | Status |
 |---|---|---|
-| [adr.sws.001](adr.sws.001.md) | Static HTML with no build step | accepted |
+| [adr.sws.001](adr.sws.001.md) | Static HTML with no build step | accepted, amended 17.11.2026 (adr.sws.025) |
 | [adr.sws.002](adr.sws.002.md) | Editorial numbered-section architecture over the SaaS landing pattern | accepted |
 | [adr.sws.003](adr.sws.003.md) | The SF3D history is a claim, a lead and a cryo chamber behind a button | accepted |
 | [adr.sws.004](adr.sws.004.md) | Every status on the page carries a date; no relative-time copy | accepted, amended by 015 |
@@ -21,7 +21,7 @@ decision). A decision is never deleted: a wrong one is superseded and the file s
 | [adr.sws.009](adr.sws.009.md) | Documentation follows the family standard | accepted |
 | [adr.sws.010](adr.sws.010.md) | The look is the sunrise over the sea, palette A shifted a little toward C | accepted, amended 17.11.2026 (adr.sws.024) |
 | [adr.sws.011](adr.sws.011.md) | Flow 1 is the direction of the page | accepted |
-| [adr.sws.012](adr.sws.012.md) | The typefaces are Familjen Grotesk and Public Sans | accepted |
+| [adr.sws.012](adr.sws.012.md) | The typefaces are Familjen Grotesk and Public Sans | accepted, amended 17.11.2026 (adr.sws.025) |
 | [adr.sws.013](adr.sws.013.md) | Flow 4 is the page; SEED v3.0.0 records it | accepted |
 | [adr.sws.014](adr.sws.014.md) | One source for the facts the page shares with the profile README | accepted 15.11.2026 |
 | [adr.sws.015](adr.sws.015.md) | No product version numbers on the page; a status carries a date | accepted |

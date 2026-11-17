@@ -185,7 +185,7 @@ LABELS:   JetBrains Mono 400/500, 10 to 12px, tracking .12 to .2em, uppercase:
           section marks, group labels, kicker, meta row, status lines, spec strips, facts, years, captions, footer
 EMPHASIS: colour only (--sun-deep on display text 24 px and over, --sun-ink under it); the coloured clause inside a heading or a rule is the emphasis.
 Self-hosted (adr.sws.025): fonts/, the variable woff2 files of Google Fonts (Familjen Grotesk 400 to 600 v11, Public Sans 300 to 600 v21,
-JetBrains Mono 400 to 500 v24), latin and latin-ext, @font-face inline in each page, the three latin files preloaded.
+JetBrains Mono 400 to 500 v24), latin and latin-ext, @font-face inline in each page, the latin files preloaded (the front page preloads only the display and body faces, round AW.2).
 ```
 
 ### 3.3 The sky and the light (motion system)
@@ -194,6 +194,7 @@ JetBrains Mono 400 to 500 v24), latin and latin-ext, @font-face inline in each p
 - **The reading light**: a 1500×1100 warm ellipse (blur 44px, opacity `1 - dawn`) that eases toward the heading of the section nearest 42 % of the viewport. The mist parts and the sun lights what is read.
 - **The cursor light** (fine pointers only): an 880 px warm radial that follows the pointer with lag in the hero, and switches off over the portrait column.
 - **The nav sun**: a 22 px SVG; the disc sits below a horizon line and rises with `p` (translateY −11px at the bottom of the page) with a growing glow. On the shore the nav darkens (`.on-sea`).
+- **Posters**: a §02 video plate fetches its poster when it comes within 800 px (`data-poster`, round AW.1).
 - **Reveals**: only under `.js` on `<html>` (set in `<head>`; without JavaScript everything shows, round AT.4); `[data-reveal]` fades and rises 20 px; the hero lede does not fade (it is the largest paint, round AU.3); headings split into words that rise one by one (40 to 50 ms stagger); §01 items draw their top rule; rules draw their bottom line. The first screen never waits for the observer.
 - **Parallax**: the portrait moves at 3 % of scroll; each plate's media at ±22 px around the viewport centre, scaled 1.06.
 - **Reduced motion**: everything visible, nothing moves, videos do not autoplay (`.reduced`). Static capture mode (`?static=1`) does the same for screenshots.

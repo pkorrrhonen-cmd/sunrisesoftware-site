@@ -29,7 +29,6 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/familjen-grotesk-latin-v11.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/public-sans-latin-v21.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/jetbrains-mono-latin-v24.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -576,7 +575,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
       <div class="group" data-reveal>Commercial products</div>
       <article class="plate">
         <figure class="frame video dark">
-          <video muted loop playsinline preload="none" poster="media/masterforge-chain-poster.jpg" src="media/masterforge-chain.mp4" aria-label="MasterForge in 17 seconds: a track measured, repaired by SpectralForge, finished by Pro Master, and the raw and mastered spectra compared. Click to play with sound."></video>
+          <video muted loop playsinline preload="none" data-poster="media/masterforge-chain-poster.jpg" src="media/masterforge-chain.mp4" aria-label="MasterForge in 17 seconds: a track measured, repaired by SpectralForge, finished by Pro Master, and the raw and mastered spectra compared. Click to play with sound."></video>
           <span class="cap">Auto-Master · measure, repair, master</span>
           <span class="play">▶</span>
           <a class="pill" href="https://masterforge.app" aria-label="Visit masterforge.app">Visit ↗</a>
@@ -593,7 +592,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
 
       <article class="plate flip">
         <figure class="frame video light" id="luviamoFrame">
-          <video muted loop playsinline preload="none" poster="images/luviamo-poster.jpg" src="media/luviamo-intro.mp4" aria-label="Luviamo introduction video"></video>
+          <video muted loop playsinline preload="none" data-poster="images/luviamo-poster.jpg" src="media/luviamo-intro.mp4" aria-label="Luviamo introduction video"></video>
           <span class="cap">Intro · luviamo.app</span>
           <span class="play">▶</span>
           <a class="pill" href="https://luviamo.app" aria-label="Visit luviamo.app">Visit ↗</a>
@@ -611,7 +610,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
       <div class="group" data-reveal>Tools and research instruments</div>
       <article class="plate">
         <figure class="frame video dark" data-captioned>
-          <video muted loop playsinline preload="none" poster="media/somnus-explainer-poster.jpg" src="media/somnus-explainer.mp4" aria-label="Somnus in about a minute: the computer in the next room that does the heavy work for my projects. It runs their checks, writes Finnish training material, and is the instrument I test small AI models with. Click to play with sound."></video>
+          <video muted loop playsinline preload="none" data-poster="media/somnus-explainer-poster.jpg" src="media/somnus-explainer.mp4" aria-label="Somnus in about a minute: the computer in the next room that does the heavy work for my projects. It runs their checks, writes Finnish training material, and is the instrument I test small AI models with. Click to play with sound."></video>
           <span class="cap">What Somnus does · 1 min</span>
           <span class="play">▶</span>
           <a class="pill" href="https://sf3d.fi" aria-label="Lab notes at sf3d.fi">Visit ↗</a>
@@ -628,7 +627,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
 
       <article class="plate flip">
         <figure class="frame video dark" data-captioned>
-          <video muted loop playsinline preload="none" poster="media/atlas-explainer-poster.jpg" src="media/atlas-explainer.mp4" aria-label="Atlas in about a minute: every AI session forgets when it closes, so I built a notebook they all share. A partner and I each have our own AI, and both write to the same place. Click to play with sound."></video>
+          <video muted loop playsinline preload="none" data-poster="media/atlas-explainer-poster.jpg" src="media/atlas-explainer.mp4" aria-label="Atlas in about a minute: every AI session forgets when it closes, so I built a notebook they all share. A partner and I each have our own AI, and both write to the same place. Click to play with sound."></video>
           <span class="cap">Why I built Atlas · 1 min</span>
           <span class="play">▶</span>
           <span class="pill quiet-pill">Access-protected</span>
@@ -1112,6 +1111,12 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
   /* Video plates (MasterForge, Luviamo, Somnus, Atlas): play muted while in view; a click plays from the start with sound, a second click mutes */
   document.querySelectorAll('.frame.video').forEach(fr => {
     const v = fr.querySelector('video'); if (!v) return;
+    /* the poster is fetched when the plate comes near, not with the first screen (round AW.1) */
+    if (v.dataset.poster) {
+      const setPoster = () => { v.poster = v.dataset.poster; };
+      if (STATIC || !('IntersectionObserver' in window)) setPoster();
+      else { const pio = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { setPoster(); pio.disconnect(); } }, { rootMargin: '800px 0px' }); pio.observe(fr); }
+    }
     if (MOVE) {
       const inView = () => { const r = fr.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; };
       const play = () => v.play().then(() => fr.classList.add('playing')).catch(() => {});

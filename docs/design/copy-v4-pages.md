@@ -1460,3 +1460,23 @@ Comparison images: `docs/mockups/contrast/round-AU-hero-now-left-proposal-right.
   the five pages, no render-blocking request, FCP 1.2 s on the front page. The front page's largest paint is now
   the portrait, whose own fade (`.15s` delay, `.9s`) holds it: LCP 3.6 s there, 0.8 to 2.3 s on the sub-pages.
   Not decided in these rounds; put to Petri as the next question.
+
+### Round AW, the front page's largest paint (17.11.2026)
+
+Petri asked to continue with the portrait's fade, which PR M's measurement had named the remaining lever. Measured
+before the round (Lighthouse 13.6.0, mobile, three runs each on a local server that compresses as Cloudflare does):
+the page as it is 3.3 s (median), the portrait without its fade 3.3 s, the four §02 video posters left out 2.25 s,
+and the posters with JetBrains Mono's preload left out 0.9 s. The fade was not the cause: on the simulated 1.5 Mbit/s
+line about 400 kB arrive before the largest paint, 188 kB of them the posters of plates far below the first screen.
+With the fade kept Chrome does not count the portrait, and the lede (0.9 s) is reported; without it the portrait
+counts (2.1 s). Both are under 2.5 s.
+
+| # | Question | Decision |
+|---|---|---|
+| AW.1 | The §02 video posters, fetched with the first screen | **Fetched when the plate comes near**: `data-poster`, set by the plates' script when the plate is within 800 px (at once with `?static` or without IntersectionObserver); without JavaScript a plate shows its background colour |
+| AW.2 | JetBrains Mono's preload | **Left out** on the front page; the font still loads when the CSS asks for it. The sub-pages keep theirs (their largest paint is 0.9 s) |
+| AW.3 | The portrait's fade | **Kept**, as it is |
+
+Built on this branch (PR N) and measured the same way: largest paint 0.88 to 0.93 s, performance 100, accessibility
+100, CLS 0 in three runs, no poster fetched with the first screen; in the browser each poster is fetched when its
+plate comes near and the videos play as before.
