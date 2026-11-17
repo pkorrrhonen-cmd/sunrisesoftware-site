@@ -30,6 +30,15 @@ Pages vihreinä; livenä 13:47:02Z (build 821713f0). Livesivu eroaa mainista vai
 `data-revised` ja sitemapin lastmod 2026-11-17. Esikatselu-URL:ia ei katsottu ennen mergeä; muutos tarkistettiin
 paikallisesti.
 
+**Vuosiluvut (PR L):** Petri: "Jatketaan sivun vuosiluvuilla 2026 →". Päätös oli tehty jo 15.11.2026
+(profile-readme GH.9, Petrin sanoin "Kaikki tuotteet on siis 2026 puolelta"), joten sitä ei kysytty uudelleen.
+MasterForge-laatan tila `Live · paying customers · 2024 →` muuttui muotoon `... · 2026 →`, TilastoSillan laatikko
+`2024 →` muotoon `2026 →` ja SpectralForgen laatikko `2025 →` muotoon `2026 →`. Yrityksen `Est. 2024` ja
+`foundingDate` pysyvät (GH.21). `docs/facts.json`:n kolme pending-tietuetta poistettu samassa muutoksessa; vartija
+kaatui ensin oikein ("pending record ... is stale: remove it") ja meni läpi poiston jälkeen, 0 pending.
+`copy-v3.md`:n rivit 2.4, 3.11 ja 3.36 päivitetty. Tarkistettu paikallisesti selaimessa: jokaisella tuotteella
+`2026 →`. BUILD_INFO 5.16.5.
+
 ## Sessio 12, päätös (15.11.2026): sulkutoimet
 
 **Session 12 kokonaisuus** (päätökset Petrin kanssa päätöslaatikoilla): Atlas- ja Somnus-laatat ovat nyt sf3d.fi-labran

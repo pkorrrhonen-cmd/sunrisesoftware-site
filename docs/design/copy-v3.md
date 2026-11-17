@@ -69,7 +69,7 @@ order inside them is confirmed in the app-view round. Texts below are per produc
 | 2.2 | Title | `Products people pay for, and the instruments behind them.` (Petri 18.9. evening: "control plane" was the old Atlas wording and had not been decided together; replaced) | OK (edit 18.9.) |
 | **MasterForge** | | | |
 | 2.3 | Plate caption (over the living cover) | `Pro Master · live meters` | later (app-view round) |
-| 2.4 | Status line | `Live · paying customers · 2024 →` (19.9.: 2024, the years match the company; 20.9.: version dropped, adr.sws.015) | OK (edit 20.9.) |
+| 2.4 | Status line | `Live · paying customers · 2026 →` (19.9.: 2024, the years match the company; 20.9.: version dropped, adr.sws.015; 17.11.: 2026, the year of commercial use, not the company's, profile-readme GH.9) | OK (edit 17.11.) |
 | 2.5 | Name | `MasterForge` | OK |
 | 2.6 | Tagline | `Mastering built for AI-generated music.` | OK (edit 18.9.) |
 | 2.7 | Body (one paragraph) | `AI-generated music carries a brittleness microphones never had: codec artifacts, harsh transients, collapsed stereo, a dull low end. MasterForge was built for that gap, and in September 2026 its free tier was rebuilt to measure the track first and derive the whole chain from what it hears.` | OK (edit 18.9.: the two paragraphs merged) |
@@ -128,7 +128,7 @@ Each row has: year, name, status tag, one-line description, drawer paragraph, fa
 | 3.9 | Facts | `Whole of Finland` / `Finnish voice guidance` / `GPX and FIT export` | OK (edit 18.9.: no tech) |
 | 3.10 | Link | `ultragravel.app ↗` | OK |
 | **TilastoSilta** | | | |
-| 3.11 | Row | `2024 → · TilastoSilta · live · Free Finnish statistics visualisation from eight-plus public sources.` | OK |
+| 3.11 | Row | `2026 → · TilastoSilta · live · Free Finnish statistics visualisation from eight-plus public sources.` (17.11.: 2024 became 2026, profile-readme GH.9) | OK (edit 17.11.) |
 | 3.12 | Drawer | `Semantic search over eight-plus public sources, shareable SVG, CSV and PNG export. No login, no ads.` | OK (edit 18.9.: no cutover mention) |
 | 3.13 | Facts | `Eight-plus sources` / `Semantic search` / `No login, no ads` | OK (edit 18.9.: no tech) |
 | 3.14 | Link | `tilastosilta.fi ↗` | OK |
@@ -160,7 +160,7 @@ Each row has: year, name, status tag, one-line description, drawer paragraph, fa
 | 3.34 | Row | `Internal tools · production · Command Center, BreathForge Studio, MasterVideo 3D, MasterPromo, PhotoMaster, VideoForge, SongForge.` | drop (Petri 18.9.: the page shows only what others can use or read) |
 | 3.35 | Drawer | `Built for daily use; not for sale.` | drop |
 | **SpectralForge** (not in Flow 2's rows; was featured in V4.5) | | | |
-| 3.36 | Row (added) | `2025 → · SpectralForge · closed beta · Spectral repair for AI-generated and codec-damaged audio, companion to MasterForge.` (18.9.: a production tool; 19.9.: the live app gates users without access behind a Closed Beta page and the profile README says Beta, so the status follows the surface; feedback item 2) | OK (edit 19.9.) |
+| 3.36 | Row (added) | `2026 → · SpectralForge · closed beta · Spectral repair for AI-generated and codec-damaged audio, companion to MasterForge.` (18.9.: a production tool; 19.9.: the live app gates users without access behind a Closed Beta page and the profile README says Beta, so the status follows the surface; feedback item 2; 17.11.: 2025 became 2026, profile-readme GH.9) | OK (edit 17.11.) |
 | 3.37 | Drawer | `Repairs what AI generation and codecs break in audio, before mastering. Four repair stages and a Surgical De-tone panel for stubborn artifacts.` | OK (edit 18.9.: shorter) |
 | 3.38 | Facts | `Companion to MasterForge` / `Four-stage repair pipeline` / `Surgical De-tone` | OK |
 | 3.39 | Link | `spectral.masterforge.app ↗` | OK |
