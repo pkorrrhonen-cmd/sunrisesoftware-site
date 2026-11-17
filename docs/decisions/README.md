@@ -19,7 +19,7 @@ decision). A decision is never deleted: a wrong one is superseded and the file s
 | [adr.sws.007](adr.sws.007.md) | The public GitHub profile is linked from the page | accepted |
 | [adr.sws.008](adr.sws.008.md) | The React migration leaves the roadmap | proposed |
 | [adr.sws.009](adr.sws.009.md) | Documentation follows the family standard | accepted |
-| [adr.sws.010](adr.sws.010.md) | The look is the sunrise over the sea, palette A shifted a little toward C | accepted |
+| [adr.sws.010](adr.sws.010.md) | The look is the sunrise over the sea, palette A shifted a little toward C | accepted, amended 17.11.2026 (adr.sws.024) |
 | [adr.sws.011](adr.sws.011.md) | Flow 1 is the direction of the page | accepted |
 | [adr.sws.012](adr.sws.012.md) | The typefaces are Familjen Grotesk and Public Sans | accepted |
 | [adr.sws.013](adr.sws.013.md) | Flow 4 is the page; SEED v3.0.0 records it | accepted |
@@ -33,3 +33,5 @@ decision). A decision is never deleted: a wrong one is superseded and the file s
 | [adr.sws.021](adr.sws.021.md) | ReviewGlass is shown by its own windows over a staged screen | accepted |
 | [adr.sws.022](adr.sws.022.md) | Atlas and Somnus are shown by the sf3d.fi lab's explainer videos | accepted |
 | [adr.sws.023](adr.sws.023.md) | Cloudflare adds only the analytics beacon to the served page | accepted |
+| [adr.sws.024](adr.sws.024.md) | Small text on the page passes WCAG AA contrast | accepted |
+| [adr.sws.025](adr.sws.025.md) | The typefaces are served from the site itself | accepted |

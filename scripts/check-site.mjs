@@ -58,9 +58,40 @@ const forbidden = [
   'recently',
 ];
 
-// A local reference: images/, media/ or source-assets/, written relative to the page, from the
-// root (/media/...), or as the site's own absolute URL (og:image).
-const REF_RE = /(?:src|href|content|poster)="((?:https:\/\/sunrisesoftware\.app)?\/?(?:images|media|source-assets)\/[^"]+)"/g;
+// A local reference: images/, media/, source-assets/ or fonts/, written relative to the page, from
+// the root (/media/...), or as the site's own absolute URL (og:image); in an attribute, in each
+// entry of a srcset, or in a CSS url() (the self-hosted fonts, adr.sws.025).
+const LOCAL = String.raw`(?:https:\/\/sunrisesoftware\.app)?\/?(?:images|media|source-assets|fonts)\/`;
+const REF_RE = new RegExp(String.raw`(?:src|href|content|poster|data-poster)="(${LOCAL}[^"]+)"`, 'g');
+const SRCSET_RE = /srcset="([^"]+)"/g;
+const URL_RE = new RegExp(String.raw`url\((${LOCAL}[^)'"\s]+)\)`, 'g');
+const LOCAL_START = new RegExp(`^${LOCAL}`);
+function localRefs(html) {
+  const refs = new Set([...html.matchAll(REF_RE)].map((m) => m[1]));
+  for (const m of html.matchAll(SRCSET_RE)) {
+    for (const entry of m[1].split(',')) {
+      const url = entry.trim().split(/\s+/)[0];
+      if (LOCAL_START.test(url)) refs.add(url);
+    }
+  }
+  for (const m of html.matchAll(URL_RE)) refs.add(m[1]);
+  return refs;
+}
+// Self-test: references that must be found, and ones that must not (LESSONS 11.11.2026).
+{
+  const sample = [
+    '<img src="images/a.webp" srcset="images/a-440.webp 440w, /images/a.webp 880w" sizes="440px">',
+    '<video poster="/media/p-1280.jpg" data-poster="/media/p-720.jpg"></video>',
+    "<style>@font-face{src:url(/fonts/x-latin-v1.woff2) format('woff2')}</style>",
+    '<link rel="preload" href="/fonts/x-latin-v1.woff2" as="font">',
+    '<img srcset="https://cdn.example.com/b.webp 1x"><a href="https://example.com/images/c.png">',
+    "<div style=\"background:url(data:image/svg+xml,abc)\"></div>",
+  ].join('\n');
+  const want = ['images/a.webp', 'images/a-440.webp', '/images/a.webp', '/media/p-1280.jpg', '/media/p-720.jpg', '/fonts/x-latin-v1.woff2'];
+  const got = localRefs(sample);
+  const wrong = [...want.filter((w) => !got.has(w)).map((w) => `not found: ${w}`), ...[...got].filter((g) => !want.includes(g)).map((g) => `found but foreign: ${g}`)];
+  if (wrong.length) { console.error(`check-site's reference self-test failed: ${wrong.join('; ')}`); process.exit(1); }
+}
 let localCount = 0;
 const allHtml = [];
 
@@ -72,7 +103,7 @@ for (const page of pages) {
   allHtml.push(html);
 
   // 1. Every local image and media reference exists.
-  const refs = new Set([...html.matchAll(REF_RE)].map((m) => m[1]));
+  const refs = localRefs(html);
   for (const ref of refs) {
     const fromRoot = ref.startsWith('/') || ref.startsWith(SITE);
     const rel = ref.replace(SITE, '').replace(/^\//, '');

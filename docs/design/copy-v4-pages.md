@@ -1414,3 +1414,49 @@ videos' captions end on row 784. The Somnus video has the same band and is cut t
   position, MasterForge's video still gets `translateY(...) scale(1.06)`; the Atlas plate below the middle of the
   window at 44 s shows the caption whole and both figures inside the plate; at 375 px `scrollWidth` 375 and no console
   errors.
+
+### Rounds AT to AV, the live checks of 15.11.2026 (17.11.2026)
+
+The findings of `BUILD_INFO.live_checks_2026_11_15` (Lighthouse 13.6.0 and the Nu validator) checked again on main
+8f8d96c before the round: every one still holds. A fresh mobile Lighthouse run on the live front page the same day:
+performance 85, LCP 4.2 s (time to first byte 59 ms, the lede's render delay 1 433 ms), the Google Fonts stylesheet
+blocking 766 ms, CLS 0. A contrast scan of the front page's text against its real backgrounds found more than
+Lighthouse listed: `--sun-deep` #C57A2C (3.16:1 on the base) fails on about 34 texts under 24 px, the product tags
+(17 px), the warm phrases, the §03 links and the kicker among them; `--text-meta` #8B96A0 (2.81:1) on about 30.
+Comparison images: `docs/mockups/contrast/round-AU-hero-now-left-proposal-right.jpg` and
+`round-AU-plate-now-left-proposal-right.jpg`.
+
+| # | Question | Decision |
+|---|---|---|
+| AT.1 | The SVG favicon's data URI (26 spaces, the Nu validator's one error on each page) | **Spaces encoded as `%20`** on all five pages; the icon looks the same |
+| AT.2 | The front page has no `<main>` | **`<main>` added** around the sections between the navigation and the footer, as on the sub-pages |
+| AT.3 | The §03 drawers are `<article>` without a heading | **`<h3><button class="drawer-head">`**, the W3C accordion pattern; the heading's own style reset so the look stays |
+| AT.4 | Without JavaScript every `[data-reveal]` and plate stays at opacity 0 | **A `js` class on `<html>`**, set by one line in `<head>`; the hiding applies only under `.js`, on all five pages |
+| AU.1 | `--text-meta` | **#66717B** (4.65:1 on the base, 4.91:1 on the paper), the same blue grey darker |
+| AU.2 | `--sun-deep` on text | **A text shade `--sun-ink` #9E5F1E** (4.77:1) for text under 24 px; the lines, marks and the large display text keep #C57A2C (adr.sws.024) |
+| AU.3 | The hero lede's fade (LCP) | **The lede without the fade**, shown from the first paint; the title and the rest of the hero keep theirs |
+| AU.4 | The Google Fonts stylesheet (render-blocking) | **Self-hosted**: the three families' woff2 files from Google Fonts (OFL) under `fonts/`, `@font-face` in each page and the latin files preloaded (adr.sws.025); Petri gave the download in this answer |
+| AV.1 | Images served larger than shown | **`srcset` with smaller WebP widths** made from the same sources, for the /rooms/ poster, the ReviewGlass mockup, HomeTeam's screens and the portrait |
+| AV.2 | The front page's mobile CLS 0.13 of 15.11 (0 on 17.11) | **Measured again after this pull request**; the font swap was the likeliest cause and goes with AU.4 |
+
+### How PR M was built (17.11.2026)
+
+- **AT.** The favicon's data URI with `%20` on the five pages; `<main id="main">` around the hero and the sections
+  through §06 on the front page, the skip link to `#main`; the eight drawer heads as `<h3 class="drawer-h"><button>`,
+  the heading reset with `all:unset;display:block`; a `<script>` in each `<head>` that sets `js` on `<html>`, and
+  `[data-reveal]`, the plates and the headings' words hidden only under `.js`. Without scripts (a sandboxed frame)
+  the front page hid 79 of 79 such elements before and none after; the sub-pages none.
+- **AU.** `--text-meta` #66717B and `--sun-ink` #9E5F1E on the five pages and `404.html` (adr.sws.024); the lede
+  without the fade on all five pages, since /rooms/' largest paint was the same lede (15.11); the fonts under
+  `fonts/` with their OFL texts, `@font-face` inline and three preloads, `_headers` for `/fonts/*` (adr.sws.025).
+- **AV.1.** `docs/mockups/srcset-variants.py` makes the smaller files from the largest the site has, under new
+  names: HomeTeam's five screens at 360 px, the ReviewGlass mockup at 820 and 1240 px (on /reviewglass/ and in the
+  §03 drawer), the portrait at 640 px (and its srcset descriptor corrected from 880w to the file's 798w). A video
+  poster has no srcset, so /rooms/ takes smaller posters by name instead: `rooms-en-poster-1280.jpg` and
+  `rooms-en-916-poster-720.jpg`; the structured data keeps the full poster.
+- **check-site** follows srcset entries, `data-poster`, CSS `url()` and `fonts/` (84 references now, 43 before),
+  with a self-test of strings that must and must not be found; a missing srcset file and a missing font fail it.
+- **Measured locally** (Lighthouse 13.6.0, mobile, the local server without compression): accessibility 100 on
+  the five pages, no render-blocking request, FCP 1.2 s on the front page. The front page's largest paint is now
+  the portrait, whose own fade (`.15s` delay, `.9s`) holds it: LCP 3.6 s there, 0.8 to 2.3 s on the sub-pages.
+  Not decided in these rounds; put to Petri as the next question.

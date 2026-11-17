@@ -44,6 +44,29 @@ Pages vihreinä; livenä 13:54:05Z (build 2449585d). Livesivu eroaa mainista vai
 jokainen tuotevuosi on livenä `2026 →`. Esikatselu-URL:ia ei katsottu ennen mergeä; muutos tarkistettiin
 paikallisesti.
 
+**Livetarkistusten löydökset (PR M, kierrokset AT to AV):** Petri: "Jatketaan Lighthousen löydöksillä". Kaikki
+15.11. löydökset tarkistettiin ensin mainista `8f8d96c` (yhä voimassa) ja mitattiin uudelleen livestä (mobiili LCP
+4,2 s, ingressin piirtoviive 1 433 ms, Google Fontsin CSS estää 766 ms, CLS 0). Kontrastiskannaus todellisia taustoja
+vasten löysi enemmän kuin Lighthouse: oranssi `--sun-deep` jää rajan alle noin 34 tekstissä (myös taglinet), harmaa
+`--text-meta` noin 30:ssä. Vertailukuvat `docs/mockups/contrast/`. Kymmenen päätöstä laatikoilla, kaikki suosituksen
+mukaan: favicon `%20`, `<main>`, laatikot `<h3><button>`, js-portti, `--text-meta` #66717B, `--sun-ink` #9E5F1E alle
+24 px:n teksteille (adr.sws.024, muuttaa 010:tä), ingressi ilman häivytystä, fontit omalta palvelimelta (adr.sws.025,
+Petri antoi luvan latauksiin vastauksessaan), pienemmät kuvaleveydet ja CLS:n uusintamittaus.
+
+**Rakennettu:** viisi sivua ja `404.html`; kuusi woff2-tiedostoa (122 kt) ja kolme OFL-lisenssiä `fonts/`:iin;
+`_headers` `/fonts/*`; `docs/mockups/srcset-variants.py` ja kymmenen pienempää kuvaa uusilla nimillä. Ingressi
+häivytyksettä kaikilla viidellä sivulla, koska /rooms/:n LCP oli sama ingressi. Videon julisteella ei ole srcsetiä,
+joten /rooms/ saa pienemmät julisteet nimellä. Muotokuvan srcset-kuvaus korjattu 880w:stä tiedoston 798w:hen.
+`check-site` seuraa nyt srcset-, `data-poster`-, `url()`- ja `fonts/`-viittauksia itsetestin kanssa (84 viittausta,
+ennen 43); puuttuva srcset-kuva ja fontti kaatavat sen (kokeiltu). SEED (paletti, kirjasimet, liike, pino), README,
+adr.sws.010:n tila tiedostossa ja indeksissä.
+
+**Tarkistettu paikallisesti:** ilman JavaScriptiä etusivu piilotti ennen 79/79 elementtiä, nyt 0; laatikot avautuvat
+ja ovat yhtä korkeita kuin ennen (84 px); fontit tulevat `/fonts/`:sta, Googleen ei pyyntöjä; puhelinleveydellä ei
+vaakavieritystä, ja srcset valitsee pienet versiot. Lighthouse mobiili paikallisesti: saavutettavuus 100 kaikilla
+viidellä sivulla (ennen 94 to 95), ei renderöintiä estäviä pyyntöjä, FCP 1,2 s. Etusivun LCP-elementti on nyt
+muotokuva, jonka oma häivytys pitää LCP:n 3,6 s:ssa; siitä ei päätetty, se on seuraava kysymys. BUILD_INFO 5.17.0.
+
 ## Sessio 12, päätös (15.11.2026): sulkutoimet
 
 **Session 12 kokonaisuus** (päätökset Petrin kanssa päätöslaatikoilla): Atlas- ja Somnus-laatat ovat nyt sf3d.fi-labran
