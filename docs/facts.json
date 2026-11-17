@@ -13,7 +13,6 @@
           "since": 2026,
           "where": { "label": "masterforge.app", "href": "https://masterforge.app" },
           "text": "AI music mastering built for the artifacts of neural-network audio. Real-time DSP engine, three tiers: Free, Starter and Pro.",
-          "pending": { "page_since": 2024, "waits_for": "docs/design/profile-readme.md GH.9 and GH.21 (15.11.2026): the plate's year becomes 2026, edited together with Petri" },
           "checked": "masterforge.app 200, its pricing block: Free, Starter, Pro and pay-per-run credits (15.11.2026)"
         },
         {
@@ -76,7 +75,6 @@
           "since": 2026,
           "where": { "label": "tilastosilta.fi", "href": "https://tilastosilta.fi" },
           "text": "Finnish statistics, visualized and shareable, across public data sources with semantic search.",
-          "pending": { "page_since": 2024, "waits_for": "docs/design/profile-readme.md GH.9 and GH.21 (15.11.2026): the drawer's year becomes 2026, edited together with Petri" },
           "checked": "tilastosilta.fi 200 (15.11.2026)"
         },
         {
@@ -122,7 +120,6 @@
           "since": 2026,
           "where": { "label": "spectral.masterforge.app", "href": "https://spectral.masterforge.app" },
           "text": "Companion to MasterForge: diagnoses and repairs the spectral deficiencies of AI-generated and codec-damaged audio.",
-          "pending": { "page_since": 2025, "waits_for": "docs/design/profile-readme.md GH.9 and GH.21 (15.11.2026): the drawer's year becomes 2026, edited together with Petri" },
           "checked": "spectral.masterforge.app 200, its served bundle's gate: 'SpectralForge is in closed beta' (15.11.2026)"
         }
       ]
