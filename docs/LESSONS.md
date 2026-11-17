@@ -2,6 +2,19 @@
 
 Opitut virheet ja estosäännöt, jotta niitä ei toisteta. Uusin ensin.
 
+## 17.11.2026: suorituskyvyn syy arvattiin kahdesti ennen kuin se mitattiin
+
+**Mitä tapahtui:** PR M:n kirjaus nimesi muotokuvan häivytyksen etusivun LCP:n jäljellä olevaksi syyksi ja fonttien
+vaihdon 15.11. CLS:n todennäköisimmäksi syyksi, kumpikin yhden Lighthouse-ajon perusteella. Kierroksen AW mittaus
+(kolme ajoa jokaisesta muunnelmasta) näytti, ettei häivytys vaikuttanut LCP:hen lainkaan, vaan syy oli
+videojulisteissa. CLS näkyi yhdessä ajossa kolmesta, ja sen syy löytyi vasta huonon ajon filminauhasta: muotokuvan
+kehys, joka on tyhjä, kunnes kuva saapuu. Kumpaakin arvausta kannettiin Petrille kysymyksenä ennen mittausta.
+
+**Estosääntö:**
+- Suorituskykymittari ajetaan vähintään kolmesti, ja satunnainen arvo (CLS, LCP:n elementti) tarkistetaan huonon
+  ajon filminauhasta (`screenshot-thumbnails`) ja `layout-shifts`-auditista ennen kuin syy kirjataan.
+- Vipu mitataan muunnelmalla (sama sivu ilman sitä) ennen kuin sitä esitetään päätöslaatikossa.
+
 ## 17.11.2026: tiedostovartija ei nähnyt srcsetiä
 
 **Mitä tapahtui:** `check-site` tarkisti paikalliset viittaukset vain `src`-, `href`-, `content`- ja

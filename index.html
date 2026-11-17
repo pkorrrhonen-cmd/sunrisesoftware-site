@@ -248,7 +248,8 @@ h1 .warm{color:var(--sun-deep)}
 .meta div{min-width:0}
 .meta a{color:var(--sun-ink);text-decoration:none;overflow-wrap:anywhere}
 /* the portrait: the top and the sides fade completely, so the page's tone can be tuned there (Petri 18.9.) */
-.portrait{position:relative;aspect-ratio:798/1094;margin:0;max-width:440px;justify-self:center}
+/* width:100% reserves the portrait's box before the image arrives; without it the box is 0 while loading (round AX.1) */
+.portrait{position:relative;aspect-ratio:798/1094;margin:0;width:100%;max-width:440px;justify-self:center}
 .portrait::before{content:'';position:absolute;left:50%;top:58%;width:120%;height:70%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(ellipse,rgba(244,196,130,.28) 0%,transparent 62%);filter:blur(24px);pointer-events:none}
 .portrait img{position:relative;width:100%;height:100%;object-fit:contain;display:block;filter:saturate(.94) contrast(1.02);transform:translateY(var(--py,0px));will-change:transform}
 .portrait figcaption{position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--text-meta);white-space:nowrap;z-index:1}

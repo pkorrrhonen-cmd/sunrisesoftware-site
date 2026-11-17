@@ -3,6 +3,23 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 13, myöhemmin (17.11.2026): PR N livenä ja muotokuvan kehys (kierros AX, PR O)
+
+**Deploy:** PR #39 squash-mergetty Petrin sanalla ("Mergeä #39") 18:57:09Z (`d9a222f`), livenä 18:57:30Z. Livesivu
+eroaa mainista vain Cloudflaren analytiikkaskriptillä. Lighthouse mobiili livestä kolmesti: kahdesti 100, LCP 1,1 s ja
+CLS 0; kerran 91, LCP 2,6 s ja CLS 0,141 (`section#connection`). Yhdessäkään ajossa julisteita ei ladattu
+ensimmäisen ruudun aikana.
+
+**Syy:** huonon ajon filminauhassa 375 ms:n kohdalla muotokuva puuttuu ja §01:n merkki näkyy jo, 750 ms:n kohdalla
+muotokuva tulee ja työntää §01:n noin 400 px alas. Muotokuvan kehyksellä ei ole omaa leveyttä (`justify-self:center`
+kutistaa sen sisältöönsä), ja kuvalla ilman `width`- ja `height`-attribuutteja ei ole kokoa latauksen aikana. Ladattuna
+tai epäonnistuneena (alt-teksti) kehys on 320 × 439, joten vika näkyy vain, kun kuva tulee ensimmäisen piirron jälkeen.
+Se ei ollut fonttien vaihto, jonka PR M:n kirjaus arvioi todennäköisimmäksi.
+
+**Kierros AX (Petri, suosituksen mukaan):** `.portrait`-sääntöön `width:100%`. Lopullinen asettelu mitattu samaksi
+412, 768, 1024 ja 1440 px:n leveydellä (sijainti, koko, §01:n paikka). LESSONS 17.11.2026. BUILD_INFO 5.17.3.
+Livemittaus viidesti mergen jälkeen.
+
 ## Sessio 13, myöhemmin (17.11.2026): etusivun LCP (kierros AW, PR N)
 
 Petri: "Jatketaan etusivun muotokuvan häivytyksellä". Ennen kysymistä mitattu (Lighthouse 13.6.0 mobiili, kolme
