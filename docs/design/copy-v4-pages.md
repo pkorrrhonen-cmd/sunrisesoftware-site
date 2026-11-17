@@ -1391,3 +1391,26 @@ site final itself and `docs/mockups/somnus/round-AR-final-site-sheet.jpg`.
   `scrollWidth` 375 on the phone, no page errors; at phone width the plate's caption ends just above the box's own
   `SOMNUS` label (`docs/mockups/somnus/round-AR-plate-1440.jpg`, `round-AR-plate-375.jpg`). `check-site` green over five
   pages with the facts check.
+
+### Round AS, the captioned videos and the scroll parallax (17.11.2026)
+
+Petri's screenshot of the live front page (a desktop browser, full window): the Atlas plate's caption `way of working
+with another person: both use AI,` cut by the plate's bottom edge. Measured against the file's frame at 44 s: the
+picture was drawn about 6 % larger than its plate (the two figures 381 px apart where the plate's width gives 360 px).
+The cause is the scroll parallax in the front page's script, which sets `translateY(c * 22px) scale(1.06)` on every
+plate's video: the scale alone cuts 24 of the video's 800 rows at rest, the move up to 11 px more, and the explainer
+videos' captions end on row 784. The Somnus video has the same band and is cut the same way.
+
+| # | Question | Decision |
+|---|---|---|
+| AS.1 | How the cut captions are fixed | **The parallax off for the captioned videos only**: the Atlas and Somnus plates carry `data-captioned` and the parallax skips them, so their pictures are shown whole and still; MasterForge and Luviamo keep the parallax (Petri chose this over the recommendation, the parallax off on every video plate) |
+
+### How PR K was built (17.11.2026)
+
+- **The page.** `data-captioned` on the Somnus and Atlas `<figure class="frame video dark">`; the script's `frames`
+  list is `.frame:not([data-captioned])`, with a comment naming this round. No other change; the reveal of the plates
+  is unchanged.
+- **Checked locally** in the in-app browser with motion on: Atlas and Somnus carry no transform at any scroll
+  position, MasterForge's video still gets `translateY(...) scale(1.06)`; the Atlas plate below the middle of the
+  window at 44 s shows the caption whole and both figures inside the plate; at 375 px `scrollWidth` 375 and no console
+  errors.

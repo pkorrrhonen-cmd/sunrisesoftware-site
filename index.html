@@ -598,7 +598,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
 
       <div class="group" data-reveal>Tools and research instruments</div>
       <article class="plate">
-        <figure class="frame video dark">
+        <figure class="frame video dark" data-captioned>
           <video muted loop playsinline preload="none" poster="media/somnus-explainer-poster.jpg" src="media/somnus-explainer.mp4" aria-label="Somnus in about a minute: the computer in the next room that does the heavy work for my projects. It runs their checks, writes Finnish training material, and is the instrument I test small AI models with. Click to play with sound."></video>
           <span class="cap">What Somnus does · 1 min</span>
           <span class="play">▶</span>
@@ -615,7 +615,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
       </article>
 
       <article class="plate flip">
-        <figure class="frame video dark">
+        <figure class="frame video dark" data-captioned>
           <video muted loop playsinline preload="none" poster="media/atlas-explainer-poster.jpg" src="media/atlas-explainer.mp4" aria-label="Atlas in about a minute: every AI session forgets when it closes, so I built a notebook they all share. A partner and I each have our own AI, and both write to the same place. Click to play with sound."></video>
           <span class="cap">Why I built Atlas · 1 min</span>
           <span class="play">▶</span>
@@ -843,7 +843,7 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
         <a href="https://github.com/pkorrrhonen-cmd" rel="me">GitHub<small>github.com/pkorrrhonen-cmd ↗</small></a>
       </div>
     </div>
-    <div class="foot"><span>Sunrise Software Oy · Tampere, Finland</span><span>Est. 2024</span><span data-revised="2026-11-15">Revised 15 Nov 2026</span></div>
+    <div class="foot"><span>Sunrise Software Oy · Tampere, Finland</span><span>Est. 2024</span><span data-revised="2026-11-17">Revised 17 Nov 2026</span></div>
   </div>
 </section>
 
@@ -890,7 +890,9 @@ h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.2vw,42px);l
   const nav = document.getElementById('nav');
   const portraitImg = document.querySelector('#portrait img');
   const reading = document.getElementById('readingLight');
-  const frames = Array.from(document.querySelectorAll('.frame'));
+  /* the scroll parallax scales a plate's picture 6 % and moves it, which cuts the bottom edge; a video whose
+     captions are in its own bottom band (data-captioned: Atlas, Somnus) is shown whole and still (round AS) */
+  const frames = Array.from(document.querySelectorAll('.frame:not([data-captioned])'));
   const sections = Array.from(document.querySelectorAll('.sec, .cryo-head'));
   let ticking = false, rx = 0.5, ry = 0.4, rtx = 0.5, rty = 0.4, rraf = null;
   function readingStep() {
