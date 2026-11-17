@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Status | accepted |
+| Status | accepted; amended by adr.sws.025 (17.11.2026: the typefaces are served from `fonts/`, so the site has no dependency on Google Fonts) |
 | Date | 2026-04 (recorded in Atlas; brought into the repo 2026-09-17) |
 | Decided by | Petri Korhonen |
 | Links | sws.site, sws.deployment |

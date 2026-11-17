@@ -3,6 +3,18 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 13, myöhemmin (17.11.2026): etusivun LCP (kierros AW, PR N)
+
+Petri: "Jatketaan etusivun muotokuvan häivytyksellä". Ennen kysymistä mitattu (Lighthouse 13.6.0 mobiili, kolme
+ajoa kustakin, paikallinen pakkaava palvelin): sivu nyt 3,3 s, muotokuva ilman häivytystä 3,3 s, ilman §02:n
+videojulisteita 2,25 s, lisäksi ilman JetBrains Monon esilatausta 0,9 s. Häivytys ei siis ollut syy, vaikka PR M:n
+kirjaus niin arvioi: simuloidulla 1,5 Mbit/s yhteydellä ennen LCP:tä ladataan noin 400 kt, joista 188 kt on kaukana
+alhaalla olevien laattojen julisteita. **Kierros AW (kaikki suosituksen mukaan):** julisteet ladataan laatan
+lähellä (`data-poster`, 800 px), Monon esilataus pois etusivulta, häivytys pidetään. Rakennettu ja mitattu samoin:
+LCP 0,88 to 0,93 s, suorituskyky 100, saavutettavuus 100, CLS 0; selaimessa kukin juliste haetaan laatan lähestyessä
+ja videot toimivat. SEED päivitetty. Samalla adr.sws.001 ja 012 merkitty adr.sws.025:llä muutetuiksi tiedostoissaan
+ja indeksissä: Atlas-sivuketju huomasi, että ne puhuivat yhä Google Fontsista. BUILD_INFO 5.17.2.
+
 ## Sessio 13, sivuketju (17.11.2026): Atlaksen peili
 
 **Tehty** sivuketjussa, jonka session 13 pääketju avasi viemään session päätökset Atlaksen peiliin. Haara

@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Status | accepted (Petri, 18.9.2026: "4 is the only serious option; easy to read and neutral, it fits this well") |
+| Status | accepted (Petri, 18.9.2026: "4 is the only serious option; easy to read and neutral, it fits this well"); amended by adr.sws.025 (17.11.2026: served from the site itself, `fonts/`, not from Google Fonts) |
 | Date | 2026-09-18 |
 | Decided by | Petri Korhonen |
 | Links | sws.site |

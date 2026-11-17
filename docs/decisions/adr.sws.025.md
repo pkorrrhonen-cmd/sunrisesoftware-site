@@ -5,7 +5,7 @@
 | Status | accepted (Petri, 17.11.2026, session 13, round AU.4, decision box) |
 | Date | 2026-11-17 |
 | Decided by | Petri Korhonen |
-| Links | sws.site; adr.sws.012 (the typefaces); adr.sws.001 (static HTML, no build step) |
+| Links | sws.site; amends adr.sws.012 (the typefaces) and adr.sws.001 (static HTML, no build step) |
 
 ## Context
 
