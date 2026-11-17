@@ -18,7 +18,11 @@ Se ei ollut fonttien vaihto, jonka PR M:n kirjaus arvioi todennäköisimmäksi.
 
 **Kierros AX (Petri, suosituksen mukaan):** `.portrait`-sääntöön `width:100%`. Lopullinen asettelu mitattu samaksi
 412, 768, 1024 ja 1440 px:n leveydellä (sijainti, koko, §01:n paikka). LESSONS 17.11.2026. BUILD_INFO 5.17.3.
-Livemittaus viidesti mergen jälkeen.
+
+**Deploy:** PR #40 squash-mergetty Petrin sanalla ("Mergeä #40") 19:08:54Z (`2c58eed`), livenä 19:09:15Z. Livesivu
+eroaa mainista vain Cloudflaren analytiikkaskriptillä. Lighthouse mobiili livestä viidesti: suorituskyky,
+saavutettavuus, parhaat käytännöt ja SEO 100 joka ajossa, FCP 1,1 s, LCP 1,1 s, CLS 0. Esikatselua ei katsottu ennen
+mergeä; asettelu mitattiin paikallisesti neljällä leveydellä.
 
 ## Sessio 13, myöhemmin (17.11.2026): etusivun LCP (kierros AW, PR N)
 
