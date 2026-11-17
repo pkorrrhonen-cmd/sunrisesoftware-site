@@ -67,6 +67,14 @@ vaakavieritystä, ja srcset valitsee pienet versiot. Lighthouse mobiili paikalli
 viidellä sivulla (ennen 94 to 95), ei renderöintiä estäviä pyyntöjä, FCP 1,2 s. Etusivun LCP-elementti on nyt
 muotokuva, jonka oma häivytys pitää LCP:n 3,6 s:ssa; siitä ei päätetty, se on seuraava kysymys. BUILD_INFO 5.17.0.
 
+**Deploy:** PR #36 squash-mergetty Petrin sanalla ("Mergeä #36") 15:38:22Z (`5e8fa5c`); livenä 15:38:54Z (build
+123ab023). Esikatselu tarkistettiin ennen mergeä pyynnöillä (fontit, lisenssit ja uudet kuvat 200, vuoden
+immutable-otsake fonteilla), ei selaimessa. Viisi livesivua eroaa mainista vain Cloudflaren analytiikkaskriptillä;
+kuusi fonttia 200 `font/woff2` (buildin aikana kysytty 404 ei jäänyt välimuistiin). Lighthouse mobiili livestä:
+etusivu suorituskyky 91 (ennen 85), saavutettavuus 100 (94), FCP 1,1 s (1,7), LCP 3,5 s (4,2), CLS 0 kahdessa
+ajossa; /rooms/ 100 ja 100, LCP 0,9 s (4,1). AV.2 tehty: CLS 0. Etusivun LCP-elementti vaihtelee ajojen välillä
+ingressin ja muotokuvan välillä.
+
 ## Sessio 12, päätös (15.11.2026): sulkutoimet
 
 **Session 12 kokonaisuus** (päätökset Petrin kanssa päätöslaatikoilla): Atlas- ja Somnus-laatat ovat nyt sf3d.fi-labran
