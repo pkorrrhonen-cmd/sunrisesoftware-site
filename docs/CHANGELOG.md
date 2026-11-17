@@ -39,6 +39,11 @@ kaatui ensin oikein ("pending record ... is stale: remove it") ja meni läpi poi
 `copy-v3.md`:n rivit 2.4, 3.11 ja 3.36 päivitetty. Tarkistettu paikallisesti selaimessa: jokaisella tuotteella
 `2026 →`. BUILD_INFO 5.16.5.
 
+**Deploy:** PR #34 squash-mergetty Petrin sanalla ("Mergeä #34") 13:53:30Z (`c7d9019`), Site checks ja Cloudflare
+Pages vihreinä; livenä 13:54:05Z (build 2449585d). Livesivu eroaa mainista vain Cloudflaren analytiikkaskriptillä, ja
+jokainen tuotevuosi on livenä `2026 →`. Esikatselu-URL:ia ei katsottu ennen mergeä; muutos tarkistettiin
+paikallisesti.
+
 ## Sessio 12, päätös (15.11.2026): sulkutoimet
 
 **Session 12 kokonaisuus** (päätökset Petrin kanssa päätöslaatikoilla): Atlas- ja Somnus-laatat ovat nyt sf3d.fi-labran
