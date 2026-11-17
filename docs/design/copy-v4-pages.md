@@ -1480,3 +1480,17 @@ counts (2.1 s). Both are under 2.5 s.
 Built on this branch (PR N) and measured the same way: largest paint 0.88 to 0.93 s, performance 100, accessibility
 100, CLS 0 in three runs, no poster fetched with the first screen; in the browser each poster is fetched when its
 plate comes near and the videos play as before.
+
+### Round AX, the portrait's box (17.11.2026)
+
+PR N live (#39, d9a222f, 18:57:30Z) and measured live three times (Lighthouse 13.6.0, mobile): two runs at performance
+100, LCP 1.1 s, CLS 0, one at 91 with LCP 2.6 s and CLS 0.141 on `section#connection`, as the 0.13 of 15.11. The run's
+filmstrip shows the cause: at 375 ms the portrait is missing and §01's mark is already on the screen; at 750 ms the
+portrait arrives and pushes §01 about 400 px down. The portrait's figure has no width of its own (`justify-self:center`
+shrinks it to its content), and an `<img>` without `width` and `height` has no size while it loads, so the box is
+empty until the image arrives. Once it has arrived, or failed and shows its alt text, the box is 320 by 439 on a
+phone. Not the font swap, which PR M's record named the likeliest cause (it moves §01 by 36 px, below the screen).
+
+| # | Question | Decision |
+|---|---|---|
+| AX.1 | The portrait's box while the image loads | **`width:100%` on `.portrait`** (its max-width 440 px, 320 px on a phone, unchanged); the box is reserved from the first layout. The final layout measured the same at 412, 768, 1024 and 1440 px (position, size, §01's offset) |
