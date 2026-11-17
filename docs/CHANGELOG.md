@@ -3,6 +3,28 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 13 (17.11.2026): Atlas-videon tekstitys näkyviin
+
+**Alku:** main `3ba2aba`, ei committeja edellä eikä jäljessä, ei avoimia PR:iä. Labran PR #50 on mergetty
+(15.11.2026 18:01Z), #51 (B1) odottaa yhä Petriä.
+
+**Vika:** Petri näki livesivulla Atlas-laatan tekstityksen leikkautuvan alareunasta, Somnuksessa tekstit näkyivät.
+Tarkistettu: livetiedostot `atlas-explainer.mp4`, sen juliste ja `somnus-explainer.mp4` ovat tavu tavulta samat kuin
+repossa (SHA-256), molemmat 1280x800 ja SAR 1:1, ja kummankin tekstit ovat riveillä 752 ja 784 välillä 800:sta
+(ffmpeg, signalstats koko videon yli neljä kertaa sekunnissa). Laatta on 16:10 kuten video. Ensimmäinen katsominen ei
+toistanut vikaa. Petrin kuvakaappaus näytti kuvan noin 6 % laattaa suurempana, ja syy löytyi etusivun skriptistä:
+vierityksen parallaksi asettaa jokaisen laatan videolle `translateY(c * 22px) scale(1.06)`. Pelkkä suurennus leikkaa
+24 riviä 800:sta, siirto enintään 11 px lisää. Somnuksessa sama kaista, joten sama vika, vain vähemmän näkyvänä.
+
+**Kierros AS (Petri):** parallaksi pois vain tekstitetyiltä videoilta (Atlas ja Somnus, `data-captioned`); MasterForge
+ja Luviamo pitävät sen. Suositus olisi ollut parallaksi pois kaikilta videolaatoilta. Kirjattu
+`docs/design/copy-v4-pages.md`:hen.
+
+**PR K:** `index.html`: kaksi `data-captioned`-attribuuttia ja `frames`-lista `.frame:not([data-captioned])`;
+alatunniste ja sitemapin lastmod 2026-11-17. Tarkistettu paikallisesti liike päällä: Atlas ja Somnus ilman muunnosta,
+MasterForge yhä parallaksilla, Atlas 44 s kohdalla teksti kokonaan näkyvissä, 375 px ilman vaakavieritystä ja
+konsolivirheitä. BUILD_INFO 5.16.4. Livetarkistus mergen jälkeen.
+
 ## Sessio 12, päätös (15.11.2026): sulkutoimet
 
 **Session 12 kokonaisuus** (päätökset Petrin kanssa päätöslaatikoilla): Atlas- ja Somnus-laatat ovat nyt sf3d.fi-labran

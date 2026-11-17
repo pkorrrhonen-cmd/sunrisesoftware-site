@@ -2,6 +2,20 @@
 
 Opitut virheet ja estosäännöt, jotta niitä ei toisteta. Uusin ensin.
 
+## 17.11.2026: video tarkistettiin tiedostona, ei sellaisena kuin sivu sen piirtää
+
+**Mitä tapahtui:** Atlas- ja Somnus-videoiden tekstitys poltettiin kuvan alakaistaan (rivit 752 ja 784 välillä 800:sta), ja
+kierroksella AR ja PR I:ssä laatat tarkistettiin 1440 ja 375 px leveydellä. Etusivun parallaksi kuitenkin piirtää
+laattojen videot 6 % suurempina ja liikuttaa niitä vierittäessä, mikä leikkaa alakaistan. Vika oli livenä kaksi
+päivää, ja Petri löysi sen. Session 13 ensimmäinen tarkistus vertasi tiedostoja ja mittoja, jotka olivat kunnossa,
+ja luki selaimessa reunaan osuvan tekstin mahtuvaksi.
+
+**Estosääntö:**
+- Kun laattaan tulee kuva tai video, jonka reunalla on sisältöä (tekstitys, nimiö), tarkista mitä sivun skripti tekee
+  laatan sisällölle (`transform`, `object-fit`, `scale`) ja katso laatta liike päällä, vieritettynä näkymän
+  keskikohdan ala- ja yläpuolelle.
+- Kun vikaa ei saa toistumaan, pyydä kuvakaappaus ennen kuin päättelet mitään; mittaa kuvasta, älä silmämääräisesti.
+
 ## 15.11.2026: korjaus odotti kaksi kuukautta kohdetta, jota ei enää ollut
 
 **Mitä tapahtui:** 19.9.2026 session alun 401 jäljitettiin, ja korjaukseksi A ehdotettiin `atlas`-merkinnän
