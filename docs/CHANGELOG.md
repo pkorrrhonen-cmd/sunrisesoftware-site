@@ -3,6 +3,22 @@
 Sessiokohtainen muutosloki, uusin ensin. Tila on `BUILD_INFO.json`:ssa, avoimet asiat sen
 `next`-listassa, päätökset `decisions/`-kansiossa. Tämä tiedosto kertoo mitä tehtiin ja miksi.
 
+## Sessio 13, päätös (18.11.2026): sulkutoimet
+
+**Session 13 kokonaisuus** (päätökset Petrin kanssa päätöslaatikoilla, kierrokset AS to AX): livenä tässä repossa
+PR:t #32 (Atlas- ja Somnus-videoiden tekstitys), #34 (vuodet 2026 →), #36 (livetarkistusten löydökset, adr.sws.024 ja
+025), #39 (julisteet laatan lähellä, Monon esilataus pois) ja #40 (muotokuvan kehys), kirjauksineen #33, #35, #37, #38
+ja #41; labrassa #52 ja #53 (Somnus B1 ja sen labramuistiinpano, sf3d.fi). Etusivu mittasi livestä viidesti
+100/100/100/100, LCP 1,1 s, CLS 0 (15.11.: 82/94, LCP 4,0 s). Kolme LESSONS-merkintää.
+
+**Sulkutoimet 18.11.:** Atlaksesta luettu, että Petri hyväksyi 17.11. kuusi ehdotusta 18.11. klo 13:14Z. Samalla
+huomattu aukko: adr.sws.025:n ehdotus sanoi 001:n ja 012:n jäävän ennalleen, mutta PR #39 merkitsi ne 025:llä
+muutetuiksi. Lähetetty kaksi päivitystä (012 `prop_0d6a4a63293141c9`, 001 `prop_6e566ec2f93d4258`, pending).
+`next`-lista siivottu: labran #50/#51-rivit ja "Somnus ja Atlas jäljellä" -rivi merkitty tehdyiksi, Atlas-rivit
+päivitetty. Sivua ei muutettu. BUILD_INFO 5.17.4, Atlaksen `sw-sivusto.STATUS` v49. **Seuraavan session alussa:**
+Petri hyväksyy kaksi päivitystä katselimessa; Atlaksen repo soveltaa 30 + 6 + 2 ehdotusta omassa sessiossaan;
+tämän sivuston seuraava ketju on Petrin valittava (Atlaksen ja Somnuksen omat alasivut K.3, tai AvoQ).
+
 ## Sessio 13, myöhemmin (17.11.2026): PR N livenä ja muotokuvan kehys (kierros AX, PR O)
 
 **Deploy:** PR #39 squash-mergetty Petrin sanalla ("Mergeä #39") 18:57:09Z (`d9a222f`), livenä 18:57:30Z. Livesivu
